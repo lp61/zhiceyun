@@ -1,0 +1,47 @@
+<include file="__THEME__/header" />
+<div class="chooseTest compatible">
+    <div class="center quick">
+        <h1>
+            <span class="gray"><a href="#">首页&nbsp;>&nbsp;</a></span>
+            <span class="gray"><a href="#">应用测试&nbsp;>&nbsp;</a></span>
+            <span class="blue"><a href="#">网络友好测试</a></span>
+        </h1>
+        <div class="white order">
+            <span class="blueBg num">1</span>
+            <span class="line blueBg"></span>
+            <span class="blueBg num">2</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">3</span>
+        </div>
+        <div class="content">
+            <span class="blue one">选择测试类型</span>
+            <span class="blue two">上传APK</span>
+            <span class="lightgray three">测试提交</span>
+        </div>
+        <include file="info" />
+        <include file="cost" />
+        <form action="{:U('home/Apptest/networkTestFreeSubmit')}" method="post" id="subForm" enctype="multipart/form-data">
+            <div class="service">
+                <include file='APPbag' />
+            </div>
+            <div style="clear:both"></div>
+            <div class="info">
+                <button id="sub_cost" class="next btn regBtn" type="submit">提交测试</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    //积分验证
+    $(function(){
+        var num_cost={$costScore}; //花费积分
+        var your_score={$score}; //当前积分
+        $("#sub_cost").click(function () {
+	    if(your_score<num_cost){
+                alert("您的积分不足，请充值！！");
+                return false;
+	   }
+        });
+    });  
+</script>
+<include file="__THEME__/footer" />

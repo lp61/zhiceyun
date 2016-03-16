@@ -1,0 +1,170 @@
+<include file="../Public/_header" />
+<div class="so_main">
+
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+        <form method="post" action="">
+        <input type="hidden" name="isSearch" value="1"/>
+<!--        <dl class="lineD">
+          <dt>ID：</dt>
+          <dd>
+            <input name="id" type="text" value="{$id}">
+            <p>多个时使用英文的“,”分割</p>
+          </dd>
+        </dl>-->
+
+        <volist id="vo1" name="appSystemConfig">
+        <dl class="lineD">
+            <dt>{$vo1.name}：</dt>
+            <dd>
+                <select name="{$vo1.adapter_name}">
+                    <option value="" <php>if($$vo1['adapter_name'] == "") echo 'selected';</php>>请选择</option>
+                    <volist id="vo" name="vo1.data">
+                        <option value="{$vo.content}" <php>if($$vo1['adapter_name'] == $vo['content']) echo 'selected';</php>>{$vo.content}</option>
+                    </volist>
+                </select>
+            </dd>
+        </dl>
+        </volist>
+        
+        <dl class="lineD">
+            <dt>测试包类型：</dt>
+            <dd>
+                <select name="package_type">
+                    <option value="" <php>if($package_type == "") echo 'selected';</php>>请选择</option>
+                    <volist id="vo" name="appPackage">
+                        <option value="{$vo.id}" <php>if($package_type == $vo['id']) echo 'selected';</php>>{$vo.title}</option>
+                    </volist>
+                </select>
+            </dd>
+        </dl>
+
+        <dl class="lineD">
+            <dt>在线状态：</dt>
+            <dd>
+                <input type="radio" name="devState" value="" <php>if ("" === $devState) echo 'checked';</php>>全部
+                <input type="radio" name="devState" value="1" <php>if (1 == $devState) echo 'checked';</php>>在线
+                <input type="radio" name="devState" value="0" <php>if ("0" === $devState) echo 'checked';</php>>离线
+            </dd>
+        </dl>
+
+        <dl class="lineD">
+            <dt>启用状态：</dt>
+            <dd>
+                <input type="radio" name="isEnabled" value="" <php>if ("" === $isEnabled) echo 'checked';</php>>全部
+                <input type="radio" name="isEnabled" value="1" <php>if (1 == $isEnabled) echo 'checked';</php>>启用
+                <input type="radio" name="isEnabled" value="0" <php>if ("0" === $isEnabled) echo 'checked';</php>>禁用
+            </dd>
+        </dl>
+        
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+        </div>
+    </div>
+    
+    <div class="page_tit">手机终端 </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+         <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="{:U('admin/Content/editAppPhone')}" class="btn_a">
+            <span class="search_action">&nbsp;&nbsp;添加&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+    </div>
+    <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th style="width:30px;">
+            <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+            <label for="checkbox"></label>
+        </th>
+        <th style="width:70px;">ID</th>
+        <th class="line_l">手机名称</th>
+        <volist id="vo1" name="appSystemConfig">
+            <th class="line_l">{$vo1.name}</th>
+        </volist>
+        <th class="line_l">图片</th>
+        <th class="line_l">上市时间</th>
+        <th class="line_l">状态</th>
+        <th class="line_l">排序</th>
+        <th class="line_l">操作</th>
+    </tr>
+    <volist id="vo" name="data">
+        <tr overstyle='on' id="{$vo.id}">
+            <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+            <td>{$vo.id}</td>
+            <td>{$vo.name}</td>
+            <volist id="vo1" name="appSystemConfig">
+                <td class="line_l">{$vo[$vo1['adapter_name']]}</td>
+            </volist>
+            <td>
+                <a href="{$vo.pic_url}" target="_blank">
+                    <img src="{$vo.pic_url}" width="50px">
+                </a>
+            </td>
+            <td>{$vo.release_time}</td>
+            <td>{$vo.devState|getPhoneState} - {$vo.isEnabled|getPhoneEnable}</td>
+            <td>
+                <a href="javascript:void(0)" class="ico_top" onclick="move('{$vo['id']}','up');">
+                    <img src="__PUBLIC__/admin/images/zw_img.gif">
+                </a>&nbsp;&nbsp;
+                <a href="javascript:void(0)" class="ico_btm" onclick="move('{$vo['id']}','down');">
+                    <img src="__PUBLIC__/admin/images/zw_img.gif">
+                </a>
+            </td>
+            <td>
+                <a href="{:U('admin/Content/editAppPhone', array('id'=>$vo['id']))}" class="btn_a">
+                    修改
+                </a>
+                <eq name="vo.package_type" value="8">
+                <eq name="vo.ishot" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_ishot_{$vo.id}" onclick="setStatus({$vo.id}, 'ishot','0');">移除首页</a>
+                </eq>
+                <neq name="vo.ishot" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_ishot_{$vo.id}" onclick="setStatus({$vo.id}, 'ishot', '1');">添至首页</a>
+                </neq>
+                </eq>
+                <!--
+                <eq name="vo.isnew" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_isnew_{$vo.id}" onclick="setStatus({$vo.id}, 'isnew', '0');">移除首页</a>
+                </eq>
+                <neq name="vo.isnew" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_isnew_{$vo.id}" onclick="setStatus({$vo.id}, 'isnew', '1');">添至首页</a>
+                </neq>
+                -->
+
+                <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord({$vo.id});">删除</a>
+            </td>
+        </tr>
+    </volist>
+    </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="{:U('admin/Content/editAppPhone')}" class="btn_a">
+            <span class="search_action">&nbsp;&nbsp;添加&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+    </div>
+</div>
+
+<script>
+    var _setStatusUrl_   = "{:U('admin/Content/setStatus')}";
+    var _setStatusTable_ = 'app_client';
+    var _moveUrl_        = "{:U('admin/Content/doChangeOrder')}";
+    var _moveTable_      = 'app_client';
+
+    var _delUrl_    = "{:U('admin/Content/doDelData')}";
+    var _delTable_  = 'app_client';
+    var _logTitle_  = "手机终端";
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

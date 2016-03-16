@@ -1,0 +1,57 @@
+<include file="__THEME__/header" />
+<style>
+    .accountInfo .arrow img {margin: -12px 0px 3px 50px;}
+    .accountInfo{background:#e4eff5;padding-bottom:400px;}
+    .accountInfo .center{padding:75px 100px;}
+    .accountInfo h2{border-bottom:1px solid #bfbfbf; font-size:18px; padding-bottom:8px;}
+    .accountInfo .have{float: right; margin-top: -20px;}
+    .accountInfo input{background:none; border:1px solid #bfbfbf;border-radius:5px; padding:0 10px;height: 35px;}
+    .accountInfo input[name]{width:300px;margin:10px auto;}
+    .accountInfo input:hover{background: #ecf9ff;}
+    .accountInfo .accountB{text-align: center;}
+    .accountInfo .accountB .note{margin:5px 0 5px -170px;}
+    .accountInfo .accountB .vali{margin:10px 0;}
+    .accountInfo .accountB .vali input{width:170px;}
+    .accountInfo .accountB .vali a{display:inline-block; width:130px; text-align: center;}  
+    .accountInfo .accountbtn button{width:300px;height: 35px;color: #FFFFFF; background: #25a3cb; border:none;border-radius:5px;}
+    .accountInfo .accountB{
+        text-align: left;
+        padding-left: 270px;
+    }
+    .pop .validatorMsg{padding-top: 2px;width: 250px;text-align: left;margin-left: 3px;vertical-align:middle;}
+</style>
+</head>
+<body>
+<div class="accountInfo">
+    <div class="center pop">
+        <h2 class="blue">完善账户信息</h2>
+        <div class="arrow"><img src="__THEME__/images/retrieve_Arrow.png"/></div>
+        <form action="{:U('home/Public/bindaccount')}" method="post">
+            <input type="hidden" name="type" value="{$type}" />
+            <input type="hidden" name="uname" value="{$user.uname}"/>
+            <div class="accountB">
+                <div>
+                    <input type="text" placeholder="账户邮箱" name="email">
+                </div>
+                <div>
+                    <input type="password" placeholder="密码" name="password">
+                </div>
+                <div class="vali" data-widget="js/user/register.js#refleshRegImg" id="checkcode">
+                    <div class="validate">
+                        <input type="text" id="verify" name="verify" placeholder="验证码">
+                        <a href="###" data-role="reflesh"><img src="__ROOT__/public/checkcode.php" id="verifyimg" alt="换一张" style="cursor: pointer;vertical-align:middle;" data-role="reflesh" /></a>
+                        <span id="tip_verify"></span>
+                    </div>
+                </div>
+                    <div class="accountbtn"><button>确定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+seajs.use(['jquery','validator', 'js/validator/validator.css'], function($){
+    <?php echo Action::$FORM_NAMESPACE->getValidatorJquery(); ?>
+});
+</script>
+<include file="__THEME__/footer" /> 

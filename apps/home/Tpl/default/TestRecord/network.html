@@ -1,0 +1,38 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">网络友好测试</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <include file="_network_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <h4 class="row">
+            <div class="col-md-5">基本信息</div>
+            <include file="_menu_network" />
+        </h4>
+        <div class="friend_basic">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="col-md-4 lightgreenBg">被测应用</div>
+                    <div class="col-md-8 lightgreenBg">{$task['apk_name']}</div>
+                    <div class="col-md-4 lightblueBg">测试服务</div>
+                    <div class="col-md-8 lightblueBg">{$task['package_type']}</div>
+                    <div class="col-md-4 lightgreenBg">测试提交时间</div>
+                    <div class="col-md-8 lightgreenBg">{$task['ctime']}</div>
+                    <div class="col-md-4 lightblueBg">测试结束时间</div>
+                    <div class="col-md-8 lightblueBg">{$task['mtime']}</div>
+                    <div class="col-md-4 lightgreenBg">终端测试</div>
+                    <div class="col-md-8 lightgreenBg">{$task['device_type']|msubstr='0','50'}</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="lightgreenBg" style="height: 176px;"><img src="{$task['apk_icon']}" /></div>
+                    <div class="lightgreenBg">{$task['apk_name']}</div>
+                </div>
+            </div>
+        </div>        
+        <div class="kite"><img src="__THEME__/images/kite.png" /></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

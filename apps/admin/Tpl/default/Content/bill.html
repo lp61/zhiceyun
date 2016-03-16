@@ -1,0 +1,138 @@
+<include file="../Public/_header" />
+<link href="__THEME__/css/bootstrap.min.css" rel="stylesheet">
+<script src="__PUBLIC__/js/zhiceyun/jquery-1.11.3.min.js"></script>
+<script src="__PUBLIC__/js/zhiceyun/bootstrap.min.js"></script>
+<style>
+    /*表单2样式*/
+	body {font-size:12px;}
+    .form2 dl { margin-bottom:0px;}
+    .form2 dt { display: block;}
+</style>
+<div class="so_main">
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+        <form method="post" action="">
+        <input type="hidden" name="isSearch" value="1"/>
+        <dl class="lineD">
+          <dt>用户ID：</dt>
+          <dd>
+            <input name="id" type="text" value="">
+            <p>多个时使用英文的“,”分割</p>
+          </dd>
+        </dl>
+        
+        <dl class="lineD">
+            <dt>发票状态：</dt>
+            <dd>
+                <input type="radio" name="status" value="" <php>if($status === "") echo 'checked';</php>>全部
+                <input type="radio" name="status" value="0" <php>if($status === "0") echo 'checked';</php>>未处理&nbsp;
+                <input type="radio" name="status" value="1" <php>if($status == 1) echo 'checked';</php>>已确认&nbsp;
+                <input type="radio" name="status" value="2" <php>if($status == 2) echo 'checked';</php>>已拒绝&nbsp;
+            </dd>
+        </dl>
+        
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+        </div>
+    </div>
+    
+    <div class="page_tit">发票管理 </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+         <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+    </div>
+    <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th style="width:30px;">
+            <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+            <label for="checkbox"></label>
+        </th>
+        <th class="line_l">ID</th>
+        <th class="line_l">用户名</th>
+        <th class="line_l">发票抬头</th>
+        <th class="line_l">发票金额(元)</th>
+        <th class="line_l">申请时间</th>
+        <th class="line_l">处理时间</th>
+        <th class="line_l">状态</th>
+    </tr>
+    <volist id="vo" name="data">
+        <tr overstyle='on' id="{$vo.id}">
+            <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+            <td>{$vo.id}</td>
+            <td>{$vo.uid|getUserName}</td>
+            <td>{$vo.title}</td>
+            <td>{$vo.amount}</td>
+            <td>{$vo.ctime}</td>
+            <td>{$vo.mtime}</td>
+            <td>
+                <if condition="$vo.status eq 0">
+                <a href="javascript:void(0);" onclick="setModal({$vo.id}, '1');">确认</a>&nbsp;|&nbsp;
+                <a href="javascript:void(0);" onclick="setModal({$vo.id}, '2');">拒绝</a>
+                <elseif condition="$vo.status eq 1" />
+                    已确认
+                <else />
+                    已拒绝
+                </if>
+            </td>
+        </tr>
+    </volist>
+    </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+    </div>
+</div>
+<div id="billModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin: 200px auto;">
+            <form id="billForm" action="{:U('admin/Content/doBill')}" method=post>
+                <input type="hidden" readonly id="bill_id" name="id" value="" />
+                <input type="hidden" readonly id="bill_status" name="status" value="0" />
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">请填写发票编号</h4>
+                </div>
+                <div class="modal-body">
+                    <label>发票编号：</label>
+                    <input type="text" name="bill_no" value="" size="30" >
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="okBtn" class="btn btn-primary">确定</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+    function setModal(id,status) {
+        $('#bill_id').val(id);
+        $('#bill_status').val(status);
+        if(status == 1) {
+            $('#billModal').modal("show");
+            return false;
+        } else {
+            $('#billForm').submit();
+            return false;
+        }
+    }
+    $("#okBtn").click(function(){
+        $('#billModal').modal("hide");
+        $('#billForm').submit();
+        return false;
+    });
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

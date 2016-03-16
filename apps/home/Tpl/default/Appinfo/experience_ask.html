@@ -1,0 +1,23 @@
+<include file="__THEME__/header" />
+<style>
+.experience_banner{background:url(__THEME__/images/experience1.png) no-repeat center;height:352px;text-align: center;}
+</style>
+<div class="experience">
+    <div class="center title" style="height: 45px;line-height: 45px;"><a href="{:U('home/Index/index')}" class="gray">首页 > </a><a href="#" class="blue">用户体验</a></div>
+    <div class="experience_banner">
+        <h1 class="white">大数据驱动的用户体验评测</h1>
+    </div>
+    <form action="{:U('home/Appinfo/experience_ask')}" method="post" id="subForm" >
+        <div class="center experienceAsk_content">
+            <h2 class="blue">申请测试</h2>
+            <div><input type="text" name="name" placeholder="请输入您的姓名"/></div>
+            <div><input type="text" name="email" placeholder="请输入您的邮箱"/></div>
+            <div><input type="text" name="phone" placeholder="请输入您的手机号"/></div>
+            <div><input type="text" name="company" placeholder="请输入您的公司名称"/></div>
+            <div><input type="text" name="title" placeholder="请输入申请标题"/></div>
+            <textarea name="content" placeholder="请输入申请内容"></textarea>
+            <div><button class="blueBg" type="submit">提交</button></div>
+        </div>
+    </form>
+</div>
+<include file="__THEME__/footer" />

@@ -1,0 +1,41 @@
+.validatorMsg{padding:5px 7px 5px 23px;font-size:12px;line-height:30px;}
+body.vehicle_detail .validatorMsg{padding:0 7px 4px 25px;font-size:12px;line-height:15px;vertical-align:top;}
+body.register .validatorMsg{display:block;line-height:16px;color:#777;float:left;margin:3px 0 0 0;}
+
+.validatorInit{background:url('./images/onInit.gif') no-repeat;}
+.validatorFocus{background:#E9F0FF url('./images/onFocus.gif') no-repeat;}
+.validatorError{background:#FFF2E9 url('./images/onError.gif') no-repeat;white-space:nowrap;}
+.validatorValid{background:url('./images/onValid.gif') no-repeat;}
+.validatorLoad{background:#E9FFEB url('./images/onLoad.gif') no-repeat 3px 3px;}
+
+.pop .validatorMsg {
+    display: inline;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 36px;
+    vertical-align: top;
+}
+.pop .validatorFocus, .pop .validatorInit {
+    background: url("./images/validatorInit.png") no-repeat scroll 10px 4px rgba(0, 0, 0, 0);
+    color: #1188D3;
+}
+.pop .validatorError {
+    background: url("./images/validatorError.png") no-repeat scroll 10px 4px rgba(0, 0, 0, 0);
+    color: #FF6600;
+}
+.pop .validatorValid {
+    background: url("./images/validatorValid.png") no-repeat scroll 10px 4px rgba(0, 0, 0, 0);
+}
+.pop .validatorEmptyValue {
+    color: #B0B0B0 !important;
+}
+.i-text {
+    border: 1px solid #DDDDDD;
+    font-size: 12px;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 10px;
+    padding: 0 4px;
+    width: 210px;
+}

@@ -1,0 +1,70 @@
+<include file="../Public/_header" />
+<script type="text/javascript" src="__PUBLIC__/js/DatePicker/WdatePicker.js"></script>
+<div class="so_main">
+    <div id="search_divadd" class="search_div" >
+        <div class="page_tit">添加 [ <a href="{:U('admin/Content/appPhone')}">返回</a> ]</div>
+        <div class="form2">
+        <form method="post" action="" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$id}"/>
+        <dl class="lineD">
+            <dt>手机名称：</dt>
+            <dd>
+                <input name="name" type="text" value="{$name}">
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>手机型号：</dt>
+            <dd>
+                <input name="device_type" readonly type="text" value="{$device_type}">
+                <p>重要的自动同步字段，不可编辑</p>
+            </dd>
+        </dl>
+
+        <volist id="vo1" name="appSystemConfig">
+        <dl class="lineD">
+            <dt>{$vo1.name}：</dt>
+            <dd>
+                <select name="{$vo1.adapter_name}">
+                    <option value="" <php>if($$vo1['adapter_name'] == "") echo 'selected';</php>>--请选择--</option>
+                    <volist id="vo" name="vo1.data">
+                        <option value="{$vo.content}" <php>if($$vo1['adapter_name'] == $vo['content']) echo 'selected';</php>>{$vo.content}</option>
+                    </volist>
+                </select>
+            </dd>
+        </dl>
+        </volist>
+
+        <dl class="lineD">
+            <dt>上市时间：</dt>
+            <dd>
+                <input name="release_time" type="text" value="{$release_time}" onClick="WdatePicker({dateFmt:'yyyy年M月',maxDate:'%y-%M-%d'})">
+            </dd>
+        </dl>
+        
+        <dl style="*zoom:1">
+            <dt>手机图片：</dt>
+            <dd>
+                <neq name="pic_url" value=""><a href="{$pic_url}" target="_blank"><img width="50" src="{$pic_url}" /></a><br /></neq>
+                <input type="file" name="pic_url" />
+                <p>重要: 终端库中的手机展示图片！（裁剪比例 1:2）</p>
+            </dd>
+        </dl>
+        
+        <dl style="*zoom:1">
+            <dt>手机照片：</dt>
+            <dd>
+                <neq name="photo_url" value=""><a href="{$photo_url}" target="_blank"><img width="100" src="{$photo_url}" /></a><br /></neq>
+                <input type="file" name="photo_url" />
+                <p>重要: 首页中的专机展示照片！（裁剪比例 1:1）</p>
+            </dd>
+        </dl>
+        
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+<include file="../Public/_footer" />

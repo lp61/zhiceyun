@@ -1,0 +1,330 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>>用户信息管理><span class="blue">账户管理</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <p class="blue">账号管理</p>
+        <ul>
+            <li class="gray active"><a href="{:U('home/Account/index')}">个人资料</a></li>
+            <li class="gray"><a href="{:U('home/Account/security')}">密码修改</a></li>
+            <li class="img"><img src="__THEME__/images/record1.png"/></li>
+        </ul>
+    </div>
+    <div class="right">
+        <include file="_menu" />
+        <div class="user">    
+            <form action="{:U('home/Account/index')}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="dotype" value="upbase">
+                <input type="hidden" name="utype" value="{$utype}">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="<php>echo $user['user_type'] > 0 ? '#':U('home/Account/index').'#J_edit_user_info';</php>" id="J_common_user">                    
+                        </a>     <img src="__THEME__/images/info_manage1.png"/>  <br />   
+                        <h5>普通开发者</h5>
+                        <p class="lightgray row">
+                        <ul class="col-md-6" style="text-align:right;">
+                            <li>快速测试：</li>
+                            <li>兼容性测试：</li>
+                            <li>网络友好测试：</li>
+                            <li>弱网络测试：</li>
+                            <li>压力测试：</li>
+                            <li>测试优先级：</li>
+                        </ul>
+                        <ul class="col-md-6">
+                            <li>2次/天</li>
+                            <li>免费终端包2次/天</li>
+                            <li>免费测试</li>
+                            <li>暂未开通</li>
+                            <li>暂未开通</li>
+                            <li>普通</li>
+                        </ul>
+                        </p>
+                        <button data-ahref="J_common_user" <php>echo $user['user_type'] > 0 ? 'disabled':'';</php>>编辑资料</button>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="<php>echo $user['user_type'] > 1 ? '#':U('home/Account/index', array('utype'=>1)).'#J_edit_user_info';</php>" id="J_vip_user">            
+                        </a>    <img src="__THEME__/images/info_manage2.png"/> <br />
+                        <h5>VIP开发者</h5>
+                        <p class="lightgray row">
+                        <ul class="col-md-6" style="text-align:right;">
+                            <li>快速测试：</li>
+                            <li>兼容性测试：</li>
+                            <li>网络友好测试：</li>
+                            <li>弱网络测试：</li>
+                            <li>压力测试：</li>
+                            <li>测试优先级：</li>
+                        </ul>
+                        <ul class="col-md-6">
+                            <li>5次/天</li>
+                            <li>免费终端包5次/天</li>
+                            <li>免费测试</li>
+                            <li>暂未开通</li>
+                            <li>暂未开通</li>
+                            <li>高</li>
+                        </ul>
+                        </p>
+                        <button <php>echo $user['user_type'] > 1 ? 'disabled':'';</php> data-ahref="J_vip_user">     
+                            <php>if($user['user_type'] >= 1) {</php>
+                            编辑资料
+                            <php>}else{</php>
+                            &nbsp;申请认证
+                            <php>}</php>
+                        </button>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="<php>echo $user['user_type'] > 2 ? '#':U('home/Account/index', array('utype'=>2)).'#J_edit_user_info';</php>" id="J_company_user"> 
+                        </a>    <img src="__THEME__/images/info_manage3.png"/> <br />
+                        <h5>企业开发者</h5>
+                        <p class="lightgray row">
+                        <ul class="col-md-6" style="text-align:right;">
+                            <li>快速测试：</li>
+                            <li>兼容性测试：</li>
+                            <li>网络友好测试：</li>
+                            <li>弱网络测试：</li>
+                            <li>压力测试：</li>
+                            <li>测试优先级：</li>
+                        </ul>
+                        <ul class="col-md-6">
+                            <li>10次/天</li>
+                            <li>免费终端包10次/天</li>
+                            <li>免费测试</li>
+                            <li>暂未开通</li>
+                            <li>暂未开通</li>
+                            <li>最高</li>
+                        </ul>
+                        </p>
+                        <button data-ahref="J_company_user" <php>echo $user['user_type'] > 2 ? 'disabled':'';</php>> <php>if($user['user_type'] >= 2) {</php>
+                            &nbsp;编辑资料
+                            <php>}else{</php>
+                            &nbsp;申请认证
+                            <php>}</php>
+                        </button>
+                    </div>
+                </div>
+                
+                <h4 class="blue">
+                    <php>if ($utype <= $user['user_type']) {</php>
+                    {$userTypeConfig[$utype]['name']}资料
+                    <php>}else{</php>
+                    申请认证
+                    <php>}</php>
+                </h4>
+                
+                <div class="zoliao">
+                    <label>登录邮箱：</label>
+                    <input type="text" placeholder="{$user['email']}" disabled/>&nbsp;&nbsp;
+                    <eq name="user['is_active']" value='1'><span style="color:green">已激活</span><else /><span style="color:red">未激活</span>&nbsp;<span id="J_resendEmail" style="color:green;cursor:pointer;">[发送激活邮件]</span></eq>
+                </div>
+                <if condition="$utype gt 0">
+                    <div class="zoliao">
+                        <label>所在公司：</label>
+                        <input type="text" name="company_name" value="{$user['company_name']}" />
+                    </div>
+<!--                    <div class="dropdown">
+                        <span href="#" class="gray" data-role="button" data-toggle="dropdown">所在行业：</span>
+                        <select name="work_classify">
+                            <option value="0">请选择</option>
+                            <volist name="workClassify" id="vo" key="k" >
+                                <option value="{$k}"<eq value="$k" name="user.work_classify">selected</eq>>{$vo}</option>
+                            </volist>
+                        </select>
+                    </div>-->
+                    <else /> 
+                </if>
+                <if condition="$utype eq 1">
+                    <div class="dropdown vali">
+                        <span class="gray" data-role="button" data-toggle="dropdown">所在岗位：</span>
+                        <select name="work_station">
+                            <option value="0">请选择</option>
+                            <volist name="workStation" id="vo" key="k" >
+                                <option value="{$k}"<eq value="$k" name="user.work_station">selected</eq>>{$vo}</option>
+                            </volist>
+                        </select>
+                    </div>
+                    <elseif condition="$utype eq 2" />
+                    <div class="dropdown licnse">
+                        <span class="gray" data-role="button" data-toggle="dropdown">公司规模：</span>
+                        <select name="company_size">
+                            <option value="0">请选择</option>
+                            <volist name="companySize" id="vo" key="k" >
+                                <option value="{$k}" <eq value="$k" name="user.company_size">selected</eq>>{$vo}</option>
+                            </volist>
+                        </select>
+                    </div>
+                </if>
+                <if condition="$utype gt 0">
+                    <div class="zoliao">
+                        <label>手机号：</label>
+                        <input type="text" <if condition="$user['phone'] neq ''">style="background: #e3e3e3;" disabled</if> name="phone" value="{$user['phone']}"/><if condition="$user['phone'] neq ''"><a class="blue" id="changeMobileBtn" href="#">更换手机号</a><span id="tip_span_order_phone"></span>&nbsp;&nbsp;</if>
+                    </div>
+                    <div class="ziliao" style="line-height:55px;">
+                        <span class="vali" id="getMobileValCode" <if condition="$user['phone'] eq ''">style="display:inline"<else />style="display:none"</if>>
+                            <label style="width:250px; text-align:right; color:#666; font-weight:normal;">短信验证码：</label>
+                            <input style="width:180px;margin-right:5px;" type="text" class="dd" name="phone_code" /><button type="button" id="J_send_code">获取短信验证码</button><span id="tip_span_phone_code"></span>
+                        </span>
+                    </div>
+                </if>
+                <if condition="$utype eq 2">
+                    <div class="ziliao">
+                        <span class="licnse">
+                            <label style="width:250px; text-align:right; color:#666; font-weight:normal;">营业执照副本：</label>
+                            <!--<span style="display:inline-block; width:300px;height:35px; line-height:35px; border:1px solid #EEEEEE; border-radius:5px;padding-top:6px;"</span>-->
+                            <input type="file" name="pic_url" style="display:inline-block; padding-top:5px;" value="{$user['licence_img']}" id="J_file_upload" autocomplete="off">	
+                            <!--<button data-ahref="J_file_upload" class="upload">上传文件</button>-->
+                        </span>
+                        <span style="display:inline-block; margin-top:-10px; margin-left:250px;">
+                            <php> if (!empty($user['licence_img'])) { </php>
+                            <br />
+                            <a  href="{$user['licence_img']}" target="_blank">
+                                <img src="{$user['licence_img']}" style="margin-left:5px;" height="100px" id="J_img">
+                            </a>
+                            <php>}</php>
+                        </span>
+                    </div>
+                </if>
+                <div class="prefect">
+                    <eq name="user.is_init" value="0"><p class="blue">完善以下任意一项资料，可获得网站10测试积分的奖励</p></eq>
+                    <div class="zoliao">
+                        <label>QQ：</label>
+                        <input name="qq" value="{$user['qq']}" type="text" />
+                    </div>
+                    <div class="zoliao">
+                        <label>微信：</label>
+                        <input name="weixin" value="{$user['weixin']}" type="text"/>
+                    </div>
+                    <div class="zoliao">
+                        <label>新浪微博：</label>
+                        <input  name="weibo" value="{$user['weibo']}" type="text"/>
+                        <br>
+                        <button type="submit">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+<!--        <div class="change">
+            <form action="{:U('home/Account/doModifyPassword')}" method="post" class="form_validator" id="regform">
+                <h4 class="blue">密码修改</h4>
+                <table>
+                    <tr>
+                        <td>原密码：</td>
+                        <td><input type="text" name="oldpassword" type="password" /></td>
+                    </tr>
+                    <tr>
+                        <td>新密码：</td>
+                        <td><input name="password" type="password"/></td>
+                    </tr>
+                    <tr>
+                        <td>重复密码：</td>
+                        <td><input name="repassword" type="password"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button  type="submit">保存</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>-->
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<!-- 内容 end -->
+<script>
+    var data;
+    $(function () {
+	    //编辑资料、申请认证
+		//$("input[type='file']").css("opacity",0);
+		$(".user .col-md-3 button:disabled").css("background","#eeeeee").css("color","#666");
+        $(".user .col-md-3").click(function () {
+            $(".user .col-md-3").css("border-color", "#EEEEEE");
+            $(this).css("border-color", "#25a3cb");
+        });
+        data = {'phone': $('input[name="phone"]').val()};
+        $('input[name="phone"]').change(function () {
+            data.phone = $(this).val();
+        });
+        var cc;
+        var interval = 1000;
+        var second = 60;
+        var obj = $('#J_send_code');
+        obj.data('value', obj.html());
+        var status = 1;
+        $('#J_send_code').on('click', function () {
+            var url = "{:U('home/Index/isUrlCode')}";
+            var phone = $('input[name="phone"]').val();
+
+            $('input[name="phone"]').trigger('blur');
+            if ($('#tip_span_order_phone .validatorError').length || !status) {
+                return false;
+            }
+            status = 0;
+            $.post(url, {phone: phone}, function (data) {
+                if (data.code) {
+                    alert(data.message);
+                } else {
+                    cc = window.setInterval(function () {
+                        ShowCountDown();
+                    }, interval);
+                    alert('发送成功');
+                }
+            }, 'json');
+        });
+        function ShowCountDown() {
+            if (second) {
+                obj.html(second + "秒");
+                second--;
+            } else {
+                obj.html(obj.data('value'));
+                second = 60;
+                status = 1;
+                clearInterval(cc);
+            }
+        }
+        //发送激活邮件
+            var url = '{:U("home/Public/resendEmail")}';
+            var email_sent = "{$user['email']}";
+            $('#J_resendEmail').click(function() {
+                $('#J_resendEmail').html("[邮件已发送,请耐心等待...]");
+                $.post(url, {}, function(data) {
+                    if (data['code']) { //发送失败
+                        $('#J_resendEmail').html("[发送激活邮件]");
+                        alert(data.msg);
+                    }else{
+                        $('#J_resendEmail').html("");
+                        alert(data.msg);
+                    }
+                }, 'json');
+            });
+        seajs.use(['jquery', 'validator', 'js/validator/validator.css'], function ($) {
+            <?php echo Action::$FORM_NAMESPACE->getValidatorJquery(); ?>
+            //手机号&验证码
+            function aa() {
+                $.validator("phone_code")
+                        .setTipSpanId("tip_span_phone_code")
+                        .setFocusMsg("请输入确认码")
+                        .setRequired("确认码不能为空")
+                        .setRegexp(/^\d+$/, "请输入纯数字确认码", false)
+                        .setAjax("{:U('home/Public/isPhoneCodeAvailable')}", "手机确认码错误", data);
+            }
+
+            <?php if($utype > 0 && $user['phone'] == '') { ?>aa();<?php }?>
+            $("#changeMobileBtn").click(function () {
+                if ($(this).text() == "更换手机号") {
+                    $(this).prev().removeAttr("disabled").css("background", "#fff");
+                    $(this).text("取消更换");
+                    $("#getMobileValCode").show();
+                    $("#getMobileValCodeLabel").show();
+                    aa();
+                } else {
+                    $(this).prev().attr("disabled", true).css("background", "#e3e3e3").val($('input[name="phone"]')[0].defaultValue);
+                    $(this).text("更换手机号");
+                    $("#getMobileValCode").hide();
+                    $("#getMobileValCodeLabel").hide();
+                    $.validator("phone_code").remove();
+                }
+                return false;
+            });
+        });
+    });
+</script>
+<include file="__THEME__/footer" />

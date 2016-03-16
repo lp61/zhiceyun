@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="__PUBLIC__/wap/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/wap/js/js.js"></script>
+        <script type="text/javascript" src="__THEME__/js/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="__THEME__/js/swiper.animate1.0.2.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+        <link type="text/css" rel="stylesheet" href="__THEME__/css/swiper.min.css"/>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/css/style.css"/>
+        <title>智测云</title>
+        <style>
+            .swiper-container-horizontal>.swiper-pagination{bottom:10%;}
+			.testCircle .content h2 a{color:#333;}
+			.testCircle .content p a{color:#666;}
+			.testCircle .content p{height:120px;}
+        </style>
+    </head>
+    <body>
+    <include file="_menu1"/>
+    <!--<div class="testCircle">
+        <php>$titleLen =12;$contentLen=100;</php>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content">
+                        <h1 class="blue"><a rel="external" href="{:U('wap/Index/index', array('testCircle'=>'info'))}" data-ajax="false">资 讯</a></h1>
+                        <h2 class="darkgray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[0]['id']))}">{:msubstr(strip_tags($article[0]['title']),0, $titleLen)}</a></h2>
+                        <p class="gray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[0]['id']))}">{:msubstr(strip_tags($article[0]['content']),0, $contentLen)}</a></p>
+                    </div>
+                    <div class="contentBg"><img src="__PUBLIC__/wap/images/testCircle1.png"></div>
+                    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+                </div>
+                <div class="swiper-slide">	
+                    <div class="content">
+                        <h1 class="blue"><a rel="external" href="{:U('wap/Index/index', array('testCircle'=>'special'))}" data-ajax="false">专 题</a></h1>
+                        <h2 class="darkgray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[1]['id']))}">{:msubstr(strip_tags($article[1]['title']),0, $titleLen)}</a></h2>
+                        <p class="gray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[1]['id']))}">{:msubstr(strip_tags($article[1]['content']),0, $contentLen)}</a></p>
+                    </div>
+                    <div class="contentBg"><img src="__PUBLIC__/wap/images/testCircle1.png"></div>
+                    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+                        <h1 class="blue"><a rel="external" href="{:U('wap/Index/index', array('testCircle'=>'tec'))}" data-ajax="false">技 术</a></h1>
+                        <h2 class="darkgray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[2]['id']))}">{:msubstr(strip_tags($article[2]['title']),0, $titleLen)}</a></h2>
+                        <p class="gray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[2]['id']))}">{:msubstr(strip_tags($article[2]['content']),0, $contentLen)}</a></p>
+                    </div>
+                    <div class="contentBg"><img src="__PUBLIC__/wap/images/testCircle1.png"></div>
+                    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+                        <h1 class="blue"><a rel="external" href="{:U('wap/Index/index', array('testCircle'=>'salon'))}" data-ajax="false">沙 龙</a></h1>
+                        <h2 class="darkgray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[3]['id']))}">{:msubstr(strip_tags($article[3]['title']),0, $titleLen)}</a></h2>
+                        <p class="gray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[3]['id']))}">{:msubstr(strip_tags($article[3]['content']),0, $contentLen)}</a></p>
+                    </div>
+                    <div class="contentBg"><img src="__PUBLIC__/wap/images/testCircle1.png"></div>
+                    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>-->
+	<div class="testCircleInfo">
+    <php>$titleLen =12;$contentLen=60;</php>
+	<div class="ui-grid-c title">
+		<div class="ui-block-a active"><a href="#">资讯</a></div>
+        <div class="ui-block-b"><a href="#">专题</a></div>
+        <div class="ui-block-c"><a href="#">技术</a></div>
+        <div class="ui-block-d"><a href="#">沙龙</a></div>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <volist name="article1" id="vo">
+                <div class="ui-grid-a info">
+                    <div class="ui-block-a"><eq name="vo['pic_url']" value=""><img src="http://42.96.171.6/zhiceyun/data/uploads/Linshi.jpg"/><else /><img src="{$vo['pic_url']}"/></eq></div>
+                    <div class="ui-block-b">
+                        <h4><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['title']),0, $titleLen)}</a></h4>
+                        <p><a rel="external" class="gray" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, $contentLen)}</a></p>
+                    </div>
+                </div>
+                </volist> 
+            </div>
+            <div class="swiper-slide">
+                 <volist name="article2" id="vo">
+                <div class="ui-grid-a special">
+                    <div class="ui-block-a"><eq name="vo['pic_url']" value=""><img src="http://42.96.171.6/zhiceyun/data/uploads/Linshi.jpg"/><else /><img src="{$vo['pic_url']}"/></eq></div>
+                    <div class="ui-block-b">
+                        <h4><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['title']),0, $titleLen)}</a></h4>
+                        <p><a rel="external" class="gray" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, $contentLen)}</a></p>
+                    </div>
+                </div>
+                 </volist>
+            </div>
+            <div class="swiper-slide">
+                   <volist name="article3" id="vo">
+                <div class="ui-grid-a skill">
+                    <div class="ui-block-a"><eq name="vo['pic_url']" value=""><img src="http://42.96.171.6/zhiceyun/data/uploads/Linshi.jpg"/><else /><img src="{$vo['pic_url']}"/></eq></div>
+                    <div class="ui-block-b">
+                        <h4><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['title']),0, $titleLen)}</a></h4>
+                        <p><a rel="external" class="gray" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, $contentLen)}</a></p>
+                    </div>
+                </div>
+                   </volist>
+            </div>
+            <div class="swiper-slide">
+                 <volist name="article4" id="vo">
+                <div class="ui-grid-a salon">
+                    <div class="ui-block-a"><eq name="vo['pic_url']" value=""><img src="http://42.96.171.6/zhiceyun/data/uploads/Linshi.jpg"/><else /><img src="{$vo['pic_url']}"/></eq></div>
+                    <div class="ui-block-b">
+                        <h4><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['title']),0, $titleLen)}</a></h4>
+                        <p><a rel="external" class="gray" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, $contentLen)}</a></p>
+                    </div>
+                </div>
+                 </volist>
+            </div>             
+        </div>    
+    </div>
+</div>
+</body>
+<script>
+$(function(){
+	var mySwiper = new Swiper(".swiper-container",{
+		centeredSlides: true,
+		slidesPerView: 1,
+		pagination:".swiper-pagination",
+		onSlideChangeEnd: function(swiper){
+			 $(".testCircleInfo  .title div").removeClass("active");
+			 $(".testCircleInfo  .title div").eq(mySwiper.activeIndex).addClass("active");
+		}
+	})
+	$(".testCircleInfo .title div").click(function(){
+		$(".testCircleInfo .title div").removeClass("active");
+		$(this).addClass("active");
+		mySwiper.slideTo($(".testCircleInfo .title div").index($(this)));
+	});
+//跳转到指定页
+	var loca=location.search;
+	if(loca.indexOf("testCircle=")>=0){
+		var loc=loca.split("testCircle=")[1].split("&")[0];
+		$("body").hide();
+		setTimeout(function(){
+			$(".testCircleInfo .title div").removeClass("active");
+			switch(loc){
+				case "info":
+					mySwiper.slideTo(0);
+					$(".testCircleInfo .title div").eq(0).addClass("active");
+				break;
+				case "special":
+					mySwiper.slideTo(1);
+					$(".testCircleInfo .title div").eq(1).addClass("active");
+				break;
+				case "tec":
+					mySwiper.slideTo(2);
+					$(".testCircleInfo .title div").eq(2).addClass("active");
+				break;
+				case "salon":
+					mySwiper.slideTo(3);
+					$(".testCircleInfo .title div").eq(3).addClass("active");
+				break;
+			}
+			$("body").show(100);
+		},500);
+	}
+});
+</script>
+</html>

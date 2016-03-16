@@ -1,0 +1,50 @@
+<include file="__THEME__/header" />
+<style>    
+    button.btn.regBtn{margin: 20px 5px}
+</style>
+<if condition="$email_sent">
+    <div class="center emailactive ">
+       <div class="row">
+            <div class="col-lg-5 text-center"><img src="__THEME__/images/emailSend.png"/></div>
+            <div class="col-lg-7" style="margin-top:30px"><p style="line-height:35px">邮箱激活后，即可完成注册！<br>
+            <a href="http://{$email_url}" class="btn_green" target="blank">立即激活</a>&nbsp;&nbsp; 
+            <a href="{:U('home/Index/index')}" class="btn_green" >进入网站</a> <br/>
+            智测云已经将激活邮件发送到邮箱<span class="personActive">{$email}</span>，验证邮箱开启智测云体验新旅程！</p><p>还没有收到邮件？<br>1.尝试广告邮件、垃圾邮件里找找看<br>2.<a href="##" id="J_resendEmail">再次发送验证邮件</a></p></div>
+       </div>
+   </div>
+<else/>
+    <div class="center emailactive ">
+       <div class="row">
+         <div class="col-lg-5 text-center" style="text-align:right;padding:0;"><img src="__THEME__/images/emailError.png"/></div>
+         <div class="col-lg-7 text-center" style="margin-top:0;padding:0;">
+         <p id="J_nosend"><br />邮件发送失败，请点击“重新发送激活邮件”点击按钮再次发送激活邮件<br /><br /></p>
+         <p style="line-height:35px;display:none" id="J_issend">激活邮件发送到邮箱<span class="personActive">{$email}</span>
+         ，验证邮箱开启智测云体验新旅程！<br/>
+            <a href="http://{$email_url}" class="btn_green" target="blank">立即激活</a>&nbsp;&nbsp; 
+            <a href="{:U('home/Index/index')}" class="btn_green" >进入网站</a> <br/></p>
+         <button class="regBtn btn" id="J_resendEmail">发送激活邮件</button>
+         <br/>稍后处理，&nbsp;&nbsp; <a href="{:U('home/Index/index')}" class="btn_green" >立即进入网站</a> <br/></div>
+       </div>
+   </div>
+</if>
+<script>
+seajs.use(['jquery'], function($){
+    var url = '{:U("home/Public/resendEmail")}';
+    var email_sent = '{$email_sent}';
+    $('#J_resendEmail').click(function(event) {
+        $.post(url, {}, function(data) {
+            if (data['code']) {
+                alert(data.msg);
+            }else{
+                if (email_sent) {
+                    alert(data.msg);
+                }else{
+                    $('#J_nosend').hide();
+                    $('#J_issend').show();
+                }
+            }
+        }, 'json');
+    });
+});
+</script>
+<include file="__THEME__/footer" />

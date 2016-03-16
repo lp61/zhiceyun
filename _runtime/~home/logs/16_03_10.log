@@ -1,0 +1,960 @@
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.028114s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.000393s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.001922s SQL = SHOW COLUMNS FROM ts_app_test_task
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.002552s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.000687s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.000859s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.000752s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.000816s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T10:38:08+08:00 ] SQL:  RunTime:0.000812s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T10:38:10+08:00 ] SQL:  RunTime:0.001469s SQL = SHOW COLUMNS FROM ts_app_message
+[ 2016-03-10T10:38:10+08:00 ] SQL:  RunTime:0.005228s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:38:10+08:00 ] SQL:  RunTime:0.002867s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577475 ) LIMIT 1 
+[ 2016-03-10T10:38:25+08:00 ] SQL:  RunTime:0.003018s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:38:25+08:00 ] SQL:  RunTime:0.002813s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577490 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.003284s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.003316s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577722 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.003359s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.003249s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577722 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.002982s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.002950s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577722 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.003133s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.002994s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577722 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.002987s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:17+08:00 ] SQL:  RunTime:0.002936s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577722 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.002976s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.003014s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577723 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.003128s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.003164s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577723 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.002813s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.003049s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577723 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.003088s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.002867s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577723 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.003076s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:18+08:00 ] SQL:  RunTime:0.002881s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577723 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.002869s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.002904s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577724 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.002981s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.003118s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577724 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.002907s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.002589s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577724 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.002885s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.004099s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577724 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.003165s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:19+08:00 ] SQL:  RunTime:0.002576s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577724 ) LIMIT 1 
+[ 2016-03-10T10:42:25+08:00 ] SQL:  RunTime:0.002725s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:25+08:00 ] SQL:  RunTime:0.006613s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577730 ) LIMIT 1 
+[ 2016-03-10T10:42:40+08:00 ] SQL:  RunTime:0.000315s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457577760")
+[ 2016-03-10T10:42:40+08:00 ] SQL:  RunTime:0.002957s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:40+08:00 ] SQL:  RunTime:0.002574s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577745 ) LIMIT 1 
+[ 2016-03-10T10:42:55+08:00 ] SQL:  RunTime:0.002878s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:42:55+08:00 ] SQL:  RunTime:0.002615s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577760 ) LIMIT 1 
+[ 2016-03-10T10:43:23+08:00 ] SQL:  RunTime:0.003093s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:43:23+08:00 ] SQL:  RunTime:0.003228s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577788 ) LIMIT 1 
+[ 2016-03-10T10:43:25+08:00 ] SQL:  RunTime:0.002708s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:43:25+08:00 ] SQL:  RunTime:0.003166s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577790 ) LIMIT 1 
+[ 2016-03-10T10:43:40+08:00 ] SQL:  RunTime:0.003056s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:43:40+08:00 ] SQL:  RunTime:0.002938s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457577805 ) LIMIT 1 
+[ 2016-03-10T10:48:01+08:00 ] SQL:  RunTime:0.000317s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578081")
+[ 2016-03-10T10:48:01+08:00 ] SQL:  RunTime:0.003059s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:01+08:00 ] SQL:  RunTime:0.002855s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578066 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.000350s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578082")
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.003138s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.002965s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578067 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.000368s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578082")
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.002918s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.003223s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578067 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.000328s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578082")
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.002995s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.002949s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578067 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.000437s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578082")
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.003103s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.002953s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578067 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.000533s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578082")
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.002806s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:02+08:00 ] SQL:  RunTime:0.002852s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578067 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.000447s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578083")
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.004501s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.003089s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578068 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.000289s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578083")
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.002850s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.007167s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578068 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.000345s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578083")
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.002975s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.002746s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578068 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.000464s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578083")
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.002975s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.002918s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578068 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.000309s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578083")
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.003063s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:03+08:00 ] SQL:  RunTime:0.002930s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578068 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.000333s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578084")
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.002928s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.002903s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578069 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.000249s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578084")
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.002772s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.002878s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578069 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.000320s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578084")
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.003079s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.002877s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578069 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.000329s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578084")
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.003045s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.002643s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578069 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.000321s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578084")
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.003141s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:04+08:00 ] SQL:  RunTime:0.002892s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578069 ) LIMIT 1 
+[ 2016-03-10T10:48:05+08:00 ] SQL:  RunTime:0.000357s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578085")
+[ 2016-03-10T10:48:05+08:00 ] SQL:  RunTime:0.002948s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:05+08:00 ] SQL:  RunTime:0.002990s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578070 ) LIMIT 1 
+[ 2016-03-10T10:48:10+08:00 ] SQL:  RunTime:0.003030s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:10+08:00 ] SQL:  RunTime:0.002873s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578075 ) LIMIT 1 
+[ 2016-03-10T10:48:25+08:00 ] SQL:  RunTime:0.003197s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:25+08:00 ] SQL:  RunTime:0.002921s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578090 ) LIMIT 1 
+[ 2016-03-10T10:48:40+08:00 ] SQL:  RunTime:0.003247s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:40+08:00 ] SQL:  RunTime:0.002921s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578105 ) LIMIT 1 
+[ 2016-03-10T10:48:55+08:00 ] SQL:  RunTime:0.002888s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:48:55+08:00 ] SQL:  RunTime:0.002973s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578120 ) LIMIT 1 
+[ 2016-03-10T10:49:10+08:00 ] SQL:  RunTime:0.002921s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:49:10+08:00 ] SQL:  RunTime:0.002878s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578135 ) LIMIT 1 
+[ 2016-03-10T10:49:25+08:00 ] SQL:  RunTime:0.002876s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:49:25+08:00 ] SQL:  RunTime:0.004622s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578150 ) LIMIT 1 
+[ 2016-03-10T10:49:40+08:00 ] SQL:  RunTime:0.002945s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:49:40+08:00 ] SQL:  RunTime:0.002920s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578165 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.008385s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.003269s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578246 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.003161s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.002936s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578246 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.002934s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.003075s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578246 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.002819s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.002912s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578246 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.002931s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:51:01+08:00 ] SQL:  RunTime:0.002859s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578246 ) LIMIT 1 
+[ 2016-03-10T10:51:10+08:00 ] SQL:  RunTime:0.002622s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:51:10+08:00 ] SQL:  RunTime:0.003097s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578255 ) LIMIT 1 
+[ 2016-03-10T10:54:28+08:00 ] SQL:  RunTime:0.000363s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578468")
+[ 2016-03-10T10:54:28+08:00 ] SQL:  RunTime:0.003677s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:28+08:00 ] SQL:  RunTime:0.003693s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578453 ) LIMIT 1 
+[ 2016-03-10T10:54:28+08:00 ] SQL:  RunTime:0.000359s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578468")
+[ 2016-03-10T10:54:28+08:00 ] SQL:  RunTime:0.003225s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:28+08:00 ] SQL:  RunTime:0.003162s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578453 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.000376s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578469")
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.003052s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.003273s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578454 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.000402s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578469")
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.002967s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.002796s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578454 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.000289s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578469")
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.002877s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.002826s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578454 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.000318s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578469")
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.004372s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.002931s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578454 ) LIMIT 1 
+[ 2016-03-10T10:54:29+08:00 ] SQL:  RunTime:0.000310s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578469")
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.003077s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.003834s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578455 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.000309s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578470")
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.002855s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.002857s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578455 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.000297s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578470")
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.002976s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.003062s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578455 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.000306s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578470")
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.003090s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.002924s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578455 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.000351s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578470")
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.003004s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.002814s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578455 ) LIMIT 1 
+[ 2016-03-10T10:54:30+08:00 ] SQL:  RunTime:0.000325s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578470")
+[ 2016-03-10T10:54:31+08:00 ] SQL:  RunTime:0.003078s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:31+08:00 ] SQL:  RunTime:0.002903s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578456 ) LIMIT 1 
+[ 2016-03-10T10:54:31+08:00 ] SQL:  RunTime:0.000319s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578471")
+[ 2016-03-10T10:54:31+08:00 ] SQL:  RunTime:0.004607s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:31+08:00 ] SQL:  RunTime:0.002995s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578456 ) LIMIT 1 
+[ 2016-03-10T10:54:40+08:00 ] SQL:  RunTime:0.003248s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:40+08:00 ] SQL:  RunTime:0.002965s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578465 ) LIMIT 1 
+[ 2016-03-10T10:54:55+08:00 ] SQL:  RunTime:0.002983s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:54:55+08:00 ] SQL:  RunTime:0.003028s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578480 ) LIMIT 1 
+[ 2016-03-10T10:55:10+08:00 ] SQL:  RunTime:0.003047s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:55:10+08:00 ] SQL:  RunTime:0.003139s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578495 ) LIMIT 1 
+[ 2016-03-10T10:55:25+08:00 ] SQL:  RunTime:0.002912s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:55:25+08:00 ] SQL:  RunTime:0.002854s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578510 ) LIMIT 1 
+[ 2016-03-10T10:55:40+08:00 ] SQL:  RunTime:0.003106s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:55:40+08:00 ] SQL:  RunTime:0.002961s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578525 ) LIMIT 1 
+[ 2016-03-10T10:55:55+08:00 ] SQL:  RunTime:0.002843s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:55:55+08:00 ] SQL:  RunTime:0.002843s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578540 ) LIMIT 1 
+[ 2016-03-10T10:56:10+08:00 ] SQL:  RunTime:0.002924s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:56:10+08:00 ] SQL:  RunTime:0.010755s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578555 ) LIMIT 1 
+[ 2016-03-10T10:56:25+08:00 ] SQL:  RunTime:0.003150s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:56:25+08:00 ] SQL:  RunTime:0.002963s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578570 ) LIMIT 1 
+[ 2016-03-10T10:56:40+08:00 ] SQL:  RunTime:0.002847s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:56:40+08:00 ] SQL:  RunTime:0.002896s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578585 ) LIMIT 1 
+[ 2016-03-10T10:56:55+08:00 ] SQL:  RunTime:0.003108s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:56:55+08:00 ] SQL:  RunTime:0.002927s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578600 ) LIMIT 1 
+[ 2016-03-10T10:57:10+08:00 ] SQL:  RunTime:0.002988s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:57:10+08:00 ] SQL:  RunTime:0.002874s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578615 ) LIMIT 1 
+[ 2016-03-10T10:57:25+08:00 ] SQL:  RunTime:0.002933s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:57:25+08:00 ] SQL:  RunTime:0.002995s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578630 ) LIMIT 1 
+[ 2016-03-10T10:57:40+08:00 ] SQL:  RunTime:0.003380s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:57:40+08:00 ] SQL:  RunTime:0.002900s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578645 ) LIMIT 1 
+[ 2016-03-10T10:57:55+08:00 ] SQL:  RunTime:0.002852s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:57:55+08:00 ] SQL:  RunTime:0.004957s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578660 ) LIMIT 1 
+[ 2016-03-10T10:58:11+08:00 ] SQL:  RunTime:0.002927s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:58:11+08:00 ] SQL:  RunTime:0.003234s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578676 ) LIMIT 1 
+[ 2016-03-10T10:58:25+08:00 ] SQL:  RunTime:0.002904s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:58:25+08:00 ] SQL:  RunTime:0.003086s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578690 ) LIMIT 1 
+[ 2016-03-10T10:58:40+08:00 ] SQL:  RunTime:0.016425s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:58:40+08:00 ] SQL:  RunTime:0.013717s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578705 ) LIMIT 1 
+[ 2016-03-10T10:58:55+08:00 ] SQL:  RunTime:0.002941s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:58:55+08:00 ] SQL:  RunTime:0.003083s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578720 ) LIMIT 1 
+[ 2016-03-10T10:59:10+08:00 ] SQL:  RunTime:0.002995s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T10:59:10+08:00 ] SQL:  RunTime:0.003128s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578735 ) LIMIT 1 
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.000411s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578930")
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.006591s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.006919s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578915 ) LIMIT 1 
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.000317s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578930")
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.003014s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.003179s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578915 ) LIMIT 1 
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.000401s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578930")
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.003348s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:10+08:00 ] SQL:  RunTime:0.002950s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578915 ) LIMIT 1 
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.000288s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578931")
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.002937s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.002956s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578916 ) LIMIT 1 
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.000344s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578931")
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.006202s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.007312s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578916 ) LIMIT 1 
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.000276s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578931")
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.003300s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.003010s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578916 ) LIMIT 1 
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.000247s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578931")
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.002890s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:11+08:00 ] SQL:  RunTime:0.003208s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578916 ) LIMIT 1 
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.000388s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578932")
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.003056s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.007948s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578917 ) LIMIT 1 
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.000346s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578932")
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.002997s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.003197s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578917 ) LIMIT 1 
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.000322s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578932")
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.003124s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.002889s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578917 ) LIMIT 1 
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.000362s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457578932")
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.003091s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:12+08:00 ] SQL:  RunTime:0.003093s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578917 ) LIMIT 1 
+[ 2016-03-10T11:02:13+08:00 ] SQL:  RunTime:0.003129s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:13+08:00 ] SQL:  RunTime:0.002999s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578918 ) LIMIT 1 
+[ 2016-03-10T11:02:25+08:00 ] SQL:  RunTime:0.002944s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:25+08:00 ] SQL:  RunTime:0.003174s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578930 ) LIMIT 1 
+[ 2016-03-10T11:02:40+08:00 ] SQL:  RunTime:0.002572s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:40+08:00 ] SQL:  RunTime:0.003055s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578945 ) LIMIT 1 
+[ 2016-03-10T11:02:55+08:00 ] SQL:  RunTime:0.002937s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:02:55+08:00 ] SQL:  RunTime:0.002909s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578960 ) LIMIT 1 
+[ 2016-03-10T11:03:10+08:00 ] SQL:  RunTime:0.003215s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:03:10+08:00 ] SQL:  RunTime:0.002909s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578975 ) LIMIT 1 
+[ 2016-03-10T11:03:25+08:00 ] SQL:  RunTime:0.002992s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:03:25+08:00 ] SQL:  RunTime:0.002956s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457578990 ) LIMIT 1 
+[ 2016-03-10T11:03:40+08:00 ] SQL:  RunTime:0.003059s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:03:40+08:00 ] SQL:  RunTime:0.002986s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579005 ) LIMIT 1 
+[ 2016-03-10T11:03:55+08:00 ] SQL:  RunTime:0.003587s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:03:55+08:00 ] SQL:  RunTime:0.002800s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579020 ) LIMIT 1 
+[ 2016-03-10T11:04:10+08:00 ] SQL:  RunTime:0.002877s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:04:10+08:00 ] SQL:  RunTime:0.002845s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579035 ) LIMIT 1 
+[ 2016-03-10T11:04:25+08:00 ] SQL:  RunTime:0.002899s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:04:25+08:00 ] SQL:  RunTime:0.002893s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579050 ) LIMIT 1 
+[ 2016-03-10T11:04:40+08:00 ] SQL:  RunTime:0.002868s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:04:40+08:00 ] SQL:  RunTime:0.006506s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579065 ) LIMIT 1 
+[ 2016-03-10T11:04:55+08:00 ] SQL:  RunTime:0.002889s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:04:55+08:00 ] SQL:  RunTime:0.005059s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579080 ) LIMIT 1 
+[ 2016-03-10T11:05:10+08:00 ] SQL:  RunTime:0.002821s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:05:10+08:00 ] SQL:  RunTime:0.003044s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579095 ) LIMIT 1 
+[ 2016-03-10T11:05:25+08:00 ] SQL:  RunTime:0.002865s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:05:25+08:00 ] SQL:  RunTime:0.003006s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579110 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.000387s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579436")
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.002962s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.003068s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579421 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.000331s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579436")
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.003076s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.002872s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579421 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.000352s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579436")
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.003047s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.003038s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579421 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.000350s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579436")
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.003191s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.004916s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579421 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.000272s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579436")
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.007377s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:36+08:00 ] SQL:  RunTime:0.002877s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579421 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.000368s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579437")
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.003057s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.008651s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579422 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.000373s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579437")
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.003302s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.002983s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579422 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.000327s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579437")
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.003039s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.002878s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579422 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.000331s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579437")
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.002931s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.003162s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579422 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.000351s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579437")
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.003022s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:37+08:00 ] SQL:  RunTime:0.002871s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579422 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.000295s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579438")
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.002859s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.011556s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579423 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.000413s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579438")
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.003144s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.003141s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579423 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.000328s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579438")
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.003060s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.002865s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579423 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.000334s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579438")
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.005135s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.003033s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579423 ) LIMIT 1 
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.000303s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579438")
+[ 2016-03-10T11:10:38+08:00 ] SQL:  RunTime:0.002989s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.002991s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579423 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.000298s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579439")
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.002913s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.002912s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579424 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.000378s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579439")
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.002936s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.002869s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579424 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.000342s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579439")
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.002968s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.003193s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579424 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.000327s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579439")
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.003267s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.003084s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579424 ) LIMIT 1 
+[ 2016-03-10T11:10:39+08:00 ] SQL:  RunTime:0.000328s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457579439")
+[ 2016-03-10T11:10:40+08:00 ] SQL:  RunTime:0.002946s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:10:40+08:00 ] SQL:  RunTime:0.002916s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579425 ) LIMIT 1 
+[ 2016-03-10T11:11:00+08:00 ] SQL:  RunTime:0.002849s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:11:00+08:00 ] SQL:  RunTime:0.002998s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579445 ) LIMIT 1 
+[ 2016-03-10T11:11:04+08:00 ] SQL:  RunTime:0.004891s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:11:04+08:00 ] SQL:  RunTime:0.003340s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579449 ) LIMIT 1 
+[ 2016-03-10T11:11:10+08:00 ] SQL:  RunTime:0.003056s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:11:10+08:00 ] SQL:  RunTime:0.002902s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579455 ) LIMIT 1 
+[ 2016-03-10T11:11:25+08:00 ] SQL:  RunTime:0.003185s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T11:11:25+08:00 ] SQL:  RunTime:0.002909s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457579470 ) LIMIT 1 
+[ 2016-03-10T13:18:23+08:00 ] SQL:  RunTime:0.010569s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457587103")
+[ 2016-03-10T13:18:23+08:00 ] SQL:  RunTime:0.010654s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T13:18:23+08:00 ] SQL:  RunTime:0.003032s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457587088 ) LIMIT 1 
+[ 2016-03-10T13:18:23+08:00 ] SQL:  RunTime:0.000318s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457587103")
+[ 2016-03-10T13:18:23+08:00 ] SQL:  RunTime:0.003095s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T13:18:23+08:00 ] SQL:  RunTime:0.002980s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457587088 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.000324s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457587104")
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.002965s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.002896s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457587089 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.000339s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457587104")
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.003436s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.002961s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457587089 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.000438s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457587104")
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.003072s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.003032s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457587089 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.000310s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457587104")
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.003069s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.002979s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457587089 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.000312s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457587104")
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.002988s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T13:18:24+08:00 ] SQL:  RunTime:0.002859s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457587089 ) LIMIT 1 
+[ 2016-03-10T13:44:41+08:00 ] SQL:  RunTime:0.045867s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T13:44:41+08:00 ] SQL:  RunTime:0.000394s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T13:44:41+08:00 ] SQL:  RunTime:0.010073s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T13:44:41+08:00 ] SQL:  RunTime:0.002472s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T13:44:41+08:00 ] SQL:  RunTime:0.002821s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T13:44:41+08:00 ] SQL:  RunTime:0.000904s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T13:44:41+08:00 ] SQL:  RunTime:0.001402s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T13:44:41+08:00 ] SQL:  RunTime:0.000947s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T13:44:43+08:00 ] SQL:  RunTime:0.002872s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T13:44:43+08:00 ] SQL:  RunTime:0.003066s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457588668 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.000349s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592304")
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.003287s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.002804s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592289 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.000316s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592304")
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.002987s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.003131s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592289 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.000464s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592304")
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.003074s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.004229s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592289 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.000313s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592304")
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.003707s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.003023s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592289 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.000437s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592304")
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.003205s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:04+08:00 ] SQL:  RunTime:0.003005s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592289 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.000492s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592305")
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.003180s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.002942s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592290 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.000338s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592305")
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.003093s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.003277s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592290 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.000370s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592305")
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.006789s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.002908s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592290 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.000371s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592305")
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.003005s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.002928s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592290 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.000416s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592305")
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.002971s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:05+08:00 ] SQL:  RunTime:0.003383s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592290 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.000307s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592306")
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.003423s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.002936s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592291 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.000348s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592306")
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.003078s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.002911s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592291 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.000781s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592306")
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.003328s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.002843s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592291 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.000376s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592306")
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.004526s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.002931s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592291 ) LIMIT 1 
+[ 2016-03-10T14:45:06+08:00 ] SQL:  RunTime:0.000374s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592306")
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.003739s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.003046s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592292 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.000364s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592307")
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.003209s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.003268s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592292 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.000293s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592307")
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.002952s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.003575s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592292 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.000410s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592307")
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.003131s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.003330s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592292 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.000312s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592307")
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.002913s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.003127s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592292 ) LIMIT 1 
+[ 2016-03-10T14:45:07+08:00 ] SQL:  RunTime:0.000457s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592307")
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.003072s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.004662s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592293 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.000314s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592308")
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.002972s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.003172s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592293 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.000336s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592308")
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.002973s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.002935s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592293 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.000312s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592308")
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.003003s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.002911s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592293 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.000327s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592308")
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.004626s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:08+08:00 ] SQL:  RunTime:0.003349s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592293 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.000316s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592309")
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.003338s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.002856s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592294 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.000814s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592309")
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.009711s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.003319s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592294 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.000333s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592309")
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.003036s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.003076s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592294 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.000319s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592309")
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.003019s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.002911s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592294 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.000942s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592309")
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.010528s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:09+08:00 ] SQL:  RunTime:0.003415s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592294 ) LIMIT 1 
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.000348s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592310")
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.003051s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.003036s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592295 ) LIMIT 1 
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.005126s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592310")
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.005455s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.006057s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592295 ) LIMIT 1 
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.000370s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592310")
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.002955s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.003125s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592295 ) LIMIT 1 
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.000315s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592310")
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.002901s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:10+08:00 ] SQL:  RunTime:0.002883s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592295 ) LIMIT 1 
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.000444s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592311")
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.002926s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.003674s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592296 ) LIMIT 1 
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.000353s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592311")
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.003030s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.002986s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592296 ) LIMIT 1 
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.000388s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592311")
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.003107s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.002918s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592296 ) LIMIT 1 
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.001036s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592311")
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.003326s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:11+08:00 ] SQL:  RunTime:0.008953s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592296 ) LIMIT 1 
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.000604s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592312")
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.003675s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.003380s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592297 ) LIMIT 1 
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.000342s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592312")
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.003193s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.003256s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592297 ) LIMIT 1 
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.000355s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457592312")
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.003367s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:12+08:00 ] SQL:  RunTime:0.003401s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592297 ) LIMIT 1 
+[ 2016-03-10T14:45:14+08:00 ] SQL:  RunTime:0.078228s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T14:45:14+08:00 ] SQL:  RunTime:0.000946s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T14:45:14+08:00 ] SQL:  RunTime:0.008043s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T14:45:14+08:00 ] SQL:  RunTime:0.008818s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T14:45:14+08:00 ] SQL:  RunTime:0.012632s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T14:45:14+08:00 ] SQL:  RunTime:0.004612s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T14:45:14+08:00 ] SQL:  RunTime:0.004978s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T14:45:14+08:00 ] SQL:  RunTime:0.002664s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T14:45:17+08:00 ] SQL:  RunTime:0.003235s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:17+08:00 ] SQL:  RunTime:0.003506s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592302 ) LIMIT 1 
+[ 2016-03-10T14:45:32+08:00 ] SQL:  RunTime:0.002906s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:45:32+08:00 ] SQL:  RunTime:0.007158s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457592317 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.000306s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593151")
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.004951s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.003282s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593136 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.000353s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593151")
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.003124s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.003077s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593136 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.000336s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593151")
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.002783s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.002898s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593136 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.000303s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593151")
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.003379s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.002925s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593136 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.000408s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593151")
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.010691s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.006660s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593136 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.002541s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593151")
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.005621s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:11+08:00 ] SQL:  RunTime:0.003125s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593136 ) LIMIT 1 
+[ 2016-03-10T14:59:12+08:00 ] SQL:  RunTime:0.001049s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593152")
+[ 2016-03-10T14:59:12+08:00 ] SQL:  RunTime:0.005529s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:12+08:00 ] SQL:  RunTime:0.003159s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593137 ) LIMIT 1 
+[ 2016-03-10T14:59:12+08:00 ] SQL:  RunTime:0.000339s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593152")
+[ 2016-03-10T14:59:12+08:00 ] SQL:  RunTime:0.004145s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:12+08:00 ] SQL:  RunTime:0.004716s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593137 ) LIMIT 1 
+[ 2016-03-10T14:59:12+08:00 ] SQL:  RunTime:0.000336s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593152")
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.003421s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.003150s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593138 ) LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.033884s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.000781s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.002687s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.000798s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.000900s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.000861s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.000791s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.000844s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.000365s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593153")
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.003048s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:13+08:00 ] SQL:  RunTime:0.002898s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593138 ) LIMIT 1 
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.000348s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593154")
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.003484s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.003391s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593139 ) LIMIT 1 
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.000303s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593154")
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.006360s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.007037s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593139 ) LIMIT 1 
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.000283s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593154")
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.003046s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.002856s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593139 ) LIMIT 1 
+[ 2016-03-10T14:59:14+08:00 ] SQL:  RunTime:0.000465s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593154")
+[ 2016-03-10T14:59:15+08:00 ] SQL:  RunTime:0.003603s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:15+08:00 ] SQL:  RunTime:0.003643s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593140 ) LIMIT 1 
+[ 2016-03-10T14:59:15+08:00 ] SQL:  RunTime:0.000426s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593155")
+[ 2016-03-10T14:59:15+08:00 ] SQL:  RunTime:0.007757s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:15+08:00 ] SQL:  RunTime:0.003363s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593140 ) LIMIT 1 
+[ 2016-03-10T14:59:15+08:00 ] SQL:  RunTime:0.000309s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593155")
+[ 2016-03-10T14:59:15+08:00 ] SQL:  RunTime:0.009068s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:15+08:00 ] SQL:  RunTime:0.006123s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593140 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.000399s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593156")
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003152s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003108s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593141 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.000319s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593156")
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003041s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.002982s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593141 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003541s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003386s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593141 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.000344s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593156")
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003845s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003333s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593141 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.000640s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593156")
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003252s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:16+08:00 ] SQL:  RunTime:0.003034s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593141 ) LIMIT 1 
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.000380s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593157")
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.003657s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.003159s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593142 ) LIMIT 1 
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.000346s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593157")
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.010565s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.003323s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593142 ) LIMIT 1 
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.000469s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593157")
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.002936s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:17+08:00 ] SQL:  RunTime:0.004676s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593142 ) LIMIT 1 
+[ 2016-03-10T14:59:35+08:00 ] SQL:  RunTime:0.011621s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:35+08:00 ] SQL:  RunTime:0.003709s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593160 ) LIMIT 1 
+[ 2016-03-10T14:59:48+08:00 ] SQL:  RunTime:0.003557s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T14:59:48+08:00 ] SQL:  RunTime:0.002845s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593173 ) LIMIT 1 
+[ 2016-03-10T15:00:01+08:00 ] SQL:  RunTime:0.003014s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:00:01+08:00 ] SQL:  RunTime:0.002856s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593186 ) LIMIT 1 
+[ 2016-03-10T15:00:16+08:00 ] SQL:  RunTime:0.002895s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:00:16+08:00 ] SQL:  RunTime:0.002917s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593201 ) LIMIT 1 
+[ 2016-03-10T15:00:31+08:00 ] SQL:  RunTime:0.002894s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:00:31+08:00 ] SQL:  RunTime:0.002871s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593216 ) LIMIT 1 
+[ 2016-03-10T15:00:46+08:00 ] SQL:  RunTime:0.004015s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:00:46+08:00 ] SQL:  RunTime:0.002894s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593231 ) LIMIT 1 
+[ 2016-03-10T15:01:01+08:00 ] SQL:  RunTime:0.002867s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:01:01+08:00 ] SQL:  RunTime:0.013318s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593246 ) LIMIT 1 
+[ 2016-03-10T15:01:16+08:00 ] SQL:  RunTime:0.002937s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:01:16+08:00 ] SQL:  RunTime:0.003099s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593261 ) LIMIT 1 
+[ 2016-03-10T15:01:31+08:00 ] SQL:  RunTime:0.003216s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:01:31+08:00 ] SQL:  RunTime:0.003107s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593276 ) LIMIT 1 
+[ 2016-03-10T15:01:46+08:00 ] SQL:  RunTime:0.033029s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:01:46+08:00 ] SQL:  RunTime:0.000386s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:01:46+08:00 ] SQL:  RunTime:0.002625s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:01:46+08:00 ] SQL:  RunTime:0.000762s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:01:46+08:00 ] SQL:  RunTime:0.000861s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:01:46+08:00 ] SQL:  RunTime:0.001406s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:01:46+08:00 ] SQL:  RunTime:0.000868s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:01:46+08:00 ] SQL:  RunTime:0.000815s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:01:47+08:00 ] SQL:  RunTime:0.006490s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:01:47+08:00 ] SQL:  RunTime:0.007787s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593292 ) LIMIT 1 
+[ 2016-03-10T15:01:49+08:00 ] SQL:  RunTime:0.003557s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:01:49+08:00 ] SQL:  RunTime:0.004759s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593294 ) LIMIT 1 
+[ 2016-03-10T15:02:01+08:00 ] SQL:  RunTime:0.006075s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:01+08:00 ] SQL:  RunTime:0.002937s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593306 ) LIMIT 1 
+[ 2016-03-10T15:02:04+08:00 ] SQL:  RunTime:0.015710s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:04+08:00 ] SQL:  RunTime:0.005027s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593309 ) LIMIT 1 
+[ 2016-03-10T15:02:16+08:00 ] SQL:  RunTime:0.002784s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:16+08:00 ] SQL:  RunTime:0.002769s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593321 ) LIMIT 1 
+[ 2016-03-10T15:02:19+08:00 ] SQL:  RunTime:0.002885s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:19+08:00 ] SQL:  RunTime:0.003006s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593324 ) LIMIT 1 
+[ 2016-03-10T15:02:31+08:00 ] SQL:  RunTime:0.003145s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:31+08:00 ] SQL:  RunTime:0.007829s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593336 ) LIMIT 1 
+[ 2016-03-10T15:02:34+08:00 ] SQL:  RunTime:0.002837s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:34+08:00 ] SQL:  RunTime:0.002857s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593339 ) LIMIT 1 
+[ 2016-03-10T15:02:46+08:00 ] SQL:  RunTime:0.006010s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:46+08:00 ] SQL:  RunTime:0.007165s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593351 ) LIMIT 1 
+[ 2016-03-10T15:02:49+08:00 ] SQL:  RunTime:0.002905s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:49+08:00 ] SQL:  RunTime:0.002982s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593354 ) LIMIT 1 
+[ 2016-03-10T15:02:56+08:00 ] SQL:  RunTime:0.027922s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:02:56+08:00 ] SQL:  RunTime:0.000569s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:02:56+08:00 ] SQL:  RunTime:0.002873s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:02:56+08:00 ] SQL:  RunTime:0.000978s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:02:56+08:00 ] SQL:  RunTime:0.001049s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:02:56+08:00 ] SQL:  RunTime:0.000774s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:02:56+08:00 ] SQL:  RunTime:0.001041s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:02:56+08:00 ] SQL:  RunTime:0.000718s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:02:57+08:00 ] SQL:  RunTime:0.002850s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:02:58+08:00 ] SQL:  RunTime:0.002800s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593362 ) LIMIT 1 
+[ 2016-03-10T15:06:43+08:00 ] SQL:  RunTime:0.004804s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593603")
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.003494s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.002802s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593589 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.000374s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593604")
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.003862s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.003155s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593589 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.001692s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593604")
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.009001s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.005635s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593589 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.004687s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593604")
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.003090s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.007054s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593589 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.000395s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593604")
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.004303s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:44+08:00 ] SQL:  RunTime:0.003551s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593589 ) LIMIT 1 
+[ 2016-03-10T15:06:45+08:00 ] SQL:  RunTime:0.000307s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593605")
+[ 2016-03-10T15:06:45+08:00 ] SQL:  RunTime:0.002889s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:45+08:00 ] SQL:  RunTime:0.002791s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593590 ) LIMIT 1 
+[ 2016-03-10T15:06:45+08:00 ] SQL:  RunTime:0.000357s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593605")
+[ 2016-03-10T15:06:45+08:00 ] SQL:  RunTime:0.002838s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:45+08:00 ] SQL:  RunTime:0.002782s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593590 ) LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.063225s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.003434s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.010820s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.005684s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.002550s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.001531s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.004224s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.010385s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.000337s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593606")
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.002901s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.013024s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593591 ) LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.000371s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593606")
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.008004s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:46+08:00 ] SQL:  RunTime:0.002745s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593591 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.000312s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593607")
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.002918s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.003125s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593592 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.000350s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593607")
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.005624s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.003043s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593592 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.000343s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593607")
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.002917s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.002802s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593592 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.000341s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593607")
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.003001s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.007597s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593592 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.000333s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593607")
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.002874s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:47+08:00 ] SQL:  RunTime:0.003052s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593592 ) LIMIT 1 
+[ 2016-03-10T15:06:48+08:00 ] SQL:  RunTime:0.000371s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593608")
+[ 2016-03-10T15:06:48+08:00 ] SQL:  RunTime:0.003060s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:06:48+08:00 ] SQL:  RunTime:0.004657s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593593 ) LIMIT 1 
+[ 2016-03-10T15:07:03+08:00 ] SQL:  RunTime:0.002783s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:07:03+08:00 ] SQL:  RunTime:0.003712s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593608 ) LIMIT 1 
+[ 2016-03-10T15:07:25+08:00 ] SQL:  RunTime:0.003181s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:07:25+08:00 ] SQL:  RunTime:0.002763s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593630 ) LIMIT 1 
+[ 2016-03-10T15:07:25+08:00 ] SQL:  RunTime:0.003226s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:07:25+08:00 ] SQL:  RunTime:0.002782s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593630 ) LIMIT 1 
+[ 2016-03-10T15:07:25+08:00 ] SQL:  RunTime:0.002840s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:07:25+08:00 ] SQL:  RunTime:0.003972s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593630 ) LIMIT 1 
+[ 2016-03-10T15:07:26+08:00 ] SQL:  RunTime:0.003108s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:07:26+08:00 ] SQL:  RunTime:0.002874s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593631 ) LIMIT 1 
+[ 2016-03-10T15:07:35+08:00 ] SQL:  RunTime:0.009028s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:07:35+08:00 ] SQL:  RunTime:0.006860s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593640 ) LIMIT 1 
+[ 2016-03-10T15:08:03+08:00 ] SQL:  RunTime:0.003924s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:03+08:00 ] SQL:  RunTime:0.010858s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593668 ) LIMIT 1 
+[ 2016-03-10T15:08:03+08:00 ] SQL:  RunTime:0.017207s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:03+08:00 ] SQL:  RunTime:0.002925s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593668 ) LIMIT 1 
+[ 2016-03-10T15:08:03+08:00 ] SQL:  RunTime:0.003266s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:03+08:00 ] SQL:  RunTime:0.003250s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593668 ) LIMIT 1 
+[ 2016-03-10T15:08:03+08:00 ] SQL:  RunTime:0.002816s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:03+08:00 ] SQL:  RunTime:0.002852s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593668 ) LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.058953s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.000298s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.002530s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.000728s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.000825s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.000633s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.007924s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.000758s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.003104s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:04+08:00 ] SQL:  RunTime:0.002860s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593669 ) LIMIT 1 
+[ 2016-03-10T15:08:05+08:00 ] SQL:  RunTime:0.002816s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:05+08:00 ] SQL:  RunTime:0.002836s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593670 ) LIMIT 1 
+[ 2016-03-10T15:08:30+08:00 ] SQL:  RunTime:0.003143s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:30+08:00 ] SQL:  RunTime:0.002783s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593695 ) LIMIT 1 
+[ 2016-03-10T15:08:35+08:00 ] SQL:  RunTime:0.003321s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:35+08:00 ] SQL:  RunTime:0.002986s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593700 ) LIMIT 1 
+[ 2016-03-10T15:08:50+08:00 ] SQL:  RunTime:0.002759s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:08:50+08:00 ] SQL:  RunTime:0.002801s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593715 ) LIMIT 1 
+[ 2016-03-10T15:09:05+08:00 ] SQL:  RunTime:0.002884s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:09:05+08:00 ] SQL:  RunTime:0.003158s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593730 ) LIMIT 1 
+[ 2016-03-10T15:09:20+08:00 ] SQL:  RunTime:0.003365s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:09:20+08:00 ] SQL:  RunTime:0.002878s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593745 ) LIMIT 1 
+[ 2016-03-10T15:09:35+08:00 ] SQL:  RunTime:0.002967s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:09:35+08:00 ] SQL:  RunTime:0.002779s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593760 ) LIMIT 1 
+[ 2016-03-10T15:09:42+08:00 ] SQL:  RunTime:0.027936s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:09:42+08:00 ] SQL:  RunTime:0.000417s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:09:42+08:00 ] SQL:  RunTime:0.003185s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:09:42+08:00 ] SQL:  RunTime:0.001083s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:09:42+08:00 ] SQL:  RunTime:0.001258s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:09:42+08:00 ] SQL:  RunTime:0.000802s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:09:42+08:00 ] SQL:  RunTime:0.000673s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:09:42+08:00 ] SQL:  RunTime:0.000586s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:09:43+08:00 ] SQL:  RunTime:0.003142s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:09:43+08:00 ] SQL:  RunTime:0.003301s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593768 ) LIMIT 1 
+[ 2016-03-10T15:10:04+08:00 ] SQL:  RunTime:0.003944s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:10:04+08:00 ] SQL:  RunTime:0.002885s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593789 ) LIMIT 1 
+[ 2016-03-10T15:10:13+08:00 ] SQL:  RunTime:0.002810s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:10:13+08:00 ] SQL:  RunTime:0.002971s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593798 ) LIMIT 1 
+[ 2016-03-10T15:10:28+08:00 ] SQL:  RunTime:0.002840s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:10:28+08:00 ] SQL:  RunTime:0.003047s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593813 ) LIMIT 1 
+[ 2016-03-10T15:10:38+08:00 ] SQL:  RunTime:0.001036s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:10:38+08:00 ] SQL:  RunTime:0.001654s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:10:38+08:00 ] SQL:  RunTime:0.001123s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:10:38+08:00 ] SQL:  RunTime:0.000828s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:10:38+08:00 ] SQL:  RunTime:0.000788s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:10:39+08:00 ] SQL:  RunTime:0.002784s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:10:39+08:00 ] SQL:  RunTime:0.002678s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593824 ) LIMIT 1 
+[ 2016-03-10T15:10:43+08:00 ] SQL:  RunTime:0.003131s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:10:43+08:00 ] SQL:  RunTime:0.002695s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593828 ) LIMIT 1 
+[ 2016-03-10T15:10:54+08:00 ] SQL:  RunTime:0.002812s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:10:54+08:00 ] SQL:  RunTime:0.002820s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593839 ) LIMIT 1 
+[ 2016-03-10T15:10:58+08:00 ] SQL:  RunTime:0.003057s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:10:58+08:00 ] SQL:  RunTime:0.003092s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593843 ) LIMIT 1 
+[ 2016-03-10T15:11:09+08:00 ] SQL:  RunTime:0.002917s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:11:09+08:00 ] SQL:  RunTime:0.002805s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593854 ) LIMIT 1 
+[ 2016-03-10T15:11:13+08:00 ] SQL:  RunTime:0.002665s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:11:13+08:00 ] SQL:  RunTime:0.002753s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593858 ) LIMIT 1 
+[ 2016-03-10T15:11:20+08:00 ] SQL:  RunTime:0.029447s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:11:20+08:00 ] SQL:  RunTime:0.000409s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:11:20+08:00 ] SQL:  RunTime:0.003331s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:11:20+08:00 ] SQL:  RunTime:0.001165s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:11:20+08:00 ] SQL:  RunTime:0.001128s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:11:20+08:00 ] SQL:  RunTime:0.001276s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:11:20+08:00 ] SQL:  RunTime:0.000862s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:11:20+08:00 ] SQL:  RunTime:0.000795s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:11:22+08:00 ] SQL:  RunTime:0.002848s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:11:22+08:00 ] SQL:  RunTime:0.002807s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593867 ) LIMIT 1 
+[ 2016-03-10T15:11:57+08:00 ] SQL:  RunTime:0.000548s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593917")
+[ 2016-03-10T15:11:57+08:00 ] SQL:  RunTime:0.003539s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:11:57+08:00 ] SQL:  RunTime:0.003354s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593902 ) LIMIT 1 
+[ 2016-03-10T15:11:57+08:00 ] SQL:  RunTime:0.000318s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457593917")
+[ 2016-03-10T15:11:57+08:00 ] SQL:  RunTime:0.002992s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:11:57+08:00 ] SQL:  RunTime:0.002842s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593902 ) LIMIT 1 
+[ 2016-03-10T15:12:07+08:00 ] SQL:  RunTime:0.002888s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:12:07+08:00 ] SQL:  RunTime:0.003465s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593912 ) LIMIT 1 
+[ 2016-03-10T15:12:22+08:00 ] SQL:  RunTime:0.002863s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:12:22+08:00 ] SQL:  RunTime:0.003241s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593927 ) LIMIT 1 
+[ 2016-03-10T15:12:37+08:00 ] SQL:  RunTime:0.002886s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:12:37+08:00 ] SQL:  RunTime:0.004782s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593942 ) LIMIT 1 
+[ 2016-03-10T15:12:47+08:00 ] SQL:  RunTime:0.056913s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:12:47+08:00 ] SQL:  RunTime:0.000457s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:12:47+08:00 ] SQL:  RunTime:0.002965s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:12:47+08:00 ] SQL:  RunTime:0.005100s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:12:47+08:00 ] SQL:  RunTime:0.008182s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:12:47+08:00 ] SQL:  RunTime:0.007847s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:12:47+08:00 ] SQL:  RunTime:0.001045s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:12:47+08:00 ] SQL:  RunTime:0.005988s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:12:49+08:00 ] SQL:  RunTime:0.002870s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:12:49+08:00 ] SQL:  RunTime:0.003371s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593954 ) LIMIT 1 
+[ 2016-03-10T15:12:52+08:00 ] SQL:  RunTime:0.003507s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:12:52+08:00 ] SQL:  RunTime:0.003026s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457593957 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.002813s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.003291s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594101 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.002870s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.003194s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594101 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.003020s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.002907s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594101 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.002781s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.004680s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594101 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.002839s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:16+08:00 ] SQL:  RunTime:0.004600s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594101 ) LIMIT 1 
+[ 2016-03-10T15:15:17+08:00 ] SQL:  RunTime:0.002794s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:17+08:00 ] SQL:  RunTime:0.009807s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594102 ) LIMIT 1 
+[ 2016-03-10T15:15:17+08:00 ] SQL:  RunTime:0.003332s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:17+08:00 ] SQL:  RunTime:0.005666s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594102 ) LIMIT 1 
+[ 2016-03-10T15:15:17+08:00 ] SQL:  RunTime:0.003110s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:17+08:00 ] SQL:  RunTime:0.006877s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594102 ) LIMIT 1 
+[ 2016-03-10T15:15:18+08:00 ] SQL:  RunTime:0.003144s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:18+08:00 ] SQL:  RunTime:0.006750s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594103 ) LIMIT 1 
+[ 2016-03-10T15:15:18+08:00 ] SQL:  RunTime:0.002777s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:18+08:00 ] SQL:  RunTime:0.002803s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594103 ) LIMIT 1 
+[ 2016-03-10T15:15:18+08:00 ] SQL:  RunTime:0.002820s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:18+08:00 ] SQL:  RunTime:0.014272s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594103 ) LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.064345s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.003270s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.003157s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.001067s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.001067s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.006168s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.001218s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.003302s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.002767s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.010396s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594104 ) LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.002778s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:19+08:00 ] SQL:  RunTime:0.004797s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594104 ) LIMIT 1 
+[ 2016-03-10T15:15:20+08:00 ] SQL:  RunTime:0.002825s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:20+08:00 ] SQL:  RunTime:0.003324s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594105 ) LIMIT 1 
+[ 2016-03-10T15:15:20+08:00 ] SQL:  RunTime:0.002975s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:20+08:00 ] SQL:  RunTime:0.006310s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594105 ) LIMIT 1 
+[ 2016-03-10T15:15:20+08:00 ] SQL:  RunTime:0.002850s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:20+08:00 ] SQL:  RunTime:0.003132s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594105 ) LIMIT 1 
+[ 2016-03-10T15:15:21+08:00 ] SQL:  RunTime:0.003308s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:21+08:00 ] SQL:  RunTime:0.010976s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594106 ) LIMIT 1 
+[ 2016-03-10T15:15:21+08:00 ] SQL:  RunTime:0.003109s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:21+08:00 ] SQL:  RunTime:0.003002s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594106 ) LIMIT 1 
+[ 2016-03-10T15:15:21+08:00 ] SQL:  RunTime:0.002659s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:21+08:00 ] SQL:  RunTime:0.004556s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594106 ) LIMIT 1 
+[ 2016-03-10T15:15:22+08:00 ] SQL:  RunTime:0.002946s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:22+08:00 ] SQL:  RunTime:0.003394s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594107 ) LIMIT 1 
+[ 2016-03-10T15:15:22+08:00 ] SQL:  RunTime:0.003596s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:15:22+08:00 ] SQL:  RunTime:0.003176s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594107 ) LIMIT 1 
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.000322s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594609")
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.002744s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.002761s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594594 ) LIMIT 1 
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.000341s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594609")
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.002990s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.002776s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594594 ) LIMIT 1 
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.000418s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594609")
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.003915s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.005188s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594594 ) LIMIT 1 
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.000323s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594609")
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.009850s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:29+08:00 ] SQL:  RunTime:0.005802s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594594 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.004945s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594610")
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.009620s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.002776s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594595 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.000622s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594610")
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.002969s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.002811s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594595 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.000354s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594610")
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.003050s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.002989s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594595 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.000326s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594610")
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.002912s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.002930s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594595 ) LIMIT 1 
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.000468s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594610")
+[ 2016-03-10T15:23:30+08:00 ] SQL:  RunTime:0.003176s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.002740s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594595 ) LIMIT 1 
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.000340s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594611")
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.004262s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.011871s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594596 ) LIMIT 1 
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.000304s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594611")
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.004477s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.007380s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594596 ) LIMIT 1 
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.003352s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594611")
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.002785s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:31+08:00 ] SQL:  RunTime:0.004095s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594596 ) LIMIT 1 
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.000312s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594612")
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.012369s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.004411s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594597 ) LIMIT 1 
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.000314s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594612")
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.003072s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.002853s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594597 ) LIMIT 1 
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.000348s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594612")
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.003013s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.002922s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594597 ) LIMIT 1 
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.000352s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594612")
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.003089s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:32+08:00 ] SQL:  RunTime:0.003240s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594597 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.000341s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594613")
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.002897s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.004068s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594598 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.000434s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594613")
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.002968s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.003294s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594598 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.002850s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594613")
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.003396s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.002874s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594598 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.000331s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594613")
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.002902s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.003181s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594598 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.000399s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594613")
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.003023s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:33+08:00 ] SQL:  RunTime:0.014080s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594598 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.000347s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594614")
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.002822s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.002992s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594599 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.000323s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594614")
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.003118s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.002765s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594599 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.000326s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594614")
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.003301s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.002699s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594599 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.000314s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594614")
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.003078s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.002776s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594599 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.000322s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594614")
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.003184s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:34+08:00 ] SQL:  RunTime:0.003328s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594599 ) LIMIT 1 
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.000391s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594615")
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.004156s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.002815s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594600 ) LIMIT 1 
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.000350s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594615")
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.008467s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.002969s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594600 ) LIMIT 1 
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.000381s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594615")
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.005539s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.004708s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594600 ) LIMIT 1 
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.000343s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594615")
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.002899s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:35+08:00 ] SQL:  RunTime:0.004783s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594600 ) LIMIT 1 
+[ 2016-03-10T15:23:36+08:00 ] SQL:  RunTime:0.000309s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594616")
+[ 2016-03-10T15:23:36+08:00 ] SQL:  RunTime:0.002942s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:36+08:00 ] SQL:  RunTime:0.002984s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594601 ) LIMIT 1 
+[ 2016-03-10T15:23:36+08:00 ] SQL:  RunTime:0.000348s SQL = REPLACE INTO ts_user_online (`uid`,`ctime`) VALUES ("1", "1457594616")
+[ 2016-03-10T15:23:36+08:00 ] SQL:  RunTime:0.002966s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:36+08:00 ] SQL:  RunTime:0.002788s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594601 ) LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.047995s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.000429s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.002591s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.000787s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.000855s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.000762s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.000876s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.000798s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.002995s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:38+08:00 ] SQL:  RunTime:0.002862s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594603 ) LIMIT 1 
+[ 2016-03-10T15:23:41+08:00 ] SQL:  RunTime:0.002908s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `is_del` = 0 ) AND ( `is_read` = 0 ) LIMIT 1 
+[ 2016-03-10T15:23:41+08:00 ] SQL:  RunTime:0.004311s SQL = SELECT count(1) as count FROM `ts_app_message` WHERE ( `to_uid` = 1 ) AND ( `ctime` >= 1457594606 ) LIMIT 1 

@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>智测云测试报告</title>
+    <link rel="shortcut icon" href="__THEME__/favicon.ico" />
+<style>
+﻿/*新样式*/
+*{font-family:微软雅黑;}
+* {box-sizing: border-box;}
+a,a:hover,a:visited{text-decoration:none;}
+a:focus{outline: none;text-decoration:none;}
+a{text-decoration:none;}
+p{margin:10px 0;}
+ul{padding-left:0}
+ul li{list-style-type:none}
+img{border:0;vertical-align: middle;}
+.blue,.blue a{color:#24a9e4;background:none;}
+.white,.white a{color:#fff;background:none;border:none;height:auto;}
+.darkgray,.darkgray a{color:#333}
+.gray,.gray a{color:#666}
+.lightgray,.lightgray a{color:#999}
+.green,.green a{color:#94bd39}
+.greenBg{background:#94bd39}
+.red,.red a{color:#e74d57}
+.redBg{background:#f35d4e;color:#FFFFFF;}
+.yellowBg{background:#fa9c22;color:#FFFFFF;}
+.lightgrayBg{background:#EEEEEE}
+.blueBg{background:#25a3cb}
+.lightblueBg{background:#99d5ed}
+.lightgreenBg{background:#eaf4f3}
+.error, .error a{color:#e74c57;font-size:12px;}
+button{height:35px;line-height:35px; color:#FFFFFF; border:0; border-radius:5px;}
+button a{color:#FFFFFF;}
+ .center{width:880px; margin:0 auto;}
+.button{width:300px;font-size:14px}
+.col-md-6{padding:0;width: 50%; float:left;}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {float: left;min-height: 1px;padding-left: 15px;padding-right: 15px;position: relative;}
+.record .right .compatible_basic .row div {
+    line-height: 35px;
+    text-align: center;
+}
+td, th {padding-bottom: 0;padding-left: 0;padding-right: 0;padding-top: 0;}
+.record .right table tr {height: 40px;line-height: 40px;}
+.record .right .appinfo .appinfo_content table td {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: #ffffff;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: #ffffff;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-right-color: #ffffff;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-top-color: #ffffff;
+    border-top-style: solid;
+    border-top-width: 2px;
+}
+.col-md-8 {width: 66.6667%;}
+.record .right table tr td {border-bottom-color: #e1e1e1;border-bottom-style: solid;border-bottom-width: 1px;text-align: center;width: 173px;}
+/*兼容性测试报告*/
+.record .right>h4{margin-left:20px;}
+.record .right>h4 select{border-radius:3px;height:30px;line-height:30px;margin-right:10px;}
+.record .right .appinfo .appinfo_content{padding:10px;}
+.record .right .appinfo .appinfo_content div{float:left;width:180px;text-align:center;background:#d9f0f6;padding:2px;}
+.record .right .appinfo .appinfo_content div img{height:165px;}
+.record .right .appinfo .appinfo_content table img{height:25px;}
+.record .right .appinfo .appinfo_content table td{border:2px solid #FFFFFF;}
+.record .right .compatible_basic .row div{line-height:35px;border:2px solid #FFFFFF;text-align:center;padding:0;}
+.record .right .compatible_basic .row >.col-md-9{width:83%;}
+.record .right .compatible_basic .row .space{height:40px;width:16.7%;}
+.record .right .func_basic table tr td{line-height:20px;height:50px;width:125px;border:1px solid #BFBFBF;}
+.record .right .func_basic table tr >.greenBg{color:#FFFFFF;}
+.record .right .func_basic .col-md-6{min-height:100px;border-bottom:0px solid #EEEEEE;}
+.record .right .stork_list button{height:30px;line-height: 30px;width:60px;}
+.record .right .stork_list .list_title button{border:1px solid #94bd39;background:none;color:#666666;margin:0 10px; width:90px;padding:0;overflow:hidden;}
+.record .right .stork_list .list_title .active{background:#94bd39; color:#FFFFFF;}
+.record .right .stork_list .list_title{margin:15px auto;}
+.record .right .stork_list table{border:1px solid #BFBFBF;}
+.record .right .stork_list table tr td{border-left:1px solid #BFBFBF;}
+
+</style>
+<script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+<script type="text/javascript" src="__THEME__/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="__THEME__/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__THEME__/css/bootstrap.min.css" />
+</head>
+<body>
+<!--内容部分-->
+   <div class="center record">
+	  <div class="title"><center><h2>{$task['apk_name']} - 兼容性测试 - 概况报告</h2></center></div>
+        <div class="right">
+            <h4 class="row">
+                 应用测试
+            </h4>
+            <div class="appinfo">
+                <div class="appinfo_content">
+                    <div style="height: 167px;"><img src="{$task['apk_icon']}"  style="height: 150px;padding-top: 10px;" /></div>
+                    <table>
+                        <tr>
+                            <td class="lightblueBg">应用图标</td>
+                            <td class="lightgreenBg"><img src="{$task['apk_icon']}"/></td>
+                            <td class="lightblueBg">测试类型</td>
+                            <td class="lightgreenBg">{$task['businessID']|getBusinessTitle}</td>
+                        </tr>
+                        <tr>
+                            <td class="lightblueBg">应用名称</td>
+                            <td class="lightgreenBg">{$task['apk_name']}</td>
+                            <td class="lightblueBg">测试终端数</td>
+                            <td class="lightgreenBg">{$task['device_num']}</td>
+                        </tr>
+                        <tr>
+                            <td class="lightblueBg">应用版本</td>
+                            <td class="lightgreenBg">{$task['apk_version']}</td>
+                            <td class="lightblueBg">提交时间</td>
+                            <td class="lightgreenBg">{$task['ctime']}</td>
+                        </tr>
+                        <tr>
+                            <td class="lightblueBg">应用大小</td>
+                            <td class="lightgreenBg">{$task['apk_size']}KB</td>
+                            <td class="lightblueBg">测试状态</td>
+                            <td class="lightgreenBg">{$task['status']}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>    
+            <h4 class="row">
+               兼容概况
+            </h4>
+            <div class="compatible_basic">
+                <div class="row">
+                    <div class="col-md-4 noteYunTh2" id="noteYunTh2" style="width:290px;height:180px"></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-2 lightgreenBg space"> </div>
+                            <div class="col-md-9">
+                                <div class="col-md-6 lightblueBg">测试结果</div>
+                                <div class="col-md-6 lightblueBg">终端数（款）</div>
+                            </div>
+                            <div class="col-md-2 lightgreenBg" style="height:118px;line-height:118px; width:16.7%">通过概况</div>
+                            <div class="col-md-9">
+                                <div class="col-md-6 lightgreenBg">待优化</div>
+                                <div class="col-md-6 lightgreenBg">{$vo['optimize_num']}</div>
+                                <div class="col-md-6 lightgreenBg">成功</div>
+                                <div class="col-md-6 lightgreenBg">{$vo['success_num']}</div>
+                                <div class="col-md-6 lightgreenBg">通过合计</div>
+                                <div class="col-md-6 lightgreenBg" id="through_num">{$vo['optimize_num']+$vo['success_num']}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 noteYunTh2" id="noteYunTh3" style="width:290px;height:300px;"></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-2 lightgreenBg space"> </div>
+                            <div class="col-md-9">
+                                <div class="col-md-6 lightblueBg">测试结果</div>
+                                <div class="col-md-6 lightblueBg">终端数（款）</div>
+                            </div>
+                            <div class="col-md-2 lightgreenBg" style="height:230px;line-height:230px;width:16.7%">不兼容概况</div>
+                            <div class="col-md-9">
+                                <div class="col-md-6 lightgreenBg">安装失败</div>
+                                <div class="col-md-6 lightgreenBg">{$vo['install_failed_num']}</div>
+                                <div class="col-md-6 lightgreenBg">运行失败</div>
+                                <div class="col-md-6 lightgreenBg">{$vo['run_failed_num']}</div>
+                                <div class="col-md-6 lightgreenBg">启动失败</div>
+                                <div class="col-md-6 lightgreenBg">{$vo['boot_failed_num']}</div>
+                                <div class="col-md-6 lightgreenBg">功能异常</div>
+                                <div class="col-md-6 lightgreenBg">{$vo['func_exception_num']}</div>
+                                <div class="col-md-6 lightgreenBg">UI异常</div>
+                                <div class="col-md-6 lightgreenBg">{$vo['ui_exception_num']}</div>
+                                <div class="col-md-6 lightgreenBg">不兼容合计</div>
+                                <div class="col-md-6 lightgreenBg"  id="incomp_num">{$vo['install_failed_num']+$vo['run_failed_num']+$vo['boot_failed_num']+$vo['func_exception_num']+$vo['ui_exception_num']}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<php>
+    $noteYunTh2TT            = $vo['optimize_num'] + $vo['success_num'];
+    $i = 0;
+    $noteYunTh2[$i]['value'] = $vo['optimize_num'];
+    $noteYunTh2[$i]['name']  = '待优化 '.sprintf("%.0f", $vo['optimize_num']/$noteYunTh2TT*100) . '%';
+    $i ++;
+    $noteYunTh2[$i]['value'] = $vo['success_num'];
+    $noteYunTh2[$i]['name']  = '成功 '.sprintf("%.0f", $vo['success_num']/$noteYunTh2TT*100) . '%';
+
+    $tt2 =  array(
+        '安装失败' => $vo['install_failed_num'],
+        '运行失败' => $vo['run_failed_num'],
+        '启动失败' => $vo['boot_failed_num'],
+        '功能异常' => $vo['func_exception_num'],
+        'UI异常'   => $vo['ui_exception_num'],
+    );
+    function formatEchart($tt2) {
+        $noteYunTh3TT = array_sum($tt2);
+        $noteYunTh3   = array();
+        $i = 0;
+        foreach($tt2 as $key => $_one) {
+            $noteYunTh3[$i]['value'] = $_one;
+            $noteYunTh3[$i]['name']  = $key .sprintf("%.0f", $_one/$noteYunTh3TT*100) . '%';
+            $i ++;
+        }
+        return $noteYunTh3;
+    }
+    $noteYunTh3 = formatEchart($tt2);
+</php>
+        <div style="height:560px"></div>
+        <h4 class="row">性能概况</h4>
+        <div class="func_basic">
+            <table>
+                <tr>
+                    <td>平均值<br />Average</td>
+                    <td>安装时间<br /><eq name="$vo['install_time']" value="--">--<else />{$vo['install_time']}s</eq></td>
+                    <td>启动时间<br /><eq name="$vo['boot_time']" value="--">--<else />{$vo['boot_time']}s</eq></td>
+                    <td>CPU占用<br /><eq name="$vo['cpu_usage']" value="--">--<else />{$vo['cpu_usage']}%</eq></td>
+                    <td>内存占用<br /><eq name="$vo['memory_usage']" value="--">--<else />{$vo['memory_usage']}MB</eq></td>
+                    <td>流量耗用<br /><eq name="$vo['flow_use']" value="--">--<else />{$vo['flow_use']}KB</eq></td>
+                    <td>电池温度<br /><eq name="$vo['battery_temperature']" value="--">--<else />{$vo['battery_temperature']}℃</eq></td>
+                </tr>
+                <tr>
+                    <td class="nomal">最好<br>Best</td>
+                    <td class="greenBg"><eq name="vo['install_time_min']" value="--">--<else />{$vo['install_time_min_device']}<br>{$vo['install_time_min']}s</eq></td>
+                    <td class="greenBg"><eq name="vo['boot_time_min']" value="--">--<else />{$vo['boot_time_min_device']}<br>{$vo['boot_time_min']}s</eq></td>
+                    <td class="greenBg"><eq name="vo['cpu_usage_min']" value="--">--<else />{$vo['cpu_usage_min_device']}<br>{$vo['cpu_usage_min']}%</eq></td>
+                    <td class="greenBg"><eq name="vo['memory_usage_min']" value="--">--<else />{$vo['memory_usage_min_device']}<br>{$vo['memory_usage_min']}MB</eq></td>
+                    <td class="greenBg"><eq name="vo['flow_use_min']" value="--">--<else />{$vo['flow_use_min_device']}<br>{$vo['flow_use_min']}KB</eq></td>
+                    <td class="greenBg"><eq name="vo['battery_temperature_min']" value="--">--<else />{$vo['battery_temperature_min_device']}<br>{$vo['battery_temperature_min']}℃</eq></td>
+                </tr>
+                <tr>
+                    <td class="nomal">最差<br>Worst</td>
+                    <td class="redBg"><eq name="vo['install_time_max']" value="--">--<else />{$vo['install_time_max_device']}<br>{$vo['install_time_max']}s</eq></td>
+                    <td class="redBg"><eq name="vo['boot_time_max']" value="--">--<else />{$vo['boot_time_max_device']}<br>{$vo['boot_time_max']}s</eq></td>
+                    <td class="redBg"><eq name="vo['cpu_usage_max']" value="--">--<else />{$vo['cpu_usage_max_device']}<br>{$vo['cpu_usage_max']}%</eq></td>
+                    <td class="redBg"><eq name="vo['memory_usage_max']" value="--">--<else />{$vo['memory_usage_max_device']}<br>{$vo['memory_usage_max']}MB</eq></td>
+                    <td class="redBg"><eq name="vo['flow_use_max']" value="--">--<else />{$vo['flow_use_max_device']}<br>{$vo['flow_use_max']}KB</eq></td>
+                    <td class="redBg"><eq name="vo['battery_temperature_max']" value="--">--<else />{$vo['battery_temperature_max_device']}<br>{$vo['battery_temperature_max']}℃</eq></td>
+                </tr>
+            </table>
+            <h4>性能分析</h4>
+            <div class="row" style="padding-top: 24px;height:1100px">
+                <php>                   
+                    $tt2 =  array(
+                    '安装耗时分布'  => $vo['install_distribute'],
+                    '启动耗时分布'  => $vo['boot_distribute'],
+                    'cpu占用分布' => $vo['cpu_distribute'],
+                    '内存占用分布'  => $vo['memory_distribute'],
+                    '流量消耗分布'  => $vo['flow_distribute'],
+                    '电池温度分布'  => $vo['battery_distribute'],
+                    );
+                    function myt($arr){
+                    return floatval($arr);
+                    return $arr;
+                    }
+                    $i =0;
+                    $dataArr = array();
+                    foreach($tt2 as $key => $_one) {
+                    $tmpData             = json_decode($_one, true);
+                    if (empty($_one) || empty($tmpData['x']) || empty($tmpData['y'])) {
+                    continue;
+                    }
+                    $dataArr[$i]['x']    = json_encode($tmpData['x']);
+                    $tmpData['y']        = array_map('myt', $tmpData['y']);
+                    $dataArr[$i]['y']    = json_encode($tmpData['y']);
+                    $dataArr[$i]['name'] = $key;
+                    //添加横坐标的单位
+                    switch($key){
+                    case '安装耗时分布':
+                    $yname='(s)';
+                    break;
+                    case '启动耗时分布':
+                    $yname='(s)';
+                    break;
+                    case 'cpu占用分布':
+                    $yname='(%)';
+                    break;
+                    case '内存占用分布':
+                    $yname='(MB)';
+                    break;
+                    case '流量消耗分布':
+                    $yname='(KB)';
+                    break;
+                    case '电池温度分布':
+                    $yname='(℃)';
+                    break;
+                    }
+                    $dataArr[$i]['yname']=$yname;
+                    echo '<div class="col-md-6" id="J_bar_'.$i.'" style="height:320px;"></div>';
+                    $i ++;
+                    //break;
+                    }
+                </php>
+            </div>
+        </div>
+            <h4 class="row">
+                <div class="col-md-5">终端列表</div>
+            </h4>
+        <div class="stork_list">
+            <table>
+                <tr class="lightgrayBg">
+                    <td>终端品牌</td>
+                    <td>型号</td>
+                    <td>安装耗时</td>
+                    <td>启动耗时</td>
+                    <td>CPU占用</td>
+                    <td>内存占用</td>
+                    <td>测试结果</td>
+                    <td>日志</td>
+                    <td>详情</td>
+                    <td>截图</td>
+                </tr>
+                <volist id="mo" name="mobile">
+                    <tr>
+                        <td>{$mo['model']}</td>
+                        <td>{$mo['device_type']}</td>
+                        <td><eq name="mo['install_time']" value="--">--<else />{$mo['install_time']}s</eq></td>
+                        <td><eq name="mo['boot_time']" value="--">--<else />{$mo['boot_time']}s</eq></td>
+                        <td><eq name="mo['cpu_usage']" value="--">--<else />{$mo['cpu_usage']}%</eq></td>
+                        <td><eq name="mo['memory_usage']" value="--">--<else />{$mo['memory_usage']}MB</eq></td>
+                        <td><if condition="$mo['test_result'] eq 0"><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$mo['device_type'],'type'=>2))}"><span class="red">失败</span></a><elseif  condition="$mo['warning_num'] gt 0" /><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$mo['device_type'],'type'=>3))}">待优化</a><else /><span style="color: green;">成功</span></if></td>
+                        <td><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$mo['device_type'],'type'=>3))}"><button class="greenBg">日志</button></a></td>
+                        <td><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$mo['device_type']))}"><button class="blueBg">详情</button></a></td>
+                        <td><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$mo['device_type'],'type'=>4))}"><button class="yellowBg">截图</button></td>
+                    </tr>
+                </volist>
+            </table>
+        </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+function getOption_comp(data) {
+   var option = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : '60%',
+            y : 'center',
+            selectedMode:false,
+            data:data
+        },
+        calculable : false,
+        series : [
+            {
+                name:'测试结果',
+                type:'pie',
+                radius : [40, 60],
+                
+                // for funnel
+                x: '60%',
+                width: '35%',
+                center : ['35%', '50%'],
+                funnelAlign: 'left',
+                itemStyle :　{
+                    normal : {
+                        label : {
+                            show : false
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    }
+                }, 
+                data:data
+            }
+        ]
+    };
+
+    return option;
+}
+// 基于准备好的dom，初始化echarts图表
+var i=document.getElementById('through_num').innerHTML;
+if(i!=0){
+var noteYunTh2     = echarts.init(document.getElementById('noteYunTh2'));
+var noteYunTh2Data = <?php echo json_encode($noteYunTh2); ?>;
+noteYunTh2.setOption(getOption_comp(noteYunTh2Data));}
+var j=document.getElementById('incomp_num').innerHTML;
+if(j!=0){
+var noteYunTh3     = echarts.init(document.getElementById('noteYunTh3'));
+var noteYunTh3Data = <?php echo json_encode($noteYunTh3); ?>;
+noteYunTh3.setOption(getOption_comp(noteYunTh3Data));}
+
+function getOption_prop(x,y,name,yname) {
+    var option = {
+        tooltip : {
+            trigger: 'axis',
+            formatter: function (params,ticket,callback){
+                return params[0][1]+yname+"<br/>"+params[0][0]+":"+params[0][2]+"%";
+            }
+        },
+        legend: {
+            data:[name]
+        },
+        color: [ 
+            '#87cefa', '#da70d6', '#32cd32', '#6495ed', '#ff7f50',
+            '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0', 
+            '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700', 
+            '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0' 
+        ],
+        calculable : false,
+        xAxis : [
+            {   
+                name:"单位"+yname,
+                type : 'category',
+                axisLabel:{
+                    rotate:23
+                },
+                data : x
+            }
+        ],
+        yAxis : [
+            {   
+                name:'百分比（%）',
+                max:100,
+                type : 'value',
+                axisLabel: {
+                 show: true,
+                 interval: 'auto',
+                 formatter: '{value} %',
+
+             } 
+            }
+        ],
+        grid:{
+            x:40,
+            y:40,
+            x2:60,
+            y2:80
+        },
+        series : [
+            {
+                symbolSize : [4, 2],
+                name:name,
+                type:'bar',
+                data:y,
+                itemStyle:{
+                    normal:{
+                      label:{
+                        show:true,
+                        position:'top',
+                        textStyle:{
+                          fontSize:12
+                        },
+                        formatter:function(a,b,c){
+                           return a.data+"%";
+                        }
+                      }
+                    }
+                }
+            }
+        ]
+    };
+
+    return option;
+}
+<php> foreach($dataArr as $key => $_one){</php>
+var J_bar_<php>echo $key;</php> = echarts.init(document.getElementById('J_bar_'+<php>echo $key;</php>));
+J_bar_<php>echo $key;</php>.setOption(getOption_prop(<php>echo $_one['x'];</php>, <php>echo $_one['y'];</php>, '<php>echo $_one['name'];</php>', '<php>echo $_one['yname'];</php>'));
+<php>}</php>
+</script>
+</html>

@@ -1,0 +1,92 @@
+<include file="../Public/_header" />
+
+<!-- 编辑器样式文件 -->
+<link href="__PUBLIC__/js/editor/editor/theme/base-min.css" rel="stylesheet"/>
+<!--[if lt IE 8]>
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-sprite-min.css" rel="stylesheet"/>
+<![endif]-->
+<!--[if gte IE 8]><!-->
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-min-datauri.css" rel="stylesheet"/>
+<!--<![endif]-->
+
+<include file="__THEME__/editor" /> 
+
+<div class="so_main">
+    <div id="search_divadd" class="search_div" >
+        <div class="page_tit">测试详情 [ <a href="{:U('admin/Content/appTask_net')}">返回</a> ]</div>
+        <div class="form2">
+            <form method="post" action="" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{$id}"/>
+                <dl class="lineD">
+                    <dt>APK名称：</dt>
+                    <dd>
+                        {$task_look.apk_name|}&nbsp;{$task_look.apk_version} &nbsp;&nbsp;<a href="{$task_look.apkurl}">[下载链接]</a>
+                    </dd>
+                </dl>
+                <dl style="*zoom:1">
+                    <dt>APK图标：</dt>
+                    <dd>
+                        <img src="{$task_look.apk_icon}" />
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>是否需要登录：</dt>
+                    <dd>
+                        <eq name="task_look['is_login']" value="1">是</eq>   
+                        <eq name="task_look['is_login']" value="0">否 </eq>
+                    </dd>
+                </dl>
+                <eq name="task_look['is_login']" value="1">
+                <dl class="lineD">
+                    <dt>账户类型：</dt>
+                    <dd>
+                        <eq name="task_look.account_type" value="1">可共用</eq>
+                        <eq name="task_look.account_type" value="0">不可共用</eq>
+                    </dd>
+                    <dt>账户：</dt>
+                    <dd>
+                        {$account[0]['username']}&nbsp;
+                    </dd>
+                     <dt>密码：</dt>
+                    <dd>
+                        {$account[0]['password']}&nbsp;
+                    </dd>
+                </dl>
+                </eq>
+                <volist name="memo['data']" key="k" id="mo">
+                <dl class="lineD">
+                    <dt>测试模块{$k}：</dt>
+                    <dd>
+                        <textarea rows="5" cols="100">
+模块名称：{:urldecode($mo['info'])} 
+测试步骤：
+{:urldecode($mo['step'])}
+                        </textarea>
+                    </dd>
+                </dl>
+                </volist>
+                
+                <dl class="lineD">
+                    <dt>姓名：</dt>
+                    <dd>
+                        {:urldecode($memo['name'])} &nbsp;
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>电话：</dt>
+                    <dd>
+                        {:urldecode($memo['tel'])} &nbsp;
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>邮件：</dt>
+                    <dd>
+                        {:urldecode($memo['email'])}&nbsp; 
+                    </dd>
+                </dl>
+            </form>
+        </div>
+    </div>
+</div>
+
+<include file="../Public/_footer" />

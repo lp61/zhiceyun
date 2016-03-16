@@ -1,0 +1,27 @@
+<div class="title">
+    <ul>
+        <li <php>if(MODULE_NAME =="TestRecord"){</php>class="active"<php>}</php>>
+            <a href="{:U('home/TestRecord/index')}">测试记录</a>
+        </li>
+        <li <php>if(MODULE_NAME =="Account" && ( ACTION_NAME=='index' || ACTION_NAME=='security')){</php>class="active"<php>}</php>>
+            <a href="{:U('home/Account/index')}">账户管理</a>
+        </li>
+        <li <php>if(MODULE_NAME =="Account" && (ACTION_NAME=='recharge')){</php>class="active"<php>}</php>>
+            <a href="{:U('home/Account/recharge')}">测试积分中心</a>
+        </li>
+        <li <php>if(MODULE_NAME =="Account" && ACTION_NAME=='invite'){</php>class="active"<php>}</php>>
+            <a href="{:U('home/Account/invite')}">好友邀请</a>
+        </li>
+        <li <php>if(MODULE_NAME =="Message"){</php>class="active"<php>}</php>>
+            <a href="{:U('home/Message/index')}">消息中心</a>
+        </li>
+        <!--<li>
+            <a href="{:U('home/Appinfo/article')}">测试圈</a>
+        </li>-->
+        <li <php>if(MODULE_NAME =="Account" &&(ACTION_NAME=='feedback'|| ACTION_NAME=='feedbackList')){</php>class="active"<php>}</php>>
+            <a href="{:U('home/Account/feedback')}">用户反馈</a>
+        </li>
+    </ul>
+    <button data-ahref="J_to_a" class="active">创建测试</button>
+    <a href="{:U('home/Apptest/index')}" id="J_to_a" class="J_hide"></a>
+</div>

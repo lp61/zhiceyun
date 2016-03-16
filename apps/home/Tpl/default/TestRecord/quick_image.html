@@ -1,0 +1,31 @@
+<include file="__THEME__/header" />
+<script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">快速测试</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <p class="blue">测试记录</p>
+        <include file="_quick_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <div class="screen">
+            <h4 class="row">
+                <div class="col-md-5">屏幕截屏</div>
+                <include file="_menu_quick_select" />
+            </h4>
+            <div class="phone">
+                <php> if (!empty($data)){</php>
+                <volist id="vo" name="data">
+                    <a href="{$vo.url}" target="_blank"><img src="{$vo.url}" /></a>
+                </volist>
+                <div class="sofupage Twitter-green toggle" style="margin:0px auto;width: 800px;clear: both;text-align: center;">
+                    {$html}
+                </div>
+                <php>}</php>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="clear:both;height:10px;"></div>
+<include file="__THEME__/footer" />

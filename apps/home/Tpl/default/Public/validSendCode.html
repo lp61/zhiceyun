@@ -1,0 +1,42 @@
+<include file="__THEME__/header" />
+<div class="retrieve">
+    <form action="{:U('home/Public/validSendCode')}" method="post">
+        <div class="center">
+            <include file="_sendPwd_menu" />
+            <div style="clear:both"></div>
+            <div class="white order order2">
+                <span class="blueBg num">1</span>
+                <span class="line blueBg"></span>
+                <span class="blueBg num">2</span>
+                <span class="line numBg"></span>
+                <span class="numBg num">3</span>
+            </div>
+            <div class="content contentEmail">
+                <span class="blue one">输入注册邮箱</span>
+                <span class="blue two">输入邮箱中的验证码</span>
+                <span class="lightgray three">重置密码</span>
+            </div>
+            <div class="phonechange2">
+                <php>if ($status){</php>
+                <p><span class="gray">您的邮箱验证码已失效，请点击“</span><a href="mailto:{$resetInfo['email']}" class="blue">重新发送验证邮件</a><span class="gray">”再次发送邮箱验证码。</span></p>
+                <php>}</php>
+                <div><input type="text" placeholder="请输入邮箱验证码" name="code"></div>
+                <div><button class="button blueBg" type="submit">下一步</button></div>
+                <p class="lightgray">输入邮箱中的验证码，完成下一步</p>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    seajs.use(['jquery', 'validator', 'js/validator/validator.css'], function ($) {
+        $.validator("code")
+                .setTipSpanId("tip_code")
+                .setRequired("请填写邮件验证码")
+                .setCallback(function (str) {
+                    return str.length == 6;
+                }, "邮件验证码不正确")
+                .setAjax("{:U('home/Public/doValidSendCode')}", "验证码不正确");
+    });
+	$(".title_Arrow").css({"margin-top":"-11px","margin-left":"85px"})
+</script>
+<include file="__THEME__/footer" />

@@ -1,0 +1,29 @@
+<include file="__THEME__/header" />
+<style>
+    .IOT .IOT_banner{background:url(__THEME__/images/IOT_banner.png) no-repeat center;text-align:center;}
+	.IOT .IOT_banner h1{padding-top:45px;}
+	.IOT .IOT_banner h2{padding-bottom:215px;}
+</style>
+<div class="IOT experience">
+    <div class="center title" style="height: 45px;line-height: 45px;"><a href="{:U('home/Index/index')}" class="gray">首页 > </a><a href="#" class="blue">IOT</a></div>
+	<div class="IOT_banner">
+        <div class="center">
+            <h1 class="white">为智能硬件全生命周期</h1>
+            <h2 class="white">提供技术支持与服务</h2>
+        </div>
+    </div>
+    <form action="{:U('home/Appinfo/iot_ask')}" method="post" id="subForm" >
+        <div class="center experienceAsk_content">
+            <h2 class="blue">信息收集</h2>
+            <div><input type="text" name="company" placeholder="单位名称"/></div>
+            <div><input type="text" name="address" placeholder="地址"/></div>
+            <div><input type="text" name="contact" placeholder="联系人"/></div>
+            <div><input type="text" name="email" placeholder="Email"/></div>
+            <div><input type="text" name="phone" placeholder="电话"/></div>
+            <div><input type="text" name="fax" placeholder="传真"/></div>
+            <div><input type="text" name="other" placeholder="QQ/微信"/></div>
+            <div><button class="blueBg" type="submit" >提交</button></div>
+        </div>
+    </form>
+</div>
+<include file="__THEME__/footer" />

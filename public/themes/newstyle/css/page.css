@@ -1,0 +1,33 @@
+﻿.sofupage a{text-decoration:none;}
+.sofupage a:link{text-decoration:none;}
+.sofupage a:hover{text-decoration:none;}
+.sofupage a:visited{text-decoration:none;}
+.sofupage a.nopage{cursor:default;}
+
+.Twitter-green a{
+    display:inline-block;
+    padding:2px 12px 2px;
+    margin-bottom:0;
+    margin-right:8px;
+    font-size:14px;
+    line-height:28px;
+    color:#333333;
+    text-align:center;
+    vertical-align:middle;
+    cursor:pointer;
+    background-color: #fff;
+    background-repeat:repeat-x;
+    border:1px solid #ccc;
+    border-bottom-color:#ccc;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+.Twitter-green a:hover{
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+.Twitter-green a.current{
+    background-color:#8fc320;
+    border:1px solid transparent;
+}

@@ -1,0 +1,35 @@
+<IfModule mod_rewrite.c>
+# .htaccess
+# ThinkSNS
+#
+# 为了正常启用URL Rewrite，请将apache配置文件中“LoadModule rewrite_module modules/mod_rewrite.so”
+# 前的注释去掉，并将apache的DocumentRoot开启AllowOverride
+# 
+# 如下所示为apache下httpd.conf的代码片段：
+# <Directory "YourDocumentRoot">
+#   Options Indexes FollowSymLinks ExecCGI Includes
+#   AllowOverride All
+#   Order allow,deny
+#   Allow from all
+# </Directory>
+#
+
+# 是否开启URL Rewrite.
+RewriteEngine On
+
+# 根目录名称 [注意：前后都有"/"]
+# 请将下面的“/thinksns/”替换成您的根目录名称。如：
+# 如果您的站点地址为：http://abc.com，那么请将“/thinksns/”替换为"/"
+# 如果您的站点地址为：http://abc.com/d/e/f，那么请将“/thinksns/”替换为"/d/e/f/"
+
+
+RewriteRule ^/?([a-zA-Z0-9]+)/?$  index.php?app=$1&%{QUERY_STRING} [L]
+RewriteRule ^/?([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/?$ index.php?app=$1&mod=$2&%{QUERY_STRING} [L]
+RewriteRule ^/?([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/?$  index.php?app=$1&mod=$2&act=$3&%{QUERY_STRING} [L]
+
+RewriteRule ^/?home/TestRecord/reportShow/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/?$  index.php?app=home&mod=TestRecord&act=reportShow&package_type=$1&uuid=$2&%{QUERY_STRING} [L]
+
+
+# 非法链接
+RewriteRule ^/?([a-zA-Z0-9]+)$   index.php?app=home&mod=Public&act=error404&%{QUERY_STRING} [L]
+</IfModule>

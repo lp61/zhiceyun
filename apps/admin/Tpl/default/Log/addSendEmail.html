@@ -1,0 +1,96 @@
+<include file="../Public/_header" />
+
+<!-- 编辑器样式文件 -->
+<link href="__PUBLIC__/js/editor/editor/theme/base-min.css" rel="stylesheet"/>
+<!--[if lt IE 8]>
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-sprite-min.css" rel="stylesheet"/>
+<![endif]-->
+<!--[if gte IE 8]><!-->
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-min-datauri.css" rel="stylesheet"/>
+<!--<![endif]-->
+
+<include file="__THEME__/editor" /> 
+
+<div class="so_main">
+    <div id="search_divadd" class="search_div" >
+        <div class="page_tit">群发 [ 
+        <php>if ($uids){</php>
+        <a href="{:U('admin/User/user')}">返回</a>
+        <php>}else{</php>
+        <a href="{:U('admin/Log/sendEmail')}">返回</a>
+        <php>}</php>
+         ]</div>
+        <div class="form2">
+        <form method="post" action="" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$id}"/>
+
+        <dl class="lineD">
+            <dt>收件人：</dt>
+            <dd>
+                <php>if ($uids){</php>
+                <volist id="vo" name="userList">
+                    {$vo['email']},&nbsp;
+                </volist>&nbsp;
+                <input type="hidden" name="uids" value="{$uids}">
+                <php>}else{</php>
+                <select name="user_group_id">
+                    <option value="-1">请选择</option>
+                    <option value="0">全部用户</option>
+                    <volist name="user_group_list" id="vo">
+                    <option value="{$vo.user_group_id}">{$vo.title}</option>
+                    </volist>
+                </select>
+                <php>}</php>
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>邮件标题：</dt>
+            <dd>
+                <input name="subject" type="text" value="{$subject}">
+            </dd>
+        </dl>
+
+        <php>if ($id){</php>
+        <dl class="lineD">
+            <dt>邮件分类：</dt>
+            <dd>
+                {$appEmailSendConfig[$type]['name']} - {$appEmailSendConfig[$type]['send_type_name']}
+            </dd>
+        </dl>
+        <php>}</php>
+
+        <dl>
+            <dt>邮件内容：</dt>
+            <dd>
+                <p>当前为源码编辑模式，<!-- <a href="#" onclick="AddEditor()">点击这里使用编辑器</a> --></p>
+                <textarea name="content" id="content" style="width:780px;height:200px">{$content}</textarea>
+                <p>以“ftp://”，“http://””，“https://”，“mailto://”开始，则直接跳转至该链接</p>
+            </dd>
+        </dl>
+        
+        <div class="page_btm Toolbar_inbox J_submit">
+            <a href="{:U('admin/Log/sendEmail')}" class="btn_a">
+                <span class="search_action">&nbsp;&nbsp;放弃&nbsp;&nbsp;</span>
+            </a>            
+            <input type="submit" class="btn_b" value="发送" onclick=""/>
+            <p style="color:red;">请慎重选择群发</p>
+        </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+<include file="../Public/_footer" />
+<script>
+function AddEditor(){
+    loadEditor("content");  //解决2个编辑器问题
+}
+AddEditor();
+$(function(){
+    $('input[type="submit"]').click(function(event) {
+        if (!confirm('请检查，确保群发信息正确，确定群发？')) {
+            return false;
+        }
+    });
+});
+</script>

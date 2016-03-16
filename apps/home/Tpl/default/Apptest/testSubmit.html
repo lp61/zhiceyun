@@ -1,0 +1,36 @@
+<include file="__THEME__/header" />
+<!--内容部分-->
+<div class="weekTest">
+    <div class="center">
+        <h4 class="gray">首页 > 应用测试 > <span class="blue">{$test_name}</span></h4>
+        <div class="success_content">
+            <h3 class="blue">恭喜，您已成功提交测试！</h3>
+            <div><img style="width:157px" src="__THEME__/images/aboutUsEr.png"/></div>
+            <p>关注智测云微信公众号，实时查询测试状态<br />获得更多测试优惠！</p>
+        </div>
+    </div>
+</div>
+<script>
+    var noJump = '{$noJump}';
+    if (noJump != 1) {
+        function Jump() {
+            window.location.href = '{$jumpUrl}';
+        }
+        document.onload = setTimeout("Jump()", {$waitSecond} * 1000);
+    }
+    $(function () {
+        setTimeout(function () {
+            if (window.innerHeight) {
+                winHeight = window.innerHeight;
+            } else if ((document.body) && (document.body.clientHeight)) {
+                winHeight = document.body.clientHeight;
+            }
+            var footFixHeight = winHeight - $(".footer").position().top - $(".footer").outerHeight();
+            var centerHeight = $(".weekTest").outerHeight() + footFixHeight;
+            if (footFixHeight > 0) {
+                $(".weekTest").css("min-height", centerHeight + "px");
+            }
+        }, 10);
+    });
+</script>
+<include file="__THEME__/footer" />

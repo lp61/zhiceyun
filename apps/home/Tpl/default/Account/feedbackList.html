@@ -1,0 +1,97 @@
+<include file="__THEME__/header" />
+<style>
+p {margin: 0 0 10px;}
+</style>
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>>用户信息管理><span class="blue">用户反馈</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <p class="blue">用户反馈</p>
+        <include file="_feedback_menu" />
+    </div>
+    <div class="right">		
+        <include file="_menu" />
+        <div class="offer">
+            <h4 class="blue"><eq name="type" value="2">回复我的问题</eq><eq name="type" value="1">我提过的问题</eq></h4>
+            <table>
+                <tr class="blue">
+                    <td>工单编号</td>
+                    <td>主题</td>
+                    <td>建单时间</td>
+                    <td>更新时间</td>
+                    <td>状态</td>
+                </tr>
+            </table>
+            <volist id="vo" name="data" key="k">
+                <table class="conent">  
+                    <tr id="{$vo.id}">
+                        <td>{$vo['id']}</td>
+                        <td>{$vo.title}</td>
+                        <td>{:date('Y-m-d H:i', $vo['ctime'])}</td>
+                        <td>{:date('Y-m-d H:i', $vo['mtime'])}</td>
+                        <td>
+                        <php>
+                            if ($vo['isdel'] == 1){
+                                echo '<span style="color:red">'.L('del_by_admin').'</span>';
+                            }else{
+                                if( $vo['is_reply'] == '1' ) {
+                                    echo '已回复';
+                                } else {
+                                    echo '<span style="color:#999">未回复</span>';
+                                }
+                            }
+                        </php>
+                        <img src="__THEME__/images/arrowdown1.png"/><img style="display:none;" src="__THEME__/images/arrowdown.png"/>
+                        </td>
+                    </tr>
+                </table>   
+                <div class="detail">
+                    <div class="blue row">
+                        <div class="col-md-1"><img src="__THEME__/images/record13.png"/></div>
+                        <div class="col-md-11">{$vo['content']}</div>
+                    </div>
+                    <div class="gray row">
+                        <div class="col-md-1"><img src="__THEME__/images/record14.png"/></div>
+                        <div class="col-md-11"><span class="J_msgContent_info J_msgContent_info_{$vo.id}"></span></div>
+                    </div>
+                    <div class="blue up"><img src="__THEME__/images/arrowdown2.png"/>&nbsp;收起</div>
+                </div>
+            </volist>
+            <div class="sofupage Twitter-green" style="margin:12px auto;width: 800px;clear: both;text-align: center;">
+                {$html}
+            </div>
+        </div>					
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />
+
+<script>
+    $(function () {
+        //详情点击显示(background)
+        $(".detail").hide();
+        $(".conent tr").click(function () {
+            //$(this).css("background","#EEEEEE");
+            var _this = $(this).next(".detail").find('.J_msgContent_info');
+            var id = $(this).attr('id');
+            var url = '{:U("home/Account/feedbackInfo")}';
+            if (_this.html()) {
+                return false;
+            }
+            $.post(url, {id: id}, function (data) {
+                if (data) {
+                    $('.J_msgContent_info_' + id).html(data.content);
+                } else {
+                    $('.J_msgContent_info_' + id).html('暂未回复~~');
+                }
+            }, 'json');
+            $(this).parent().parent().next().toggle();
+            $(this).find("img").toggle();
+        });
+        $(".detail .up").click(function () {
+            $(this).parent().hide();
+            $(this).parent().prev().find("img").toggle();
+        });
+    });
+</script>

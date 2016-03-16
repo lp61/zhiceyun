@@ -1,0 +1,31 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><a href="{:U('home/TestRecord/compatible', array('uuid'=>$uuid))}">{$business_title|getBusinessTitle}</a>><span class="blue">详细报告</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <include file="_compatible_detail_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <include file="_share_menu_select" />
+        <h4 class="detail_title">
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>1))}"><button>终端详细报告</button></a> 
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>2))}"><button>测试结果</button></a>
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>3))}"><button>LOG</button></a>
+            <button class="active">截图</button>
+        </h4>
+        <div class="stork_screen">
+            <php> if (!empty($data)){</php>
+            <volist id="vo" name="data">
+                <a href="{$vo.url}" target="_blank"><img src="{$vo.url}" /></a>
+            </volist>
+            <div class="sofupage Twitter-green toggle" style="margin:0px auto;width: 800px;clear: both;text-align: center;">
+                {$html}
+            </div>
+            <php> }</php>
+        </div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

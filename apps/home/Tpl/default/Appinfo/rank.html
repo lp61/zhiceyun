@@ -1,0 +1,49 @@
+<include file="__THEME__/header" />
+<style>
+.testIDB .list .listBL{
+    width: 100%;
+}
+.testIDB .list .listBL li .myLf{
+    width: 190px;
+    display: inline-block;
+}
+.testIDB .list .listBL li .myRf{
+    padding-left: 20px;
+}
+.testIDB .list .listBL li .myRf a{
+    color:#01a3d2
+}
+</style>
+<div style="clear:both"></div>
+<div class="center2">
+    <div class="aboutusT"> 
+        <p class="breadcrumb"><a href="{:U('home/Index/index')}">首页</a> > <span> <a href="#">测试认证</a></span></P>
+    </div>
+    <div class="testId"><img src="__THEME__/images/blockCode.png"/><a href="#">测试认证</a></div>
+    <div class="testIDB">
+        <volist id ="vo" name="listData" key="k">
+            <div class="list <php>if ($k%3 ==2) echo 'middle';</php>" style="height:auto;">
+                <div class="listT">
+                    <img src="__THEME__/images/huangguang.png"/>
+                    <a href="#">{$appRankConfig[$k]['name']}TOP10</a>
+                </div>
+                <ul class="listBL">
+                <volist id ="vo1" name="vo" key="kk">
+                    <li <php> if ($kk%2 ==0) echo 'class="lightblue"';</php>>
+                        <span class="myLf">
+                            <img src="{$vo1['pic_url']}" width="36px" height="36px"/>
+                            <a href="#">{$vo1['name']}</a>
+                        </span>
+                        <span class="myRf"><a href="#">{$vo1['score']}分</a></span>
+                    </li>
+
+                </volist>
+                </ul>
+            </div>
+        </volist>
+    </div>
+    <img src="__THEME__/images/kite.png"/>
+</div>
+<div style="clear:both"></div>
+
+<include file="__THEME__/footer" />

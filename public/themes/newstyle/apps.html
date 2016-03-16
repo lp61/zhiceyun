@@ -1,0 +1,46 @@
+<div class="user_app">
+    <div class="user_app_top"></div>
+    <div class="user_app_box">
+        <div class="userinfo" style="color:#fff">
+            <h2>智测云用户中心</h2>
+            <h2>{$userInfoCache['uname']}</h2>
+            <php>
+                $user_credit = $userInfoCache['credit'];
+                foreach($user_credit as $k => $v) {
+            </php>
+                <p>{$v['alias']}：<a href="{:U('home/Account/credit')}" title="{$v['credit']}"><span class="cRed">{$v['credit']}</span></a></p>
+            <php>
+                }
+                unset($user_credit);
+            </php>
+        </div>
+        <!--关注-->
+        <div class="user_follow app_line">
+        </div>
+        <!--关注 end-->
+        <div class="celerity_menu app_line">
+            <ul>
+                <li><a href="{:U('home/User/index')}" {:getMenuState( 'home/User/index')}>
+                <span class="ico_side ico_home"></span>我的首页
+                </a></li>
+                <li><a href="{:U('home/Account/index')}" {:getMenuState( 'home/Account/index')}>
+                <span class="ico_side"></span>个人资料
+                </a></li>
+            </ul>
+        </div>
+        <div class="celerity_menu app_line">
+            <ul>
+                <volist name="install_app" id="vo">
+                    <php>if(empty($vo['app_alias'])) continue;</php>
+                    <li>
+                        <a href="{$vo.app_entry}" title="{$vo.description}" class="user_app_link">
+                            <php>if($vo['sidebar_entry']){</php>
+                            <span class="user_app_entry" target="_blank" url="{$vo.sidebar_entry}">{$vo.sidebar_title}</span>
+                            <php>}</php>
+                            <img src="{:getAppIconUrl($vo['icon_url'],$vo['app_name']);}" class="user_app_icon" />{$vo.app_alias|getShort=###,5,'...'}</a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>

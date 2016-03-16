@@ -1,0 +1,9 @@
+<p class="blue">概述报告</p>
+<ul>
+    <li <if condition="(ACTION_NAME eq 'network') OR (ACTION_NAME eq 'report')">class="gray active"<else /> class="gray"</if> ><a href="{:U('home/TestRecord/network', array('uuid'=>$uuid))}">基本信息</a></li>
+    <li <eq name="ACTION_NAME" value="network_complex">class="gray active"<else /> class="gray"</eq> ><a href="{:U('home/TestRecord/network_complex', array('uuid'=>$uuid))}">综合测试</a></li>
+    <li <eq name="ACTION_NAME" value="network_cache">class="gray active"<else /> class="gray"</eq> ><a href="{:U('home/TestRecord/network_cache', array('uuid'=>$uuid))}">缓存统计</a></li>
+    <li <eq name="ACTION_NAME" value="network_transfer">class="gray active"<else /> class="gray"</eq> ><a href="{:U('home/TestRecord/network_transfer', array('uuid'=>$uuid))}">传输统计</a></li>
+    <li <eq name="ACTION_NAME" value="network_image">class="gray active"<else /> class="gray"</eq> ><a href="{:U('home/TestRecord/network_image', array('uuid'=>$uuid))}">屏幕截图</a></li>
+    <li class="img"><img src="__THEME__/images/record1.png" /></li>
+</ul>

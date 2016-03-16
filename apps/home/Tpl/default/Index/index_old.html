@@ -1,0 +1,114 @@
+<include file="__THEME__/header" />
+
+<div class="center">
+    <div class="mainImgHead">
+        <img src="__THEME__/images/mainImgHead.jpg" />
+    </div>
+</div>
+<div class="mainImg">
+    <div class="center">
+        <img src="__THEME__/images/update.jpg"/>
+    </div>
+</div>
+<div class="center">
+    <div class="mainImgFoot">
+        <img src="__THEME__/images/mainImgFoot.jpg" />
+    </div>
+</div>
+<div class="center">
+    <div class="computer">
+        <div style="width:680px"><img src="__THEME__/images/computer.jpg"/></div>
+        <p>
+            提供最全面的真实移动终端
+            <br>
+            支持最丰富的自动测试用例
+            <br>
+            提供最精确的脚本编辑工具
+            <br>
+            <button class="btn" type="button" data-ahref="J_register">立即注册--免费体验</button>
+            <a href="{:U('home/Public/register')}" id="J_register"></a>
+        </p>
+        <img style="margin-top:54px;" src="__THEME__/images/fly.png"/>
+    </div>
+    <div style="clear:both"></div>
+    <div class="center">
+        <php> $classArr = array('dataleft', 'datacenter');$titleLen =16;$contentLen=100;</php>
+        <volist id="vo" name="article" key="k">
+            <php>if ($k>2) break;</php>
+            <div class="ico<php>echo $k.' '. $classArr[!($k%2)];</php>">
+                <span class="textlarge">
+                    <a href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">
+                    {:msubstr(strip_tags($vo['title']),0, $titleLen)}
+                    </a>
+                </span>
+                <p>
+                    <a href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">
+                        {:msubstr(strip_tags($vo['content']),0, $contentLen)}
+                    </a>
+                </p>
+            </div>
+        </volist>
+        <div class="dataright">
+            <a href="{:U('home/Appinfo/rank')}"><img src="__THEME__/images/test1.jpg"></a>
+        </div>
+        <volist id="vo" name="article" key="k">
+            <php>if ($k<=2) continue;</php>
+            <div class="ico<php>echo $k.' '. $classArr[!($k%2)];</php>">
+                <span class="textlarge">
+                    <a href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">
+                    {:msubstr(strip_tags($vo['title']),0, $titleLen)}
+                    </a>
+                </span>
+                <p>
+                    <a href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">
+                        {:msubstr(strip_tags($vo['content']),0, $contentLen)}
+                    </a>
+                </p>
+            </div>
+        </volist>
+        <div class="dataright">
+            <a href="{:U('home/Appinfo/article')}"><img src="__THEME__/images/test2.jpg"></a>
+        </div>
+    </div>
+    <div class="clear:both"></div>
+    <div style="display:inline-block">
+    <div class="textlarge">
+        专机测试
+        <img style="padding-left:20px" src="__THEME__/images/dottedline.png"/>
+    </div>
+    <volist id="vo" name="appNewArray">
+    <div class="newphone">
+        <p>
+            <span>{$vo.name}</span>
+            <br>
+            操作系统：{$vo.os}
+            <br>
+            &nbsp;分&nbsp;辨&nbsp;率：{$vo.resolution}
+            <br>屏幕尺寸：{$vo.size}</p>
+        <button data-ahref="J_to_mobile{$vo['id']}" class="btn">测试</button>
+        <a href="{:U('home/Appinfo/mobileDetail',array('id'=>$vo['id']))}" id="J_to_mobile{$vo['id']}" class="J_hide"></a>
+    </div>
+    </volist>
+    </div>
+    <div class="choiceLogo">
+        <img src="__THEME__/images/arrowLeft.png"/>
+        <img class="baidu" src="__THEME__/images/baiduLogo.png"/>
+        <img class="huawei" src="__THEME__/images/huaweiLogo.png"/>
+        <img class="huawei" src="__THEME__/images/xiaomiLogo.png"/>
+        <img  class="jingdong" src="__THEME__/images/jingdongLogo.png"/>
+        <img src="__THEME__/images/arrowright.png"/>
+    </div>
+</div>
+
+<!-- 内容 end -->
+<include file="__THEME__/footer" />
+<div style="height:58px;"></div>
+<div class="bottomBar" onclick="scrollTo(0,0)">
+	<div class="backtop"><i class="glyphicon glyphicon-chevron-up"></i></div>
+	<div class="bottomBarCenter">
+    	<img src="__THEME__/images/bottomBarLogo.png">&nbsp;&nbsp;&nbsp; 已检测应用<span>{$appTestNum}</span>款&nbsp;&nbsp;&nbsp; 注册开发者<span>{$registerNum}</span>人
+    	<div style="float:right">
+        <php>if($mid) {</php><a href="{:U('home/Account/feedback')}">在线反馈</a><php> } else {</php><a href="{:U('home/Public/login')}">在线反馈</a><php> }</php>
+        <a href="{:U('home/Public/faq')}">FAQ</a>
+	</div>
+</div>

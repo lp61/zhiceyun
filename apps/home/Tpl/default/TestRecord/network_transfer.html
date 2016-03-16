@@ -1,0 +1,85 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">网络友好测试</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <include file="_network_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <h4 class="row">
+            <div class="col-md-5">传输统计</div>
+            <include file="_menu_network_select" />
+        </h4>
+        <div class="transfer">
+            <table>
+                <tr>
+                    <td>数据流类型</td>
+                    <td>数据量（BYTES）</td>
+                    <td>占数据量百分比</td>
+                    <td>耗能（J）</td>
+                    <td>占传输耗费总能量百分比</td>
+                </tr>
+                <tr class="lightgrayBg">
+                    <td>TcpControl</td>
+                    <td>{$vo['TcpControl_Bytes']}</td>
+                    <td>{$vo['TcpControl_BytesPercent']}</td>
+                    <td>{$vo['TcpControl_Energy']}</td>
+                    <td>{$vo['TcpControl_EnergyPercent']}</td>
+                </tr>
+                <tr>
+                    <td>TcpLossRecoverOrDup</td>
+                    <td>{$vo['TcpLossRecoverOrDup_Bytes']}</td>
+                    <td>{$vo['TcpLossRecoverOrDup_BytesPercent']}</td>
+                    <td>{$vo['TcpLossRecoverOrDup_Energy']}</td>
+                    <td>{$vo['TcpLossRecoverOrDup_EnergyPercent']}</td>
+                </tr>
+                <tr class="lightgrayBg">
+                    <td>Userinput</td>
+                    <td>{$vo['UserInput_Bytes']}</td>
+                    <td>{$vo['UserInput_BytesPercent']}</td>
+                    <td>{$vo['UserInput_Energy']}</td>
+                    <td>{$vo['UserInput_EnergyPercent']}</td>
+                </tr>
+                <tr>
+                    <td>ScreenRotation</td>
+                    <td>{$vo['ScreenRotation_Bytes']}</td>
+                    <td>{$vo['ScreenRotation_BytesPercent']}</td>
+                    <td>{$vo['ScreenRotation_Energy']}</td>
+                    <td>{$vo['ScreenRotation_EnergyPercent']}</td>
+                </tr>
+                <tr class="lightgrayBg">
+                    <td>App</td>
+                    <td>{$vo['App_Bytes']}</td>
+                    <td>{$vo['App_BytesPercent']}</td>
+                    <td>{$vo['App_Energy']}</td>
+                    <td>{$vo['App_EnergyPercent']}</td>
+                </tr>
+                <tr>
+                    <td>ServerNetDalay</td>
+                    <td>{$vo['ServerNetDelay_Bytes']}</td>
+                    <td>{$vo['ServerNetDelay_BytesPercent']}</td>
+                    <td>{$vo['ServerNetDelay_Energy']}</td>
+                    <td>{$vo['ServerNetDelay_EnergyPercent']}</td>
+                </tr>
+                <tr class="lightgrayBg">
+                    <td>LargeBurst</td>
+                    <td>{$vo['LargeBurst_Bytes']}</td>
+                    <td>{$vo['LargeBurst_BytesPercent']}</td>
+                    <td>{$vo['LargeBurst_Energy']}</td>
+                    <td>{$vo['LargeBurst_EnergyPercent']}</td>
+                </tr>
+                <tr>
+                    <td>Periodical</td>
+                    <td>{$vo['Periodical_Bytes']}</td>
+                    <td>{$vo['Periodical_BytesPercent']}</td>
+                    <td>{$vo['Periodical_Energy']}</td>
+                    <td>{$vo['Periodical_EnergyPercent']}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="kite"><img src="__THEME__/images/kite.png" /></div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

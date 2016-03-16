@@ -1,0 +1,112 @@
+<include file="__THEME__/header" />
+<div class="chooseTest compatible">
+    <div class="center">
+        <h1><span class="gray"><a href="#">首页&nbsp;>&nbsp;</a></span><span class="gray"><a href="#">应用测试&nbsp;>&nbsp;</a></span><span class="blue"><a href="#">兼容性测试</a></span></h1>
+        <div class="white order">
+            <span class="blueBg num">1</span>
+            <span class="line numBg"></span>
+            <span class="blueBg num">2</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">3</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">4</span>
+        </div>
+        <div class="content">
+            <span class="blue one">选择测试类型</span>
+            <span class="lightgray two">上传APK</span>
+            <span class="lightgray three">选择终端</span>
+            <span class="lightgray four">测试提交</span>
+        </div>
+        <h2 class="blue">服务内容</h2>
+        <div class="service row">
+            <div class="col-md-3">
+                <ul>
+                    <li><span class="blue">●</span>&nbsp;<span class="gray">兼容性测试</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">安装</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">启动</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">登录</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">运行</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">卸载</span></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <li><span class="blue">●</span>&nbsp;<span class="gray">性能检测</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">启动时间</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">CPU</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">内存</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">流量</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">温度</span></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <li><span class="blue">●</span>&nbsp;<span class="gray">错误定位</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">UI图像识别</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">运行截图</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">系统日志</span></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <li><span class="blue">●</span>&nbsp;<span class="gray">报告分析</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">在线</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">离线测试报告</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">统计分析结果</span></li>
+                </ul>
+            </div>
+        </div>
+        <h2 class="blue">
+            <!--完善资料<span class="gray">完善资料后可获得积分奖励、</span><span class="red"><a href="#" id="privilege">享受VIP特权</a></span>-->
+        </h2>
+        <form action="{:U('home/Apptest/compatibleTestChoose')}" method="post" id="subForm" enctype="multipart/form-data">
+            <div class="service">
+                <include file='info' />
+                <include file='APPbag' />
+            </div>
+            <div class="info"><button class="next btn regBtn" disabled type="submit">下一步</button></div>
+        </form>
+    </div>
+</div>
+<include file="__THEME__/footer" />
+
+<div id="PRIVILEGE" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <span class="blue">VIP特权</span>
+                <img data-dismiss = "modal" src="__THEME__/images/modal_close.png"/>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td class="left">快速测试：</td>
+                        <td>常规：5次/天</td>
+                        <td>超限3积分/次</td>
+                    </tr>
+                    <tr>
+                        <td class="left">兼容性测试：</td>
+                        <td>免费测试包：5次/天</td>
+                        <td>超限5积分/次</td>
+                    </tr>
+                    <td class="left">网络友好测试：</td>
+                    <td>免费测试：5次/天</td>
+                    <td>超限5积分/次</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">    
+                <button type="button" class="sure" data-dismiss="modal">我知道了</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script type="text/javascript">
+    $(function () {
+        //模态框
+        $("#privilege").click(function () {
+            $("#PRIVILEGE").modal(); //查看VIP特权
+        });
+    });
+</script>

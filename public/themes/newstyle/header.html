@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><neq name="ts['site']['page_title']" value="">
+          {$ts['site']['page_title']}<else/>{$ts['site']['site_header_title']}
+    </neq></title>
+    <link rel="shortcut icon" href="__THEME__/favicon.ico" />
+    <meta name="keywords" content="{$ts['site']['site_header_keywords']}" />
+    <meta name="description" content="{$ts['site']['site_header_description']}" />
+    <meta property="qc:admins" content="2411042346635124521003636" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, user-scalable=yes"-->
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=0.4, minimum-scale=0.4, maximum-scale=2.0, user-scalable=yes" />
+    
+    <link rel="stylesheet" type="text/css" href="__THEME__/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__THEME__/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__THEME__/css/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__THEME__/css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__THEME__/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="__THEME__/css/page.css"/>
+    
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="__PUBLIC__/js/zhiceyun/jquery-1.11.3.min.js"></script>
+    <script type='text/javascript' src='__PUBLIC__/js/seajs/sea.js?nowrap'></script>
+    <script type='text/javascript' src='__PUBLIC__/js/seajs/sea.config.js?'></script>
+    <script src="__PUBLIC__/js/zhiceyun/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	//导航链接的样式
+	var mainMenuOn=false;
+	var subMenuOn=false;
+	var ii=0;
+	$(".dropdown>a").mouseover(function(){
+		mainMenuOn=true;
+		//console.log(mainMenuOn+" 1 "+subMenuOn)
+		if ($(this).parent().is(".open")) {return;}
+		$(this).dropdown("toggle");
+		
+	}).mouseleave(function(){
+		mainMenuOn=false;
+		var thisDropDownMenu=$(this);
+		//console.log(mainMenuOn+" 2 "+subMenuOn)
+		if (!$(this).parent().is(".open")) {return;}
+		setTimeout(function(){
+			if(mainMenuOn==false && subMenuOn==false){
+				if (!thisDropDownMenu.parent().is(".open")) {return;}
+				thisDropDownMenu.dropdown("toggle");
+			}
+		},100)
+	}).click(function(){
+		location.href=$(this).attr("href");
+	})
+	$(".dropdown-menu").mouseover(function(){
+		subMenuOn=true;
+		if ($(this).parent().is(".open")) {return;}
+		$(this).prev().dropdown("toggle");
+	}).mouseleave(function(){
+		subMenuOn=false;
+		var thisDropDownMenu=$(this);
+		if (!$(this).parent().is(".open")) {return;}
+		setTimeout(function(e){
+			if(mainMenuOn==false && subMenuOn==false){
+				if (!thisDropDownMenu.parent().is(".open")) {return;}
+				thisDropDownMenu.parent().removeClass("open");
+			}
+		},100);
+	});
+})
+</script>
+    <script>
+        var _UID_   = <php>echo (int) $uid;</php>;
+        var _MID_   = <php>echo (int) $mid;</php>;
+        var _ROOT_  = '__ROOT__';
+        var _THEME_ = '__THEME__';
+        var _PUBLIC_ = '__PUBLIC__';
+        var _LANG_SET_ = '<php>echo LANG_SET;</php>';
+        var $CONFIG = {};
+            $CONFIG['uid'] = _UID_;
+            $CONFIG['mid'] = _MID_;
+            $CONFIG['root_path'] = _ROOT_;
+            $CONFIG['theme_path'] = _THEME_;
+            $CONFIG['public_path'] = _PUBLIC_;
+            $CONFIG['lang'] =  '<php>echo LANG_SET;</php>';
+    </script>
+    
+</head>
+<style type="text/css">
+.J_hide{display: none;}
+#newinfo{color:#666;border:1px solid #25a3cb;padding:0 10px;border-radius:3px;margin-left:590px;margin-bottom:-30px;margin-top:8px;width:120px;display:none;}
+</style>
+<body>
+<a href="{:U('home/Index/index')}" ></a>
+<div class="navbar navbarBlue">
+    <div class="head center">
+        <div id="newinfo">您有<span class="blue">1</span>条新消息</div>
+        <div class="login_after" style="clear:both">
+            <session name="userInfo">
+                <a  href="{:U('home/Message/index')}"><img src="__THEME__/images/loginAfter.png"/></a>
+                <img class="newNote" style="display:none;" src="__THEME__/images/newNote.png"/>
+                <div class="dropdown">
+                    <a href="{:U('home/Account/index')}" data-role="button" data-toggle="dropdown" class="gray navbarBlue">{$_SESSION['userInfo']['email']}</a>
+                    <ul class="dropdown-menu">
+                        <div class="topArrow" style="margin-top:-21px"><img src="__THEME__/images/dropdpwnTop.png"/></div>
+                        <li><a href="{:U('home/Account/feedback')}">用户反馈</a></li>
+                        <li><a href="{:U('home/TestRecord/index')}">测试记录</a></li>
+                        <li><a href="{:U('home/Public/logout')}">退出</a></li>
+                    </ul>
+                </div>
+                <img class="arrow" src="__THEME__/images/indexarrowdown.png"/>
+                <span class="blue">{$_SESSION['userInfo']['user_type']|getUserType}</span>
+            </session>
+        </div>
+
+        <div class="logo" style="clear:both"><a href="{:U('home/Index/index')}"><img src="__THEME__/images/logo.png"></a></div>
+        <div class="nav">
+            <div class="dropdown">
+                <a href="{:U('home/Apptest/index')}" class="navbarBlue" data-role="button" data-toggle="dropdown">应用测试 <i class="glyphicon glyphicon-menu-down small"></i></a>
+                <ul class="dropdown-menu">
+                    <div class="topArrow"><img src="__THEME__/images/dropdpwnTop.png"/></div>
+                    <li><a href="{:U('home/Apptest/quickTest')}">快速测试</a></li>
+                    <li><a href="{:U('home/Apptest/compatibleTest')}">兼容性测试</a></li>
+                    <li><a href="{:U('home/Apptest/networkTest')}">网络友好测试</a></li>
+                    <li><a href="{:U('home/Apptest/specialTest')}">专机测试</a></li>
+                    <li><a href="{:U('home/Apptest/weakTest')}">弱网络测试</a></li>
+                    <li><a href="{:U('home/Apptest/pressTest')}">压力测试</a></li>
+                    <li><a href="{:U('home/Apptest/qhTest')}">清华兼容性测试</a></li>
+                </ul>
+            </div>
+            <a href="{:U('home/Appinfo/experience')}" class="navbarBlue">终端用户体验</a>
+            <a href="{:U('home/Appinfo/iot')}" class="navbarBlue">IOT</a>
+            <a href="{:U('home/Appinfo/article')}" class="navbarBlue">测试圈</a>
+            <div class="dropdown">
+                <a href="#" class="navbarBlue" data-role="button" data-toggle="dropdown">资源池 <i class="glyphicon glyphicon-menu-down small"></i></a>
+                <ul class="dropdown-menu">
+                    <div class="topArrow"><img src="__THEME__/images/dropdpwnTop.png"/></div>
+                    <li><a href="{:U('home/Appinfo/mobile')}">终端库</a></li>
+                    <li><a href="{:U('home/Appinfo/internet_source')}">模拟网资源</a></li>
+                    <li><a href="{:U('home/Appinfo/source_press')}">压力测试资源</a></li>
+                </ul>
+            </div>
+            <a href="{:U('home/Public/about')}" class="navbarBlue">关于我们</a>
+            <a href="{:U('home/Public/faq')}" class="navbarBlue">FAQ</a>
+            <nosession name="userInfo"><a class="navbarBlue" href="{:U('home/Public/login')}">登录</a></nosession>
+        </div>
+    </div>
+</div>
+
+<div style="clear:both;height:90px;"></div>
+<script>
+        $(function(){
+                //登录后账号上的下拉菜单补丁
+                ///$(".dropdown7>a").attr("data-role","button").attr("data-toggle","dropdown");
+                //导航链接的样式
+                /*$(".nav>a").mouseover(function(){
+                        $(this).css("border-bottom","1px solid #007eca");
+                        $(this).css("background","none");
+                }).mouseout(function(){
+                        $(this).css("border-bottom","none");
+                })
+                $(".dropdown>a").mouseover(function(){
+                        $(this).css("background","none");
+                        if ($(this).parent().is(".open")) {return;}
+                        $(this).dropdown("toggle");
+                }).click(function(){
+                        location.href=$(this).attr("href");
+                })
+                $(".dropdown-menu a").mouseover(function(){
+                        $(this).css("background","none");
+                        $(this).parent().css("background","#0f9bd8");
+                }).mouseout(function(){
+                        $(this).parent().css("background","none");
+                })*/
+                //按钮效果
+                //var bgcolor="";
+                //var textcolor="";
+                $("button").mouseover(function(){
+                        //bgcolor=$(this).css("background");
+                        //textcolor=$(this).css("color");
+                        //$(this).css("background","#79a31e").css("color","#fff");
+                        $(this).css("opacity",0.6);
+                }).mouseout(function(){
+                        //$(this).css("background",bgcolor);
+                        //$(this).css("color",textcolor);
+                        $(this).css("opacity",1.0);
+                });
+        });
+    $(function(){
+        function setViewport(){
+            var sca=360/1080;
+            vp.content='width=device-width,initial-scale = '+sca+',minimum-scale='+sca+',user-scalable=yes';
+        }
+        setTimeout(function(){
+                setViewport();
+        },1000);
+        //densityDpi= densityDpi>1?300*640*densityDpi/640:densityDpi;
+        //<meta name="viewport" content="width=device-width, initial-scale=0.4, minimum-scale=0.4, maximum-scale=2.0, user-scalable=yes">
+        //viewport.setAttribute('content', 'width=device-width, initial-scale=0.83, minimum-scale=0.83, maximum-scale=2.0, user-scalable=yes');
+    });
+</script>

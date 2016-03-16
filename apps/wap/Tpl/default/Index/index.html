@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link type="text/css" rel="stylesheet" href="__THEME__/css/swiper.min.css"/>
+    <link type="text/css" rel="stylesheet" href="__THEME__/css/animate.min.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/css/style.css" />
+     <style type="text/css">
+	 .swiper-slide{
+	  	width: 100%;
+		overflow:hidden;
+	}
+	.animate1,.animate2,.animate3,.animate4,.animate5{display:none;}
+	.active{display:inline-block;}
+	.swiper-pagination1{
+		  bottom:5px;
+		  margin-top: -100px;
+		  position: relative;
+		  z-index: 10;
+		  text-align: center;
+    }
+	.swiper-pagination1 .swiper-pagination-bullet{
+		margin:5px;
+	}
+	.ui-page-header-fixed{padding-top:0;}
+	.IOT .header .ui-block-a{line-height:65px;}
+	.IOT .header .ui-block-a img{width:38%;}
+	.testCircle .content h2 a{color:#333333;}
+	.testCircle .content p a{color:#666666;}
+	</style>
+	<title>智测云</title>  
+</head> 
+<body>
+<div class="index">
+	<div data-role="header" class="header" id="index_header" data-position="fixed">
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><img src="__PUBLIC__/wap/images/logo.png"/></div>
+            <div class="ui-block-b" id="index_list"><img src="__PUBLIC__/wap/images/index-menuCodeNo.png">
+            	<div class="arrow"><img src="__PUBLIC__/wap/images/arrowTop.png"/></div>
+                <div class="check">   
+                     <a href="{:U('wap/Apply/test')}" data-ajax="false"><div class="blue">应用测试</div></a>
+                     <a href="{:U('wap/Public/experience')}" data-ajax="false"><div class="blue">终端用户体验</div></a>
+                     <a href="{:U('wap/Public/iot')}" data-ajax="false"><div class="blue">IOT</div></a>
+                     <a href="{:U('wap/Public/testCircle')}" data-ajax="false"><div class="blue">测试圈</div></a>
+                     <!--<a href="{:U('wap/Public/source')}" data-ajax="false"><div class="blue">资源池</div></a>-->
+                     <a href="{:U('wap/Public/aboutUs')}" data-ajax="false"><div class="blue">关于我们</div></a>
+                     <a href="{:U('wap/TestRecord/record')}" data-ajax="false"><div class="blue">测试记录</div></a>
+                 	 <nosession name="userInfo"><a href="{:U('wap/Public/login')}" data-ajax="false"><div class="blue">登录</div></a></nosession>
+                     <session name="userInfo"><a href="{:U('home/Public/logout')}" data-ajax="false"><div class="blue">退出</div></a></session>
+        		</div>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="IOT" style="display:none;">
+	<div data-role="header" class="ui-grid-c header" id="apply_header" data-position="fixed">
+        <div class="ui-block-a"><a href="{:U('wap/Index/index')}" data-ajax="false"><img src="__PUBLIC__/wap/images/header_home.png"/></a></div>
+        <div class="ui-block-b"><span class="white">应用测试</span></div>
+        <div class="ui-block-c"></div>
+        <div class="ui-block-d menubtn"><img src="__PUBLIC__/wap/images/header_list.png"/>
+        	<div class="arrow"><img src="__PUBLIC__/wap/images/arrowTop.png"/></div>
+            <div class="check">   
+                     <a href="{:U('wap/Apply/test')}" data-ajax="false"><div class="blue">应用测试</div></a>
+                     <a href="{:U('wap/Public/experience')}" data-ajax="false"><div class="blue">终端用户体验</div></a>
+                     <a href="{:U('wap/Public/iot')}" data-ajax="false"><div class="blue">IOT</div></a>
+                     <a href="{:U('wap/Public/testCircle')}" data-ajax="false"><div class="blue">测试圈</div></a>
+                     <!--<a href="{:U('wap/Public/source')}" data-ajax="false"><div class="blue">资源池</div></a>-->
+                     <a href="{:U('wap/Public/aboutUs')}" data-ajax="false"><div class="blue">关于我们</div></a>
+                     <a href="{:U('wap/TestRecord/record')}" data-ajax="false"><div class="blue">测试记录</div></a>
+                 	 <nosession name="userInfo"><a href="{:U('wap/Public/login')}" data-ajax="false"><div class="blue">登录</div></a></nosession>
+                     <session name="userInfo"><a href="{:U('home/Public/logout')}" data-ajax="false"><div class="blue">退出</div></a></session>
+        		</div>
+        </div>
+    </div>
+</div>
+<!--首页Banner-->
+<div class="swiper-container2">
+    	<div class="swiper-wrapper">
+        	<div class="swiper-slide">
+<div class="index applyTest_0">
+    <div class="swiper-container1">
+    	<div class="swiper-wrapper">
+        	<div class="swiper-slide">
+                <div class="index_first">
+                    <h1 class="animate2"><img src="__PUBLIC__/wap/images/index-h1.png"></h1>
+                    <h2 class="animate4"><img src="__PUBLIC__/wap/images/index-h2.png"></h2>
+                    <h3 class="animate1"><img src="__PUBLIC__/wap/images/aboutUsEr.png"/></h3>
+                    <p class="white animate1"><a href="#">注册用户</a> / <a href="#">邀请好友</a> / <a href="#">关注微信</a></p>
+                    <div class="more"><img style="width:6%" src="__PUBLIC__/wap/images/index_more.png"/></div>
+                </div>
+            	<div class="index_firstBg"><img src="__PUBLIC__/wap/images/imdexBg1.png"/></div>
+    		</div>
+        	<div class="swiper-slide">
+    			<div class="index_second">
+                    <h1 class="animate3"><span class="gray">更</span><span class="red">新</span><span class="gray">机型、更</span><span class="red">全</span><span class="gray">服务、超</span><span class="red">值</span><span class="gray">优惠</span></h1>
+                    <h2 class="red animate1">新机兼容测试/专机测试/网络友好测试</h2>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a animate2"><img src="__PUBLIC__/wap/images/index_second_left.png"/></div>
+                        <div class="ui-block-b animate4">
+                            <div class="top"><img src="__PUBLIC__/wap/images/index_second_right1.png"/></div>
+                            <div class="bottom"><img src="__PUBLIC__/wap/images/index_second_right2.png"/></div>
+                        </div>
+                    </div>
+                    <div class="testNow animate1"><a href="#"><img src="__PUBLIC__/wap/images/indextest.png"></a></div>
+                    <div class="more"><img src="__PUBLIC__/wap/images/index_more.png"/></div>
+                </div>
+                <div class="index_secondBg"><img src="__PUBLIC__/wap/images/imdexBg2.png"/></div>
+    		</div>
+        	<div class="swiper-slide">
+    			<div class="index_third">
+                    <div class="hand animate3"><img src="__PUBLIC__/wap/images/index_third.png"/></div>
+                    <h2 class="blue animate1">终端用户体验评测&nbsp;将数据转化为行为</h2>
+                    <h1 class="red animate2">客户优质终端互惠互利</h1>
+                    <div class="testNow animate4"><img src="__PUBLIC__/wap/images/indextest.png"/></div>
+                    <div class="more"><img style="width:6%" src="__PUBLIC__/wap/images/index_more.png"/></div>
+                </div>
+    			<div class="index_thirdBg"><img src="__PUBLIC__/wap/images/imdexBg3.png"/></div>
+    		</div>
+        	<div class="swiper-slide">
+    			<div class="index_fourth">
+                    <h1 class="animate3"><span class="darkgray">智能硬件产品要的都是</span><span class="red">新</span><span class="darkgray">，</span><span class="red">奇</span><span class="darkgray">，</span><span class="red">快</span><span class="darkgray">！</span></h1>
+                    <p class="animate2"><img src="__PUBLIC__/wap/images/index_fourth2.png"/></p>
+                    <div class="fourth animate4"><img src="__PUBLIC__/wap/images/index_fourth.png"></div>
+                    <div class="testNow animate1"><img src="__PUBLIC__/wap/images/indextest.png"/></div>
+                    <div class="more"><img src="__PUBLIC__/wap/images/index_more.png"/></div>
+                </div> 
+                <div class="index_fourthBg"><img src="__PUBLIC__/wap/images/imdexBg4.png"/></div>
+    		</div>
+        	<div class="swiper-slide">
+                <div class="index_fifth">
+                    <h1 class="white animate2">恭喜智测云（泰尔终端实验室）</h1>
+                    <h2 class="white animate4">于2014年9月成为AQUA的认证实验室</h2>
+                    <div class="ui-grid-a logo">
+                        <div class="ui-block-a animate3"><img src="__PUBLIC__/wap/images/logowhite.png"/></div>
+                        <div class="ui-block-b animate1"><img src="__PUBLIC__/wap/images/logoAqua.png"/></div>
+                    </div>
+                    <div class="white konwmore animate1"><a href="#">了解更多</a></div>
+                    <div class="more"><img style="width:6%" src="__PUBLIC__/wap/images/index_more.png"/></div>	
+                </div>
+    			<div class="index_fifthBg"><img src="__PUBLIC__/wap/images/imdexBg5.png"/></div>
+    		</div>
+        </div>
+        <div class="swiper-pagination1"></div>
+    </div>
+    
+</div>
+			</div>
+        	<div class="swiper-slide">
+<!--应用测试-->
+<div class="applyTest sw applyTest_1 testCircle">
+	<div class="content">
+        <div class="ui-grid-b type">
+            <div class="ui-block-a"><a href="{:U('wap/Apply/fastTest')}" data-ajax="false"><img src="__PUBLIC__/wap/images/applyTest1.png"/><br><span class="gray">快速测试</span></a></div>
+            <div class="ui-block-b"><a href="{:U('wap/Apply/compatibleTest')}" data-ajax="false"><img src="__PUBLIC__/wap/images/applyTest2.png"/><br><span class="gray" data-ajax="false">兼容性测试</span></a></div>
+            <div class="ui-block-c"><a href="{:U('wap/Apply/friendTest')}" data-ajax="false"><img src="__PUBLIC__/wap/images/applyTest3.png"/><br><span class="gray">网络友好测试</span></a></div>
+            <div class="ui-block-a"><a href="{:U('wap/Apply/newPhone')}" data-ajax="false"><img src="__PUBLIC__/wap/images/applyTest4.png"/><br><span class="gray">新机兼容性测试</span></a></div>
+            <div class="ui-block-b"><a href="{:U('wap/Apply/weakTest')}" data-ajax="false"><img src="__PUBLIC__/wap/images/applyTest5.png"/><br><span class="gray">弱网络测试</span></a></div>
+            <div class="ui-block-c"><a href="{:U('wap/Apply/pressTest')}" data-ajax="false"><img src="__PUBLIC__/wap/images/applyTest6.png"/><br><span class="gray">压力测试</span></a></div>
+        </div>
+    </div>
+    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+</div>
+			</div>
+        	<div class="swiper-slide">
+<!--体验-->
+<div class="applyTest applyTest_2 testCircle">
+	<div class="content">
+        <div class="ui-grid-b type">
+            <div class="ui-block-a"><a href="{:U('wap/Public/experience')}" data-ajax="false"><img src="__PUBLIC__/wap/images/stork0.png"/><br><span class="gray">终端用户体验</span></a></div>
+            <div class="ui-block-b"><a href="{:U('wap/Public/iot')}"  data-ajax="false"><img src="__PUBLIC__/wap/images/stork1.png"/><br><span class="gray" data-ajax="false">IOT</span></a></div>
+            <div class="ui-block-c"><a href="{:U('wap/Public/stork')}" data-ajax="false"><img src="__PUBLIC__/wap/images/stork2.png"/><br><span class="gray">终端库</span></a></div>
+            <div class="ui-block-a"><a href="{:U('wap/Public/source')}" data-ajax="false"><img src="__PUBLIC__/wap/images/stork3.png"/><br><span class="gray">模拟网络资源</span></a></div>
+            <div class="ui-block-b"><a href="{:U('wap/Public/pressYun')}" data-ajax="false"><img src="__PUBLIC__/wap/images/stork4.png"/><br><span class="gray">压力测试资源</span></a></div>
+        </div>
+    </div>
+    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+</div>
+			</div>
+        	<div class="swiper-slide">
+<!--测试圈-->
+<div style="clear:both"></div>
+<!--<div class="testCircleInfo applyTest_3">
+    <php>$titleLen =12;$contentLen=60;</php>
+	<div class="ui-grid-c title">
+		<div class="ui-block-a active"><a href="#">资讯</a></div>
+        <div class="ui-block-b"><a href="#">专题</a></div>
+        <div class="ui-block-c"><a href="#">技术</a></div>
+        <div class="ui-block-d"><a href="#">沙龙</a></div>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <volist name="article1" id="vo">
+                <div class="ui-grid-a info">
+                    <div class="ui-block-a"><eq name="vo['pic_url']" value=""><img src="http://42.96.171.6/zhiceyun/data/uploads/Linshi.jpg"/><else /><img src="{$vo['pic_url']}"/></eq></div>
+                    <div class="ui-block-b">
+                        <h4><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['title']),0, $titleLen)}</a></h4>
+                        <p><a rel="external" class="gray" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, $contentLen)}</a></p>
+                    </div>
+                </div>
+                </volist> 
+            </div>
+            <div class="swiper-slide">
+                 <volist name="article2" id="vo">
+                <div class="ui-grid-a special">
+                    <div class="ui-block-a"><eq name="vo['pic_url']" value=""><img src="http://42.96.171.6/zhiceyun/data/uploads/Linshi.jpg"/><else /><img src="{$vo['pic_url']}"/></eq></div>
+                    <div class="ui-block-b">
+                        <h4><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['title']),0, $titleLen)}</a></h4>
+                        <p><a rel="external" class="gray" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, $contentLen)}</a></p>
+                    </div>
+                </div>
+                 </volist>
+            </div>
+            <div class="swiper-slide">
+                   <volist name="article3" id="vo">
+                <div class="ui-grid-a skill">
+                    <div class="ui-block-a"><eq name="vo['pic_url']" value=""><img src="http://42.96.171.6/zhiceyun/data/uploads/Linshi.jpg"/><else /><img src="{$vo['pic_url']}"/></eq></div>
+                    <div class="ui-block-b">
+                        <h4><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['title']),0, $titleLen)}</a></h4>
+                        <p><a rel="external" class="gray" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, $contentLen)}</a></p>
+                    </div>
+                </div>
+                   </volist>
+            </div>
+            <div class="swiper-slide">
+                 <volist name="article4" id="vo">
+                <div class="ui-grid-a salon">
+                    <div class="ui-block-a"><eq name="vo['pic_url']" value=""><img src="http://42.96.171.6/zhiceyun/data/uploads/Linshi.jpg"/><else /><img src="{$vo['pic_url']}"/></eq></div>
+                    <div class="ui-block-b">
+                        <h4><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['title']),0, $titleLen)}</a></h4>
+                        <p><a rel="external" class="gray" href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, $contentLen)}</a></p>
+                    </div>
+                </div>
+                 </volist>
+            </div>             
+        </div>    
+    </div>
+</div>-->
+<div class="testCircle applyTest_3">
+        <php>$titleLen =12;$contentLen=100;</php>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content">
+                        <h1 class="blue"><a rel="external" href="{:U('wap/Public/testCircle', array('testCircle'=>'info'))}" data-ajax="false">资 讯</a></h1>
+                        <h2 class="darkgray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[0]['id']))}">{:msubstr(strip_tags($article[0]['title']),0, $titleLen)}</a></h2>
+                        <p class="gray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[0]['id']))}">{:msubstr(strip_tags($article[0]['content']),0, $contentLen)}</a></p>
+                    </div>
+                    <div class="contentBg"><img src="__PUBLIC__/wap/images/testCircle1.png"></div>
+                    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+                </div>
+                <div class="swiper-slide">	
+                    <div class="content">
+                        <h1 class="blue"><a rel="external" href="{:U('wap/Public/testCircle', array('testCircle'=>'special'))}" data-ajax="false">专 题</a></h1>
+                        <h2 class="darkgray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[1]['id']))}">{:msubstr(strip_tags($article[1]['title']),0, $titleLen)}</a></h2>
+                        <p class="gray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[1]['id']))}">{:msubstr(strip_tags($article[1]['content']),0, $contentLen)}</a></p>
+                    </div>
+                    <div class="contentBg"><img src="__PUBLIC__/wap/images/testCircle1.png"></div>
+                    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+                        <h1 class="blue"><a rel="external" href="{:U('wap/Public/testCircle', array('testCircle'=>'tec'))}" data-ajax="false">技 术</a></h1>
+                        <h2 class="darkgray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[2]['id']))}">{:msubstr(strip_tags($article[2]['title']),0, $titleLen)}</a></h2>
+                        <p class="gray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[2]['id']))}">{:msubstr(strip_tags($article[2]['content']),0, $contentLen)}</a></p>
+                    </div>
+                    <div class="contentBg"><img src="__PUBLIC__/wap/images/testCircle1.png"></div>
+                    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+                        <h1 class="blue"><a rel="external" href="{:U('wap/Public/testCircle', array('testCircle'=>'salon'))}" data-ajax="false">沙 龙</a></h1>
+                        <h2 class="darkgray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[3]['id']))}">{:msubstr(strip_tags($article[3]['title']),0, $titleLen)}</a></h2>
+                        <p class="gray"><a rel="external" href="{:U('home/Appinfo/articleDetail', array('id'=>$article[3]['id']))}">{:msubstr(strip_tags($article[3]['content']),0, $contentLen)}</a></p>
+                    </div>
+                    <div class="contentBg"><img src="__PUBLIC__/wap/images/testCircle1.png"></div>
+                    <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+                </div>
+            </div>
+            <div class="swiper-pagination" style="margin-bottom:50px;"></div>
+        </div>
+    </div>
+			</div>
+        	<div class="swiper-slide">
+<!--合作伙伴-->
+<div style="clear:both"></div>
+<div class="partner  applyTest_4">
+	<div class="ui-grid-b">
+    	<div class="ui-block-a"><a href="http://android.myapp.com/"><img src="__PUBLIC__/wap/images/PARNTER/yyb.png"/></a></div>
+        <div class="ui-block-b grayBg"><a href="http://www.360.cn/"><img src="__PUBLIC__/wap/images/PARNTER/360.png"/></a></div>
+        <div class="ui-block-c"><a href="https://www.apkudo.com"><img src="__PUBLIC__/wap/images/PARNTER/apk.png"/></a></div>
+        
+        <div class="ui-block-a grayBg"><a href="http://www.appqualityalliance.org/"><img src="__PUBLIC__/wap/images/PARNTER/aqua.png"/></a></div>
+        <div class="ui-block-b"><a href="http://www.att.com"><img src="__PUBLIC__/wap/images/PARNTER/at.png"/></a></div>
+        <div class="ui-block-c grayBg"><a href="http://www.gsma.com"><img src="__PUBLIC__/wap/images/PARNTER/gsma.png"/></a></div>
+       
+        <div class="ui-block-a"><a href="http://www.huawei.com/cn/"><img src="__PUBLIC__/wap/images/PARNTER/hw.png"/></a></div>
+        <div class="ui-block-b grayBg"><a href="http://www.10010.com/"><img src="__PUBLIC__/wap/images/PARNTER/lt.png"/></a></div>
+        <div class="ui-block-c"><a href="http://www.lenovo.com.cn/"><img src="__PUBLIC__/wap/images/PARNTER/lx.png"/></a></div>
+       
+        <div class="ui-block-a grayBg"><a href="http://www.sony.com.cn/"><img src="__PUBLIC__/wap/images/PARNTER/sony.png"/></a></div>
+        <div class="ui-block-b"><a href="http://www.samsung.com/cn/"><img src="__PUBLIC__/wap/images/PARNTER/sx.png"/></a></div>
+        <div class="ui-block-c grayBg"><a href="http://www.thundersoft.com/cn/"><img src="__PUBLIC__/wap/images/PARNTER/thumdersoft.png"/></a></div>
+        
+        <div class="ui-block-a"><a href="http://www.hicdma.com/"><img src="__PUBLIC__/wap/images/PARNTER/ty.png"/></a></div>
+        <div class="ui-block-b grayBg"><a href="http://www.10086.com/cn/"><img src="__PUBLIC__/wap/images/PARNTER/yd.png"/></a></div>
+        <div class="ui-block-c"><a href="http://zs.91.com/"><img src="__PUBLIC__/wap/images/PARNTER/91.png"/></a></div>
+    </div>
+</div>
+			</div>
+        	<div class="swiper-slide">
+<!--关于我们-->
+<div class="aboutUs"id="aboutUs">
+	<div class="banner"><img src="__PUBLIC__/wap/images/aboutUs1.png"/></div>
+    <p class="darkgray">关注SmarterApps微信公众号，实时查询<br>测试状态，获取APP测试最新信息<br>您还可以通过QQ、微博与我们互动哦！</p>
+    <div class="third">
+        <div class="qrbtn">
+            <a href="tel:010-62304633（2923）" class="ui-block-a qrbtn"><img style="width:65%" src="__PUBLIC__/wap/images/aboutUsphone.png"/></a>
+            <a href="#" class="ui-block-b qrbtn qrWeixin"><img style="width:75%" src="__PUBLIC__/wap/images/aboutUsweixin.png"/></a>
+            <a href="http://jq.qq.com/?_wv=1027&k=SvQsir" class="ui-block-c qrbtn"><img style="width:55%" src="__PUBLIC__/wap/images/aboutUsQQ.png"/></a>
+            <a href="http://weibo.com/5704661965" class="ui-block-d qrbtn"><img src="__PUBLIC__/wap/images/aboutUsweibo.png"/></a>
+        </div>
+        <div class="erwei"><img class="erwei" src="__PUBLIC__/wap/images/aboutUsEr.png"/></div>
+    </div>
+    <div class="button"><a href="{:U('wap/Public/aboutUs_banner')}" data-ajax="false"><button>关于我们</button></a></div>
+</div>
+			</div>
+        </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/wap/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="__THEME__/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="__THEME__/js/swiper.animate1.0.2.min.js"></script>
+<script type="text/javascript" src="__THEME__/js/jquery.waypoints.min.js"></script>
+<!--<script type="text/javascript" src="__PUBLIC__/wap/js/jquery.scrollTo.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/wap/js/js.js"></script>
+<script>
+$(function(){
+	var windowHeight=$(window).height();
+	$(".swiper-slide").css("height",windowHeight+"px");
+	$(".partner .ui-grid-b div").css("height",$(".partner .ui-grid-b div").css("width"));
+	$(".partner .ui-grid-b div").css("line-height",$(".partner .ui-grid-b div").css("width"));
+//textCircle
+	var mySwiper = new Swiper(".swiper-container",{
+		centeredSlides: true,
+		slidesPerView: 1,
+		pagination:".swiper-pagination",
+	});
+//index_banner
+	var mySwiper1 = new Swiper(".swiper-container1",{
+		loop:true,
+		autoplay: 3000,
+		centeredSlides: true,
+		slidesPerView: 1,
+		pagination:".swiper-pagination1",
+		onTransitionStart:function(swiper){
+        	$(".animate1").removeClass('active').removeClass('animated fadeInUp');
+        	$(".animate2").removeClass('active').removeClass('animated fadeInRight');
+        	$(".animate3").removeClass('active').removeClass('animated fadeInDown');
+        	$(".animate4").removeClass('active').removeClass('animated fadeInLeft');
+        	$(".animate5").removeClass('active').removeClass('animated fadeIn');
+        },
+        onSlideChangeEnd: function(swiper){
+	      //alert('事件触发了;');
+	      $(".animate1").addClass('active').addClass('animated fadeInUp');
+	      $(".animate2").addClass('active').addClass('animated fadeInRight');
+	      $(".animate3").addClass('active').addClass('animated fadeInDown');
+	      $(".animate4").addClass('active').addClass('animated fadeInLeft');
+	      $(".animate5").addClass('active').addClass('animated fadeIn');
+	    }
+	});
+//index
+	var mySwiper2 = new Swiper(".swiper-container2",{
+		centeredSlides: true,
+		direction: 'vertical',
+		onTransitionStart:function(swiper){
+        	$(".animate1").removeClass('active').removeClass('animated fadeInUp');
+        	$(".animate2").removeClass('active').removeClass('animated fadeInRight');
+        	$(".animate3").removeClass('active').removeClass('animated fadeInDown');
+        	$(".animate4").removeClass('active').removeClass('animated fadeInLeft');
+        	$(".animate5").removeClass('active').removeClass('animated fadeIn');
+        },
+        onSlideChangeEnd: function(swiper){
+	      //alert('事件触发了;');
+	      $(".animate1").addClass('active').addClass('animated fadeInUp');
+	      $(".animate2").addClass('active').addClass('animated fadeInRight');
+	      $(".animate3").addClass('active').addClass('animated fadeInDown');
+	      $(".animate4").addClass('active').addClass('animated fadeInLeft');
+	      $(".animate5").addClass('active').addClass('animated fadeIn');
+		  switch(mySwiper2.activeIndex){
+			  case 1:
+			  	$(".IOT .ui-header .white").html("应用测试");
+			  	break;
+			  case 2:
+			  	$(".IOT .ui-header .white").html("");
+			  	break;
+			  case 3:
+			  	$(".IOT .ui-header .white").html("测试圈");
+			  	break;
+			  case 4:
+			  	$(".IOT .ui-header .white").html("合作伙伴");
+			  	break;
+			  case 5:
+			  	$(".IOT .ui-header .white").html("关于我们");
+			  	break;
+		  }
+		  if(mySwiper2.activeIndex==0){ 
+			  $(".index").show();
+			  $(".IOT").hide();
+		  }else{
+			   $(".index").hide();
+			   $(".IOT").show();
+
+		  }
+	    }
+	});
+
+	/*
+	var waypoint = new Waypoint({
+	  element:$('.navbar'),
+	  handler: function(direction) {
+	  	if(direction=="down"){
+		    $('.navbar').css({"position":"fixed","top":"0","margin-top":"0"}).css("background","url(__THEME__/images/navBg75.png)").hide().fadeIn(1000);
+		    $('.navbar .nav a').removeClass("navbarWhite").addClass("navbarBlue");
+	  	}else if(direction=="up"){
+		  	$('.navbar').hide().fadeIn(1000).css({"position":"absolute","background":"none"});
+		    $('.navbar .nav a').removeClass("navbarBlue").addClass("navbarWhite");
+	  	}
+	  }
+	})
+$('.navbar').hide().fadeIn(1000).css({"position":"absolute","background":"none"});
+$('.navbar .nav a').removeClass("navbarBlue").addClass("navbarWhite");
+*/
+	$('.sp.ef1').waypoint(function(){var m=this.adapter.$element;m.toggleClass('active');m.toggleClass('animated fadeInUp');},{offset:'100%'});
+    $('.sp.ef2').waypoint(function(){var m=this.adapter.$element;m.toggleClass('active');m.toggleClass('animated fadeInRight');},{offset:'100%'});
+    $('.sp.ef3').waypoint(function(){var m=this.adapter.$element;m.toggleClass('active');m.toggleClass('animated fadeInDown');},{offset:'100%'});
+    $('.sp.ef4').waypoint(function(){var m=this.adapter.$element;m.toggleClass('active');m.toggleClass('animated fadeInLeft');},{offset:'100%'});
+    $('.sp.ef5').waypoint(function(){var m=this.adapter.$element;m.toggleClass('active');m.toggleClass('animated fadeIn');},{offset:'100%'});
+	
+	setTimeout(function(){
+		if(location.href.indexOf("?news")>=0){
+			location.href="#news";
+		}
+	},100);
+		
+//var winHeight= document.body.clientHeight;
+//$(".sw").height(winHeight);
+//合作伙伴
+	$(".partner .ui-grid-b div").css("height",$(".partner .ui-grid-b div").css("width"));
+	$(".partner .ui-grid-b div").css("line-height",$(".partner .ui-grid-b div").css("width"));
+	$(".partner .ui-grid-b div").click(function(){
+		//$(this).find("img").toggle();
+		$(this).find("img").attr("src",$(this).find("img").attr("src").replace(".png","active.png"));
+	}).click(function(){
+		$(this).find("img").attr("src",$(this).find("img").attr("src").replace("active.png",".png"));
+	});
+	
+	var loca=location.search;
+	if(loca.indexOf("testCircle=")>=0){
+		var loc=loca.split("testCircle=")[1].split("&")[0];
+		$("body").hide();
+		setTimeout(function(){
+			mySwiper2.slideTo(3);
+			$(".index").hide();
+			$(".IOT").show();
+			$(".IOT .ui-header .white").html("测试圈");
+			$(".testCircleInfo .title div").removeClass("active");
+			switch(loc){
+				case "info":
+					mySwiper.slideTo(0);
+					$(".testCircleInfo .title div").eq(0).addClass("active");
+				break;
+				case "special":
+					mySwiper.slideTo(1);
+					$(".testCircleInfo .title div").eq(1).addClass("active");
+				break;
+				case "tec":
+					mySwiper.slideTo(2);
+					$(".testCircleInfo .title div").eq(2).addClass("active");
+				break;
+				case "salon":
+					mySwiper.slideTo(3);
+					$(".testCircleInfo .title div").eq(3).addClass("active");
+				break;
+			}
+			$("body").show(100);
+		},500);
+	}else if(loca.indexOf("Apptest=")>=0){
+		setTimeout(function(){
+			mySwiper2.slideTo(1);
+			$(".index").hide();
+			$(".IOT").show();
+			$(".IOT .ui-header .white").html("应用测试");
+		},100);
+	}else if(loca.indexOf("source=")>=0){
+		setTimeout(function(){
+			mySwiper2.slideTo(2);
+			$(".index").hide();
+			$(".IOT").show();
+			$(".IOT .ui-header .white").html("");
+		},100);
+	}
+});
+</script>
+</body>
+</html>

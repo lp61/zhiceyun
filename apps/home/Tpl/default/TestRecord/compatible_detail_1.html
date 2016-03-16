@@ -1,0 +1,145 @@
+<include file="__THEME__/header" />
+<script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><a href="{:U('home/TestRecord/compatible', array('uuid'=>$uuid))}">{$business_title|getBusinessTitle}</a>><span class="blue">详细报告</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <include file="_compatible_detail_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <include file="_share_menu_select" />
+        <h4 class="detail_title">
+            <button class="active">终端详细报告</button>
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>2))}"><button>测试结果</button></a>
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>3))}"><button>LOG</button></a>
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>4))}"><button>截图</button></a>
+        </h4>
+        <div class="stork_detail">
+            <table>
+                <tr>
+                    <td class="lightblueBg">终端型号</td>
+                    <td class="lightgreenBg">{$vo['device_type']}</td>
+                    <td class="lightblueBg">操作系统</td>
+                    <td class="lightgreenBg">{$vo['os']}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">屏幕尺寸</td>
+                    <td class="lightgreenBg">{$vo['size']}</td>
+                    <td class="lightblueBg">分辨率</td>
+                    <td class="lightgreenBg">{$vo['resolution']}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">IMEI</td>
+                    <td class="lightgreenBg">{$vo['imei']}</td>
+                    <td class="lightblueBg">运行内存ram</td>
+                    <td class="lightgreenBg">{$vo['ram']}MB</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">内部存储rom</td>
+                    <td class="lightgreenBg">{$vo['rom']}MB</td>
+                    <td class="lightblueBg">网络</td>
+                    <td class="lightgreenBg">{$vo['net']|getNet}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">CPU型号</td>
+                    <td class="lightgreenBg"  title="{$vo['cpu']}">{$vo['cpu']|msubstr='0','20'}</td>
+                    <td class="lightblueBg">CPU核数</td>
+                    <td class="lightgreenBg">{$vo['cpu_kernel']}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">CPU频率</td>
+                    <td class="lightgreenBg">{$vo['cpu_hz']}</td>
+                    <td class="lightblueBg">测试完成时间</td>
+                    <td class="lightgreenBg">{:date('Y-m-d H:i:s', $vo['mtime'])}</td>
+                </tr>
+            </table>
+            <php>
+                $tt2 =  array(
+                    'CPU占用率(%)'   => $vo['cpu_diagram'],
+                    '内存消耗(MB)'  => $vo['memory_diagram'],
+                    '流量消耗(KB)'    => $vo['flow_diagram'],
+                    '电池温度(℃)'    => $vo['battery_diagram'],
+                );
+
+                $i =0;
+                $dataArr = array();
+                foreach($tt2 as $key => $_one) {
+                    $tmpData             = json_decode($_one, true);
+                    $max = max($tmpData);
+                    $min = min($tmpData);
+                    $cc  = array_diff($tmpData, array(0));
+                    $avg = sprintf('%.2f', array_sum($tmpData) / count($cc));
+                    if (empty($_one) || empty($tmpData) || !$max) {
+                        continue;
+                    }
+                    $dataArr[$i]['x']    = $vo['x_data'];
+                    $dataArr[$i]['y']    = $_one;
+                    $dataArr[$i]['name'] = '最高值：'.$max. '      最低值：'.$min. '       平均值：'.$avg;
+                    echo '<h4 class="blue">&nbsp;'.$key.'</h4><div id="J_bar_'.$i.'" style="height:415px;margin-top:15px"></div>';
+                    $i ++;
+                }
+            </php>
+        </div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<script>
+    function getOption(x,y,name) {
+    var option = {
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:[name]
+        },
+        color: [ 
+            '#30e0e0','#87cefa', '#da70d6', '#32cd32', '#6495ed', '#ff7f50',
+            '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0', 
+            '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700', 
+            '#6b8e23', '#ff00ff', '#3cb371', '#b8860b' 
+        ],
+        calculable : false,
+        dataZoom : {
+            show : true,
+            realtime : true,
+            start : 20,
+            end : 80
+        },
+        grid:{
+            x:80,
+            y:40,
+            x2:40,
+            y2:80
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : x
+            }
+        ],
+        yAxis : [
+            {   
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                type:'line',
+//                itemStyle: {normal: {areaStyle: {type: 'helianthus'}}},
+                data:y
+            }
+        ]
+    };
+
+    return option;
+}
+
+<php> foreach($dataArr as $key => $_one){</php>
+var J_bar_<php>echo $key;</php> = echarts.init(document.getElementById('J_bar_'+<php>echo $key;</php>));
+J_bar_<php>echo $key;</php>.setOption(getOption(<php>echo $_one['x'];</php>, <php>echo $_one['y'];</php>, '<php>echo $_one['name'];</php>'));
+<php>}</php>
+</script>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

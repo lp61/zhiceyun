@@ -1,0 +1,83 @@
+<include file="../Public/_header" />
+<div class="so_main">
+    <div id="search_divadd" class="search_div" >
+        <div class="page_tit">编辑 [ <a href="{:U('admin/Content/appPhone')}">返回</a> ]</div>
+        <div class="form2">
+            <form method="post" action="" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{$vo.id}"/>
+                <dl class="lineD">
+                    <dt>测试包类型：</dt>
+                    <dd>
+                        <input name="title" type="text" value="{$vo.title}">
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>测试包业务类型：</dt>
+                    <dd>
+                        <input name="business_title" type="text" value="{$vo.business_title}">
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>任务下发的最小终端数：</dt>
+                    <dd>
+                        <input name="mininum" type="text" class='number' value="{$vo.mininum}">
+                    </dd>
+                </dl>
+                <eq name='vo.type' value='1'>
+                <dl class="lineD">
+                    <dt>免费次数：</dt>
+                    <dd>
+                        <span>普通用户：</span>
+                        <input name="free0" type="text" value="{$vo.free0}">&nbsp;&nbsp;&nbsp;
+                        <span>VIP用户：</span>
+                        <input name="free1" type="text" value="{$vo.free1}">&nbsp;&nbsp;&nbsp;
+                        <span>企业用户：</span>
+                        <input name="free2" type="text" value="{$vo.free2}">&nbsp;&nbsp;&nbsp;
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>超次消耗积分：</dt>
+                    <dd>
+                        <span>普通用户：</span>
+                        <input name="score0" type="text" value="{$vo.score0}">&nbsp;&nbsp;&nbsp;
+                        <span>VIP用户：</span>
+                        <input name="score1" type="text" value="{$vo.score1}">&nbsp;&nbsp;&nbsp;
+                        <span>企业用户：</span>
+                        <input name="score2" type="text" value="{$vo.score2}">&nbsp;&nbsp;&nbsp;
+                        <br />备注：超过免费次数，将按包收费
+                    </dd>
+                </dl>
+                </eq>
+                <eq name='vo.type' value='2'>
+                <dl class="lineD">
+                    <dt>消耗积分(按包收费)：</dt>
+                    <dd>
+                        <span>普通用户：</span>
+                        <input name="score0" type="text" value="{$vo.score0}">&nbsp;&nbsp;&nbsp;
+                        <span>VIP用户：</span>
+                        <input name="score1" type="text" value="{$vo.score1}">&nbsp;&nbsp;&nbsp;
+                        <span>企业用户：</span>
+                        <input name="score2" type="text" value="{$vo.score2}">&nbsp;&nbsp;&nbsp;
+                    </dd>
+                </dl>
+                </eq>
+                <eq name='vo.type' value='3'>
+                <dt>消耗积分(终端收费)：</dt>
+                <dd>
+                    <span>普通用户：</span>
+                    <input name="score0" type="text" value="{$vo.score0}">&nbsp;&nbsp;&nbsp;
+                    <span>VIP用户：</span>
+                    <input name="score1" type="text" value="{$vo.score1}">&nbsp;&nbsp;&nbsp;
+                    <span>企业用户：</span>
+                    <input name="score2" type="text" value="{$vo.score2}">&nbsp;&nbsp;&nbsp;
+                </dd>
+                </eq>
+                <div class="page_btm">
+                    <input type="submit" class="btn_b" value="确定" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<include file="../Public/_footer" />

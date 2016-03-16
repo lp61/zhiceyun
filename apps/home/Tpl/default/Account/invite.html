@@ -1,0 +1,135 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>>用户信息管理><span class="blue">好友邀请</span></h2>
+    <div class="title">
+        <ul>
+            <div class="space"></div>
+            <li><a href="{:U('home/TestRecord/index')}">测试记录</a></li>
+            <li><a href="{:U('home/Account/index')}">账户管理</a></li>
+            <li><a href="{:U('home/Account/recharge')}">测试积分中心</a></li>
+            <li class="active"><a href="##">好友邀请</a></li>
+            <li><a href="{:U('home/Message/index')}">消息中心</a></li>
+            <li><a href="{:U('home/Account/feedback')}">用户反馈</a></li>
+            <button data-ahref="J_to_a">创建测试</button>
+            <a href="{:U('home/Apptest/index')}" id="J_to_a" class="J_hide"></a>
+        </ul>
+    </div>
+    <div class="invite">
+        <h3 class="blue">邀请任意好友成功注册智测云，并成为网站注册用户，将获网站奖励测试积分20分。</h3>
+        <div class="email">
+            <h4 class="blue">1.邮件邀请</h4>
+            <p>您可以在此输入任意多个邮件地址，请用英文逗号","分隔开。</p>
+            <form action="" method="post" class="form_validator" id="subForm">
+                <div>
+                    <input type="text" name="emails" value="" placeholder="12344321a@qq.com,test@exmple.com"/>
+                    <button type="submit" id="sendemail" >发送邀请</button>
+                    <button class="preview" type="button" data-toggle="modal">预览</button>    
+                    <span id="tip_span_email"></span>
+                </div>
+            </form>
+        </div>
+        <div class="link">
+            <h4 class="blue">2.链接邀请</h4>
+            <p>您可以复制以下链接发送给您的朋友，一起来体验智测云的优质服务吧！</p>
+            <div>
+                <input type="text" name="invite" value="{$inviteUrl}" title="{$inviteUrl}"/>
+                <button id="copyBtn" data-clipboard-text="{$inviteUrl}" title="{$inviteUrl}">复制链接</button>
+                <button id="ccopyBtn" style="display: none;">复制链接1</button>
+            </div>
+        </div>
+    </div>
+    <div class="kite"><img src="__THEME__/images/kite.png"/></div><div style="clear:both;"></div>
+</div>
+<div id="link" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <img data-dismiss = "modal" src="__THEME__/images/modal_close.png"/>
+            </div>
+            <div class="modal-body blue">链接复制成功</div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">我知道了</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="preview" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <span class="blue">邮件预览</span>
+                <img data-dismiss = "modal" src="__THEME__/images/modal_close.png"/>
+            </div>
+            <div class="modal-body blue">
+                <div class="row" style="margin-left: -39px;margin-right: 75px;">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-ahref="sendemail" >发送邀请</button>
+                <button type="button" class="btn" data-dismiss="modal">继续邀请</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 内容 end -->
+<include file="__THEME__/footer" />
+
+<script>
+    $(function () {
+        $(".preview").click(function(){
+            var c=$(".email input").val();
+            var d=c.replace("，",",").split(",");
+            $("#preview .modal-body .row").html("");
+            $.each(d, function(index, value) {
+                //alert(value);
+                $("#preview .modal-body .row").append("<div class='col-md-6'>"+value+",</div>");
+            }); 
+            $("#preview").modal();
+        });
+        $("#ccopyBtn").click(function() {
+            $('#link').modal("show");
+        });
+    });
+    seajs.use(['jquery', 'js/zeroclipboard/ZeroClipboard.js', 'validator', 'js/validator/validator.css'], function ($) {
+        var clip = new ZeroClipboard($("#copyBtn"));
+//        clip.setHandCursor(true);
+        clip.addEventListener("mouseup", function (client) {
+            $("#ccopyBtn").click();
+        });
+
+        function is_emails() {
+            var emails = $('textarea[name="emails"]').val();
+            var emailArr;
+            if (emails == '') {
+                return false;
+            } else {
+                emailArr = emails.split(',');
+                var k = 0;
+                for (var i = emailArr.length - 1; i >= 0; i--) {
+                    if (emailArr[i ] == '') {
+                        k++;
+                        continue;
+                    }
+                    if (/^\w+((-|\.)\w+)*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(emailArr[i])) {
+
+                    } else {
+                        return false;
+                    }
+                }
+                ;
+                if (k == emailArr.length) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        $.validator("emails")
+                .setTipSpanId("tip_span_email")
+                //.setEmptyValue("请输入邮箱账号")
+                .setRequired("请输入邮箱账号")
+                .setCallback(is_emails, "邮箱格式不正确");
+    });
+</script>

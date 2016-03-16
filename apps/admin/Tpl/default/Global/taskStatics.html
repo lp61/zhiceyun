@@ -1,0 +1,133 @@
+<include file="../Public/_header" />
+<style>
+    .main_type{line-height: 18px; font-size: 18px; padding: 6px 10px;}
+    a.my_avtive{color:red;}
+</style>
+<div class="so_main" style="padding: 10px 0px">
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+            <form method="post" action="">
+                <input type="hidden" name="isSearch" value="1"/>
+                <input type="hidden" name="statics_type" value="{$Think.request.statics_type}"/>
+                <dl class="lineD">
+                    <dt>用户ID：</dt>
+                    <dd>
+                        <input name="user_id" type="text" value="{$map.user_id}">
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>时间：</dt>
+                    <dd>
+                        <input id="pstart" name="pstart" type="text" class="Wdate" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'pend\')}'})" onClick="WdatePicker({dateFmt:'yyyy-M-d',maxDate:'%y-%M-%d'})">&nbsp;&nbsp;-&nbsp;&nbsp;
+                        <input id="pend" name="pend" type="text" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-M-d',maxDate:'%y-%M-%d'})">
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>APK类型：</dt>
+                    <dd>
+                        <select name="apk_type">
+                            <option value="" <php>if($map['apk_type'] == "") echo 'selected';</php>>--请选择--</option>
+                            <volist id="vo" name="appTypeConfig">
+                                <option value="{$vo.id}" <php>if($map['apk_type'] == $vo['id']) echo 'selected';</php>>{$vo.name}</option>
+                            </volist>
+                        </select>
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>测试业务类型：</dt>
+                    <dd>
+                        <select name="businessID">
+                            <option value="" <php>if($map['businessID'] == "") echo 'selected';</php>>--请选择--</option>
+                            <volist id="vo" name="appTestConfig">
+                                <option value="{$vo.id}" <php>if($map['businessID'] == $vo['id']) echo 'selected';</php>>{$vo.title}</option>
+                            </volist>
+                        </select>
+                    </dd>
+                </dl>
+
+                <div class="page_btm">
+                    <input type="submit" class="btn_b" value="确定" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();"><span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span></a>
+        <a href="{:U('admin/Global/taskStaticsExcel', array('map'=>unserialize($search)))}" class="btn_a"><span>&nbsp;&nbsp;导出EXCEL&nbsp;&nbsp;</span></a>
+    </div>
+    <div class="main_type">
+        <a href="{:U('admin/Global/taskStatics')}" <php>if(empty($_GET['statics_type'])) echo 'class="my_avtive"';</php>> 按天</a>&nbsp;&nbsp;&nbsp;
+        <a href="{:U('admin/Global/taskStatics', array('statics_type'=>1))}" <php>if($_GET['statics_type']==1) echo 'class="my_avtive"';</php>> 按月</a>
+    </div>
+    <div id="main" style="height:400px; margin:20px 20px;"></div>
+</div>
+
+<script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript">
+var myChart = echarts.init(document.getElementById('main')); 
+var option = {
+    title : {
+        text: '提交任务量',
+        //subtext: '近一<php>echo $typeName;</php>'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['最小值：<?php echo min($selCountArr);?>     最大值：<?php echo max($selCountArr);?>     总计：<?php echo array_sum($selCountArr);?>']
+    }, //图例设置
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    }, //工具栏设置
+    calculable : false, //统计点的拖拽功能设置
+    xAxis : [ //x坐标轴（坐标）
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : <?php echo json_encode($selMonthArr);?>
+        }
+    ],
+    yAxis : [ //y坐标轴（坐标）
+        {
+            type : 'value',
+            max:<?php echo $max;?>,
+            axisLabel : {
+                formatter: '{value}次'
+            }
+        }
+    ],
+    series : [ //数据（与x轴坐标对应）
+        {
+            name:'提交任务数',
+            type:'line',
+            itemStyle: {normal: {areaStyle: {type: 'helianthus'}}},
+            data:<?php echo json_encode($selCountArr);?>,
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            }
+        }
+    ],
+    dataZoom: {
+        show: true,
+        start : 30,
+        end : 70
+    }
+};
+myChart.setOption(option); 
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

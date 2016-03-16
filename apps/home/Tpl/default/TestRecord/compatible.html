@@ -1,0 +1,49 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">{$business_title|getBusinessTitle}</span></h2>
+    <div class="left">
+        <include file="_compatible_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <h4 class="row">
+            <div class="col-md-5">应用测试</div>
+            <include file="_share_menu" />
+        </h4>
+        <div class="appinfo">
+            <div class="appinfo_content">
+                <div style="height: 166px;margin-top: 2px;"><img src="{$vo['apk_icon']}"  style="height: 150px;padding-top: 10px;" /></div>
+                <table>
+                    <tr>
+                        <td class="lightblueBg">应用图标</td>
+                        <td class="lightgreenBg"><img src="{$vo['apk_icon']}"/></td>
+                        <td class="lightblueBg">测试类型</td>
+                        <td class="lightgreenBg">{$vo['businessID']|getBusinessTitle}</td>
+                    </tr>
+                    <tr>
+                        <td class="lightblueBg">应用名称</td>
+                        <td class="lightgreenBg">{$vo['apk_name']}</td>
+                        <td class="lightblueBg">测试终端数</td>
+                        <td class="lightgreenBg">{$vo['device_num']}</td>
+                    </tr>
+                    <tr>
+                        <td class="lightblueBg">应用版本</td>
+                        <td class="lightgreenBg">{$vo['apk_version']}</td>
+                        <td class="lightblueBg">提交时间</td>
+                        <td class="lightgreenBg">{$vo['ctime']}</td>
+                    </tr>
+                    <tr>
+                        <td class="lightblueBg">应用大小</td>
+                        <td class="lightgreenBg">{$vo['apk_size']}KB</td>
+                        <td class="lightblueBg">测试状态</td>
+                        <td class="lightgreenBg">{$vo['status']}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>    
+        <div style="height:55px"></div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

@@ -1,0 +1,10 @@
+<div class="space"></div>
+<p class="blue">概述报告</p>
+<ul>
+    <li <if condition="(ACTION_NAME eq 'report') OR (ACTION_NAME eq 'compatible')">class="active gray"<else />class="gray"</if>><a href="{:U('home/TestRecord/compatible', array('uuid'=>$uuid))}">应用信息</a></li>
+    <li <eq name="ACTION_NAME" value="compatible_comp">class="active gray"<else />class="gray"</eq> ><a href="{:U('home/TestRecord/compatible_comp', array('uuid'=>$uuid))}">兼容概况</a></li>
+    <li <eq name="ACTION_NAME" value="compatible_prop">class="active gray"<else />class="gray"</eq> ><a href="{:U('home/TestRecord/compatible_prop', array('uuid'=>$uuid))}">性能概况</a></li>
+    <li <eq name="ACTION_NAME" value="compatible_list">class="active gray"<else />class="gray"</eq> ><a href="{:U('home/TestRecord/compatible_list', array('uuid'=>$uuid))}">终端列表</a></li>
+    <li class="gray"><a href="{:U('home/Account/feedback')}">用户反馈</a></li>
+    <li class="img"><img src="__THEME__/images/record1.png"/></li>
+</ul>

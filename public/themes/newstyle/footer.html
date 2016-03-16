@@ -1,0 +1,51 @@
+<script type="text/javascript">
+// 公共js
+seajs.use(['widget', 'common'], function(Widget, Common){
+    Widget.initWidgets();
+    Common.init();
+});
+
+//<php>if ($mid){</php>
+//    function getNoreadMsg() {
+//        var url = "{:U('home/Message/getNoreadMsg')}";
+//        var obj = $('.newNote');
+//        $.post(url, {}, function(data){
+//            console.log(data);
+//            if (data.count > 0) {
+//                obj.show();
+//                if (data.number > 0){
+//                    //判断有新消息后，执行此段代码
+//                    $('#newinfo').show().delay(3000).hide(0);
+//                    $('#newinfo .blue').html(data.number);
+//				}
+//            }else{
+//                obj.hide();
+//            }
+//        },'json');
+//    }
+//    getNoreadMsg();
+//    setInterval(getNoreadMsg, 15000);
+//<php>}</php>
+</script>
+<a class="QQGroupBtn" target="ifm" href="http://jq.qq.com/?_wv=1027&k=SvQsir"><img src="__THEME__/images/QQGroup.png" /><br/>在<br/>线<br/>客<br/>服</a>
+<iframe style="display:none" name="ifm" id="ifm"></iframe>
+<div class="footer">
+    <p class="center" data-position="fixed" data-role="footer"> 电话：<a href="#">010-62304633（2923）</a>/QQ：<a href="#">2059235439</a>/邮箱：<a href="#">service@smarterapps.cn</a>/合作：<a href="#">market@smarterapps.cn</a><br>Copyright by China Academy of Information & Communication Technology：京ICP备09013372号-10</p>
+</div>
+<script>
+$(function(){
+    setTimeout(function(){
+        if (window.innerHeight) {
+            winHeight = window.innerHeight;
+        } else if ((document.body) && (document.body.clientHeight)) {
+            winHeight = document.body.clientHeight;
+        }
+        var footFixHeight=winHeight-$(".footer").position().top-$(".footer").outerHeight();
+        if(footFixHeight>0) {
+            $(".footer").css("margin-top",footFixHeight+"px");
+        }
+    },10);
+});
+</script>
+</body>
+</html>

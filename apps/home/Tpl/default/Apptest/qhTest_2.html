@@ -1,0 +1,335 @@
+<include file="__THEME__/header" />
+<style>
+ .arrow1{margin-bottom:-24px;margin-left:160px}
+ .compatible .recommend>.stork{max-height:560px; overflow:auto;}
+</style>
+<div class="chooseTest compatible">
+    <div class="center">
+        <h1><span class="gray"><a href="#">首页&nbsp;>&nbsp;</a></span><span class="gray"><a href="#">应用测试&nbsp;>&nbsp;</a></span><span class="blue"><a href="#">清华兼容性测试</a></span></h1>
+        <div class="white order">
+            <span class="blueBg num">1</span>
+            <span class="line blueBg"></span>
+            <span class="blueBg num">2</span>
+            <span class="line blueBg"></span>
+            <span class="blueBg num">3</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">4</span>
+        </div>
+        <div class="content">
+            <span class="blue one">选择测试类型</span>
+            <span class="blue two">上传APK</span>
+            <span class="blue three">选择终端</span>
+            <span class="lightgray four">测试提交</span>
+        </div>
+        <h2 class="blue">推荐终端套餐</h2>
+        <form action="{:U('home/Apptest/qhTestSubmit')}" method="post" id="subForm" enctype="multipart/form-data">
+            <input type="hidden" name="task_id" value="{$task_id}" />
+            <input type="hidden" name="package_type" id="data_type" />
+            <input type="hidden" name="device_type" id="allId" />
+            <input type="hidden" name="cost" id="score" />
+            <div class="recommend">
+                <div class="row chose">
+                    <div class="col-md-3 testBag high">
+                        <h3><img src="__THEME__/images/compatible1.png"/></h3>
+                        <h4 class="darkgray">用户覆盖率最高的包</h4>
+                        <P class="gray">150款终端<br />
+                            消耗1000积
+                        </P>
+                    </div>
+                    <div class="col-md-3 testBag new">
+                        <h3><img src="__THEME__/images/compatible2.png"/></h3>
+                        <h4 class="darkgray">最新上市机型</h4>
+                        <P class="gray">20款最新机型<br />
+                            上市时间不超过3个月
+                        </P>
+                    </div>
+                    <div class="col-md-3 testBag myself">
+                        <h3><img src="__THEME__/images/compatible3.png"/></h3>
+                        <h4 class="darkgray">自由选择终端</h4>
+                        <P class="gray">自主选择测试终端<br />
+                            各种机型自由选
+                        </P>
+                    </div>
+                </div>
+                <div class="arrow1"><img src="__THEME__/images/arrowdown3.png"/></div>
+                <hr/>
+                <div class="row stork highC" id="highC">
+                    <volist name="list_high" id="vo">
+                        <div class="col-md-3">
+                            <div class="phone">
+                                <div class="left"><img src="{$vo.pic_url}" width="50"></div>
+                                <div class="right">
+                                    <h3 class="darkgray">{$vo.name}</h3>
+                                    <p class="gray">系统：{$vo.os}<br />分辨率：{$vo.resolution}<br />屏幕尺寸：{$vo.size}<br />上市时间：{$vo.release_time}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+                <div class="row stork newC" id="newC">
+                    <volist name="list_new" id="vo">
+                        <div class="col-md-3">
+                            <div class="phone">
+                                <div class="left"><img src="{$vo.pic_url}"  width="50"></div>
+                                <div class="right">
+                                    <h3 class="darkgray">{$vo.name}</h3>
+                                    <p class="gray">系统：{$vo.os}<br />分辨率：{$vo.resolution}<br />屏幕尺寸：{$vo.size}<br />上市时间：{$vo.release_time}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+                <div class="free row" id="freeC">
+                    <div class="col-md-5">
+                     <div class="edition edition1">
+                        <h4 class="blue">系统版本</h4><hr/>
+                        <div class="version">
+                            <table>
+                                <tr>
+                                <volist name="osList" id="vo" key="k">
+                                    <td><input data="{$vo.content}" type="checkbox"/>{$vo.content}</td>                             
+                                    <php>if($k%3==0){</php><tr></tr><php>}</php>
+                                </volist>
+                            </tr>   
+                            </table>
+                        </div>
+                         </div>
+                       <div class="edition edition2">
+                        <h4 class="blue">分辨率</h4><hr/>
+                        <div class="version">
+                            <table>
+                                <tr><volist name="resolution" id="vo" key="k">
+                                    <td><input data="{$vo['content']}"  type="checkbox"/>{$vo['content']}</td>
+                                    <php>if($k%3==0){</php><tr></tr><php>}</php>
+                                </volist> 
+                                </tr>
+                            </table>
+                        </div>
+                            </div>
+                          <div class="edition edition3">
+                        <h4 class="blue">品牌</h4><hr/>
+                        <div class="version">
+                            <table>                    
+                                <tr>
+                                <volist name="model" id="vo" key="k">
+                                    <td><input  data="{$vo.content}"  type="checkbox"/>{$vo.content}</td>
+                                    <php>if($k%3==0){</php><tr></tr><php>}</php>
+                                </volist> 
+                                </tr>
+                            </table>
+                        </div>
+                          </div>
+                    </div>
+                    <div class="col-md-5 phoneModel">
+                        <h4 class="blue phoneModelTh">
+                            可选<span id="could" class="num1"><?php echo count($list_opt); ?></span>款&nbsp;已选<span class="num2" id="have">0</span>款
+                            <button id="whole" type="button">全选</button><button type="button" id="cancle">取消</button>
+                        </h4><hr style="margin-top:13px;"/>
+                        <script>
+                       $(function () {
+                         alljs();
+                        });
+                        </script>
+                        <div class="phoneModelTB">
+                            <ul>
+                                <volist name="list_opt" id="vo">
+                                <li><input type="checkbox" data="{$vo['device_type']}" onclick="getAllId();"/>{$vo['name']|msubstr=0,15}</li>
+                                </volist>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <include file='cost' />     
+            <div class="subBtn"><button disabled id="sub_cost" class="btn regBtn" type="submit">提交测试</button></div>
+        </form>
+    </div>
+</div>
+<include file="__THEME__/footer" />
+<script>
+    var selectItem = 0;
+    $(function () {
+        $(".chose .col-md-3").eq(0).css("background", "#d3edf5");
+        $(".chose .col-md-3").click(function () {
+            $(".chose .col-md-3").css("background", "#fff");
+            $(this).css("background", "#d3edf5");
+        });
+        $("#newC").css("display", "none");
+        $("#freeC").css("display", "none");
+        $(".testBag").click(function () {
+            selectItem = 0;
+            checkform();
+            $(".testBtn").css("background", "#0095d7");
+            $(".testBtn").mouseover(function () {
+                $(this).css("color", "#fff").css("background", "#40bbf2");
+            });
+            $(".testBtn").mouseout(function () {
+                $(this).css("background", "#0095d7");
+            });
+        });
+        
+       //积分验证
+        var cost1={$rule[0]['costScore']},cost2={$rule[1]['costScore']},cost3 = {$rule[2]['costScore']};; //花费积分
+        var your_score={$score}; //当前积分
+        $("#sub_cost").click(function () {
+            var c=document.getElementById("data_type").value;
+            if(c==2){
+               if(your_score<cost1){
+                alert("您的积分不足，请充值！！");
+                return false;
+                }
+            }else if(c==3){
+               if(your_score<cost2){
+                alert("您的积分不足，请充值！！");
+                return false;
+               }
+	        }else if(c==4){
+               var mm=$(".phoneModelTB ul").eq(0).find("input:checked");
+               var num_cost=cost3*mm.length
+	           if(your_score<num_cost){
+                 alert("您的积分不足，请充值！！");
+                 return false;
+	            }
+            }
+        });
+        
+        $(".high").click(function () {
+            $(".arrow1").css("margin-left", 160);
+            $("#highC").css("display", "block");
+            $("#newC,#freeC").css("display", "none");
+            $(".btn.regBtn").removeAttr("disabled").removeAttr("style");
+        });
+        $(".new").click(function () {
+            $(".arrow1").css("margin-left", 500);
+            $("#newC").css("display", "block");
+            $("#highC,#freeC").css("display", "none");
+            $(".btn.regBtn").removeAttr("disabled").removeAttr("style");
+        });
+        $(".myself").click(function () {
+            $(".arrow1").css("margin-left", 840);
+            $("#freeC").css("display", "block");
+            $("#newC,#highC").css("display", "none");
+        });
+        //input的点击
+//        $(".chosen input,.version input").click(function () {
+//            chose();
+//        });
+       //选择终端	
+//        function chose() {
+//            $("#could").html($(".chosen input").length);//可选数量
+//            $("#have").html($(".chosen input:checked").length);//已选数量
+//            $("#expend").html(2 * $(".chosen input:checked").length);
+//        };
+    });
+    </script>
+    <script>
+    function alljs(){
+			//获取系统所有的终端数
+		$(".phoneModel .phoneModelTh .num1").html($(".phoneModelTB ul").eq(0).find("input").length);
+		$("#whole").click(function () {
+                $(".phoneModelTB input").attr("checked", "checked").prop("checked", true);
+                getAllId();
+                return false;
+                });
+            $("#cancle").click(function () {
+                $(".phoneModelTB input").removeAttr("checked");
+                getAllId();
+                return false;
+            });
+            var number={$costScore},yours={$score};
+            var score1={$rule[0]['costScore']},score2={$rule[1]['costScore']}; //后台给出
+            var dtype1="{$rule[0]['package_type']}",dtype2="{$rule[1]['package_type']}",dtype3="{$rule[2]['package_type']}"; //后台给出
+            $(".testBag").click(function(){
+                var i=$(".testBag").index($(this));
+                if(i==0){
+		    selectItem=1;
+		    checkform();
+                    $("#data_type").val(dtype1);
+                    setCost(score1,yours);
+                }else if(i==1){
+		    selectItem=1;
+		    checkform();
+                    $("#data_type").val(dtype2);
+                    setCost(score2,yours);
+                } else if(i==2){
+		    getAllId();
+                    $("#data_type").val(dtype3);
+                    setCost(0,yours);
+                }
+            });
+            //筛选终端
+            $(".edition input").click(function(){
+                var edition1=[];
+				var edition2=[];
+				var edition3=[];
+                $(".edition1 input:checked").each(function(){
+                    edition1.push("'"+$(this).attr("data")+"'");
+                });
+                $(".edition2 input:checked").each(function(){
+                    edition2.push("'"+$(this).attr("data")+"'");
+                });
+                $(".edition3 input:checked").each(function(){
+                    edition3.push("'"+$(this).attr("data")+"'");
+                });
+                var m={"edition1":edition1.join(","),"edition2":edition2.join(","),"edition3":edition3.join(",")};
+				$.post("{:U('home/Apptest/getPhoneList')}",m,function(json){
+					if(json.code==0){
+						var html="";
+						for(i=0;i<json.data.length;i++){
+							 html+="<li><input data=\""+json.data[i].name+"\" type=\"checkbox\" onclick=\"getAllId()\" />"+json.data[i].name+"</li>";
+						}
+						$(".phoneModelTB ul").eq(0).html(html);
+						//筛选后再次获得可选终端数
+						$(".phoneModel .phoneModelTh .num1").html($(".phoneModelTB ul").eq(0).find("input").length);
+						getAllId();
+					}else{
+						alert("您的网络有问题，请稍后重试！");
+					}
+				},"json");
+            });
+		}
+		function setCost(number,yours){
+            /*
+            alert($("#costDiv").css('display'));
+            if(number > 0){
+                $("#costDiv").css('display','block');
+            } else() {
+                $("#costDiv").css('display','none');
+            }
+            */
+            $("#score").val(number);
+            $(".Number").html(number);
+            $(".Yours").html(yours);
+            if(yours>=number){
+                $(".pay button").hide(); //隐藏马上充值按钮
+                $(".danger1").hide(); //隐藏积分不足提示
+            } else {
+                $(".pay button").show(); //显示马上充值按钮
+                $(".danger1").show(); //显示积分不足提示
+            }
+        }
+        function getAllId(){
+            var score3 = {$rule[2]['costScore']};
+            var yours = {$score};
+            //获取所有被选中终端
+            var mm=$(".phoneModelTB ul").eq(0).find("input:checked");
+            //var mm=$(".phoneModelTB ul li input:checked");
+            var allId=[];
+            for(i=0;i<mm.length;i++){
+                allId.push(mm.eq(i).attr("data"));
+            }
+            $("#allId").val(allId.join(","));
+            setCost(score3*mm.length,yours);
+			selectItem=mm.length;
+			checkform();
+			//获取已选终端数
+			$(".phoneModel .phoneModelTh .num2").html(mm.length);
+        }
+		function checkform(){
+			if(selectItem>0){
+				$(".btn.regBtn").removeAttr("disabled").removeAttr("style");
+			}else{
+			    $(".btn.regBtn").attr("disabled", true).css("background", "#ccc");
+			}
+		}
+</script>

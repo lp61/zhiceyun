@@ -1,0 +1,3 @@
+<?php
+//000000000000a:37:{i:0;s:2:"id";i:1;s:12:"package_type";i:2;s:9:"packageID";i:3;s:11:"packageName";i:4;s:10:"businessID";i:5;s:12:"businessName";i:6;s:8:"sourceID";i:7;s:10:"sourceName";i:8;s:11:"raspberryIp";i:9;s:13:"raspberryName";i:10;s:8:"devState";i:11;s:9:"isEnabled";i:12;s:4:"name";i:13;s:5:"model";i:14;s:11:"device_type";i:15;s:4:"imei";i:16;s:2:"sn";i:17;s:2:"os";i:18;s:4:"size";i:19;s:10:"resolution";i:20;s:3:"ram";i:21;s:3:"rom";i:22;s:3:"cpu";i:23;s:10:"cpu_kernel";i:24;s:6:"cpu_hz";i:25;s:12:"release_time";i:26;s:8:"coverage";i:27;s:5:"ishot";i:28;s:5:"isnew";i:29;s:9:"attach_id";i:30;s:7:"pic_url";i:31;s:9:"photo_url";i:32;s:13:"display_order";i:33;s:5:"ctime";i:34;s:5:"mtime";s:8:"_autoinc";b:1;s:3:"_pk";s:2:"id";}
+?>

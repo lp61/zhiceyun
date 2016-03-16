@@ -1,0 +1,8 @@
+[ 2016-03-16T14:21:50+08:00 ] SQL:  RunTime:0.043843s SQL = SELECT count(1) as count FROM `ts_user` WHERE status>=0 LIMIT 1 
+[ 2016-03-16T14:21:50+08:00 ] SQL:  RunTime:0.000327s SQL = SELECT count(1) as count FROM `ts_user` LIMIT 1 
+[ 2016-03-16T14:21:50+08:00 ] SQL:  RunTime:0.006468s SQL = SELECT count(1) as count FROM `ts_app_test_task` WHERE task_status=2 LIMIT 1 
+[ 2016-03-16T14:21:50+08:00 ] SQL:  RunTime:0.002001s SQL = SELECT * FROM `ts_app_client` WHERE ( `ishot` = 1 ) AND ( `package_type` = 8 ) ORDER BY display_order asc LIMIT 0,3 
+[ 2016-03-16T14:21:50+08:00 ] SQL:  RunTime:0.002929s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 2 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-16T14:21:50+08:00 ] SQL:  RunTime:0.001127s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 3 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-16T14:21:50+08:00 ] SQL:  RunTime:0.000958s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 4 ) ORDER BY ctime desc LIMIT 1 
+[ 2016-03-16T14:21:50+08:00 ] SQL:  RunTime:0.000875s SQL = SELECT * FROM `ts_app_article` WHERE ( `type` = 5 ) ORDER BY ctime desc LIMIT 1 

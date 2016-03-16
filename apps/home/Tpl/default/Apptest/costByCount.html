@@ -1,0 +1,16 @@
+<h2 class="blue">费用总计</h2>
+<div class="pay" id="costDiv">
+    <p class="red danger1">您的免费次数已用尽，再次测试需扣除<span class="Number"></span>积分！</p>
+    <p>
+        <img src="__THEME__/images/test.png"/>预计消耗积分：<span class="red Number" id="expend">0</span>&nbsp;积分&nbsp;&nbsp;&nbsp;
+        <img src="__THEME__/images/test3.png"/>账户余额：<span class="red Yours"  id="sum">{$score}</span>&nbsp; 积分
+    </p>
+    <div><a href="{:U('home/Account/recharge')}"><button type="button" class="btn rechargeBtn">马上充值</button></a></div>
+    <hr />
+</div>
+<script>
+$(function(){
+	$(".pay button").hide();
+	$(".danger1").hide();
+});
+</script>

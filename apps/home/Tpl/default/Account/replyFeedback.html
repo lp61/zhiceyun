@@ -1,0 +1,84 @@
+<include file="__THEME__/header" />
+<style>
+.reportRight .title{width: 540px}
+.reportRight .applytest{border:0px;}
+.reportRight .applytest10 table tr,.reportRight .applytest10 table th{text-align: center;margin: 3px auto;height: 37px;line-height: 37px;border-top: 3px solid #fff;}
+.reportRight .applytest10 table tr a{color:#393939}
+/*.reportRight .applytest10 table{width:163px; margin:0; height:450px}*/
+.reportRight .applytest10 table th{width:166px; height:37px; line-height:37px}
+.reportRight .applytest10 table .gray{background:#ededed}
+.reportRight .applytest10 table .white{background:#f7f9f8;border:0px;border-top:3px solid #fff ;color: #333}
+.reportRight .applytest10 table .lightblue{background:#eaf4f3}
+.reportRight .applytest10 .toggle{margin-left:280px;}
+.setItems{width:820px;}
+</style>
+<div class="center2">
+    <include file="_menu" /><div class="Bg">
+    <img src="__THEME__/images/android2.png"/>
+</div>
+    <div class="report">
+        <include file="_feedback_menu" />
+
+        <div class="reportRight">
+          <!--
+            <div class="title">
+                <a href="#">有道云笔记（1.0）&nbsp;-</a>&nbsp;
+                <a href="#">兼容测试&nbsp;-</a>&nbsp;
+                <a href="#">概况报告</a>
+            </div>
+            <div class="data">
+                <button class="left"><img src="__THEME__/images/fenxiang2.png">分享测试报告</button>
+                <button><img src="__THEME__/images/arrowBottom2.png">下载测试报告</button>
+            </div>
+          -->
+            <div class="applytest applytest10" style="display:inline;">
+                <div class="apply"><img src="__THEME__/images/apply.png">&nbsp;
+                    我反馈的问题
+                </div>
+              <div class="setItems" style="margin-top:10px;">
+                    <div>
+                        <pre>
+                        反馈类型：{$appTestConfig[$feedback['type']]['name']}
+                        <br/>
+                        标题：{$feedback.title}
+                        <br/>
+                        描述：{$feedback.content}
+                        <br/>
+                        反馈时间：{$feedback.ctime|date="Y-m-d H:i",###}
+                        </pre>
+                    </div>
+                </div>
+                
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr class="gray">
+                            <th >问题id</th>
+                            <th >回复人</th>
+                            <th >回复内容</th>
+                            <th >回复时间</th>
+                            <th style="width:50px"></th>
+                        </tr>
+                        <php>$colorArr = array('gray','white','lightblue');if ($count) {</php>
+                        <volist id="vo" name="data" key="k">
+                            <tr <php>echo 'class="'.$colorArr[$k%3].'"'</php> id="feedback_{$vo.id}">
+                                <td>{$vo.fid}</td>
+                                <td>{$vo.uid|getUserName}</td>
+                                <td>{$vo.content}</td>
+                                <td>{$vo.ctime|date="Y-m-d H:i",###}</td>
+                                <td><i class="glyphicon glyphicon-menu-down"></i></td>
+                            </tr>
+                        </volist>
+                        <php>}</php>
+                    </tbody>
+                </table>
+                <div class="sofupage Twitter-green" style="margin:12px auto;width: 800px;clear: both;text-align: center;">
+                    {$html}&nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="__THEME__/images/kite.png">
+</div>
+
+<!-- 内容 end -->
+<include file="__THEME__/footer" />

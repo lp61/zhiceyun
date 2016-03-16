@@ -1,0 +1,91 @@
+<include file="__THEME__/header" />
+<script type="text/javascript" src="__THEME__/js/swiper.jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="__THEME__/js/swiper.animate1.0.2.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            slidesPerView: 1,
+            paginationClickable: true,
+            centeredSlides: true,
+            autoplay: 3000,
+            autoplayDisableOnInteraction: true
+        });
+    })
+</script>
+<div class="swiper-container friendTest">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide friendTest1">
+            <div class="center">
+                <div class="col-md-6">
+                    <img src="__THEME__/images/friendTest_index1.png" />
+                </div>
+                <div class="col-md-6">
+                    <p class="white">
+                        互联网时代<br />
+                        APP和网络的交互情况至关重要<br />
+                        如何<span class="blue">提高</span><br />
+                        APP与网络间的<span class="blue">友好度</span>
+                    </p>
+                    <div class="btn" data-ahref="J_wlyh_test_next"><a>立即测试</a></div>
+                      <a href="{:U('home/Apptest/networkTestNext')}" id="J_wlyh_test_next"></a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide friendTest2">
+            <div class="center">
+                <div class="col-md-6">
+                    <img src="__THEME__/images/friendTest_index3.png" />
+                </div>
+                <div class="col-md-6">
+                    <h3 class="blue">智测云网络友好测试</h3>
+                    <p class="white">
+                        通过自动化应用操作，采集APP与网络交互数据<br />
+                        通过智测云网络评估，争对性给出优化建议
+                    </p>
+                    <div class="btn" data-ahref="J_wlyh_test_next"><a>立即测试</a></div>
+                      <a href="{:U('home/Apptest/networkTestNext')}" id="J_wlyh_test_next"></a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide friendTest3">
+            <div class="center">
+                <div class="col-md-6">
+                    <h3 class="blue">让您的APP更省电、更省钱、用户更满意</h3>
+                    <p class="white">
+                        提高用电效率<br />
+                        减少流量使用<br />
+                        优化资源消耗情况
+                    </p>
+                    <div class="btn" data-ahref="J_wlyh_test_next"><a>立即测试</a></div>
+                </div>
+                <div class="col-md-6">
+                    <img src="__THEME__/images/friendTest_index4.png" />
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide friendTest4">
+            <div class="center">
+                <div class="col-md-6">
+                    <h3 class="blue">用户体验差&nbsp;网络压力大</h3>
+                    <p class="white">
+                        电池寿命低&nbsp;网络延迟大<br />
+                        资源利用率低&nbsp;信令风暴<br />
+                    </p>
+                    <div class="btn" data-ahref="J_wlyh_test_next"><a>立即测试</a></div>
+                </div>
+                <div class="col-md-6">
+                    <img src="__THEME__/images/friendTest_index5.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+<include file="__THEME__/footer" />

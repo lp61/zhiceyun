@@ -1,0 +1,259 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/Huploadify-V2.1.2/Huploadify.css"/>
+<script type="text/javascript" src="__PUBLIC__/js/Huploadify-V2.1.2/jquery.Huploadify.js"></script>
+
+<style type="text/css">
+    #file_upload_1-button{display:none;}
+    .uploadify-queue .uploadify-queue-item{margin-top:5px;width:229px;}
+    .uploadify-progress{width:229px;}
+    .APPbag span.delfilebtn{height:16px;line-height:14px;padding:0px 5px;display:inline-block;margin-top:2px;}
+    .uploadify-queue-item span{line-height:20px;}
+    .uploadify-progress{border:1px solid #666;}
+    .uploadify-progress-bar{background:#01a42f;}
+    .up_filename,.progressnum,.delfilebtn,.uploadbtn,.up_percent{margin-left:5px;}
+</style>
+<div class="APPbag">
+    <div class="row">
+        <div class="col-md-4 left">APP安装包：</div>
+        <div class="col-md-5" id="list_button" style="padding:0 10px;">
+            <div class="col-md-8" style="padding:0;">
+	            <input type="hidden" name="fileJson" id="fileJson" />
+	            <div class="text" style="display:inline-block;width:300px;height:35px;border:1px solid #e0e2e1;border-radius:5px;background:#fff;">
+	                <span id="appPath"></span>
+	            </div>
+            </div>
+            <div class="col-md-3" style="margin-left:0;"><button style="margin-left:-38px;" id="appUpload">上传APP</button></div>
+        </div>
+        <div class="col-md-5" style="display:none;padding:0 10px;" id="list_nobutton">
+            <input type="text" name="apkLink" id="apkLink" style="width:300px;border-radius:5px;background:#fff;"/>
+            <input type="text" name="apkExitsFile" id="apkExitsFile" style="width:300px;border-radius:5px;display:none;"/>
+            <input type="hidden" name="apkFileId" />
+        </div>
+        <div class="col-md-3">
+            <input type="hidden" name="methodType" value="1" />
+            <span class="blue">
+                <a id="link_submit" href="#"><span>链接上传</span><span style="display:none;">本地上传</span></a> | 
+                <a href="#" data-toggle = "modal" id="apklist">从已有APK中选择</a>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <div class="gray">文件200M以内，以.APK结尾</div>
+        </div>
+    </div>
+    <div class="gray row">
+        <div class="col-md-4 left">APK类型：</div>
+        <div class="dropdown col-md-4">
+            <a href="###" class="navbarWhite" data-role="button" data-toggle="dropdown">
+                <input type="hidden" name="ApkTypeSelectId" value="{$appType[19]['id']}">
+                <input type="text" name="ApkTypeSelectText" placeholder="{$appType[19]['name']}" readonly/><i class="glyphicon glyphicon-menu-down small"></i>
+            </a>
+            <ul class="dropdown-menu" style="height:220px;overflow:auto;">
+                <volist name="appType" id="vo">
+                    <li data="{$vo.id}">{$vo.name}</li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="APKLIST" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <span class="blue">已有APK列表</span>
+                <img data-dismiss = "modal" src="__THEME__/images/modal_close.png"/>
+            </div>
+            <div class="modal-body apkList-body row" style="max-height:300px; overflow:auto; width:595px;">
+                <volist name="uploadApkList" id="vo">
+                    <div class="col-md-6" title="{$vo.name}"><input name="apkAttach" type="radio" data="{$vo.id}" title="{$vo.name}"><span>{$vo.name|msubstr='0',20}</span></div>
+                </volist>
+            </div>
+            <div class="modal-footer">    
+                <button type="button" id="apkListSure" class="sure" data-dismiss="modal">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script type="text/javascript">
+    $(function () {
+        function checkform() {
+            var btnEnabled = false;
+            var m = $("input[name='methodType']").val();
+            if (m == "1") {
+                if ($("#fileJson").val() != "") {
+                    btnEnabled = true;
+                }
+            } else if (m == "2") {
+                if ($("input[name=apkLink]").val() != "") {
+                    btnEnabled = true;
+                }
+            } else if (m == "3") {
+                if ($("input[name=apkExitsFile]").val() != "") {
+                    btnEnabled = true;
+                }
+            }
+            //提交按钮样式变化
+            if (btnEnabled) {
+                $(".btn.regBtn").removeAttr("disabled").css("background", "#25a3cb");
+            } else {
+                $(".btn.regBtn").attr("disabled", true).css("background", "#ccc");
+            }
+        }
+        checkform();
+          $("input[name=apkLink]").change(function () {
+            checkform();
+        });
+        //modal:模态框显示
+        $("#apklist").click(function () {
+            $("#APKLIST").modal(); //查看已上传APK列表
+        });
+        //APP类型选择：获取下拉
+        $(".APPbag .dropdown ul li").click(function () {
+            $("input[name=ApkTypeSelectText]").val($(this).text());
+            $("input[name=ApkTypeSelectId]").val($(this).attr("data"));
+        });
+        //判断是本地上传还是链接上传	
+        $("#link_submit").click(function () {
+            $("#link_submit span,#list_button,#list_nobutton").toggle();
+            if ($("#link_submit span").eq(1).is(":hidden")) {
+                $(".APPbag .left").eq(0).html("APK安装包："); //本地上传
+                $("input[name='methodType']").val(1); //apk上传方式
+            } else if ($("#link_submit span").eq(0).is(":hidden")) {
+                $(".APPbag .left").eq(0).html("程序下载地址："); //链接下载
+                $("input[name='methodType']").val(2); //apk上传方式
+                $('#apkLink').show();
+                $('#apkExitsFile').hide();
+            }
+            checkform();
+            return false;
+        });
+        //apk上传
+        $("#appUpload").click(function () {
+            $("#appPath .delfilebtn").click();
+            $(".uploadify-button").eq(0).click();
+            return false;
+        });
+        //选择已有apk并确认
+        $("#apkListSure").click(function () {
+            var m = $("#APKLIST").find("input:checked").attr("title"); //apk文件名
+            var n = $("#APKLIST").find("input:checked").attr("data"); //apk文件ID
+            m = m.replace(/\s/g, "");
+            //切换div
+            $(".APPbag .left").eq(0).html("已有APK：");
+            $("#list_button").hide();   //有上传button区域隐藏
+            $("#link_submit span").eq(0).hide(); //“本地上传”隐藏
+            $("#list_nobutton").show();
+            $("#link_submit span").eq(1).show();
+            $('#apkLink').hide();
+            $('#apkExitsFile').show();
+            //赋值
+            $("input[name=apkExitsFile]").val(m); //已选择文件名
+            $("input[name=apkFileId]").val(n); //已选择文件ID
+            $("input[name='methodType']").val(3); //apk上传方式
+            checkform();
+        });
+
+        //upload控件上传
+        function init() {
+            try {
+                var up = $('#appPath').Huploadify({
+                    auto: true,
+                    fileTypeExts: '*.apk;*.APK', //*.jpg;*.png;
+                    multi: false,
+                    fileSizeLimit: 500000000, // 500M
+                    breakPoints: false,
+                    saveInfoLocal: true,
+                    fileObjName: 'appfile',
+                    showUploadedPercent: true, //是否实时显示上传的百分比，如20%
+                    showUploadedSize: true,
+                    removeTimeout: 9999999,
+                    uploader: "{:U('home/Apptest/uploadApk')}",
+                    onUploadStart: function () {
+                        //开始上传，显示上传文件的名称，超长时截取显示
+                        var name = $(".up_filename").text();
+                        alert(name);
+                        $(".up_filename").attr('title', name).text(subString(name, 5, 1));
+                    },
+                    onUploadSuccess: function (file) {
+                    },
+                    onCancel: function () {
+                        $("#fileJson").val("");
+                        checkform();
+                    },
+                    onUploadComplete: function (data, data2) {
+                        var obj = stringToJson(data2);
+                        if (obj.code == "0") {
+                            $("#fileJson").val(JSON.stringify(obj.data));
+                        } else {
+                            alert(obj.data);
+                        }
+                        checkform();
+                    }
+                });
+//                var up2 = $('#userListText').Huploadify({
+//                    auto: true,
+//                    fileTypeExts: '*.txt', //*.jpg;*.png;
+//                    multi: false,
+//                    fileSizeLimit: 2000000, //2M
+//                    breakPoints: false,
+//                    saveInfoLocal: true,
+//                    fileObjName: 'userList',
+//                    showUploadedPercent: true, //是否实时显示上传的百分比，如20%
+//                    showUploadedSize: true,
+//                    removeTimeout: 9999999,
+//                    uploader: "{:U('home/Apptest/uploadUserList')}",
+//                    onUploadStart: function () {
+//                    },
+//                    onUploadSuccess: function (file) {
+//                    },
+//                    onUploadComplete: function (data, data2) {
+//                        var obj = stringToJson(data2);
+//                        if (obj.code == "0") {
+//                            $("#user_list").val(obj.name);
+//                            $("#userListJson").val(JSON.stringify(obj.data));
+//                        } else if (obj.code == 2) {
+//                            alert(obj.data);
+//                        } else {
+//                            alert("您的网络有问题，请稍后重试！");
+//                        }
+//                        checkform();
+//                    }
+//                });
+            } catch (e) {
+                location.reload(false);
+            }
+        }
+        init();
+    });
+    //截取字符串 包含中文处理 (串,长度,增加...) 
+    function subString(str, len, hasDot) {
+        var newLength = 0;
+        var newStr = "";
+        var chineseRegex = /[^\x00-\xff]/g;
+        var singleChar = "";
+        var strLength = str.replace(chineseRegex, "**").length;
+        for (var i = 0; i < strLength; i++) {
+            singleChar = str.charAt(i).toString();
+            if (singleChar.match(chineseRegex) != null) {
+                newLength += 2;
+            } else {
+                newLength++;
+            }
+            if (newLength > len) {
+                break;
+            }
+            newStr += singleChar;
+        }
+        if (hasDot && strLength > len) {
+            newStr += "...";
+        }
+        return newStr;
+    }
+    //转换json
+    function stringToJson(stringValue) {
+        eval("var theJsonValue = " + stringValue);
+        return theJsonValue;
+    }
+</script>

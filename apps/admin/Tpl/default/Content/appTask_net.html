@@ -1,0 +1,164 @@
+<include file="../Public/_header" />
+<link href="__THEME__/css/bootstrap.min.css" rel="stylesheet">
+<script src="__PUBLIC__/js/zhiceyun/jquery-1.11.3.min.js"></script>
+<script src="__PUBLIC__/js/zhiceyun/bootstrap.min.js"></script>
+<style>
+    /*表单2样式*/
+	body {font-size:12px;}
+    .form2 dl { margin-bottom:0px;}
+    .form2 dt { display: block;}
+</style>
+<div class="so_main">
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+            <form method="post" action="">
+                <input type="hidden" name="isSearch" value="1"/>
+                <dl class="lineD">
+                    <dt>任务ID：</dt>
+                    <dd>
+                        <input name="uuid" type="text" value="">
+                        <p>多个时使用英文的“,”分割</p>
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>人员ID：</dt>
+                    <dd>
+                        <input name="user_id" type="text" value="">
+                        <p>多个时使用英文的“,”分割</p>
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>状态：</dt>
+                    <dd>
+                    <input type="radio" name="task_status" value="" <php>if($task_status === "") echo 'checked';</php>>全部
+                    <input type="radio" name="task_status" value="0" <php>if($task_status === "0") echo 'checked';</php>>排队中
+                    <input type="radio" name="task_status" value="1" <php>if($task_status === "1") echo 'checked';</php>>测试中
+                    <input type="radio" name="task_status" value="2" <php>if($task_status === "2") echo 'checked';</php>>测试成功
+                    <input type="radio" name="task_status" value="3" <php>if($task_status === "3") echo 'checked';</php>>测试失败
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>APK类型：</dt>
+                    <dd>
+                    <input type="radio" name="apk_type" value="" <php>if($apk_type === "") echo 'checked';</php>>全部
+                    <volist id="vo" name="appTypeConfig">
+                        <input type="radio" name="apk_type" value="{$vo.id}" <php>if($apk_type === $vo['id']) echo 'checked';</php>>{$vo.name}
+                    </volist>
+                    </dd>
+                </dl>
+
+                <div class="page_btm">
+                    <input type="submit" class="btn_b" value="确定" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="page_tit">测试任务：{$Think.get.package_type|getPackageTitle}</div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="{:U('admin/Content/appTask_net', array('package_type'=>$_REQUEST['package_type']))}" class="btn_a"><span>&nbsp;&nbsp;刷新&nbsp;&nbsp;</span></a>
+    </div>
+    <div class="list">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th style="width:30px;">
+                    <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+                    <label for="checkbox"></label>
+                </th>
+                <th class="line_l">任务ID</th>
+                <th class="line_l">用户名</th>
+                <th class="line_l">apk名称</th>
+                <th class="line_l">apk类型</th>
+                <th class="line_l">apk图标</th>
+                <th class="line_l">测试包类型</th>
+                <th class="line_l">任务状态</th>
+                <th class="line_l">提交时间</th>
+                <th class="line_l">下发时间</th>
+                <th class="line_l">完成时间</th>
+                <th class="line_l">操作</th>
+            </tr>
+            <volist id="vo" key="k" name="data">
+                <tr overstyle='on' id="{$vo.id}">
+                    <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+                    <td>{$vo.uuid}</td>
+                    <td>{$vo.user_id|getUserName}</td>
+                    <td>{$vo.apk_name}</td>
+                    <td class="line_l">{$appTypeConfig[$vo['apk_type']]['name']}</td>
+                    <td><img src="{$vo.apk_icon}" width="50px"></td>
+                    <td>{$vo.businessID|getBusinessTitle}</td>
+                    <td> <php>
+                    if( $vo['task_status'] == '0' ) echo '排队中';  
+                    if( $vo['task_status'] == '1' ) echo '测试中';
+                    if( $vo['task_status'] == '2' ) echo '测试完成';
+                    if( $vo['task_status'] == '3' ) echo '测试失败';
+                        </php> 
+                    </td>
+                <td>{$vo.ctime|get_date}</td>
+                <td>{$vo.stime|get_date}</td>
+                <td>{$vo.mtime|get_date}</td>
+                <td> <a href="{:U('admin/Content/appTask_look', array('id'=>$vo['id']))}" class="btn_a">查看</a>&nbsp;
+                    <eq name="vo.task_status" value="0">
+                    <a href="javascript:void(0);" onclick="setModal({$vo.id}, '1');">|&nbsp;开始测试</a>
+                    </eq>
+                    <eq name="vo.task_status" value="1">
+                    <a href="javascript:void();"  onclick="setModal({$vo.id}, '2');">|&nbsp;完成测试</a>
+                    </eq>
+                </td>
+                </tr>
+            </volist>
+        </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+    </div>
+</div>
+<div id="taskModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin: 200px auto;">
+            <form id="taskForm" action="{:U('admin/Content/doTask')}" enctype="multipart/form-data" method=post>
+                <input type="hidden" readonly id="task_id" name="id" value="" />
+                <input type="hidden" readonly id="task_status" name="status" value="0" />
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">请上传测试报告</h4>
+                </div>
+                <div class="modal-body">
+                    <label>测试报告：</label>
+                    <input type="file" name="file_url" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="okBtn" class="btn btn-primary">确定</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<script>
+    function setModal(id,status) {
+        $('#task_id').val(id);
+        $('#task_status').val(status);
+        if(status == 2) {
+            $('#taskModal').modal("show");
+            return false;
+        } else {
+            $('#taskForm').submit();
+            return false;
+        }
+    }
+    $("#okBtn").click(function(){
+        $('#taskModal').modal("hide");
+        $('#taskForm').submit();
+        return false;
+    });
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

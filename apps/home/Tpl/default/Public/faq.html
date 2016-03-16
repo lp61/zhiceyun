@@ -1,0 +1,77 @@
+<include file="__THEME__/header" />
+<div class="weekTest FAQ">
+    <div class="weekTest_banner">
+        <h1 class="white">关注智测云微信公众号，实时查询测试状态<br />获得更多测试优惠！</h1>
+        <div class="ER"><img src="__THEME__/images/aboutUsEr.png"/></div>
+    </div>
+    <div class="center">
+        <div class="title center">
+        	<h4 style="margin-bottom:0;"><a href="{:U('home/Index/index')}" class="gray">首页 > </a><a href="#" class="blue">FAQ</a></h4>
+        </div>
+        <div class="record">
+            <div class="left">
+                <ul>
+                    <li class="gray active"><a href="###">常见问题</a></li>
+                    <li class="gray"><a href="###">功能使用</a></li>
+                    <li class="gray"><a href="###">账户设置</a></li>
+                    <li id="img" class="img"><img src="__THEME__/images/record1.png"/></li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="normal">
+                    <volist name="mo.normal" key="k" id="vo">
+                    <dl>
+                        <dt class="darkgray">{$k}.{$vo.title}</dt>
+                        <dd class="gray">{$vo.content}</dd>
+                    </dl>
+                    </volist>
+                </div>
+                <div class="func">
+                    <volist name="mo.func"  key="k"  id="vo">
+                        <dl>
+                            <dt class="darkgray">{$k}.{$vo.title}</dt>
+                            <dd class="gray">{$vo.content}</dd>
+                        </dl>
+                    </volist>
+                </div>
+                <div class="set">
+                    <volist name="mo.set"  key="k"  id="vo">
+                        <dl>
+                            <dt class="darkgray">{$k}.{$vo.title}</dt>
+                            <dd class="gray">{$vo.content}</dd>
+                        </dl>
+                    </volist>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="clear:both;"></div>
+<include file="__THEME__/footer" />
+
+<script>
+    $(function () {
+        //切换	
+        $("#img").click(function(){
+            $(this).removeclass("active")
+        });
+        $(".FAQ .record .left ul li").click(function () {
+            $(".FAQ .record .left ul li").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".normal").show();
+        $(".func,.set").hide();
+        $(".FAQ .record .left ul li").eq(0).click(function () {
+            $(".normal").show();
+            $(".func,.set").hide();
+        });
+        $(".FAQ .record .left ul li").eq(1).click(function () {
+            $(".func").show();
+            $(".normal,.set").hide();
+        });
+        $(".FAQ .record .left ul li").eq(2).click(function () {
+            $(".set").show();
+            $(".func,.normal").hide();
+        });
+    });
+</script>

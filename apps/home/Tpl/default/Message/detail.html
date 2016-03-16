@@ -1,0 +1,30 @@
+<include file="__THEME__/header" />
+
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>>用户信息管理><span class="blue">消息中心</span></h2>
+    <div class="title">
+        <ul>
+            <div class="space"></div>
+            <li>  <a href="{:U('home/TestRecord/index')}">测试记录</a></li>
+            <li> <a href="{:U('home/Account/index')}">账户管理</a></li>
+            <li>  <a href="{:U('home/Account/recharge')}">测试积分中心</a></li>
+            <li><a href="{:U('home/Account/invite')}">好友邀请</a></li>
+            <li class="active"> <a href="{:U('home/Message/index')}">消息中心</a></li>
+            <li><a href="{:U('home/Account/feedback')}">用户反馈</a></li>
+            <button data-ahref="J_to_a">创建测试</button>
+            <a href="{:U('home/Apptest/index')}" id="J_to_a" class="J_hide"></a>
+        </ul>
+    </div>
+    <div class="info_detail">
+        <h4 class="blue">消息列表&nbsp;&nbsp;<button type="button" data-ahref="J_message_back">返回</button>
+            <a href="{:U('home/Message/index')}" id="J_message_back"></a></h4>
+        <div class="applytest applytest10" style="display:inline;">
+            <div class="info_con">
+                <p> 标题：{$vo.title}  </p>
+                <p> 描述：{$vo.content}</p>
+                <p>发送时间：{$vo.ctime|date="Y-m-d H:i",###} </p>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="__THEME__/footer" /> 

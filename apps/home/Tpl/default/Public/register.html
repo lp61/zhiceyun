@@ -1,0 +1,168 @@
+<include file="__THEME__/header" />
+<div class="reg">
+    <div class="center">
+        <h1 class="blue">用户注册</h1>
+        <h2 class="darkgray">认证身份可享受更多测试特权（我们将1个工作日内完成审核）</h2>
+        <div class="reg_left">
+            <h3><php>foreach (UserInfoVars::$USER_TYPE_CONFIG as $key => $_one) {
+                    $class = $utype == $key? 'blue':'gray';
+                    $url   = U('home/Public/register',array('utype'=>$key,'inviteCode'=>$inviteCode));
+                    $ahref[] = '<a class="'.$class.'" href="'.$url.'">'.$_one['name'].'</a>';
+                    }
+                    echo implode('&nbsp; &nbsp;', $ahref);
+                </php></h3>
+            <div class="title_Arrow" <if condition="$utype eq 2">style="margin-left:260px"<elseif condition="$utype eq 1" />style="margin-left:150px"<else />style="margin-left:40px"</if> ><img src="__THEME__/images/retrieve_Arrow.png"></div>
+            <form action="{:U('home/Public/register')}" method="post" id="subForm" enctype="multipart/form-data">
+                <input type="hidden" name="inviteCode" value="{$inviteCode}">
+                <input type="hidden"  name="utype" id="utype" value="{$utype}">
+                <div> <input type="text" placeholder="请输入邮箱账户" name="email" /> </div>            
+                <div> <input type="password" placeholder="请输入密码" name="password" /> </div>           
+                <div> <input type="password" placeholder="请再次输入密码" name="repassword" /></div> 
+                <if condition="$utype eq 1">
+                    <div><input type="text" placeholder="请输入公司名称" name="company_name"><div class="note"><img src="__THEME__/images/reeor.png"><p class="error">请输入公司名称</p></div></div>
+                    <div style="display: none;"><select name="work_classify"><option value="1" selected="selected">--默认选择--</option><option value="0">请选择所在行业</option> <volist name="workClassify" id="vo" key="k"> <option value="{$k}">{$vo}</option> </volist></select></div>
+                    <div>
+                        <select name="work_station"> 
+                            <option value="0">请选择所在岗位</option> 
+                            <volist name="workStation" id="vo" key="k"> 
+                                <option value="{$k}">{$vo}</option> </volist>
+                        </select>
+                    </div>
+                <elseif condition="$utype eq 2" />
+                    <div><input type="text" placeholder="请输入公司名称" name="company_name"><div class="note"><img src="__THEME__/images/reeor.png"><p class="error">请输入公司名称</p></div></div>
+                    <div style="display: none;"><select name="work_classify"><option value="1" selected="selected">-默认选择--</option> <option value="0">请选择所在行业</option> <volist name="workClassify" id="vo" key="k"> <option value="{$k}">{$vo}</option> </volist></select></div>   
+                    <div><select name="company_size"><option value="0">请输入公司规模</option>  <volist name="companySize" id="vo" key="k"><option value="{$k}">{$vo}</option>  </volist> </select></div>
+                </if>
+                <if condition="$utype gt 0">
+                    <div><input type="text" placeholder="请输入手机号" name="phone"><div class="note"><img src="__THEME__/images/reeor.png"><p class="error">请输入手机号码</p></div></div>
+                    <div class="vali"  style="height: 60px;"><div class="validate"><input type="text" name="phone_code" placeholder="请输入手机验证码"></div>
+                        <div class="getCode">  <a href="javascript:;" id="J_send_code"><button class="button blueBg">获取短信验证码</button>  </a><span id="tip_span_phone_code"></span></div>
+                        <div style="clear:both"></div>
+                    </div>
+                </if>
+                <if condition="$utype eq 2">
+                    <div class="vali"  style="height: 60px;" id="J_upload_img">
+                    	<div class="validate">
+                            <input type="text" id="pic_path" name="pic_path"  placeholder="营业执照副本上传" />
+                            <input type="file" id="pic_url" name="pic_url" style="display:none" />
+                        </div>
+                        <div class="getCode"><button id="btn2" class="button blueBg" style="margin-top:-10px">上传</button><span id="tip_pic_url" style="display:inline-block; margin-left:10px;margin-top:15px;"></span></div>
+                        <script>
+                            $(function () {
+                                $("#pic_url").change(function () {
+                                    $("#pic_path").val($(this).val());
+                                });
+                                $("#btn2").click(function () {
+                                    $("#pic_url").click();
+                                }).css("cursor", "pointer");
+                            });
+                        </script>
+                    </div>    
+                </if>
+                <div class="vali"  style="height: 60px;" data-widget="js/user/register.js#refleshRegImg" id="checkcode">
+                    <div class="validate"><input type="text"  id="verify" name="verify" placeholder="请输入验证码"></div>
+                    <div class="post"><img src="__ROOT__/public/checkcode.php" id="verifyimg" alt="换一张" style="cursor: pointer;vertical-align:middle;" data-role="reflesh" /> <a href="###" data-role="reflesh" class="gray">看不清 换一张</a></div>
+                    <span id="tip_verify" style="display:inline-block; margin-left:10px;margin-top:20px;"></span>
+                </div>
+                <div data-widget="js/user/register.js#checkboxCon" ><input class="agree" type="checkbox" value="1" name="affirm" /></div><span class="agreement">我已阅读并同意《<a href="{:U('home/Public/protocol')}" class="blue">智测云用户服务协议</a>》</span>
+                <span id="tip_affirm" style="margin:8px;"></span>
+                <if condition="$_SERVER['HTTP_REFERER']">
+                    <input type="hidden" name="HTTP_REFERER" value="{$_SERVER['HTTP_REFERER']}">
+                </if>
+                <div><button class="button blueBg">立即注册</button></div>
+            </form>
+        </div>
+        <div class="reg_right">
+            <if condition="$utype eq 1">
+                <h3 class="blue">VIP开发者拥有权限</h3>
+                <ul>
+                    <li>·快速测试：<span class="blue">5</span>次/天</li>
+                    <li>·兼容性测试：免费终端包<span class="blue">5</span>次/天</li>
+                    <li>·网络友好测试：免费测试<span class="blue">5</span>次/天</li>
+                    <li>·弱网络测试：暂未开通</li>
+                    <li>·安全测试：暂未开通</li>
+                    <li>·测试优先级：高</li>
+                </ul>
+                <img src="__THEME__/images/reg_andriod.png">
+                <elseif condition="$utype eq 2" />
+                <h3 class="blue">企业开发者拥有权限</h3>
+                <ul>
+                    <li>·快速测试：<span class="blue">10</span>次/天</li>
+                    <li>·兼容性测试：免费终端包<span class="blue">10</span>次/天</li>
+                    <li>·网络友好测试：免费测试<span class="blue">10</span>次/天</li>
+                    <li>·弱网络测试：暂未开通</li>
+                    <li>·安全测试：暂未开通</li>
+                    <li>·测试优先级：最高</li>
+                </ul>
+                <img src="__THEME__/images/reg_andriod.png">
+                <else/>
+                <h3 class="blue">普通开发者拥有权限</h3>
+                <ul>
+                    <li>·快速测试：<span class="blue">2</span>次/天</li>
+                    <li>·兼容性测试：免费终端包<span class="blue">2</span>次/天</li>
+                    <li>·网络友好测试：免费测试<span class="blue">2</span>次/天</li>
+                    <li>·弱网络测试：暂未开通</li>
+                    <li>·安全测试：暂未开通</li>
+                    <li>·测试优先级：普通</li>
+                </ul>
+                <img src="__THEME__/images/reg_andriod.png">
+            </if>
+        </div>
+    </div>
+    <div style="clear:both"></div> 
+</div>
+<include file="__THEME__/footer" />
+<script>
+var data;
+seajs.use(['jquery','validator', 'js/validator/validator.css'], function($){
+    <?php echo Action::$FORM_NAMESPACE->getValidatorJquery(); ?>
+
+    <if condition="$utype gt 0">
+    data = {'phone':$('input[name="phone"]').val()};
+    $('input[name="phone"]').change(function(){
+        data.phone = $(this).val();
+    });
+    
+    $.validator("phone_code").setAjax("{:U('home/Public/isPhoneCodeAvailable')}", "手机确认码错误", data);
+
+    var cc; 
+    var interval = 1000; 
+    var second = 60;
+    var obj    = $('#J_send_code button');
+    obj.data('value', obj.html());
+    var status = 1;
+    $('#J_send_code').click(function () {
+        var url ="{:U('home/Index/isUrlCode')}";
+        var phone = $('input[name="phone"]').val();
+
+        $('input[name="phone"]').trigger('blur');
+        if ($('#tip_span_order_phone .validatorError').length || !status) {
+            return false;
+        }
+        status =0;
+        $.post(url, {phone:phone},  function(data) {
+            if (data.code) {
+                alert(data.message);
+            }else{
+                cc = window.setInterval(function(){
+                    ShowCountDown();
+                }, interval);
+                alert('发送成功');
+            }
+        }, 'json');
+    });
+
+    function ShowCountDown() { 
+        if (second) {
+            obj.html(second + "秒");
+            second -- ;
+        }else {
+            obj.html(obj.data('value'));
+            second = 60;
+            status =1;
+            clearInterval(cc);
+        }
+    }
+    </if>
+});
+</script>

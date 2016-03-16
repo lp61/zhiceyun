@@ -1,0 +1,134 @@
+<include file="../Public/_header" />
+<div class="so_main">
+
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+        <form method="post" action="">
+        <input type="hidden" name="isSearch" value="1"/>
+        <dl class="lineD">
+            <dt>类型：</dt>
+            <dd>
+                <input type="radio" name="type" value="" <php>if($type == "") echo 'checked';</php>>全部
+                <volist id="vo" name="appSystemConfig">
+                    <input type="radio" name="type" value="{$vo.id}" <php>if($type == $vo['id']) echo 'checked';</php>>{$vo.name}
+                </volist>
+                <!-- <select name="type">
+                <volist id="vo" name="appSystemConfig">
+                    <option value="{$vo.id}" <php>if($type == $vo['id']) echo 'selected';</php>>{$vo.name}</option>
+                </volist>
+                </select> -->
+            </dd>
+        </dl>
+        
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+        </div>
+    </div>
+    <div id="search_divadd" class="search_div" <neq name="isSearchAdd" value="1">style="display:none;"</neq>>
+        <div class="page_tit">添加配置 [ <a href="javascript:void(0);" onclick="searchDenounce('add');">隐藏</a> ]</div>
+        <div class="form2">
+        <form method="post" action="">
+        <input type="hidden" name="isSearchAdd" value="1"/>
+        <input type="hidden" name="add" value="1"/>
+        <dl class="lineD">
+            <dt>类型：</dt>
+            <dd>
+                <volist id="vo" name="appSystemConfig">
+                    <input type="radio" name="type" value="{$vo.id}" <php>if($type == $vo['id']) echo 'checked';</php>>{$vo.name}
+                </volist>
+                <!-- <select name="type">
+                    <option value="0" <php>if($type == "") echo 'selected';</php>>选择类型</option>
+                    <volist id="vo" name="appSystemConfig">
+                            <option value="{$vo.id}" <php>if($type == $vo['id']) echo 'selected';</php>>{$vo.name}</option>
+                    </volist>
+                </select> -->
+            </dd>
+        </dl>
+
+        <dl class="lineD">
+            <dt>设置值：</dt>
+            <dd>
+                <input name="content" type="text" value="">
+                <p>分辨率请用英文','分隔（例如：800,480）</p>
+            </dd>
+        </dl>
+        
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+    </div>
+    </div>
+    
+    <div class="page_tit">终端配置 </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+         <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce('add');">
+            <span class="search_action">&nbsp;&nbsp;添加&nbsp;&nbsp;</span>
+        </a>
+    </div>
+    <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th style="width:30px;">
+            <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+            <label for="checkbox"></label>
+        </th>
+        <th class="line_l">ID</th>
+        <th class="line_l">配置类别</th>
+        <th class="line_l">配置说明</th>
+        <th class="line_l">创建时间</th>
+        <th class="line_l">修改时间</th>
+        <!--<th class="line_l">排序</th>-->
+        <th class="line_l">操作</th>
+    </tr>
+    <volist id="vo" name="data">
+        <tr overstyle='on' id="{$vo.id}">
+            <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+            <td>{$vo.id}</td>
+            <td>{$appSystemConfig[$vo['type']]['name']}</td>
+            <td>{$vo.content}</td>
+            <td>{$vo.ctime|date="Y-m-d H:i",###}</td>
+            <td>{$vo.mtime|date="Y-m-d H:i",###}</td>
+            <!--<td>
+                <a href="javascript:void(0)" class="ico_top" onclick="move('{$vo['id']}','up');">
+                    <img src="__PUBLIC__/admin/images/zw_img.gif">
+                </a>&nbsp;&nbsp;
+                <a href="javascript:void(0)" class="ico_btm" onclick="move('{$vo['id']}','down');">
+                    <img src="__PUBLIC__/admin/images/zw_img.gif">
+                </a>
+            </td>-->
+            <td>
+                <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord({$vo.id});">删除</a>
+            </td>
+        </tr>
+    </volist>
+    </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce('add');">
+            <span class="search_action">&nbsp;&nbsp;添加&nbsp;&nbsp;</span>
+        </a>
+    </div>
+</div>
+
+<script>
+    var _moveUrl_   = "{:U('admin/Content/doChangeOrder')}";
+    var _moveTable_ = 'app_config';
+    var _delUrl_    = "{:U('admin/Content/doDelData')}";
+    var _delTable_  = 'app_config';
+    var _logTitle_  = "终端配置";
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+
+<include file="../Public/_footer" />

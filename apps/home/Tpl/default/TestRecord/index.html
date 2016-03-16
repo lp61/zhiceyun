@@ -1,0 +1,45 @@
+<include file="__THEME__/header" />
+<div class="center record">
+     <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>>用户信息管理><span class="blue">测试记录</span></h2>
+    <div class="title">
+        <ul>
+            <div class="space"></div>
+            <li class="active"><a href="#">测试记录</a></li>
+            <li><a href="{:U('home/Account/index')}">账户管理</a></li>
+            <li><a href="{:U('home/Account/recharge')}">测试积分中心</a></li>
+            <li><a href="{:U('home/Account/invite')}">好友邀请</a></li>
+            <li><a href="{:U('home/Message/index')}">消息中心</a></li>
+            <li><a href="{:U('home/Account/feedback')}">用户反馈</a></li>
+            <button data-ahref="J_to_a">创建测试</button>
+            <a href="{:U('home/Apptest/index')}" id="J_to_a" class="J_hide"></a>
+        </ul>
+    </div>
+    <h3 class="darkgray">记录列表</h3>
+    <table>
+        <tr class="title">
+            <td>APP</td>
+            <td>测试业务</td>
+            <td>测试提交时间</td>
+            <td>测试完成时间</td>
+            <td>花费</td>
+            <td>测试结果</td>
+        </tr>
+        <volist id="vo" name="data">
+            <tr>
+                <td>{$vo.apk_name}</td>
+                <td>{$vo.businessID|getBusinessTitle}</td>
+                <td>{:date('Y-m-d H:i', $vo['ctime'])}</td>
+                <td><php>if ($vo['mtime']>0) {echo date('Y-m-d H:i', $vo['mtime']);} else {echo "未完成";}</php></td>
+                <td>{$vo.cost}积分</td>
+                <td><php>if($vo['mtime']>0){ if ($vo['package_type'] == 6) { echo '<a href="' . $vo['file_url'] . '">下载报告</a>';} else { echo '<a href="'.U('home/TestRecord/report', array('package_type'=>$vo['package_type'],'uuid'=>$vo['uuid'])).'">查看报告</a>';} } else {echo "测试中";}</php></td>
+            </tr>
+        </volist>
+    </table>
+    <div class="btn">
+        <div class="sofupage Twitter-green toggle" style="margin:20px auto;width: 800px;clear: both;text-align: center;">
+            {$html}
+        </div>
+    </div>
+    <php> if ($_SESSION['userInfo']['status'] != '-1') {</php><a href="http://pre.smarterapps.cn" style="float: right;"><span>查看历史测试报告，点击此处跳转。</span></a></neq><php> }</php>
+</div>
+<include file="__THEME__/footer" />

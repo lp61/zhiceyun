@@ -1,0 +1,36 @@
+<include file="../Public/_header" />
+<div class="so_main">
+    <div class="page_tit">测试配置</div>
+
+    <form method="post" action="{:U('admin/Content/doAppConfig')}">
+        <div class="form2">
+            <dl class="lineD">
+                <dt>任务重发数：</dt>
+                <dd>
+                    <input name="num" type="text" value="{$config['retry_num']}"></br>
+                    <span>任务失败时的最大重发次数</span>
+                </dd>
+            </dl>
+            <!--
+            <dl class="lineD">
+                <dt>通知人手机号：</dt>
+                <dd>
+                    <input name="mobile" type="text" value="{$config['notice_mobiles']}"></br>
+                    <span>网络连接出问题时，需要短信通知的手机号</span>
+                </dd>
+            </dl>
+            <dl class="lineD">
+                <dt>通知人邮箱：</dt>
+                <dd>
+                    <input name="email" type="text" value="{$config['notice_emails']}"></br>
+                    <span>网络连接出问题时，需要邮件通知的邮箱号</span>
+                </dd>
+            </dl>
+            -->
+            <div class="page_btm">
+                <input type="submit" class="btn_b" value="确定" />
+            </div>
+        </div>
+    </form>
+</div>
+<include file="../Public/_footer" />

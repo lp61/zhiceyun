@@ -1,0 +1,21 @@
+<div class="IOT">
+    <div data-role="header" class="ui-grid-c header" data-position="fixed">
+        <div class="ui-block-a"><a href="javascript:history.go(-1);void(0);"><img src="__PUBLIC__/wap/images/header_arrowleft.png"/></a></div>
+        <div class="ui-block-b"><span class="white">{$testTitle}</span></div>
+        <div class="ui-block-c"><a href="{:U('wap/Index/index')}" data-ajax="false"><img src="__PUBLIC__/wap/images/header_home.png"/></a></div>
+        <div class="ui-block-d menubtn"><img src="__PUBLIC__/wap/images/header_list.png"/>
+            <div class="arrow"><img src="__PUBLIC__/wap/images/arrowTop.png"/></div>
+            <div class="check">
+                <a href="{:U('wap/Apply/test')}" data-ajax="false"><div class="blue">应用测试</div></a>
+                <a href="{:U('wap/Public/experience')}" data-ajax="false"><div class="blue">终端用户体验</div></a>
+                <a href="{:U('wap/Public/iot')}" data-ajax="false"><div class="blue">IOT</div></a>
+                <a href="{:U('wap/Public/testCircle')}" data-ajax="false"><div class="blue">测试圈</div></a>
+                <!--<a href="{:U('wap/Public/source')}" data-ajax="false"><div class="blue">资源池</div></a>-->
+                <a href="{:U('wap/Public/aboutUs')}" data-ajax="false"><div class="blue">关于我们</div></a>
+                <a href="{:U('wap/TestRecord/record')}" data-ajax="false"><div class="blue">测试记录</div></a>
+                <nosession name="userInfo"><a href="{:U('wap/Public/login')}" data-ajax="false"><div class="blue">登录</div></a></nosession>
+                <session name="userInfo"><a href="{:U('home/Public/logout')}" data-ajax="false"><div class="blue">退出</div></a></session>
+            </div>
+        </div>
+    </div>
+</div>

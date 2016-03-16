@@ -1,0 +1,168 @@
+<include file="__THEME__/header" />
+<script type="text/javascript">
+    $(function () {
+        var type;
+        $('button[data-button]').click(function () {
+            type = $(this).data('button');
+            //标记已读
+            if (type == 1) {
+                if ($(".J_check_no.J_hide").length == 0) {
+                    $('#myModal .modal-title').html("标为已读");
+                    $("#myModal .tipText").html("请选择要标为已读的记录？");
+                    $('#myModal').modal("show");
+                    return false;
+                }
+            }
+            //删除按钮
+            if (type == 2) {
+                if ($(".J_check_no.J_hide").length == 0) {
+                    $('#myModal .modal-title').html("删除");
+                    $("#myModal .tipText").html("请选择要删除的记录？");
+                    $('#myModal').modal("show");
+                    return false;
+                } else {
+                    $("#myModal2 .tipText").html("您确定要删除选中的消息吗？");
+                    $('#myModal2').modal("show");
+                    return false;
+                }
+            }
+            //清空按钮
+            if (type == 3) {
+                $("#myModal2 .tipText").html("您确定清空所有消息吗？")
+                $('#myModal2').modal("show");
+                return false;
+            }
+
+            $('input[name="type"]').val(type);
+            $(this).closest('form').submit();
+        });
+        //全选
+        $('#J_checkall').click(function () {
+            if ($('input.J_check_input').length != $('input.J_check_input:checked').length) {
+                $('input.J_check_input').not(':checked').trigger('click');
+                $('.J_check_yes').removeClass('J_hide');
+                $('.J_check_no').addClass('J_hide');
+                $(this).html('取消全选');
+            } else {
+                $('input.J_check_input').removeAttr('checked');
+                $('.J_check_no').removeClass('J_hide');
+                $('.J_check_yes').addClass('J_hide');
+                $(this).html('全选');
+            }
+        });
+        //复选框的选择
+        $('.J_check').click(function () {
+            if ($(this).hasClass('J_check_no')) {
+                $(this).siblings('input.J_check_input').trigger('click');
+            } else {
+                $(this).siblings('input.J_check_input').removeAttr('checked');
+            }
+            $(this).addClass('J_hide').siblings('.J_check').removeClass('J_hide');
+        });
+        //确定按钮
+        $("#okBtn").click(function () {
+            $('input[name="type"]').val(type);
+            $('#form1').submit();
+            $('#myModal2').modal("hide");
+        });
+        $('#myModal').modal("hide");
+        $('#myModal2').modal("hide");
+        //var bgcolor;
+        //鼠标滑过
+        //       $("button").mouseover(function() {
+        //bgcolor=$(this).attr("background");
+        //           $(this).css("background", "#f79928").css("opacity", 1);
+        //     }).mouseout(function() {
+        //         $(this).css("background", "#009845");
+        //     })
+        if ($(".J_check_no").length == 0) {
+            $('button[data-button]').add("#J_checkall").attr("disabled", true).css("background", "#c1c1c1");
+        }
+    });
+</script>
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>>用户信息管理><span class="blue">消息中心</span></h2>
+    <div class="title">
+        <ul>
+            <div class="space"></div>
+            <li>  <a href="{:U('home/TestRecord/index')}">测试记录</a></li>
+            <li> <a href="{:U('home/Account/index')}">账户管理</a></li>
+            <li>  <a href="{:U('home/Account/recharge')}">测试积分中心</a></li>
+            <li><a href="{:U('home/Account/invite')}">好友邀请</a></li>
+            <li class="active"> <a href="{:U('home/Message/index')}">消息中心</a></li>
+            <li><a href="{:U('home/Account/feedback')}">用户反馈</a></li>
+            <button data-ahref="J_to_a" >创建测试</button>
+            <a href="{:U('home/Apptest/index')}" id="J_to_a" class="J_hide"></a>
+        </ul>
+    </div>
+
+    <form id="form1" method="post" action="">
+        <h4 class="blue">消息列表
+            <span class="gray">未读：</span>{$unReadCount}&nbsp; | &nbsp;
+            <span class="gray">已读：</span>{:intval($count)-$unReadCount}
+            <span class="del">
+                <input type="hidden" name="type" value="">
+                <button type="button" id="J_checkall">全选</button>
+                <button data-button="1">标为已读</button>
+                <button data-button="2">删除</button>
+                <button data-button="3">清空</button>
+            </span>
+        </h4>
+        <div class="emailcontent">
+            <volist id="vo" name="data">
+                <div class="list">
+                    <input type="checkbox" name="msg_id[]" value="{$vo['id']}" class="J_hide J_check_input"/>
+                    <img src="__THEME__/images/blank.png" class="J_check_no J_check">
+                    <img src="__THEME__/images/choose.png" class="J_hide J_check_yes J_check">
+                    <php>if ($vo['is_read']) {</php>
+                    <img id="xiaoxi2" src="__THEME__/images/xiaoxi2.png">
+                    <a href="{:U('home/Message/detail', array('id'=>$vo['id']))}"> {$vo.title}</a>
+                    <php>}else{</php>
+                    <img id="xiaoxi1" src="__THEME__/images/xiaoxi1.png">
+                    <a href="{:U('home/Message/detail', array('id'=>$vo['id']))}" style="color:#25a3cb"> {$vo.title}</a>
+                    <php>}</php>
+                    <span class="blue date"> {:date('Y-m-d H:i', $vo['ctime'])}</span>
+                </div>
+            </volist>
+            <div class="sofupage Twitter-green toggle" style="margin:20px auto;width: 800px;clear: both;text-align:center;">
+                {$html}
+            </div> 
+        </div>
+    </form>
+    <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    <div style="clear:both"></div>
+</div>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <p class="tipText"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="sure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal2" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img class="close" data-dismiss="modal" aria-label="Close" src="__THEME__/images/modal_close.png"/>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <p class="tipText blue" style="text-align: center;font-size: 18px;"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cancel" data-dismiss="modal" style="background:#EEEEEE;color: #666666;">取消</button>
+                <button type="button" id="okBtn"  class="sure" data-dismiss="modal">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+<include file="__THEME__/footer" />

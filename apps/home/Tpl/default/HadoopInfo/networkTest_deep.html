@@ -1,0 +1,179 @@
+<include file="__THEME__/header" />
+
+<div class="chooseTest compatible">
+    <div class="center">
+        <h1>
+            <span class="gray"><a href="#">首页&nbsp;>&nbsp;</a></span>
+            <span class="gray"><a href="#">应用测试&nbsp;>&nbsp;</a></span>
+            <span class="blue"><a href="#">网络友好测试</a></span>
+        </h1>
+        <div class="white order">
+            <span class="blueBg num">1</span>
+            <span class="line blueBg"></span>
+            <span class="blueBg num">2</span>
+            <span class="line blueBg"></span>
+            <span class="blueBg num">3</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">4</span>
+        </div>
+        <div class="content">
+            <span class="blue one">选择测试类型</span>
+            <span class="blue two">上传APK</span>
+            <span class="blue three">填写测试信息</span>
+            <span class="lightgray four">测试提交</span>
+        </div>
+        <h2 class="blue">填写测试信息</h2>
+        <div class="deepInfo">
+            <div class="row">
+                <div id="add" class="col-md-3">
+                    <img src="__THEME__/images/addmodule1.png" />
+                    <img style="display:none;" src="__THEME__/images/addmodule3.png" />
+                    <h4 class="gray">添加测试模块</h4>
+                </div>
+                <div class="col-md-3 example">
+                    <h4 class="blue">示例：</h4>
+                    <P class="gray">
+                        测试模块：微信请帖<br />
+                        测试步骤：<br />
+                        1）进入主页；<br />
+                        2）进入微信请求模块；<br />
+                        3）编辑文字，保存；<br />
+                        4）上传封面，保存；<br />
+                        5）添加背景音乐，保存；<br />
+                        6）上传相册（5张图片），保存；<br />
+                        7）预览；<br />
+                        8）分享到微信好友
+                    </P>
+                </div>
+            </div>
+            <div class="model">
+                <h4 class="blue">测试模块</h4><hr />
+                <div class="row">
+                    <div class="col-md-3"><span class="red">*</span>模块名称：</div>
+                    <div class="col-md-9">
+                        <input id="modelTitle" type="text" name="modelTitle" placeholder="请填写模块信息" />
+                        <p>
+                            1、请与app界面中使用名称保持一致。<br />
+                            2、若该模块不位于主界面或不易寻找，请说明具体位置或操作步骤。<br />
+                            3、建议模块不宜过大，以免测试过程过于复杂，不方便定位问题。
+                        </p>
+                    </div>
+                    <div class="col-md-3"><span class="red">*</span>测试步骤：</div>
+                    <div class="col-md-9">
+                        <textarea id="testStep" name="testStep"  placeholder="1）进入主页；
+2）进入微信请求模块；
+3）编辑文字，保存；
+4）上传封面，保存；
+5）添加背景音乐，保存；
+6）上传相册（5张图片），保存；
+7）预览；
+8）分享到微信好友"></textarea>
+                        <p>
+                            1、 描述该模块下主要功能点，以及主要测试步骤。为使得测试更符合您的要求，请尽量填写的细致。<br />
+                            2、每个测试模块的测试时长不得超过15min。若步骤太过复杂，测试人员将视情况删减部分操作步骤。
+                        </p>
+                        <div class="overBtn"><button>完成</button></div>
+                    </div>
+                </div>
+            </div>
+            <h4 class="blue">联系信息</h4><hr />
+               <div class="row">
+                        <div class="col-md-5"><span class="red">*</span>姓名：</div>
+                        <div class="col-md-7"><input id="user" name="user" type="text" placeholder="请填写您的姓名"/></div>
+                        <div class="col-md-5"><span class="red">*</span>电话：</div>
+                        <div class="col-md-7"><input id="phone"  name="phone" type="text" placeholder="请填写您的电话"/></div>
+                        <div class="col-md-5"><span class="red">*</span>邮件：</div>
+                        <div class="col-md-7"><input id="email" name="email" type="text" placeholder="请填写您的邮件"/>
+                            <p class="red">建议您正确填写联系信息，以便需要时测试人员与您取得联系。</p>
+                            <form action="{:U('home/Apptest/networkTestDeepSubmit')}" method="post" id="subForm" enctype="multipart/form-data">
+                    <input type="hidden" name="task_id" value="{$task_id}"/>
+                    <input type="hidden" id="json" name="json" />
+                            <div><button class="regBtn">提交测试</button></div>
+                              </form>
+                        </div>
+                    </div>		
+        </div>
+    </div>
+</div>
+<include file="__THEME__/footer" />
+<script>
+    $(function() {
+        $(".regBtn").attr("disabled", true).css("background", "#ccc");
+        $("#add").click(function() {
+            $(".model").show();
+            $(".overBtn button").attr("disabled", true).css("background", "#ccc");
+        });
+        $("#add").mouseover(function() {
+            $(this).css("cursor", "pointer");
+            $(this).find("img").toggle();
+            $(this).find("h4").css("color", "#25a3cc");
+        }).mouseout(function() {
+            $(this).find("img").toggle();
+            $(this).find("h4").css("color", "#666");
+        });
+        //添加模块
+        $(".overBtn").click(function() {
+            $(".model").hide();
+            $("#add").before($('<div id="close" class="col-md-3 testModel"><img src="__THEME__/images/addmoduleclose.jpg" /><div class="modelTitle blue" style="font-weight:bold;margin-top:10px;">测试模块：' + $("#modelTitle").val() + '</div><div class="testStep">测试步骤：<br>' + $("#testStep").val().replace("\n", "<br>") + '</div></div>'));
+            $("#modelTitle").val("");
+            $("#testStep").val("");
+            $("#close img").click(function() {
+                $(this).parent().remove();
+            });
+            //$(".example").hide();//示例代码隐藏
+            setSubmitButton();
+        });
+        //模块验证
+        $("#modelTitle").add("#testStep").bind("input blur", function() {
+            /*if ($(this).val() == "") {
+             $(this).next().css("display", "inline-block");
+             } else {
+             $(this).next().hide();        //验证作用，如果后面直接跟着提示则可以用注释代码
+             }*/
+            if ($("#modelTitle").val().replace($("#modelTitle").attr("placeholder"), "") != "" && $("#testStep").val() != "") {
+                $(".overBtn button").removeAttr("disabled").css("background", "#25a3cb");
+            } else {
+                $(".overBtn button").attr("disabled", true).css("background", "#ccc");
+            }
+        });
+        //联系信息验证
+        $("#user").add("#phone").add("#email").bind("input blur",function () {
+            if ($(this).val().replace($(this).attr("placeholder"), "") == "") {
+                $(this).next().css("display", "inline-block");
+            } else {
+                $(this).next().hide();
+            }
+            setSubmitButton();
+        });
+        //设置提交按钮
+        function setSubmitButton() {
+            if ($("#user").val().replace($("#user").attr("placeholder"), "") != "" &&
+                    $("#phone").val().replace($("#phone").attr("placeholder"), "") != "" &&
+                    $("#email").val().replace($("#email").attr("placeholder"), "") != "" &&
+                    $(".testModel .modelTitle").length > 0) {
+                $(".regBtn").removeAttr("disabled").css("background", "#25a3cb");
+            } else {
+                $(". regBtn").attr("disabled", true).css("background", "#ccc");
+            }
+            getJsonString();
+        }
+        //构建表单需要的json字符串，用于最后提交
+        function getJsonString() {
+            var m = $(".testModel .modelTitle");
+            var n = $(".testModel .testStep");
+            var jsonStr = '{"name":"' + encodeURIComponent($("#user").val().replace($("#user").attr("placeholder"), "")) + '","tel":"' + encodeURIComponent($("#phone").val().replace($("#phone").attr("placeholder"), "")) + '","email":"' + encodeURIComponent($("#email").val().replace($("#email").attr("placeholder"), "")) + '","data":[';
+            if (m.length == 0) {
+                $("#noModelTip").show();
+            } else {
+                $("#noModelTip").hide();
+            }
+           
+            for (i = 0; i < m.length; i++) {
+                jsonStr += '{"info":"' + encodeURIComponent(m.eq(i).text()) + '","step":"' + encodeURIComponent(n.eq(i).text()) + '"},';
+            }
+            jsonStr = jsonStr.substr(0, jsonStr.length - 1) + ']}';
+            $("#json").val(jsonStr);
+
+        }
+    })  
+</script>

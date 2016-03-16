@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="__THEME__/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="__THEME__/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="__THEME__/css/bootstrap.min.css" />
+        <title>智测云</title> 
+        <style>
+            *{font-family:微软雅黑;}
+            *:focus,input,input:focus,button.btn,a:hover,a:active {outline: none;}
+            a{ text-decoration:none;}
+            ul li{list-style-type:none} 
+            .center{width:880px; margin:0 auto;}
+            .record .right table tr{height:40px;line-height:40px;}
+            .record .right table tr:hover{background:#eeeeee;}
+            .blue,.blue a{color:#24a9e4;background:none;}
+            .record .right{float: left;width:880px;}
+            .record .right .property h4{border-bottom:1px solid #EEEEEE;}
+            .record .right .basic tr .long,.record .right .property tr .long{width:730px;background:#eeeeee;text-align:left;}
+            .record .right .compatible table .blue,.record .right .reply table .blue,.record .right .offer table .blue{background:#bde3ef;font-weight:bold;}
+            .record .right .basic,.record .right .compatible,.record .right .score,.record .right .reply,.record .right .offer,.record .right .problem,.record .right .user,.record .right .change{padding-left:20px;padding-bottom:60px;}
+            .record .right .basic tr td,.record .right .property tr td{width:130px;background:#e3eff4;border-bottom:2px solid #FFFFFF;line-height:35px;padding:5px 25px 5px 15px;text-align:right;}
+            .record .right table tr td{width:173px;text-align:center;border-bottom:1px solid #e1e1e1}
+            .record .right .friend tr td,.record .right .score tr td{width:200px;background:#e3eff4;border-bottom:2px solid #FFFFFF;line-height:35px;padding:5px 10px 5px 0;text-align:right;}
+            .record .right .friend tr .long,.record .right .score tr .long{width:690px;background:#eeeeee;text-align:left;padding-left:15px;}
+        </style>
+    </head>
+    <body>
+        <div class="center record">
+            <div class="right">
+                <div class="title" style="text-align:center">
+                    <h2>{$task['apk_name']} - 快速测试 - 概况报告</h2>
+                </div>
+                <div class="basic">
+                    <h4 class="row">
+                        <div class="col-md-6">测试概况</div>
+                    </h4>
+                    <table>
+                        <tr>
+                            <td class="blue">应用测试</td>
+                            <td class="long">{$task['apk_name']}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">文件大小</td>
+                            <td class="long">{$task['apk_size']}KB</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">提交时间</td>
+                            <td class="long">{$task['ctime']}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">测试类型</td>
+                            <td class="long">{$task['package_type']|getBusinessTitle}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">测试状态</td>
+                            <td class="long">{$task['status']}</td>
+                        </tr>
+                        <!--	<tr>
+                                        <td class="blue">测试进度</td>
+                                        <td class="long">100%</td>
+                                </tr>-->
+                    </table>
+                    <h4 class="gray">应用详情</h4>
+                    <table>
+                        <tr>
+                            <td class="blue">应用图标</td>
+                            <td class="long"><img width="24px"  src="{$task['apk_icon']}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="blue">应用名称</td>
+                            <td class="long">{$task['apk_name']}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">应用版本</td>
+                            <td class="long">{$task['apk_version']}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">文件大小</td>
+                            <td class="long">{$task['apk_size']}KB</td>
+                        </tr>
+                    </table>
+                    <h4 class="gray">测试场景与内容</h4>
+                    <table>
+                        <tr>
+                            <td class="blue">测试平台</td>
+                            <td class="long">泰尔应用测试认证平台</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">测试终端总数</td>
+                            <td class="long">{$task['device_num']}个</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">测试内容</td>
+                            <td class="long">兼容性测试：<br /> 安装、运行、卸载、UI适配、屏幕截图。<br />
+                                性能测试：<br />CPU占用、内存占用和流量使用。<br />
+                                网络友好性测试：<br />网络友好性综合评估、网络友好优化建议。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="height:350px;"></div>
+                <div class="compatible">
+                    <h4 class="gray">兼容性测试</h4>
+                    <table style="border-collapse: collapse; border-spacing: 0; width: 864px;">
+                        <tr class="blue">
+                            <td>终端</td>
+                            <td>安装情况</td>
+                            <td>运行情况</td>
+                            <!--   <td>卸载情况</td>-->
+                            <td>启动时间</td>
+                        </tr>
+                        <volist name="tasks" id="vo">
+                            <tr>
+                                <td>{$vo['device_type']}</td>
+                                <td><eq name="vo['install_result']" value="1">正常</eq><eq name="vo['install_result']" value="0">未通过</eq></td>
+                                <td><eq name="vo['run_result']" value="1">正常</eq><eq name="vo['run_result']" value="0">未通过</eq></td>
+                                <!--<td>--</td>-->
+                                <td>{$vo['boot_time']}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+            </div>
+        </div>
+    </body>
+</html>

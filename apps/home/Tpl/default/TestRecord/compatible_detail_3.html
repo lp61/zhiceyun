@@ -1,0 +1,147 @@
+<include file="__THEME__/header" />
+<script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+<div class="center record">
+       <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><a href="{:U('home/TestRecord/compatible', array('uuid'=>$uuid))}">{$business_title|getBusinessTitle}</a>><span class="blue">详细报告</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <include file="_compatible_detail_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <include file="_share_menu_select" />
+        <h4 class="detail_title">
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>1))}"><button>终端详细报告</button></a> 
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>2))}"><button>测试结果</button></a>
+            <button class="active">LOG</button>
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>4))}"><button>截图</button></a>
+        </h4>
+        <div class="stork_log">
+            <div class="log_title">日志筛选 
+                <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'type'=>3,'level'=>'E'))}"> <button class="redBg" style="color:<php> if($_REQUEST['level'] == 'E'){ echo '#333333';} else {echo '#FFFFFF';}</php> ">错误日志</button></a>
+                <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'type'=>3,'level'=>'W'))}"> <button class="yellowBg" style="color:<php> if($_REQUEST['level'] == 'W'){ echo '#333333';} else {echo '#FFFFFF';}</php> ">警告</button></a>
+                <a href="{$vo.log_url}"><button class="greenBg">完整LOG下载</button></a>
+            </div>
+            <table>
+                <tr class="lightblueBg">
+                    <td class="width_one">行号</td>
+                    <td class="width_two">时间</td>
+                    <td class="width_two">PID</td>
+                    <td class="width_two">LEVEL</td>
+                    <td class="width_three">TAG</td>
+                    <td class="width_four">TEXT</td>
+                </tr>
+                <volist id="log" name="data">
+                    <tr class="lightgreenBg">
+                        <td class="width_one">{$log['Index']}</td>
+                        <td class="width_two">{$log['HappenTime']}</td>
+                        <td class="width_two">{$log['Pid']}</td>
+                        <td class="width_two">{$log['LogLevel']}</td>
+                        <td class="width_three">{$log['Tag']}</td>
+                        <td class="width_four"  title="{$log['ContentText']}">{$log.ContentText|msubstr='0','45'}</td>
+                    </tr>
+                </volist>
+            </table>
+            <div class="sofupage Twitter-green toggle" style="margin:0px auto 5px auto;width: 800px;clear: both;text-align: center;">
+                {$html}
+            </div>
+            <php>if(!empty($list)) {
+                $tt5 =  array(
+                '其他' => $list[0],
+                '崩溃' => $list[1],
+                '闪退' => $list[2],
+                'ANR' => $list[3],
+                '功能异常' => $list[4],
+                '网络超时' => $list[5],
+                'UI异常'   => $list[6],
+                );
+
+                function formatEchart($tt2) {
+                $noteYunTh3TT = array_sum($tt2);
+                $noteYunTh3   = array();
+                $i = 0;
+                foreach($tt2 as $key => $_one) {
+                $noteYunTh3[$i]['value'] = $_one;
+                $noteYunTh3[$i]['name']  = $key .sprintf("%.0f", $_one/$noteYunTh3TT*100) . '%';
+                $i ++;
+                }
+                return $noteYunTh3;
+                }
+
+                $noteYunTh5 = formatEchart($tt5);
+            </php>
+            <h4 class="blue">问题原因分析</h4>
+            <div class="row">
+                <div class="col-md-4"  id="noteYunTh5" style="width:290px;height:300px;"></div>
+                <div class="col-md-8">
+                    <div class="col-md-6 lightblueBg">错误类型</div>
+                    <div class="col-md-6 lightblueBg">出现次数</div>
+                    <div class="col-md-6 lightgreenBg">其他</div>
+                    <div class="col-md-6 lightgreenBg">{$list[0]}</div>
+                    <div class="col-md-6 lightgreenBg">崩溃</div>
+                    <div class="col-md-6 lightgreenBg">{$list[1]}</div>
+                    <div class="col-md-6 lightgreenBg">闪退</div>
+                    <div class="col-md-6 lightgreenBg">{$list[2]}</div>
+                    <div class="col-md-6 lightgreenBg">ANR</div>
+                    <div class="col-md-6 lightgreenBg">{$list[3]}</div>
+                    <div class="col-md-6 lightgreenBg">功能异常</div>
+                    <div class="col-md-6 lightgreenBg">{$list[4]}</div>
+                    <div class="col-md-6 lightgreenBg">网络超时</div>
+                    <div class="col-md-6 lightgreenBg">{$list[5]}</div>
+                    <div class="col-md-6 lightgreenBg">ui异常</div>
+                    <div class="col-md-6 lightgreenBg">{$list[6]}</div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                function getOption(data) {
+                    var option = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            x: '60%',
+                            y: 'center',
+                            selectedMode: false,
+                            data: data
+                        },
+                        calculable: false,
+                        series: [
+                            {
+                                name: '错误类型',
+                                type: 'pie',
+                                radius: [40, 60],
+                                // for funnel
+                                x: '60%',
+                                width: '35%',
+                                center: ['35%', '50%'],
+                                funnelAlign: 'left',
+                                itemStyle: 　{
+                                    normal: {
+                                        label: {
+                                            show: false
+                                        },
+                                        labelLine: {
+                                            show: false
+                                        }
+                                    }
+                                },
+                                data: data
+                            }
+                        ]
+                    };
+
+                    return option;
+                }
+                // 基于准备好的dom，初始化echarts图表
+                var noteYunTh5 = echarts.init(document.getElementById('noteYunTh5'));
+                var noteYunTh5Data = <php> echo json_encode($noteYunTh5); </php> ;
+                noteYunTh5.setOption(getOption(noteYunTh5Data));
+            </script>
+            <php> }</php>
+        </div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

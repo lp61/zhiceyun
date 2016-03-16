@@ -1,0 +1,141 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">网络友好测试</span></h2>
+    <div class="left">
+        <div class="space"></div>
+       <include file="_network_menu" />
+    </div>
+    <div class="right">
+         <include file="../Account/_menu" />
+         <h4 class="row">
+             <div class="col-md-5">缓存统计</div>
+             <include file="_menu_network_select" />
+         </h4>
+        <div class="cache">
+            <table>
+                <tr style="border-top:1px solid #E1E1E1;">
+                    <td style="width:58%;"></td>
+                    <td style="width:21%;">占下载文件百分比</td>
+                    <td>占数据量（Bytes）百分比</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="statistics">文件类型统计</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td class="longer">可缓存</td>
+                                <td>{$vo['Cacheable_FilePercent']}</td>
+                                <td>{$vo['Cacheable_BytesPercent']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">非缓存</td>
+                                <td>{$vo['NoStore_FilePercent_1']}</td>
+                                <td>{$vo['NoStore_BytesPercent_1']}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="statistics">缓存行为统计</td>
+                    <td>
+                        <div class="greenBg white">可接受行为</div>
+                        <table>
+                            <tr>
+                                <td class="longer">仅执行一次下载</td>
+                                <td>{$vo['Once_FilePercent']}</td>
+                                <td>{$vo['Once_BytesPercent']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">文件为非缓存类</td>
+                                <td>{$vo['NoStore_FilePercent_2']}</td>
+                                <td>{$vo['NoStore_BytesPercent_2']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">文件过期、但携带缓存头部部分</td>
+                                <td>{$vo['Expired304_FilePercent']}</td>
+                                <td>{$vo['Expired304_BytesPercent']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">文件过期，内容改变，执行重复下载</td>
+                                <td>{$vo['ExpiredChanged_FilePercent']}</td>
+                                <td>{$vo['ExpiredChanged_BytesPercent']}</td>
+                            </tr>
+                        </table>
+                        <div class="yellowBg">需优化行为：重复下载</div>
+                        <table>
+                            <tr class="gray">
+                                <td class="longer">文件过期，执行重复下载</td>
+                                <td>{$vo['Dup_FilePercent']}</td>
+                                <td>{$vo['Dup_FilePercent']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">文件过期，因无缓存头部信息而重复下载</td>
+                                <td>{$vo['NoHeader_FilePercent']}</td>
+                                <td>{$vo['NoHeader_BytesPercent']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">文件过期，并无视缓存头部信息重复下载</td>
+                                <td>{$vo['HeaderIgnored_FilePercent']}</td>
+                                <td>{$vo['HeaderIgnored_BytesPercent']}</td>
+                            </tr>
+                        </table>
+                        <div class="redBg">需优化行为：部分重复下载（流文件）</div>
+                        <table>
+                            <tr>
+                                <td class="longer">文件未过期，重复下载</td>
+                                <td>{$vo['PDup_FilePercent']}</td>
+                                <td>{$vo['PDup_BytesPercent']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">文件未过期，因无缓存头部信息而重复下载</td>
+                                <td>{$vo['PNoHeader_FilePercent']}</td>
+                                <td>{$vo['PNoHeader_BytesPercent']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">文件未过期，并无视缓存头部信息重复下载</td>
+                                <td>{$vo['PHeaderIgnored_FilePercent']}</td>
+                                <td>{$vo['PHeaderIgnored_BytesPercent']}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="statistics">重复下载文件统计</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td class="longer">未过期重复下载文件</td>
+                                <td>{$vo['DownloadNoExp_FilePercent']}</td>
+                                <td>{$vo['DownloadNoExp_BytesPercent']}</td>
+                            </tr>
+                            <tr class="gray">
+                                <td class="longer">24h缓存未过期，重复下载文件</td>
+                                <td>{$vo['Download24hNoExp_FilePercent']}</td>
+                                <td>{$vo['Download24hNoExp_BytesPercent']}</td>
+                            </tr>
+                            <tr>
+                                <td class="longer">已过期，重复下载文件</td>
+                                <td>{$vo['DownloadExp_FilePercent']}</td>
+                                <td>{$vo['DownloadExp_BytesPercent']}</td>
+                            </tr>
+                            <tr class="gray">
+                                <td class="longer">24h缓存已过期，重复下载文件</td>
+                                <td>{$vo['Download24hExp_FilePercent']}</td>
+                                <td>{$vo['Download24hExp_BytesPercent']}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="kite"><img src="__THEME__/images/kite.png" /></div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

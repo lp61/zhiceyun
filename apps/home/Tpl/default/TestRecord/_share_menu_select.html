@@ -1,0 +1,30 @@
+<h4 class="row">
+    <div class="col-md-5">{$uuid|getapkname}  - 兼容性测试 - 详情报告</div>
+    <div class="col-md-5 blue" style="width:380px;padding:0;">
+       <php>if(!empty($deviceList[0]['device_type'])){</php>
+        <select class="gray" onchange="window.location = this.value;" style="margin-right:10px">
+            <volist name="deviceList" id="dlist">
+                <option value="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$dlist['device_type']))}" <php>if($device_type == $dlist['device_type']) echo 'selected';</php> >{$dlist.device_type}</option>
+            </volist>
+        </select>
+       <php>}</php>
+        <div style="display:inline">
+            <eq name="report_url" value=""><a href="{:U('home/TestRecord/download', array('uuid'=>$uuid))}"><else /><a href="{$report_url}"></eq><img src="__THEME__/images/load.png"/>下载测试报告</a>
+        </div>&nbsp;
+    </div>
+    <div class="col-md-2 blue" style="width:110px;padding:0;">
+        <div style="display:inline;" class="bdsharebuttonbox" data-tag="share_1">
+        	<a class="bds_more" data-cmd="more" style="color: #24A9E4;font-size:14px;">分享测试报告</a>
+        </div>
+    </div>
+</h4>
+<script>
+    window._bd_share_config = {
+        common : {
+            bdText : '#测试云#测试报告'
+        },share : [{
+            "tag" : "share_1"
+        }]
+    }
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>

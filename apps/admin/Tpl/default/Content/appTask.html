@@ -1,0 +1,166 @@
+<include file="../Public/_header" />
+<div class="so_main">
+
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+        <form method="post" action="">
+        <input type="hidden" name="isSearch" value="1"/>
+        <dl class="lineD">
+          <dt>任务ID：</dt>
+          <dd>
+            <input name="uuid" type="text" value="">
+            <p>多个时使用英文的“,”分割</p>
+          </dd>
+        </dl>
+          <dl class="lineD">
+          <dt>apk名称：</dt>
+          <dd>
+            <input name="apk_name" type="text" value="">
+          </dd>
+        </dl>      
+        <dl class="lineD">
+          <dt>人员ID：</dt>
+          <dd>
+            <input name="user_id" type="text" value="">
+            <p>多个时使用英文的“,”分割</p>
+          </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>下发状态：</dt>
+            <dd>
+            <input type="radio" name="send_status" value="" <php>if($send_status === "") echo 'checked';</php>>全部
+            <input type="radio" name="send_status" value="-1" <php>if($send_status === "-1") echo 'checked';</php>>apk上传中
+            <input type="radio" name="send_status" value="0" <php>if($send_status === "0") echo 'checked';</php>>下发成功
+            <input type="radio" name="send_status" value="1" <php>if($send_status === 1) echo 'checked';</php>>排队中
+            <input type="radio" name="send_status" value="2" <php>if($send_status === 2) echo 'checked';</php>>下发失败
+            <input type="radio" name="send_status" value="3" <php>if($send_status === 3) echo 'checked';</php>>测试失败
+            <input type="radio" name="send_status" value="4" <php>if($send_status === 4) echo 'checked';</php>>网络超时
+            </dd>
+        </dl>  
+        <dl class="lineD">
+          <dt>APK类型：</dt>
+          <dd>
+            <input type="radio" name="apk_type" value="" <php>if($apk_type == "") echo 'checked';</php>>全部
+            <volist id="vo" name="appTypeConfig">
+                <input type="radio" name="apk_type" value="{$vo.id}" <php>if($apk_type == $vo['id']) echo 'checked';</php>>{$vo.name}
+            </volist>
+          </dd>
+        </dl>
+        
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+        </div>
+    </div>
+    
+    <div class="page_tit">测试任务：{$Think.get.package_type|getPackageTitle} &nbsp;&nbsp;&nbsp; 任务下发通道状态：{$pakcage_status|getPackageStatus}</div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+        <a href="{:U('admin/Content/appTask', array('package_type'=>$_REQUEST['package_type']))}" class="btn_a"><span>&nbsp;&nbsp;刷新&nbsp;&nbsp;</span></a>
+    </div>
+    <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th style="width:30px;">
+            <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+            <label for="checkbox"></label>
+        </th>
+        <th class="line_l">任务ID</th>
+        <th class="line_l">用户名</th>
+        <th class="line_l">apk名称</th>
+        <th class="line_l">apk类型</th>
+        <th class="line_l">apk图标</th>
+        <th class="line_l">下发状态</th>
+        <th class="line_l">测试终端</th>
+        <th class="line_l">提交时间</th>
+        <th class="line_l">下发时间</th>
+        <th class="line_l">完成时间</th>
+        <th class="line_l">操作</th>
+    </tr>
+    <volist id="vo" key="k" name="data">
+        <tr overstyle='on' id="{$vo.id}">
+            <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+            <td>{$vo.uuid}</td>
+            <td>{$vo.user_id|getUserName}</td>
+            <td><a href="{$vo.apkurl}">{$vo.apk_name}</a></td>
+            <td class="line_l">{$appTypeConfig[$vo['apk_type']]['name']}</td>
+            <td><img src="{$vo.apk_icon}" width="50px"></td>
+            <td>{$vo.send_status|get_Send_status=$vo['task_status'],$vo['send_num'],$vo['retry_device_type']}</td>
+            <td>{$vo.device_type}</td>
+            <td>{$vo.ctime|get_date}</td>
+            <td>{$vo.stime|get_date}</td>
+            <td>{$vo.mtime|get_date}</td>
+            <td>
+                <!--<a href="{:U('admin/Content/editAppPhone', array('id'=>$vo['id']))}" class="btn_a">查看&nbsp;|&nbsp;</a>-->
+                <if condition="$vo['task_status'] eq 3">
+                    <a href="javascript:void(0);" class="btn_a" onclick="resend({$vo.id});">重发</a>&nbsp;|&nbsp;
+                </if>
+                <if condition="$vo['send_status'] neq 0">
+                    <a href="javascript:void(0);" class="btn_a" onclick="setTop({$vo.id},'{$vo.package_type}');">置顶</a>
+                </if>
+            </td>
+        </tr>
+    </volist>
+    </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+        <a href="{:U('admin/Content/appTask', array('package_type'=>$_REQUEST['package_type']))}" class="btn_a"><span>&nbsp;&nbsp;刷新&nbsp;&nbsp;</span></a>
+    </div>
+</div>
+
+<script>
+    var _currentTable_      = 'app_test_task';
+    
+    //删除ajax请求
+    var _delUrl_    = "{:U('admin/Content/doDelData')}";
+    var _delTable_  = 'app_test_task';
+    var _logTitle_  = "测试任务";
+    
+    //置顶ajax请求
+    function setTop(id,package_type){
+        //console.log(id+"|"+package_type);
+        if(!id) {
+            ui.error('参数不合法');
+        }else {
+            $.post("{:U('admin/Content/appTaskTop')}", {id:id, package_type:package_type, tableName:_currentTable_}, function(res){
+                if(res == '1') {
+                    if($("#"+id).parent().children("tr").eq(1).attr('id') != id) {
+                        $("#"+id).parent().children("tr").eq(1).before($("#"+id));
+                    }
+                    ui.success('置顶成功');
+                }else {
+                    ui.error('置顶失败');
+                }
+            });
+        }
+    }
+    
+    //重发ajax请求
+    function resend(id){
+        if(!id) {
+            ui.error('参数不合法');
+        }else {
+            $.post("{:U('admin/Content/appTaskResend')}", {id:id, tableName:_currentTable_}, function(res){
+                if(res == '1') {
+                    ui.success('设置成功');
+                    window.location.href = "{:U('admin/Content/appTask', array('package_type'=>$_REQUEST['package_type']))}";
+                }else {
+                    ui.error('设置失败');
+                }
+            });
+        }
+    }
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

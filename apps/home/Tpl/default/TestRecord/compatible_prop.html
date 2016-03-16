@@ -1,0 +1,184 @@
+<include file="__THEME__/header" />
+<script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+<div class="center record">
+   <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">{$business_title|getBusinessTitle}</span></h2>
+    <div class="left">
+        <include file="_compatible_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <h4 class="row">
+            <div class="col-md-5">性能概况</div>
+            <include file="_share_menu" />
+        </h4>
+        <div style="height:10px;"></div>
+        <div class="func_basic">
+            <table>
+                <tr>
+                    <td>平均值<br />Average</td>
+                    <td>安装时间<br /><eq name="$vo['install_time']" value="--">--<else />{$vo['install_time']}s</eq></td>
+                    <td>启动时间<br /><eq name="$vo['boot_time']" value="--">--<else />{$vo['boot_time']}s</eq></td>
+                    <td>CPU占用<br /><eq name="$vo['cpu_usage']" value="--">--<else />{$vo['cpu_usage']}%</eq></td>
+                    <td>内存占用<br /><eq name="$vo['memory_usage']" value="--">--<else />{$vo['memory_usage']}MB</eq></td>
+                    <td>流量耗用<br /><eq name="$vo['flow_use']" value="--">--<else />{$vo['flow_use']}KB</eq></td>
+                    <td>电池温度<br /><eq name="$vo['battery_temperature']" value="--">--<else />{$vo['battery_temperature']}℃</eq></td>
+                </tr>
+                <tr>
+                    <td class="nomal">最好<br>Best</td>
+                    <td class="greenBg"><eq name="vo['install_time_min']" value="--">--<else />{$vo['install_time_min_device']}<br>{$vo['install_time_min']}s</eq></td>
+                    <td class="greenBg"><eq name="vo['boot_time_min']" value="--">--<else />{$vo['boot_time_min_device']}<br>{$vo['boot_time_min']}s</eq></td>
+                    <td class="greenBg"><eq name="vo['cpu_usage_min']" value="--">--<else />{$vo['cpu_usage_min_device']}<br>{$vo['cpu_usage_min']}%</eq></td>
+                    <td class="greenBg"><eq name="vo['memory_usage_min']" value="--">--<else />{$vo['memory_usage_min_device']}<br>{$vo['memory_usage_min']}MB</eq></td>
+                    <td class="greenBg"><eq name="vo['flow_use_min']" value="--">--<else />{$vo['flow_use_min_device']}<br>{$vo['flow_use_min']}KB</eq></td>
+                    <td class="greenBg"><eq name="vo['battery_temperature_min']" value="--">--<else />{$vo['battery_temperature_min_device']}<br>{$vo['battery_temperature_min']}℃</eq></td>
+                </tr>
+                <tr>
+                    <td class="nomal">最差<br>Worst</td>
+                    <td class="redBg"><eq name="vo['install_time_max']" value="--">--<else />{$vo['install_time_max_device']}<br>{$vo['install_time_max']}s</eq></td>
+                    <td class="redBg"><eq name="vo['boot_time_max']" value="--">--<else />{$vo['boot_time_max_device']}<br>{$vo['boot_time_max']}s</eq></td>
+                    <td class="redBg"><eq name="vo['cpu_usage_max']" value="--">--<else />{$vo['cpu_usage_max_device']}<br>{$vo['cpu_usage_max']}%</eq></td>
+                    <td class="redBg"><eq name="vo['memory_usage_max']" value="--">--<else />{$vo['memory_usage_max_device']}<br>{$vo['memory_usage_max']}MB</eq></td>
+                    <td class="redBg"><eq name="vo['flow_use_max']" value="--">--<else />{$vo['flow_use_max_device']}<br>{$vo['flow_use_max']}KB</eq></td>
+                    <td class="redBg"><eq name="vo['battery_temperature_max']" value="--">--<else />{$vo['battery_temperature_max_device']}<br>{$vo['battery_temperature_max']}℃</eq></td>
+                </tr>
+            </table>
+            <h4 class="blue">性能分析</h4>
+            <div class="row" style="padding-top: 24px;">
+                <php>
+                    $tt2 =  array(
+                    '安装耗时分布'  => $vo['install_distribute'],
+                    '启动耗时分布'  => $vo['boot_distribute'],
+                    'cpu占用分布' => $vo['cpu_distribute'],
+                    '内存占用分布'  => $vo['memory_distribute'],
+                    '流量消耗分布'  => $vo['flow_distribute'],
+                    '电池温度分布'  => $vo['battery_distribute'],
+                    );
+                    function myt($arr){
+                    return floatval($arr);
+                    return $arr;
+                    }
+                    $i =0;
+                    $dataArr = array();
+                    foreach($tt2 as $key => $_one) {
+                    $tmpData             = json_decode($_one, true);
+                    if (empty($_one) || empty($tmpData['x']) || empty($tmpData['y'])) {
+                    continue;
+                    }
+                    $dataArr[$i]['x']    = json_encode($tmpData['x']);
+                    $tmpData['y']        = array_map('myt', $tmpData['y']);
+                    $dataArr[$i]['y']    = json_encode($tmpData['y']);
+                    $dataArr[$i]['name'] = $key;
+                    //添加横坐标的单位
+                    switch($key){
+                    case '安装耗时分布':
+                    $yname='(s)';
+                    break;
+                    case '启动耗时分布':
+                    $yname='(s)';
+                    break;
+                    case 'cpu占用分布':
+                    $yname='(%)';
+                    break;
+                    case '内存占用分布':
+                    $yname='(MB)';
+                    break;
+                    case '流量消耗分布':
+                    $yname='(KB)';
+                    break;
+                    case '电池温度分布':
+                    $yname='(℃)';
+                    break;
+                    }
+                    $dataArr[$i]['yname']=$yname;
+                    echo '<div class="col-md-6" id="J_bar_'.$i.'" style="height:320px;"></div>';
+                    $i ++;
+                    //break;
+                    }
+                </php>
+            </div>
+        </div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<script type="text/javascript">
+function getOption(x,y,name,yname) {
+    var option = {
+        tooltip : {
+            trigger: 'axis',
+            formatter: function (params,ticket,callback){
+                return params[0][1]+yname+"<br/>"+params[0][0]+":"+params[0][2]+"%";
+            }
+        },
+        legend: {
+            data:[name]
+        },
+        color: [ 
+            '#87cefa', '#da70d6', '#32cd32', '#6495ed', '#ff7f50',
+            '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0', 
+            '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700', 
+            '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0' 
+        ],
+        calculable : false,
+        xAxis : [
+            {   
+                name:"单位"+yname,
+                type : 'category',
+                axisLabel:{
+                    rotate:23
+                },
+                data : x
+            }
+        ],
+        yAxis : [
+            {   
+                name:'百分比',
+                max:100,
+                type : 'value',
+                axisLabel: {
+                 show: true,
+                 interval: 'auto',
+                 formatter: '{value} %',
+
+             } 
+            }
+        ],
+        grid:{
+            x:40,
+            y:40,
+            x2:60,
+            y2:80
+        },
+        series : [
+            {
+                symbolSize : [4, 2],
+                name:name,
+                type:'bar',
+                data:y,
+                itemStyle:{
+                    normal:{
+                      label:{
+                        show:true,
+                        position:'top',
+                        textStyle:{
+                          fontSize:12
+                        },
+                        formatter:function(a,b,c){
+                           return a.data+"%";
+                        }
+                      }
+                    }
+                }
+            }
+        ]
+    };
+
+    return option;
+}
+
+<php> foreach($dataArr as $key => $_one){</php>
+var J_bar_<php>echo $key;</php> = echarts.init(document.getElementById('J_bar_'+<php>echo $key;</php>));
+J_bar_<php>echo $key;</php>.setOption(getOption(<php>echo $_one['x'];</php>, <php>echo $_one['y'];</php>, '<php>echo $_one['name'];</php>', '<php>echo $_one['yname'];</php>'));
+<php>}</php>
+</script>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

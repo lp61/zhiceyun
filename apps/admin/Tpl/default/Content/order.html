@@ -1,0 +1,102 @@
+<include file="../Public/_header" />
+<div class="so_main">
+
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+        <form method="post" action="">
+        <input type="hidden" name="isSearch" value="1"/>
+        <dl class="lineD">
+          <dt>用户ID：</dt>
+          <dd>
+            <input name="uid" type="text" value="">
+            <p>多个时使用英文的“,”分割</p>
+          </dd>
+        </dl>
+        
+        <dl class="lineD">
+            <dt>订单编号：</dt>
+            <dd>
+                <input name="ord_no" type="text" value="">
+                <p>多个时使用英文的“,”分割</p>
+            </dd>
+        </dl>
+        
+        <dl class="lineD">
+            <dt>支付宝交易号：</dt>
+            <dd>
+                <input name="trade_no" type="text" value="">
+                <p>多个时使用英文的“,”分割</p>
+            </dd>
+        </dl>
+
+        <dl class="lineD">
+            <dt>交易状态：</dt>
+            <dd>
+            <input type="radio" name="ord_status" value="" <php>if($ord_status === "") echo 'checked';</php>>全部
+            <input type="radio" name="ord_status" value="0" <php>if($ord_status === "0") echo 'checked';</php>>未支付&nbsp;
+            <input type="radio" name="ord_status" value="1" <php>if($ord_status == 1) echo 'checked';</php>>已支付&nbsp;
+            </dd>
+        </dl>
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+        </div>
+    </div>
+    
+    <div class="page_tit">支付订单 </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+         <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a> 
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+    </div>
+    <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th style="width:30px;">
+            <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+            <label for="checkbox"></label>
+        </th>
+        <th class="line_l">ID</th>
+        <th class="line_l">用户名</th>
+        <th class="line_l">订单编号</th>
+        <th class="line_l">支付宝交易号</th>
+        <th class="line_l">支付金额（元）</th>
+        <th class="line_l">支付时间</th>
+        <th class="line_l">提交时间</th>
+        <th class="line_l">订单状态</th>
+    </tr>
+    <volist id="vo" name="data">
+        <tr overstyle='on' id="{$vo.id}">
+            <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+            <td>{$vo.id}</td>
+            <td>{$vo.uid|getUserName}</td>
+            <td>{$vo.ord_no}</td>
+            <td>{$vo.trade_no}</td>
+            <td>{$vo.ord_money}</td>
+            <td>{$vo.pay_time}</td>
+            <td>{$vo.ctime}</td>
+            <td>{$vo.ord_status|getPayStatus}</td>
+        </tr>
+    </volist>
+    </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+    </div>
+</div>
+
+<script>
+    var _delUrl_    = "{:U('admin/Content/doDelData')}";
+    var _delTable_  = 'pay';
+    var _logTitle_  = "支付订单";
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

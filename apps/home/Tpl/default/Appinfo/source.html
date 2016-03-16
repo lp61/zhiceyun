@@ -1,0 +1,185 @@
+<include file="__THEME__/header" />
+<style>
+.source .source_content .phone:hover{background: url(__PUBLIC__/new/images/source3.png) no-repeat; border:0;padding:1px 0 0 1px;}
+</style>
+<script>
+$(function(){
+	$(".storkbtn button").first().click(function(){
+		$(this).addClass("active");
+		$(this).next().removeClass("active");
+		$(".source_content .dropdown,.source_content .search").show();
+		$(".demand span").html(66)
+	});
+	$(".storkbtn button").last().click(function(){
+		$(this).addClass("active");
+		$(this).prev().removeClass("active");
+		$(".source_content .dropdown,.source_content .search").hide();
+		$(".demand span").html(12)
+	});		
+	$(".source_content .dropdown a").click(function(){
+		$(this).next().toggle();
+		//alert($(this).next().html())
+		$(this).parent().prevAll(".dropdown").children(".dropdown-menu").hide();
+		$(this).parent().nextAll(".dropdown").children(".dropdown-menu").hide();
+		return false;
+	});
+	$(".source_content .dropdown-menu li").click(function(){
+		$(this).parent().prev("a").html($(this).html());
+		$(this).parent().hide();
+	});
+	$("body").click(function(){
+		$(".dropdown-menu").hide();
+	})
+})
+</script>
+<div class="source">
+	<div class="center title">
+		<div class="stork"><a class="gray">首页 > </a><a href="#" class="blue">资源池 > </a><a href="#" class="blue">终端库</a></div>
+		<div class="storkbtn"><b class="blue">终端库</b><button>支持终端</button><button class="active">最新终端</button></div>
+	</div>
+	<div class="center source_content">
+		<p class="gray demand"><span>12</span>款符合搜索</p>
+		<div class="dropdown">
+        	<span class="gray">终端品牌：</span>
+		    <a href="#" data-role="button" data-toggle="dropdown" class="gray">请选择</a>
+		    <ul class="dropdown-menu">
+		        <li>三星</li>
+		        <li>索尼</li>
+		        <li>酷派</li>
+                <li>华为</li>
+                <li>小米</li>
+		    </ul>
+		</div>
+        <div class="dropdown">
+        	<span class="gray">&nbsp;&nbsp;&nbsp;&nbsp;分辨率：</span>
+		    <a href="#" data-role="button" data-toggle="dropdown" class="gray">请选择</a>
+		    <ul class="dropdown-menu">
+		        <li>三星</li>
+		        <li>索尼</li>
+		        <li>酷派</li>
+                <li>华为</li>
+                <li>小米</li>
+		    </ul>
+		</div>
+        <div class="dropdown">
+        	<span class="gray">屏幕尺寸：</span>
+		    <a href="#" data-role="button" data-toggle="dropdown" class="gray">请选择</a>
+		    <ul class="dropdown-menu">
+		        <li>三星</li>
+		        <li>索尼</li>
+		        <li>酷派</li>
+                <li>华为</li>
+                <li>小米</li>
+		    </ul>
+		</div>
+        <div class="dropdown">
+        	<span class="gray">系统版本：</span>
+		    <a href="#" data-role="button" data-toggle="dropdown" class="gray">请选择</a>
+		    <ul class="dropdown-menu">
+		        <li>三星</li>
+		        <li>索尼</li>
+		        <li>酷派</li>
+                <li>华为</li>
+                <li>小米</li>
+		    </ul>
+		</div>
+        <button class="search">搜索</button>	
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div class="phone">
+			<div class="left"><img src="__PUBLIC__/new/images/source1.png"></div>
+			<div class="right">
+				<h3 class="darkgray">三星S6</h3>
+				<p class="gray">系统：安卓5.1.1<br />分辨率：2560*1440<br />屏幕尺寸：5.1英寸<br />上市时间：2015.06.19</p>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		<div class="btnNum">
+			<button>上一页</button>
+			<button class="active">1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button>
+			<button>...</button>
+			<button>下一页</button>
+		</div>
+	</div>
+  
+</span> 	
+</div>
+<include file="__THEME__/footer" />

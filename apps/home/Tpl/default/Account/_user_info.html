@@ -1,0 +1,193 @@
+<div class="InfoTest text-center <php>if($utype == 0) echo 'active';</php>">
+    <div>
+        <a href="<php>echo $user['user_type'] > 0 ? '#':U('home/Account/index').'#J_edit_user_info';</php>" id="J_common_user">
+            <img src="__THEME__/images/normal.png"/>
+        </a>
+    </div>
+    <h4>
+        普通开发者</a>
+    </h4>
+    <ul>
+        <li class="text-right">
+            快速测试：
+        </li>
+        <li class="text-right">
+            兼容性测试：
+        </li>
+        <li class="text-right">
+            网络友好型测试：
+        </li>
+        <li class="text-right">
+            弱网络测试：
+        </li>
+        <li class="text-right">
+            安全测试：
+        </li>
+        <li class="text-right">
+            测试优先级：
+        </li>
+    </ul>
+    <ul>
+        <li class="text-left">
+            2次/天
+        </li>
+        <li class="text-left">
+            免费终端包2次/天
+        </li>
+        <li class="text-left">
+            免费测试2次/天
+        </li>
+        <li class="text-left">
+            暂未开通
+        </li>
+        <li class="text-left">
+            暂未开通
+        </li>
+        <li class="text-left">
+            普通
+        </li>
+    </ul>
+    <button class="<php>echo $user['user_type'] > 0 ? 'unactive':'';</php>" data-ahref="J_common_user">
+        <img src="__THEME__/images/write.png"/>
+        &nbsp;编辑资料
+    </button>
+</div>
+
+<div class="InfoTest text-center <php>if($utype == 1) echo 'active';</php>">
+    <div>
+        <a href="<php>echo $user['user_type'] > 1 ? '#':U('home/Account/index', array('utype'=>1)).'#J_edit_user_info';</php>" id="J_vip_user">
+            <img src="__THEME__/images/VIP.png"/>
+        </a>
+    </div>
+    <h4>
+        VIP开发者
+    </h4>
+    <ul>
+        <li class="text-right">
+            快速测试：
+        </li>
+        <li class="text-right">
+            兼容性测试：
+        </li>
+        <li class="text-right">
+            网络友好型测试：
+        </li>
+        <li class="text-right">
+            弱网络测试：
+        </li>
+        <li class="text-right">
+            安全测试：
+        </li>
+        <li class="text-right">
+            测试优先级：
+        </li>
+    </ul>
+    <ul>
+        <li class="text-left">
+            5次/天
+        </li>
+        <li class="text-left">
+            免费终端包5次/天
+        </li>
+        <li class="text-left">
+            免费测试5次/天
+        </li>
+        <li class="text-left">
+            暂未开通
+        </li>
+        <li class="text-left">
+            暂未开通
+        </li>
+        <li class="text-left">
+            高
+        </li>
+    </ul>
+    <button class="<php>echo $user['user_type'] > 1 ? 'unactive':'';</php>" data-ahref="J_vip_user">
+        <php>if($user['user_type'] >= 1) {</php>
+        <img src="__THEME__/images/write.png"/>
+        &nbsp;编辑资料
+        <php>}else{</php>
+            <img src="__THEME__/images/renzheng.png"/>
+        &nbsp;申请认证
+        <php>}</php>
+    </button>
+</div>
+<div class="InfoTest text-center <php>if($utype == 2) echo 'active';</php>">
+    <div>
+        <a href="<php>echo $user['user_type'] > 2 ? '#':U('home/Account/index', array('utype'=>2)).'#J_edit_user_info';</php>" id="J_company_user">
+            <img src="__THEME__/images/company.png"/>
+        </a>
+    </div>
+    <h4>
+        企业开发者
+    </h4>
+    <ul>
+        <li class="text-right">
+            快速测试：
+        </li>
+        <li class="text-right">
+            兼容性测试：
+        </li>
+        <li class="text-right">
+            网络友好型测试：
+        </li>
+        <li class="text-right">
+            弱网络测试：
+        </li>
+        <li class="text-right">
+            安全测试：
+        </li>
+        <li class="text-right">
+            测试优先级：
+        </li>
+    </ul>
+    <ul>
+        <li class="text-left">
+            10次/天
+        </li>
+        <li class="text-left">
+            免费终端包10次/天
+        </li>
+        <li class="text-left">
+            免费测试10次/天
+        </li>
+        <li class="text-left">
+            暂未开通
+        </li>
+        <li class="text-left">
+            暂未开通
+        </li>
+        <li class="text-left">
+            最高
+        </li>
+    </ul>
+    <button class="<php>echo $user['user_type'] > 2 ? 'unactive':'';</php>" data-ahref="J_company_user">
+        <php>if($user['user_type'] >= 2) {</php>
+        <img src="__THEME__/images/write.png"/>
+        &nbsp;编辑资料
+        <php>}else{</php>
+        <img src="__THEME__/images/renzheng.png"/>
+        &nbsp;申请认证
+        <php>}</php>
+    </button>
+</div>
+<img src="__THEME__/images/dottedCircle3.png"/>
+
+<div class="developer">
+    <php>if ($utype <= $user['user_type']) {</php>
+    <img src="__THEME__/images/write.png"/>
+    &nbsp;
+    {$userTypeConfig[$utype]['name']}资料
+    <php>}else{</php>
+    <img src="__THEME__/images/renzheng.png">&nbsp;<a href="#">申请认证</a>
+    <php>}</php>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".InfoTest:not('.active')").mouseover(function(){
+		$(this).addClass("active");
+	}).mouseout(function(){
+		$(this).removeClass("active");
+	})
+})
+</script>

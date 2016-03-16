@@ -1,0 +1,55 @@
+<include file="../Public/_header" />
+
+<!-- 编辑器样式文件 -->
+<link href="__PUBLIC__/js/editor/editor/theme/base-min.css" rel="stylesheet"/>
+<!--[if lt IE 8]>
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-sprite-min.css" rel="stylesheet"/>
+<![endif]-->
+<!--[if gte IE 8]><!-->
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-min-datauri.css" rel="stylesheet"/>
+<!--<![endif]-->
+
+<include file="__THEME__/editor" /> 
+
+<div class="so_main">
+    <div id="search_divadd" class="search_div" >
+        <div class="page_tit">添加 [ <a href="{:U('admin/Content/faq')}">返回</a> ]</div>
+        <div class="form2">
+        <form method="post" action="" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$id}"/>
+        <dl class="lineD">
+            <dt>标题：</dt>
+            <dd>
+                <input name="title" type="text" value="{$title}" size="100">
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>分类：</dt>
+            <dd>
+                <volist id="vo" name="faqTypeConfig">
+                    <input type="radio" name="type" id="type_{$vo.id}" value="{$vo.id}" <php>if($type == $vo['id']) echo 'checked';</php>><label for="type_{$vo.id}">{$vo.title}</label>
+                </volist>
+            </dd>
+        </dl>	
+        <dl>
+            <dt>内容：</dt>
+            <dd>
+                <!--<p>当前为源码编辑模式， <a href="#" onclick="AddEditor()">点击这里使用编辑器</a></p>-->
+                <textarea name="content" id="content" style="width:780px;height:200px">{$content}</textarea>
+            </dd>
+        </dl>
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+<include file="../Public/_footer" />
+<script>
+function AddEditor(){
+    loadEditor("content");  //解决2个编辑器问题
+}
+AddEditor();
+</script>

@@ -1,0 +1,80 @@
+<include file="../Public/_header" />
+<div class="so_main">
+  <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+    <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+    <div class="form2">
+      <form method="post" action="">
+        <input type="hidden" name="isSearch" value="1"/>
+        <dl class="lineD">
+          <dt>测试业务分类：</dt>
+          <dd>
+          <input type="radio" name="businessID" value="" <php>if($businessID == "") echo 'checked';</php>>全部
+          <volist id="vo" name="appTestConfig">
+            <input type="radio" name="businessID" value="{$vo.businessID}" <php>if($businessID == $vo['businessID']) echo 'checked';</php>>{$vo.title}&nbsp;
+          </volist>
+          <!-- 
+          <select name="businessID">
+              <option value="" <php>if($businessID == "") echo 'selected';</php>>请选择</option>
+              <volist id="vo" name="appTestConfig">
+                  <option value="{$vo.id}" <php>if($type == $vo['id']) echo 'selected';</php>>{$vo.title}</option>
+              </volist>
+          </select>
+          -->
+          </dd>
+        </dl>
+        <div class="page_btm">
+          <input type="submit" class="btn_b" value="确定" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="page_tit">测试业务</div>
+  <div class="Toolbar_inbox">
+    <div class="page right">{$html}</div>
+    <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+      <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+    </a>
+  </div>
+
+  <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th style="width:30px;">
+          <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+          <label for="checkbox"></label>
+        </th>
+        <th class="line_l">ID</th>
+        <th class="line_l">名称</th>
+        <th class="line_l">测试业务</th>
+        <th class="line_l">操作</th>
+      </tr>
+      <volist name="data" id="vo">
+        <tr overstyle='on' id="package_{$vo['id']}">
+          <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+          <td>{$vo.id}</td>
+          <td>{$vo.title}</td>
+          <td>{$vo.business_title}</td>
+        <td>
+          <a href="{:U('admin/Content/editAppPackage', array('cid'=>$vo['id']))}">编辑</a>&nbsp;|&nbsp;
+         <eq name="vo['package_type']" value="6">
+           <a href="{:U('admin/Content/appTask_net')}">
+         <else />
+         <a href="{:U('admin/Content/appTask', array('package_type'=>$vo['package_type']))}"></eq>
+              查看队列</a>
+        </td>
+        </tr>
+      </volist>
+    </table>
+
+  </div>
+  <div class="Toolbar_inbox">
+    <div class="page right">{$html}</div>
+    <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+      <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+    </a>
+  </div>
+</div>
+
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

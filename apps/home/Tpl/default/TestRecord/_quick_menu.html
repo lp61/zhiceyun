@@ -1,0 +1,8 @@
+<ul>
+    <li <if condition="(ACTION_NAME eq 'quick') or (ACTION_NAME eq 'report')">class="gray active"<else />class="gray"</if> ><a href="{:U('home/TestRecord/quick', array('uuid'=>$uuid))}">基本信息</a></li>
+    <li <eq name="ACTION_NAME" value="quick_compatible">class="gray active"<else />class="gray"</eq> ><a href="{:U('home/TestRecord/quick_compatible', array('uuid'=>$uuid))}">兼容性测试</a></li>
+    <li <eq name="ACTION_NAME" value="quick_prop">class="gray active"<else />class="gray"</eq> ><a href="{:U('home/TestRecord/quick_prop', array('uuid'=>$uuid))}">性能测试</a></li>
+    <li <eq name="ACTION_NAME" value="quick_image">class="gray active"<else />class="gray"</eq> ><a href="{:U('home/TestRecord/quick_image', array('uuid'=>$uuid))}">屏幕截屏</a></li>
+    <li <eq name="ACTION_NAME" value="quick_network">class="gray active"<else />class="gray"</eq> ><a href="{:U('home/TestRecord/quick_network', array('uuid'=>$uuid))}">网络友好测试</a></li>
+   <!-- <li <eq name="ACTION_NAME" value="quick_score">class="gray active"<else />class="gray"</eq> ><a href="{:U('home/TestRecord/quick_score', array('uuid'=>$uuid))}">为本次报告打分</a></li>-->
+</ul>

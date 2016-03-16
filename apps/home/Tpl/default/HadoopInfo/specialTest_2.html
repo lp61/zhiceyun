@@ -1,0 +1,71 @@
+<include file="__THEME__/header" />
+<!--内容部分-->
+<div class="chooseTest compatible">
+    <div class="center newPhone">
+        <h1>
+            <span class="gray"><a href="#">首页&nbsp;>&nbsp;</a></span>
+            <span class="gray"><a href="#">应用测试&nbsp;>&nbsp;</a></span>
+            <span class="blue"><a href="#">专机测试</a></span>
+        </h1>
+        <div class="white order">
+            <span class="blueBg num">1</span>
+            <span class="line blueBg"></span>
+            <span class="blueBg num">2</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">3</span>
+        </div>
+        <div class="content">
+            <span class="blue one">选择终端</span>
+            <span class="blue two">上传APK</span>
+            <span class="lightgray three">测试提交</span>
+        </div>
+        <h2 class="blue">服务内容</h2>
+        <div class="service row">
+            <div class="col-md-3">
+                <ul>
+                    <li><span class="blue">●</span>&nbsp;<span class="gray">兼容性测试</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">安装</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">启动</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">登录</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">运行</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">卸载</span></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <li><span class="blue">●</span>&nbsp;<span class="gray">性能检测</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">启动时间</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">CPU</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">内存</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">流量</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">温度</span></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <li><span class="blue">●</span>&nbsp;<span class="gray">错误定位</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">UI图像识别</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">运行截图</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">系统日志</span></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <li><span class="blue">●</span>&nbsp;<span class="gray">报告分析</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">在线</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">离线测试报告</span></li>
+                    <li><span class="lightgray">●</span>&nbsp;<span class="lightgray">统计分析结果</span></li>
+                </ul>
+            </div>
+        </div>
+        <include file='info' />
+        <form action="{:U('home/Apptest/specialTestSubmit')}" method="post" id="subForm" enctype="multipart/form-data">
+            <input type="hidden" name="task_id" value="{$task_id}"/>
+            <div class="service">
+                <include file="APPbag" />
+            </div>
+            <div class="info"><button class="next btn regBtn" type="submit">提交测试</button></div>
+        </form>
+    </div>
+</div>
+<include file="__THEME__/footer" />

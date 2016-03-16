@@ -1,0 +1,75 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">网络友好测试</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <include file="_network_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <h4 class="row">
+            <div class="col-md-5">综合测试</div>
+            <include file="_menu_network_select" />
+        </h4>
+        <div class="complex_test">
+            <table>
+                <tr class="lightgrayBg">
+                    <td class="text-left">CASE数目</td>
+                    <td>{$vo['casenum']}</td>
+                </tr>
+                <tr>
+                    <td class="text-left">通过</td>
+                    <td>{$vo['pass']}</td>
+                </tr>
+                <tr class="lightgrayBg">
+                    <td class="text-left">警告</td>
+                    <td>{$vo['warning']}</td>
+                </tr>
+                <tr>
+                    <td class="text-left">不通过</td>
+                    <td>{$vo['fail']}</td>
+                </tr>
+                <tr class="lightgrayBg">
+                    <td class="text-left">综合评级</td>
+                    <td>
+                        <eq name="vo.star" value="5颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                        <eq name="vo.star" value="4颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                        <eq name="vo.star" value="3颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                        <eq name="vo.star" value="2颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                        <eq name="vo.star" value="1颗星"><img src="__THEME__/images/record5.png"/></eq><br />
+                    </td>
+                </tr>
+            </table>
+            <div class="greenBg white">通过</div>
+            <table>
+                <volist id="pass" key="k1" name="pass_details_name">
+                    <tr <php>if($k1%2==0){ echo 'class="lightgrayBg"';}</php>>
+                    <td class="text-left">{$pass['title']}</td>
+                    <td>{$pass['content']}</td>
+                    </tr>
+                </volist>
+            </table>
+            <div class="yellowBg">警告</div>
+            <table class="text-center">
+                <volist id="warn" key="k2" name="warning_details_name">
+                    <tr <php>if(($k1+$k2)%2==0){ echo 'class="lightgrayBg"';}</php>>
+                    <td class="text-left">{$warn['title']}</td>
+                    <td>{$warn['content']}</td>
+                    </tr>
+                </volist>
+            </table>
+            <div class="redBg">不通过</div>
+            <table class="text-center">
+                <volist id="fail" key="k3" name="fail_details_name">
+                    <tr <php>if(($k1+$k2+$k3)%2==0){ echo 'class="lightgrayBg"';}</php>>
+                    <td class="text-left">{$fail['title']}</td>
+                    <td>{$fail['content']}</td>
+                    </tr>
+                </volist>
+            </table>
+        </div>  
+    </div>
+    <div class="kite"><img src="__THEME__/images/kite.png" /></div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

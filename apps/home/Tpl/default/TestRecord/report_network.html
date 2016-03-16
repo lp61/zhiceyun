@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>智测云(报告概况)</title>
+<style>
+/*新样式*/
+*{font-family:微软雅黑;}
+a,a:hover,a:visited{text-decoration:none;}
+a:focus{outline: none;text-decoration:none;}
+a{text-decoration:none;}
+p{margin:10px 0;}
+ul{padding-left:0}
+ul li{list-style-type:none}
+ .center{width:880px; margin:0 auto;}
+img{border:0;vertical-align: middle;}
+.blue,.blue a{color:#24a9e4;background:none;}
+.white,.white a{color:#fff;background:none;border:none;height:auto;}
+.darkgray,.darkgray a{color:#333}
+.gray,.gray a{color:#666}
+.lightgray,.lightgray a{color:#999}
+.green,.green a{color:#94bd39}
+.greenBg{background:#94bd39}
+.red,.red a{color:#e74d57}
+.redBg{background:#f35d4e;color:#FFFFFF;}
+.yellowBg{background:#fa9c22;color:#FFFFFF;}
+.lightgrayBg{background:#EEEEEE}
+.blueBg{background:#25a3cb}
+.lightblueBg{background:#99d5ed}
+.lightgreenBg{background:#eaf4f3}
+.error, .error a{color:#e74c57;font-size:12px;}
+button{height:35px;line-height:35px; color:#FFFFFF; border:0; border-radius:5px;}
+.record .right .complex_test table td {border-left-color: #e1e1e1;border-left-style: solid;border-left-width: 1px;width:438px }
+button a{color:#FFFFFF;}
+.button{width:300px;font-size:14px}
+.col-md-8 {width: 66.6667%;}
+.record .right table tr {height: 40px;line-height: 40px;}
+td, th {padding-bottom: 0;padding-left: 0;padding-right: 0;padding-top: 0;}
+.record .right table tr td {border-bottom-color: #e1e1e1; border-bottom-style: solid;border-bottom-width: 1px;text-align: center;width: 173px;}
+/*网络友好测试报告*/
+.record .right .friend_basic,.record .right .complex_test,.record .right .cache,.record .right .transfer{padding-top:20px;}
+.record .right .friend_basic .row{margin:0;}
+.record .right .friend_basic .col-md-9,.record .right .friend_basic .col-md-3{padding:0;}
+.record .right .friend_basic .col-md-9 > div,.record .right .friend_basic .col-md-3 > div{border:2px solid #FFFFFF;padding:10px;text-align:center;}
+.record .right .friend_basic .col-md-3 div img{height:153px;width: 150px;}
+.record .right .complex_test table,.record .right .transfer table{border:1px solid #e1e1e1;border-left:0;}
+.record .right .complex_test table td{width:430px;border-left:1px solid #e1e1e1;}
+.record .right .complex_test table .text-left{text-align:left;padding-left:20px;}
+.record .right .transfer table td{width:171px;border-left:1px solid #e1e1e1;}
+.record .right .complex_test > div{height:40px;line-height: 40px;text-align:center;}
+.record .right .cache table{border-right:1px solid #E1E1E1;}
+.record .right .cache table td{width:680px;border-left:1px solid #E1E1E1;}
+.record .right .cache table .statistics{width:180px;}
+.record .right .cache table .longer{width:47%; text-align:left; padding-left:20px;}
+.friend_basic .row> .col-md-9{width:75%;float:left;}
+.friend_basic .row> .col-md-3{width:25%;float:left;}
+.friend_basic .row> .col-md-9> .col-md-8{width:67%;float:left;}
+.friend_basic .row> .col-md-9> .col-md-4{width:33%;float:left;}
+</style>
+        <script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+        <script type="text/javascript" src="__THEME__/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="__THEME__/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="__THEME__/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="center record">
+            <div class="title"><center><h2>{$task['apk_name']} - 网络友好测试 - 概况报告</h2></center></div>
+            <div class="right">
+                <div class="friend_basic">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="col-md-4 lightgreenBg">被测应用</div>
+                            <div class="col-md-8 lightgreenBg">{$task['apk_name']}</div>
+                            <div class="col-md-4 lightblueBg">测试服务</div>
+                            <div class="col-md-8 lightblueBg">{$task['package_type']}</div>
+                            <div class="col-md-4 lightgreenBg">测试提交时间</div>
+                            <div class="col-md-8 lightgreenBg">{$task['ctime']}</div>
+                            <div class="col-md-4 lightblueBg">测试结束时间</div>
+                            <div class="col-md-8 lightblueBg">{$task['mtime']}</div>
+                            <div class="col-md-4 lightgreenBg">终端测试</div>
+                            <div class="col-md-8 lightgreenBg">{$task['device_type']|msubstr='0','50'}</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="lightgreenBg" style="height: 176px;"><img src="{$task['apk_icon']}" /></div>
+                            <div class="lightgreenBg">{$task['apk_name']}</div>
+                        </div>
+                    </div>
+                </div>        
+                <div style="height: 38px;"></div>
+                <div class="complex_test">
+                    <table>
+                        <tr class="lightgrayBg">
+                            <td class="text-left">CASE数目</td>
+                            <td>{$vo['casenum']}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">通过</td>
+                            <td>{$vo['pass']}</td>
+                        </tr>
+                        <tr class="lightgrayBg">
+                            <td class="text-left">警告</td>
+                            <td>{$vo['warning']}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">不通过</td>
+                            <td>{$vo['fail']}</td>
+                        </tr>
+                        <tr class="lightgrayBg">
+                            <td class="text-left">综合评级</td>
+                            <td>
+                                <eq name="vo.star" value="5颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                                <eq name="vo.star" value="4颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                                <eq name="vo.star" value="3颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                                <eq name="vo.star" value="2颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                                <eq name="vo.star" value="1颗星"><img src="__THEME__/images/record5.png"/></eq><br />
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="width:861px;" class="greenBg white">通过</div>
+                    <table>
+                        <volist id="pass" key="k1" name="pass_details_name">
+                            <tr <php>if($k1%2==0){ echo 'class="lightgrayBg"';}</php>>
+                                <td class="text-left">{$pass['title']}</td>
+                                <td>{$pass['content']}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <div style="width:861px;" class="yellowBg">警告</div>
+                    <table class="text-center">
+                        <volist id="warn" key="k2" name="warning_details_name">
+                            <tr <php>if(($k1+$k2)%2==0){ echo 'class="lightgrayBg"';}</php>>
+                                <td class="text-left">{$warn['title']}</td>
+                                <td>{$warn['content']}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <div style="width:861px;" class="redBg">不通过</div>
+                    <table class="text-center">
+                        <volist id="fail" key="k3" name="fail_details_name">
+                            <tr <php>if(($k1+$k2+$k3)%2==0){ echo 'class="lightgrayBg"';}</php>>
+                                <td class="text-left">{$fail['title']}</td>
+                                <td>{$fail['content']}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>  
+                <div class="cache">
+                    <table style="width:861px;">
+                        <tr style="border-top:1px solid #E1E1E1;">
+                            <td style="width:58%;"></td>
+                            <td style="width:21%;">占下载文件百分比</td>
+                            <td>占数据量（Bytes）百分比</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td class="statistics">文件类型统计</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td class="longer">可缓存</td>
+                                        <td>{$vo['Cacheable_FilePercent']}</td>
+                                        <td>{$vo['Cacheable_BytesPercent']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">非缓存</td>
+                                        <td>{$vo['NoStore_FilePercent_1']}</td>
+                                        <td>{$vo['NoStore_BytesPercent_1']}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td class="statistics">缓存行为统计</td>
+                            <td>
+                                <div class="greenBg white">可接受行为</div>
+                                <table>
+                                    <tr>
+                                        <td class="longer">仅执行一次下载</td>
+                                        <td>{$vo['Once_FilePercent']}</td>
+                                        <td>{$vo['Once_BytesPercent']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">文件为非缓存类</td>
+                                        <td>{$vo['NoStore_FilePercent_2']}</td>
+                                        <td>{$vo['NoStore_BytesPercent_2']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">文件过期、但携带缓存头部部分</td>
+                                        <td>{$vo['Expired304_FilePercent']}</td>
+                                        <td>{$vo['Expired304_BytesPercent']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">文件过期，内容改变，执行重复下载</td>
+                                        <td>{$vo['ExpiredChanged_FilePercent']}</td>
+                                        <td>{$vo['ExpiredChanged_BytesPercent']}</td>
+                                    </tr>
+                                </table>
+                                <div class="yellowBg">需优化行为：重复下载</div>
+                                <table>
+                                    <tr class="gray">
+                                        <td class="longer">文件过期，执行重复下载</td>
+                                        <td>{$vo['Dup_FilePercent']}</td>
+                                        <td>{$vo['Dup_FilePercent']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">文件过期，因无缓存头部信息而重复下载</td>
+                                        <td>{$vo['NoHeader_FilePercent']}</td>
+                                        <td>{$vo['NoHeader_BytesPercent']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">文件过期，并无视缓存头部信息重复下载</td>
+                                        <td>{$vo['HeaderIgnored_FilePercent']}</td>
+                                        <td>{$vo['HeaderIgnored_BytesPercent']}</td>
+                                    </tr>
+                                </table>
+                                <div class="redBg">需优化行为：部分重复下载（流文件）</div>
+                                <table>
+                                    <tr>
+                                        <td class="longer">文件未过期，重复下载</td>
+                                        <td>{$vo['PDup_FilePercent']}</td>
+                                        <td>{$vo['PDup_BytesPercent']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">文件未过期，因无缓存头部信息而重复下载</td>
+                                        <td>{$vo['PNoHeader_FilePercent']}</td>
+                                        <td>{$vo['PNoHeader_BytesPercent']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">文件未过期，并无视缓存头部信息重复下载</td>
+                                        <td>{$vo['PHeaderIgnored_FilePercent']}</td>
+                                        <td>{$vo['PHeaderIgnored_BytesPercent']}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td class="statistics">重复下载文件统计</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td class="longer">未过期重复下载文件</td>
+                                        <td>{$vo['DownloadNoExp_FilePercent']}</td>
+                                        <td>{$vo['DownloadNoExp_BytesPercent']}</td>
+                                    </tr>
+                                    <tr class="gray">
+                                        <td class="longer">24h缓存未过期，重复下载文件</td>
+                                        <td>{$vo['Download24hNoExp_FilePercent']}</td>
+                                        <td>{$vo['Download24hNoExp_BytesPercent']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="longer">已过期，重复下载文件</td>
+                                        <td>{$vo['DownloadExp_FilePercent']}</td>
+                                        <td>{$vo['DownloadExp_BytesPercent']}</td>
+                                    </tr>
+                                    <tr class="gray">
+                                        <td class="longer">24h缓存已过期，重复下载文件</td>
+                                        <td>{$vo['Download24hExp_FilePercent']}</td>
+                                        <td>{$vo['Download24hExp_BytesPercent']}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

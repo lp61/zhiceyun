@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="__PUBLIC__/wap/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/wap/js/js.js"></script>
+    <script type="text/javascript" src="__THEME__/js/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="__THEME__/js/swiper.animate1.0.2.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link type="text/css" rel="stylesheet" href="__THEME__/css/swiper.min.css"/>
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/css/style.css" />
+	<title>智测云</title>
+</head>
+<body>
+<include file="_menu1"/>
+<div class="stork">
+	<div class="ui-grid-a title">
+            <div class="ui-block-a active"><a href="###">最新终端</a></div>
+            <div class="ui-block-b"><a href="###">支持终端</a></div>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="new">
+                        <volist name="mo1" id="vo">
+                            <div class="ui-grid-a storkC new">
+                                <div class="ui-block-a"><img src="{$vo['pic_url']}"/></div>
+                                <div class="ui-block-b">
+                                    <h3 class="darkgray">{$vo['name']}</h3>
+                                    <p class="gray"><span>系统：{$vo['os']}</span><span>分辨率：{$vo['resolution']}</span><br><span>屏幕尺寸：{$vo['size']}</span><span>上市时间：{$vo['release_time']}</span></p>
+                                </div>
+                            </div>
+                        </volist>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="support">
+                        <volist name="mo2" id="vo">
+                            <div class="ui-grid-a storkC">
+                                <div class="ui-block-a"><img src="{$vo['pic_url']}"/></div>
+                                <div class="ui-block-b">
+                                    <h3 class="darkgray">{$vo['name']}</h3>
+                                    <p class="gray"><span>系统：{$vo['os']}</span><span>分辨率：{$vo['resolution']}</span><br><span>屏幕尺寸：{$vo['size']}</span><span>上市时间：{$vo['release_time']}</span></p>
+                                </div>
+                            </div> 
+                        </volist>
+                    </div>
+                </div>            
+            </div>    
+        </div>   
+    </div>
+</body>
+<script>
+$(function(){
+	var mySwiper = new Swiper(".swiper-container",{
+		centeredSlides: true,
+		slidesPerView: 1,
+		onSlideChangeEnd: function(swiper){
+			 $(".stork  .title div").removeClass("active");
+			 $(".stork  .title div").eq(mySwiper.activeIndex).addClass("active");
+		}
+	})
+	$(".stork .title div").click(function(){
+		$(".stork .title div").removeClass("active");
+		$(this).addClass("active");
+		mySwiper.slideTo($(".stork .title div").index($(this)));
+	})
+})
+</script>
+</html>

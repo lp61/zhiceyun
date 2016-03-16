@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+<!--#include virtual="/include/header.html" -->
+    <title>智测云(测试记录)</title>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">    
+     Bootstrap <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+    <!--script type="text/javascript" src="/js/npm.js"></script-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/jscript.js"></script>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+<body>
+<!--#include virtual="/include/head3.html" -->
+<!--内容部分-->
+   <div class="center2">
+     <div class="setTest">
+         <ul>
+           <li class="active"><a href="#">测试记录</li>
+           <li><a href="#">账户管理</li>
+           <li><a href="#">测试积分中心</li>
+           <li><a href="#">好友邀请</li>
+           <li><a href="#">消息中心</li>
+           <!--<li><a href="#">测试圈</li>-->
+           <li><a href="#">用户反馈</li>
+         </ul>
+         <button>创建测试</button>
+     </div>
+     <div class="Bg"><img src="../../images/android2.png"/></div>
+     <div class="report">
+       <ul id="record">
+         <li id="basic" class="title"><a href="#">基本信息</a></li>
+         <li id="compatible"><a href="#">兼容性测试</a></li>
+         <li id="function"><a href="#">性能测试</a></li>
+         <li id="screen"><a href="#">屏幕截屏</a></li>
+         <li id="friend"><a href="#">网络友好测试</a></li>
+         <li id="rate"><a href="#">为本次报告打分</a></li>
+       </ul>
+       <div id="1"></div>
+     </div>
+     <img src="../../images/kite.png"/>
+   </div>
+   	<div id="basical"><div class="reportRight">
+   		<div class="applytest basic">
+            <div class="apply apply2">
+            	<img src="../../images/testRecord.png"/>&nbsp;测试概况
+            	<button class="active"><img src="../../images/arrowBottom2.png"/>下载测试报告</button>
+            </div> 
+             <ul class="text-right">
+               <li>应用名称：</li>
+               <li>文件大小：</li>
+               <li>提交时间：</li>
+               <li>测试类型：</li>
+               <li>测试状态：</li>
+               <li>测试进度：</li>
+             </ul>
+             <ul>
+               <li>有道云笔记</li>
+               <li>34846.0KB</li>
+               <li>2014-12-06</li>
+               <li>快速测试</li>
+               <li>已完成</li>
+               <li>100%</li>
+             </ul>
+         </div>
+        <div class="applytest basic">
+            <div class="apply"><img src="../../images/recordComputer.png"/>&nbsp;&nbsp;应用详情</div>
+             <ul class="text-right">
+               <li>应用图标：</li>
+               <li>文件名称：</li>
+               <li>应用版本：</li>
+               <li>文件大小：</li>
+               <li>包名：</li>
+               <li>启动路径：</li>
+             </ul>
+             <ul>
+               <li><img src="../../images/noteYunSmall.png"/></li>
+               <li>有道云笔记</li>
+               <li>3.7.0</li>
+               <li>34846.0KB</li>
+               <li>com.youdao.note</li>
+               <li>com.youdao.note.activity2.SplashAcitivity</li>
+             </ul>
+         </div>
+        <div class="applytest basic basic2">
+           <div class="apply"><img src="../../images/testscene.png"/>&nbsp;&nbsp;测试场景与内容</div>
+             <ul class="text-right">
+               <li>测试平台：</li>
+               <li>测试终端总数：</li>
+               <li>测试总时长：</li>
+               <li class="long">测试内容：</li>
+             </ul>
+             <ul>
+               <li>泰尔应用测试认证平台</li>
+               <li>3个</li>
+               <li>13分44秒</li>
+               <li class="height"><p>兼容性测试：</p><P>安装、运行、卸载、UI适配、屏幕截图。</P><p>性能测试：</p><p>CPU占用、内存占用和流量使用。</p><p>网络友好性测试：</p><p>网络友好性综合评估、网络友好优化建议。</p></li>
+             </ul>
+         </div>
+       </div>
+   </div>
+<script>
+	$(function(){
+		$("#1").html($("#basical").html());
+		$("#basical").css("display","none");
+		$("#compatibleC").css("display","none");
+		$("#functionC").css("display","none");
+		$("#screenC").css("display","none");
+		$("#friendC").css("display","none");
+		$("#rateC").css("display","none");
+		$("#record li").click(function(){
+			$("#record li").removeClass("title");
+			$(this).addClass("title");
+		});
+		$("#basic").click(function(){
+			$("#1").html($("#basical").html());
+		});
+		$("#compatible").click(function(){
+			$("#1").html($("#compatibleC").html());
+		});
+		$("#function").click(function(){
+			$("#1").html($("#functionC").html());
+		});
+		$("#screen").click(function(){
+			$("#1").html($("#screenC").html());
+		});
+		$("#friend").click(function(){
+			$("#1").html($("#friendC").html());
+		});
+		$("#rate").click(function(){
+			$("#1").html($("#rateC").html());
+		});
+	})
+</script>
+  <!--#include virtual="/include/footer.html" -->
+</body>
+
+</html>

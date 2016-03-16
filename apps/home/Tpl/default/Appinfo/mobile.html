@@ -1,0 +1,111 @@
+<include file="__THEME__/header" />
+<script>
+    $(function () {
+        $(".source_content>span,.source_content>select,.source_content>button").hide();
+        $(".storkbtn button").first().click(function () {
+            $(this).addClass("active");
+            $(this).next().removeClass("active");
+            $(".source_content>span,.source_content>select,.source_content>button").show();
+            $(".demand span").html({$count})
+        });
+        $(".storkbtn button").last().click(function () {
+            $(this).addClass("active");
+            $(this).prev().removeClass("active");
+            $(".source_content>span,.source_content>select,.source_content>button").hide();
+            $(".demand span").html({$count})
+        });
+        /*  $(".source_content .dropdown a").click(function(){
+         $(this).next().toggle();
+         //alert($(this).next().html())
+         $(this).parent().prevAll(".dropdown").children(".dropdown-menu").hide();
+         $(this).parent().nextAll(".dropdown").children(".dropdown-menu").hide();
+         
+         return false;
+         });
+         $(".source_content .dropdown-menu li").click(function(){
+         $(this).parent().prev("a").html($(this).html());
+         $(this).parent().hide();
+         });
+         $("body").click(function(){
+         $(".dropdown-menu").hide();
+         })*/
+    });
+</script>
+<style>
+.source .source_content> .col-md-3{margin-left:50px;width:288px;padding:0;height:168px;margin-bottom:48px;}
+.source .source_content .col-md-3 .phone:hover{height:168px;}
+</style>
+<div class="source">
+    <div class="center title">
+        <div class="stork"><a href="{:U('home/Index/index')}" class="gray">首页 > </a>资源池><a href="#" class="blue">终端库</a></div>
+        <div class="storkbtn">
+            <b class="blue">终端库</b>
+            <button <php> if ($isSearch){</php>class="active"<php>}</php> data-ahref="J_mobile">支持终端</button>
+            <button <php> if (!$isSearch){</php>class="active"<php>}</php> data-ahref="J_mobile_new">最新终端</button>
+            <a href="{:U('home/Appinfo/mobile')}" class="fb14 J_hide" id="J_mobile_new">最新终端</a>
+            <a href="{:U('home/Appinfo/mobile', array('isSearch'=>1))}" class="fb14 J_hide" id="J_mobile">终端库</a>
+        </div>
+    </div>
+    <php>if ($isSearch==1){ </php>
+    <div class="center source_content">
+        <p class="gray demand"><span>{$count}</span>款符合搜索</p>
+        <form method="post" action="" id="J_form" style="padding-left:50px;"}>
+            <volist id="vo1" name="appSystemConfig">
+                <php>if (!$vo1['is_show']) continue;</php>
+                    <span  class="gray">{$vo1.name}：</span>
+                    <select name="{$vo1.adapter_name}">
+                        <option value="" <php>if($$vo1['adapter_name'] == "") echo 'selected';</php>>
+                        请选择
+                        </option>
+                        <volist id="vo" name="vo1.data">
+                            <option value="{$vo.content}" <php>if($$vo1['adapter_name'] == $vo['content']) echo 'selected';</php>>
+                            {$vo.content}
+                            </option>
+                        </volist>
+                    </select>
+            </volist>
+            <button class="search" data-ahref="J_form_submit">搜索</button>
+            <input type="submit" class="J_hide" id="J_form_submit" value="确定" />
+        </form>
+        <php>}else{ </php>
+        <div style="height:0px"></div>
+        <php>} </php>
+         <php> if ($isSearch!=1){</php>
+        <div class="center source_content row">
+            <p class="gray demand"><span>{$count}</span>款符合搜索</p><php>}</php>
+        <volist id="vo" name="data">
+            <div class="col-md-3">
+			<div class="phone">
+                <div class="left"><img src="{$vo.pic_url}" width="55px" heigth="115px"></div>
+                <div class="right">
+                    <h3 class="darkgray">{$vo.name}</h3>
+                    <p class="gray">系统：{$vo['os']}<br />分辨率：{$vo['resolution']}<br />屏幕尺寸：{$vo['size']}<br />上市时间：{$vo['release_time']}</p>
+                </div>
+            </div>
+			</div>
+        </volist>
+        <div style="clear: both;"></div>
+         <div class="sofupage Twitter-green toggle">
+        <div class="btnNum">
+           {$html}
+        </div></div>
+        <php> if ($isSearch!=1){</php>  </div><php>}</php>
+    </div>
+</div>
+<script>
+$(function(){
+    setTimeout(function(){
+        if (window.innerHeight) {
+            winHeight = window.innerHeight;
+        } else if ((document.body) && (document.body.clientHeight)) {
+            winHeight = document.body.clientHeight;
+        }
+        var footFixHeight=winHeight-$(".footer").position().top-$(".footer").outerHeight();
+        var centerHeight=$(".source").outerHeight()+footFixHeight;
+        if(footFixHeight>0) {
+            $(".source").css("min-height",centerHeight+"px");
+        }
+    },10);
+});
+</script>
+<include file="__THEME__/footer" />

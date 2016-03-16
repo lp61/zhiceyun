@@ -1,0 +1,55 @@
+<include file="__THEME__/header" />
+<div class="chooseTest">
+    <div class="center quick">
+        <h1>
+            <span class="gray"><a href="#">首页&nbsp;>&nbsp;</a></span>
+            <span class="gray"><a href="#">应用测试&nbsp;>&nbsp;</a></span>
+            <span class="blue"><a href="#">网络友好测试</a></span>
+        </h1>
+        <div class="white order">
+            <span class="blueBg num">1</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">2</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">3</span>
+        </div>
+        <div class="content">
+            <span class="blue one">选择测试类型</span>
+            <span class="lightgray two">上传APK</span>
+            <span class="lightgray three">测试提交</span>
+        </div>
+        <h2 class="blue">选择测试类型</h2>
+        <div class="row friendlyT">
+            <div class="col-md-5">
+                <img src="__THEME__/images/compatible4.png" />
+                <h3 class="gray">免费测试</h3>
+                <p class="lightgray">
+                    自动化测试<br />
+                    高效反馈<br />
+                    新品体验<br />
+                    限时免费
+                </p>
+                <div class="example">
+                    <button class="blueBg"  data-ahref="J_wlyh_test1_submit">开始测试</button><br />
+                
+                    <a href="{:U('home/Apptest/networkTestFreeStart')}" id="J_wlyh_test1_submit"></a>
+                    <a href="{:U('home/TestRecord/static_network')}" target="_blank"><button class="greenBg">查看测试样例</button></a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img src="__THEME__/images/compatible1.png" />
+                <h3 class="gray">深度测试</h3>
+                <p class="lightgray">
+                    私人定制测试流程<br />
+                    直击app网络漏洞
+                </p>
+                <div class="example">
+                    <a href="friendTest_deep.html"><button class="blueBg" data-ahref="J_wlyh_test2_submit">开始测试</button></a><br />
+                   <a href="{:U('home/Apptest/networkTestDeepStart')}" id="J_wlyh_test2_submit"></a>
+                    <a href="<php> echo UPLOAD_URL.'/file/smarterapps_test_example001.pdf';</php>" target="_blank"><button class="greenBg">查看测试样例</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="__THEME__/footer" />

@@ -1,0 +1,82 @@
+<include file="__THEME__/header" />
+<script>
+    $(function () {
+        //切换
+        $(".tec,.special,.salon").hide();
+        $(".info").show();
+        $(".testcircleB").height($(".testcircleB .right .info").height() + 50);
+        $(".testcircleB .left ul li").click(function () {
+            $(".testcircleB .left ul li").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".testcircleB .left ul li").eq(0).click(function () {
+            $(".tec,.special,.salon").hide();
+            $(".info").show();
+            $(".testcircleB").height($(".testcircleB .right .info").height() + 50);
+        });
+        $(".testcircleB .left ul li").eq(1).click(function () {
+            $(".info,.special,.salon").hide();
+            $(".tec").show();
+            $(".testcircleB").height($(".testcircleB .right .tec").height() + 50);
+        });
+        $(".testcircleB .left ul li").eq(2).click(function () {
+            $(".tec,.info,.salon").hide();
+            $(".special").show();
+            $(".testcircleB").height($(".testcircleB .right .special").height() + 50);
+        });
+        $(".testcircleB .left ul li").eq(3).click(function () {
+            $(".tec,.special,.info").hide();
+            $(".salon").show();
+            $(".testcircleB").height($(".testcircleB .right .salon").height() + 50);
+        });
+    });
+</script>
+<div class="testcircle">
+    <div class="title center"><a class="gray" href="{:U('home/Index/index')}">首页 > </a><a href="{:U('home/Appinfo/article')}" class="gray">测试圈 ></a>
+        <a href="#" class="blue">  
+            <php> if ($type) {</php>
+            <span>{$appArticleConfig[$type]['name']}</span>
+            <php>}else{</php>
+            <span>全部</span>
+            <php>}</php></a></div>
+    <div class="testcircleB center">   
+        <div class="left">
+            <ul>
+                <a href="{:U('home/Appinfo/articleList', array('type'=>2))}"><eq name="type" value="2"><li  class="active"><else /><li></eq>资讯</li></a>
+                <a href="{:U('home/Appinfo/articleList', array('type'=>3))}"><eq name="type" value="3"><li  class="active"><else /><li></eq>技术</li></a>
+                <a href="{:U('home/Appinfo/articleList', array('type'=>4))}"><eq name="type" value="4"><li  class="active"><else /><li></eq>专题</li></a>
+                <a href="{:U('home/Appinfo/articleList', array('type'=>5))}"><eq name="type" value="5"><li  class="active"><else /><li></eq>沙龙</li></a>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="info">
+                <volist id="vo" name="data">
+                    <dl>
+                        <dt class="darkgray"><a href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{$vo['title']}</a></dt>
+                        <dd class="gray">时间：{:date('Y-m-d H:i', $vo['mtime'])}<php>if($vo['author']){</php>作者：{$vo['author']}<php>}</php> <php>if($vo['link']){</php>来源：{$vo['link']}<php>}</php></dd>
+                        <p class="gray"><a href="{:U('home/Appinfo/articleDetail', array('id'=>$vo['id']))}">{:msubstr(strip_tags($vo['content']),0, 110)}</a></p>
+                    </dl>
+                </volist>
+                <div class="sofupage Twitter-green" style="margin:0px auto;width: 800px;clear: both;text-align: center;">
+                    {$html}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="clear:both;"></div>
+<script>
+    $(function(){
+        if (window.innerHeight){
+            winHeight = window.innerHeight;//屏幕高度
+        } else if ((document.body) && (document.body.clientHeight)){
+            winHeight = document.body.clientHeight;
+        }
+        var footFixHeight = winHeight-$(".footer").position().top-$(".footer").outerHeight();//屏幕高度-底部距离顶部高度-底部高度
+        if(footFixHeight>0) {//有空白区域时执行
+            var centerHeight = $(".testcircle").outerHeight()+footFixHeight;
+            $(".testcircle").css('min-height', centerHeight+'px');
+        }
+    });
+</script>
+<include file="__THEME__/footer" />

@@ -1,0 +1,53 @@
+<include file="__THEME__/header" />
+<div class="login">
+    <div class="center">   
+        <form action="{:U('home/Public/login')}" method="post" id="submitForm">
+            <div class="login_left"><img src="__THEME__/images/login_main_img.png"></div>
+            <div class="login_right">
+                <div>
+                    <input class="white" type="text" placeholder="请输入邮箱账户" name="email" value="{$cookie_email}"/>
+                    <div class="note" id="tip_email"><img src="__THEME__/images/reeor.png"/><p class="error">请输入邮箱账户</p></div>
+                </div>
+                <div>
+                    <input class="white" type="password" placeholder="请输入密码" name="password" value=""/>
+                    <div class="note" id="tip_password"><img src="__THEME__/images/reeor.png"/><p class="error">请输入密码</p></div>
+                </div>
+                <div class="nextTime">
+                    <div class="white" style="height:15px;"><input style="margin-top:3px;" type="checkbox" name="remember" value="1"  checked="checked" ></div><span class="white">下次自动登录</span>
+                    <div class="blue"><a href="{:U('home/Public/sendPassword')}">忘记密码？</a></div>
+                </div>
+                
+                <div><button class="button blueBg regBtn" type="submit">登录</button></div>
+                <div><button class="button greenBg" onclick="window.location.href='{:U('home/Public/register')}';return false;">快速注册</button></div>
+                
+                <p class="white">使用第三方账号登录</p>
+                <div class="login_third">
+                    <a href="{:U('home/Public/tryOtherLogin', array('type'=>'qqnumber'))}"><img src="__THEME__/images/login_QQ.png"/></a>
+                    <a href="{:U('home/Public/tryOtherLogin', array('type'=>'sina'))}"><img src="__THEME__/images/login_xinlang.png"/></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<include file="__THEME__/footer" />
+<script>
+    window.DO_LOGIN_URL = "{:U('home/Public/dologin')}";
+    seajs.use(['js/user/register.js'], function(register){
+        register.formValid();
+    });
+    $(function () {
+        //错误提示
+//        $(".login_right").find("input[name]").parent().css("height", 73);
+//        $(".login_right").find("input").on("click", function () {
+//            $(this).next(".note").show();
+//        }).mouseout(function () {
+//            $(this).next(".note").hide();
+//        });
+        //第三方鼠标滑过效果	
+        $(".login_third a").mouseover(function () {
+            $($(this).find("img").attr("src", $(this).find("img").attr("src").replace(".png", "active.png")));
+        }).mouseout(function () {
+            $($(this).find("img").attr("src", $(this).find("img").attr("src").replace("active.png", ".png")));
+        });
+    });
+</script>

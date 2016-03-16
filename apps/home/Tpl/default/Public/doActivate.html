@@ -1,0 +1,18 @@
+<include file="__THEME__/header" />
+<div class="emailVerficate">
+    <div class="center">
+        <eq name="success" value="0">
+        <div class="abate" style="text-align:center;">
+            <div><img src="__THEME__/images/EmailLinkError.png"></div>
+            <p class="red">激活邮箱账号链接失效，请重新获取激活邮件！</p>
+        </div>
+        <else />
+        <div class="success">
+            <div><img src="__THEME__/images/EmailSuccess.png"></div>
+            <p class="red">恭喜您，邮箱激活成功！</p>
+            <div><a href="{:U('home/Index/index')}"><button class="button blueBg">立即进入网站</button></a></div>
+        </div>
+        </eq>
+    </div>
+</div>
+<include file="__THEME__/footer" />

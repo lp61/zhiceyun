@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+        <script type="text/javascript" src="__THEME__/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="__THEME__/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="__THEME__/css/bootstrap.min.css" />
+        <title>智测云</title> 
+        <style>
+            *{font-family:微软雅黑;}
+            *:focus,input,input:focus,button.btn,a:hover,a:active {outline: none;}
+            a{ text-decoration:none;}
+            ul li{list-style-type:none} 
+            .center{width:880px; margin:0 auto;}
+            .record .right table tr{height:40px;line-height:40px;}
+            .record .right table tr:hover{background:#eeeeee;}
+            .blue,.blue a{color:#24a9e4;background:none;}
+            .record .right{float: left;width:880px;}
+            .record .right h4 {font-size: 16px;margin: 35px 0px 0px;padding: 0px 15px 10px 0px;font-weight: bold;width: 860px;}
+            .record .right .property h4,.screen h4,.friend h4{border-bottom:1px solid #EEEEEE;}
+            .record .right .basic tr .long,.record .right .property tr .long{width:730px;background:#eeeeee;text-align:left;}
+            .record .right .compatible table .blue,.record .right .reply table .blue,.record .right .offer table .blue{background:#bde3ef;font-weight:bold;}
+            .record .right .basic,.record .right .compatible,.record .right .score,.record .right .reply,.record .right .offer,.record .right .problem,.record .right .user,.record .right .change{padding-left:20px;padding-bottom:60px;}
+            .record .right .basic tr td,.record .right .property tr td{width:130px;background:#e3eff4;border-bottom:2px solid #FFFFFF;line-height:35px;padding:5px 25px 5px 15px;text-align:right;}
+            .record .right table tr td{width:173px;text-align:center;border-bottom:1px solid #e1e1e1}
+            .record .right .friend tr td,.record .right .score tr td{width:200px;background:#e3eff4;border-bottom:2px solid #FFFFFF;line-height:35px;padding:5px 10px 5px 0;text-align:right;}
+            .record .right .friend tr .long,.record .right .score tr .long{width:690px;background:#eeeeee;text-align:left;padding-left:15px;}
+        </style>
+    </head>
+    <body>
+        <div class="center record">
+            <div class="right">
+                <div class="title" style="text-align:center">
+                    <h2>{$apkname} - 快速测试 - 概况报告</h2>
+                </div>
+                <div class="property">
+                     <div style="text-align:center;"> <h3 style="font-size: 20px;" class="blue">性能测试</h3></div>
+                    <h4 class="blue">性能概况</h4>
+                    <table>
+                        <tr>
+                            <td class="blue">终端</td>
+                            <td class="long">{$task['device_type']}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">平均内存占用</td>
+                            <td class="long">{$task['memory_usage']}M</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">最大内存占用</td>
+                            <td class="long">{$max_memory}M</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">平均CPU占用</td>
+                            <td class="long">{$task['cpu_usage']}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">峰值CPU占用</td>
+                            <td class="long">{$max_cpu}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">平均流量</td>
+                            <td class="long">{$task['flow_use']}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">屏幕截屏</td>
+                            <td class="long"><a href="{:U('home/TestRecord/quick_image', array('uuid'=>$uuid,'device_type'=>$task['device_type']))}"><img src="__THEME__/images/record10.png"/></a></td>
+                        </tr>
+            </table>
+<!--            <div style="height:100px"></div>-->
+           <div style="height:800px;">
+                <php>
+                $tt2 =  array(
+                    'CPU占用率'   => $task['cpu_diagram'],
+                    '内存消耗'  => $task['memory_diagram'],
+                    '网络流量分布图'    => $task['flow_diagram'],
+                );
+              
+                $i =0;
+                $dataArr = array();
+                foreach($tt2 as $key => $_one) {
+                    $tmpData             = json_decode($_one, true);
+                    $max = max($tmpData);
+                    $min = min($tmpData);
+                    $cc  = array_diff($tmpData, array(0));
+                    $avg = sprintf('%.2f', array_sum($tmpData) / count($cc));
+                    if (empty($_one) || empty($tmpData) || !$max) {
+                        continue;
+                    }
+                    $dataArr[$i]['x']    = $task['x_data'];
+                    $dataArr[$i]['y']    = $_one;
+                    $dataArr[$i]['name'] = '最高值：'.$max. '      最低值：'.$min. '       平均值：'.$avg;
+                //    if($i==1){
+                  //  echo  '<div style="height:200px"></div>';
+                  //  }
+                    echo '<h4 class="blue">'.$key.'</h4><div class="pic" id="J_bar_'.$i.'" style="height:200px;margin-top:15px"></div>';
+                    $i ++;
+                }
+                </php>
+           </div>
+                </div>
+
+                <div class="friend">
+                     <div style="text-align:center;"> <h3 style="font-size: 20px;" class="blue">网络友好测试</h3></div>
+                    <php>if(empty($vo)){</php>
+                    <div class="applytest basic">
+                        <h4 class="blue"> 此机型暂无网络友好测试测试记录！</h4>
+                    </div>
+                    <php>}else{</php>
+                    <h4 class="blue">能测环境</h4>
+                    <table>
+                        <tr>
+                            <td class="blue">测试应用</td>
+                            <td class="long">{$apkname}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">测试机型</td>
+                            <td class="long">{$vo['device_type']}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">测试时长</td>
+                            <td class="long">{$time}</td>
+                        </tr>
+                        <tr>
+                            <td class="blue">网络环境</td>
+                            <td class="long">{$net|getNet}</td>
+                        </tr>
+                    </table>
+                    <h4 class="blue">综合评价</h4>
+                    <div class="row multiple">
+                        <div class="col-md-3 star"  style="width:420px;height:160px; float:left;" id="noteYunTh3"></div>
+                        <div class="col-md-5" style="padding-left:180px;padding-top:50px;">
+                            <span class="blue">星级：</span>
+                            <eq name="vo.star" value="5颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                            <eq name="vo.star" value="4颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                            <eq name="vo.star" value="3颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                            <eq name="vo.star" value="2颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                            <eq name="vo.star" value="1颗星"><img src="__THEME__/images/record5.png"/></eq><br />
+                            <span class="blue">总数：</span>
+                            <span class="gray">{$vo['casenum']}例</span>
+                        </div>
+                    </div>
+                    <div style="height:40px"></div>
+                    <h4 class="blue">结果详情（通过）</h4>
+                    <table>
+                        <volist name="pass_details_name" id="pass">
+                            <tr>
+                                <td class="blue">{$pass['title']}</td>
+                                <td class="long">{$pass['content']}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <h4 class="blue">结果详情（警告）</h4>
+                    <table>
+                        <volist name="warning_details_name" id="warn">
+                            <tr>
+                                <td class="blue">{$warn['title']}</td>
+                                <td class="long">{$warn['content']}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <h4 class="blue">结果详情（不通过）</h4>
+                    <table>
+                        <volist name="fail_details_name" id="fail">
+                            <tr>
+                                <td class="blue">{$fail['title']}</td>
+                                <td class="long">{$fail['content']}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <php>}</php>
+                </div>
+                <div class="screen">
+                    <div style="text-align:center;"> <h3 class="blue" style="font-size: 20px;">屏幕截屏</h3></div>
+                    <h4 class="blue">屏幕截屏</h4>
+                    <a title="点击查看截屏" href="{:U('home/TestRecord/quick_image', array('uuid'=>$uuid,'device_type'=>$task['device_type']))}"><img src="__THEME__/images/record10.png"/></a>
+                </div>
+            </div>
+        </div>
+        <php>
+     $tt2 =  array(
+        '成功' => $vo['pass'],
+        '失败' => $vo['warning'],
+        '警告' => $vo['fail'],
+    );
+
+    function formatEchart($tt2) {
+        $noteYunTh3TT = array_sum($tt2);
+        $noteYunTh3   = array();
+        $i = 0;
+        foreach($tt2 as $key => $_one) {
+            $noteYunTh3[$i]['value'] = $_one;
+            $noteYunTh3[$i]['name']  = $key .sprintf("%.0f", $_one).'例';
+            $i ++;
+        }
+        return $noteYunTh3;
+    }
+
+    $noteYunTh3 = formatEchart($tt2);
+</php>
+<script>
+    function getOption(x,y,name) {
+    var option = {
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:[name]
+        },
+        color: [ 
+            '#30e0e0','#87cefa', '#da70d6', '#32cd32', '#6495ed', '#ff7f50',
+            '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0', 
+            '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700', 
+            '#6b8e23', '#ff00ff', '#3cb371', '#b8860b' 
+        ],
+        calculable : true,
+        dataZoom : {
+            show : true,
+            realtime : true,
+            start : 20,
+            end : 80
+        },
+        grid:{
+            x:80,
+            y:40,
+            x2:40,
+            y2:80
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : x
+            }
+        ],
+        yAxis : [
+            {   
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                type:'line',
+//                itemStyle: {normal: {areaStyle: {type: 'helianthus'}}},
+                data:y
+            }
+        ]
+    };
+
+    return option;
+}
+
+<php> foreach($dataArr as $key => $_one){</php>
+var J_bar_<php>echo $key;</php> = echarts.init(document.getElementById('J_bar_'+<php>echo $key;</php>));
+J_bar_<php>echo $key;</php>.setOption(getOption(<php>echo $_one['x'];</php>, <php>echo $_one['y'];</php>, '<php>echo $_one['name'];</php>'));
+<php>}</php>
+
+ function getOptions(data) {
+    var option = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : '60%',
+            y : 'center',
+            selectedMode:false,
+            data:data
+        },
+        calculable : false,
+        series : [
+            {
+                name:'测试结果',
+                type:'pie',
+                radius : [0, 60],
+                
+                // for funnel
+                x: '60%',
+                width: '35%',
+                center : ['35%', '50%'],
+                funnelAlign: 'left',
+                itemStyle :　{
+                    normal : {
+                        label : {
+                            show : false
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    }
+                }, 
+                data:data
+            }
+        ]
+    };
+
+    return option;
+} 
+    
+var noteYunTh3     = echarts.init(document.getElementById('noteYunTh3'));
+var noteYunTh3Data = <?php echo json_encode($noteYunTh3); ?>;
+noteYunTh3.setOption(getOptions(noteYunTh3Data));
+   
+
+</script>       
+    </body>
+</html>

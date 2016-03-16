@@ -1,0 +1,50 @@
+<include file="__THEME__/header" />
+<style>
+.row{margin:0;}
+</style>
+<div class="special_test">
+    <div class="center title gray">
+        首页 > 应用测试 > 专机测试 > <span class="blue">{$vo.name}专机测试服务</span>
+    </div>
+    <div class="special_banner">
+        <h3 class="center white">旗舰机型 提前适配<br />把握先机 快人一步</h3>
+    </div>
+    <div class="center">
+        <h3 class="blue" style="text-align:center;">{$vo.name}专机测试服务</h3>
+        <div class="row special_service">
+            <div class="col-xs-4"><img height="384" src="{$vo.pic_url}"/></div>
+            <div class="col-xs-8">
+                <h4>终端参数</h4>
+                <div class="row">
+                    <div class="col-xs-3">品牌：</div>
+                    <div class="col-xs-9">{$vo.model}&nbsp;</div>
+                    <div class="col-xs-3">型号：</div>
+                    <div class="col-xs-9">{$vo.name}&nbsp;</div>
+                    <div class="col-xs-3">操作系统：</div>
+                    <div class="col-xs-9">{$vo.os}&nbsp;</div>
+                    <div class="col-xs-3">CPU：</div>
+                    <div class="col-xs-9">{$vo.cpu}&nbsp;</div>
+                    <div class="col-xs-3">分辨率：</div>
+                    <div class="col-xs-9">{$vo.resolution}&nbsp;</div>
+                    <div class="col-xs-3">屏幕尺寸：</div>
+                    <div class="col-xs-9">{$vo.size}&nbsp;</div>
+                </div>
+                <h2>您的手机是否兼容 {$vo.model}&nbsp;{$vo.name}？</h2>
+                <a href="{:U('home/Apptest/specialTestUpload', array('device_type'=>$vo['device_type']))}"><button>点击上传APP测试</button></a>
+            </div>
+        </div>
+        <h3 class="row" style="margin:15px auto;">
+            <div class="col-xs-6 blue">测试可用APP</div>
+            <div class="col-xs-6" style="text-align:right;">已测试<span class="blue"> {$num_device['all']} </span>款 &nbsp;&nbsp;测试通过 <span class="blue"> {$num_device['success']} </span>款</div>
+        </h3>
+        <div class="special_service" style="padding:20px 19px;">
+            <volist name="appList" id="app" offset="0" length='24'>
+                <div class="exam" style="width:100px;margin:15px;text-align:center;">
+                    <img width="70" src="{$app.apk_icon}"/><br />
+                    <p><a style="margin:0px;" title="{$app.apk_name}" href="###">{:msubstr($app['apk_name'],0,10)}</a></p>
+                </div>
+            </volist>
+        </div>
+    </div>
+</div>
+<include file="__THEME__/footer" />

@@ -1,0 +1,152 @@
+<include file="../Public/_header" />
+<div class="so_main">
+
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+        <form method="post" action="">
+        <input type="hidden" name="isSearch" value="1"/>
+        <dl class="lineD">
+          <dt>ID：</dt>
+          <dd>
+            <input name="id" type="text" value="{$id}">
+            <p>多个时使用英文的“,”分割</p>
+          </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>分类名称：</dt>
+            <dd>
+                <input name="name" type="text" value="{$name}">
+                <p>英文，如this_website，32字以内</p>
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>分类中文别名：</dt>
+            <dd>
+                <input name="alias" type="text" value="{$alias}">
+                <p>中文，如"网站前台"，32字以内</p>
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>应用测试类型：</dt>
+            <dd>
+                <input type="radio" name="type" value="" <php>if ("" === $type) echo 'checked';</php>>全部
+                <volist id="vo" name="appTestConfig">
+                    <input type="radio" name="type" value="{$vo.id}" <php>if ($vo['id'] == $type) echo 'checked';</php>> {$vo.name}&nbsp;&nbsp;&nbsp;
+                </volist>
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>状态：</dt>
+            <dd>
+                <input type="radio" name="is_active" value="" <php>if ("" === $is_active) echo 'checked';</php>>全部
+                <input type="radio" name="is_active" value="0" <php>if ("0" === $is_active) echo 'checked';</php>>冻结
+                <input type="radio" name="is_active" value="1" <php>if (1 == $is_active) echo 'checked';</php>>正常
+            </dd>
+        </dl>  
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+        </div>
+    </div>
+    
+    <div class="page_tit">手机终端 </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+         <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="{:U('admin/Content/editAppPhoneClassify')}" class="btn_a">
+            <span class="search_action">&nbsp;&nbsp;添加&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+    </div>
+    <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th style="width:30px;">
+            <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+            <label for="checkbox"></label>
+        </th>
+        <th class="line_l">ID</th>
+        <th class="line_l">分类名称</th>
+        <th class="line_l">分类中文别名</th>
+        <th class="line_l">应用测试类型</th>
+        <th class="line_l">选择终端</th>
+        <th class="line_l">状态</th>
+        <th class="line_l">修改时间</th>
+        <th class="line_l">操作</th>
+    </tr>
+    <volist id="vo" name="data">
+        <tr overstyle='on' id="{$vo.id}">
+            <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+            <td>{$vo.id}</td>
+            <td>{$vo.name}</td>
+            <td>{$vo.alias}</td>
+            <td>{$appTestConfig[$vo['type']]['name']} 
+                <php> if ($vo['child_type']){
+                echo ' - '.$appTestConfig[$vo['type']]['child_type'][$vo['child_type']];
+            }
+            </php>
+            </td>
+            <td>
+                <php> 
+                if ($vo['client_ids']){
+                    $arr  = explode(',', $vo['client_ids']);
+                    $name = array();
+                    foreach ($arr as $key => $val) {
+                        $name[] = $appClient[$val]['name'];
+                    }
+                    echo implode(' , ', $name);
+                }</php>
+            </td>
+            <td>
+                <eq name="vo.is_active" value="1">
+                    正常
+                </eq>
+
+                <neq name="vo.is_active" value="1">
+                    <em style="color:red;">已经冻结</em>
+                </neq>
+            </td>
+            <td>{$vo.mtime|date="Y-m-d H:i",###}</td>
+            <td>
+                <a href="{:U('admin/Content/editAppPhoneClassify', array('id'=>$vo['id']))}" class="btn_a">
+                    修改
+                </a>
+                <eq name="vo.is_active" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_is_active_{$vo.id}" onclick="setStatus({$vo.id}, 'is_active','0');">设为冻结</a>
+                </eq>
+                <neq name="vo.is_active" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_is_active_{$vo.id}" onclick="setStatus({$vo.id}, 'is_active', '1');">设为正常</a>
+                </neq>
+
+                <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord({$vo.id});">删除</a>
+            </td>
+        </tr>
+    </volist>
+    </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="{:U('admin/Content/editAppPhoneClassify')}" class="btn_a">
+            <span class="search_action">&nbsp;&nbsp;添加&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span></a>
+    </div>
+</div>
+
+<script>
+    var _setStatusUrl_   = "{:U('admin/Content/setStatus')}";
+    var _setStatusTable_ = 'app_client_classify';
+
+    var _delUrl_    = "{:U('admin/Content/doDelData')}";
+    var _delTable_  = 'app_client_classify';
+    var _logTitle_  = "手机终端分配";
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

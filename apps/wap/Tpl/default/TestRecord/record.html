@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="__PUBLIC__/wap/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/wap/js/js.js"></script>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/css/style.css" />
+        <title>智测云</title>
+        <script>
+            $(function () {
+                $(".record .wait").first().css("border-top", "1px solid #eeeeee");
+				$(".record .finish").css("border-bottom","1px solid #e1e1e1");
+                $(".record .finish .ui-block-e").click(function () {
+                    $(this).children("img").toggle()
+                    $(this).parent().next().toggle();
+                    $(this).parent().next().next().toggle();
+                });
+            })
+        </script>
+    </head>
+    <body>
+    <include file="../Public/_menu1"/>
+    <div class="record" style="padding-bottom:100px;">
+        <div class="ui-grid-d blue title" style="font-size:1.1em;">
+            <div class="ui-block-a">状态</div>
+            <div class="ui-block-b">应用名称</div>
+            <div class="ui-block-c">测试类型</div>
+            <div class="ui-block-d">测试结果</div>
+        </div>
+		<eq name="mo[0]" value=""><center>您暂时还没有测试记录</center></eq>
+        <volist name="mo" id="vo" key="k">
+            <eq name="vo.businessID" value="3">
+             <div class="ui-grid-d finish">
+                    <div class="ui-block-a green">{$vo['task_status']|getTaskStatus}</div>
+                    <div class="ui-block-b">{$vo['apk_name']}</div>
+                    <div class="ui-block-c">{$vo['businessID']|getTaskType}</div>
+                    <div class="ui-block-d green">{$vo['star']}</div>
+                </div>
+            </eq>
+             <neq name="vo.businessID" value="3">
+            <if condition="$vo['task_status'] eq 2">
+                <div class="ui-grid-d finish">
+                    <div class="ui-block-a green">{$vo['task_status']|getTaskStatus}</div>
+                    <div class="ui-block-b">{$vo['apk_name']}</div>
+                    <div class="ui-block-c">{$vo['businessID']|getTaskType}</div>
+                    <div class="ui-block-d green">通过率{:round(($vo['success_num']/$vo['device_num'])*100,0)}%</div>
+                    <div class="ui-block-e">
+                        <eq name="k" value="1">
+                        <img src="__PUBLIC__/wap/images/record1.png"/><img style="display:none; width:30%;" src="__PUBLIC__/wap/images/record2.png"/>
+                        <else />
+                        <img style="width:30%;" src="__PUBLIC__/wap/images/record2.png"/><img style="display:none;" src="__PUBLIC__/wap/images/record1.png"/>
+                        </eq>
+                    </div>
+                </div>
+                <div class="detailArrow" <eq name="k" value="1">style="display:block;"<else />style="display:none;"</eq> ><img src="__PUBLIC__/wap/images/record3.png"/></div>
+                <div class="ui-grid-c detail gray" <eq name="k" value="1">style="display:block;"<else />style="display:none;"</eq> >
+                    <div class="ui-block-a">安装失败<br><span class="red">{$vo['install_failed_num']}</span></div>
+                    <div class="ui-block-b">运行失败<br><span class="red">{$vo['run_failed_num']}</span></div>
+                    <div class="ui-block-c">其他异常<br><span class="blue">{$vo['device_num']-$vo['install_failed_num']-$vo['run_failed_num']-$vo['success_num']}</span></div>
+                    <div class="ui-block-d">通过<br><span class="green">{$vo['success_num']}</span></div> 
+                </div>
+            <else />
+                <div class="ui-grid-d wait">
+                    <div class="ui-block-a blue">{$vo['task_status']|getTaskStatus}</div>
+                    <div class="ui-block-b">{$vo['apk_name']}</div>
+                    <div class="ui-block-c">{$vo['businessID']|getTaskType}</div>
+                    <div class="ui-block-d">0</div>
+                    <div class="ui-block-e"><img src="__PUBLIC__/wap/images/record2.png"/></div>
+                </div>
+            </if></neq>
+        </volist>
+    </div>
+</body>
+</html>

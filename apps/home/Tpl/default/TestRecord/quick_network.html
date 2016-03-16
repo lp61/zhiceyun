@@ -1,0 +1,179 @@
+<include file="__THEME__/header" />
+<script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">快速测试</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <p class="blue">测试记录</p>
+        <include file="_quick_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <div class="friend">
+            <h4 class="row">
+                <div class="col-md-5">网络友好测试</div>
+                <include file="_menu_quick_select" />
+            </h4>
+            <php>if(empty($vo)){</php>
+            <div class="applytest basic">
+                暂无测试记录！
+            </div>
+            <php>}else{</php>
+            <h4 class="blue">能测环境</h4>
+            <table>
+                <tr>
+                    <td class="blue">测试应用</td>
+                    <td class="long">{$apkname}</td>
+                </tr>
+                <tr>
+                    <td class="blue">测试机型</td>
+                    <td class="long">{$vo['device_type']}</td>
+                </tr>
+                <tr>
+                    <td class="blue">测试时长</td>
+                    <td class="long">{$time}</td>
+                </tr>
+                <tr>
+                    <td class="blue">网络环境</td>
+                    <td class="long">{$net|getNet}</td>
+                </tr>
+              <!--  <tr>
+                    <td class="blue">GPS</td>
+                    <td class="long">开</td>
+                </tr>
+                <tr>
+                    <td class="blue">蓝牙</td>
+                    <td class="long">关</td>
+                </tr>-->
+            </table>
+          <!--  <h4 class="blue">结果概况</h4>
+            <table>
+                <tr>
+                    <td class="blue">网络流量</td>
+                    <td class="long">43665</td>
+                </tr>
+                <tr>
+                    <td class="blue">网络数据包个数</td>
+                    <td class="long">54567</td>
+                </tr>
+                <tr>
+                    <td class="blue">评论速率</td>
+                    <td class="long">75%</td>
+                </tr>
+            </table>-->
+            <h4 class="blue">综合评价</h4>
+            <div class="row multiple">
+                <div class="col-md-3 star"  style="width:420px;height:160px; float:left;" id="noteYunTh3"></div>
+                <div class="col-md-5" style="padding-left:180px;">
+                    <span class="blue">星级：</span>
+                      <eq name="vo.star" value="5颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                    <eq name="vo.star" value="4颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                    <eq name="vo.star" value="3颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                    <eq name="vo.star" value="2颗星"><img src="__THEME__/images/record5.png"/>&nbsp;<img src="__THEME__/images/record5.png"/></eq>
+                    <eq name="vo.star" value="1颗星"><img src="__THEME__/images/record5.png"/></eq><br />
+                    <span class="blue">总数：</span>
+                    <span class="gray">{$vo['casenum']}例</span>
+                </div>
+            </div>
+            <h4 class="blue">结果详情（通过）</h4>
+            <table>
+                 <volist name="pass_details_name" id="pass">
+                <tr>
+                    <td class="blue">{$pass['title']}</td>
+                    <td class="long">{$pass['content']}</td>
+                </tr>
+                </volist>
+            </table>
+            <h4 class="blue">结果详情（警告）</h4>
+            <table>
+                   <volist name="warning_details_name" id="warn">
+                <tr>
+                    <td class="blue">{$warn['title']}</td>
+                    <td class="long">{$warn['content']}</td>
+                </tr>
+                 </volist>
+            </table>
+            <h4 class="blue">结果详情（不通过）</h4>
+            <table>
+                   <volist name="fail_details_name" id="fail">
+                <tr>
+                    <td class="blue">{$fail['title']}</td>
+                    <td class="long">{$fail['content']}</td>
+                </tr>
+                </volist>
+            </table>
+             <php>}</php>
+        </div>
+    </div>
+</div>
+<php>
+     $tt2 =  array(
+        '成功' => $vo['pass'],
+        '失败' => $vo['warning'],
+        '警告' => $vo['fail'],
+    );
+
+    function formatEchart($tt2) {
+        $noteYunTh3TT = array_sum($tt2);
+        $noteYunTh3   = array();
+        $i = 0;
+        foreach($tt2 as $key => $_one) {
+            $noteYunTh3[$i]['value'] = $_one;
+            $noteYunTh3[$i]['name']  = $key .sprintf("%.0f", $_one).'例';
+            $i ++;
+        }
+        return $noteYunTh3;
+    }
+
+    $noteYunTh3 = formatEchart($tt2);
+</php>
+<script>
+   function getOption(data) {
+    var option = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : '60%',
+            y : 'center',
+            selectedMode:false,
+            data:data
+        },
+        calculable : false,
+        series : [
+            {
+                name:'测试结果',
+                type:'pie',
+                radius : [0, 60],
+                
+                // for funnel
+                x: '60%',
+                width: '35%',
+                center : ['35%', '50%'],
+                funnelAlign: 'left',
+                itemStyle :　{
+                    normal : {
+                        label : {
+                            show : false
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    }
+                }, 
+                data:data
+            }
+        ]
+    };
+
+    return option;
+} 
+    
+var noteYunTh3     = echarts.init(document.getElementById('noteYunTh3'));
+var noteYunTh3Data = <?php echo json_encode($noteYunTh3); ?>;
+noteYunTh3.setOption(getOption(noteYunTh3Data));
+</script>
+<div style="clear:both;height:10px;"></div>
+<include file="__THEME__/footer" />

@@ -1,0 +1,22 @@
+<h2 class="blue">费用总计</h2>
+<div class="pay">
+    <p class="red danger1" >您的积分不足，再次测试需扣除<span class="Number">{$costScore}</span>积分！</p>
+    <p>
+        <img src="__THEME__/images/test.png"/>预计消耗积分：<span class="red Number" id="expend">{$costScore}</span>&nbsp;积分&nbsp;&nbsp;&nbsp;
+        <img src="__THEME__/images/test3.png"/>账户余额：<span class="red Yours" id="sum">{$score}</span>&nbsp; 积分
+    </p>
+    <div><a href="{:U('home/Account/recharge')}"><button type="button" class="btn rechargeBtn">马上充值</button></a></div>
+    <hr />
+</div>
+<script>
+$(function(){
+	var number={$costScore}; //花费积分
+	var yours={$score}; //当前积分
+	$(".Number").html(number);
+	$(".Yours").html(yours);
+	if(yours>=number){
+		$(".pay button").hide();
+		$(".danger1").hide();
+	}
+})
+</script>

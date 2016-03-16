@@ -1,0 +1,20 @@
+<div class="IOT">
+    <div data-role="header" class="ui-grid-c header" data-position="fixed">
+        <div class="ui-block-a history"><a rel="external" href="{$toUrl}"><img src="__PUBLIC__/wap/images/header_arrowleft.png"/></a></div>
+        <div class="ui-block-b"><span class="white" <if condition="ACTION_NAME eq 'iot'">style="font-size:1.5em"</if>>{$title}</span></div>
+        <div class="ui-block-c"><a href="{:U('wap/Index/index')}" data-ajax="false"><img src="__PUBLIC__/wap/images/header_home.png"/></a></div>
+        <div class="ui-block-d menubtn"><img src="__PUBLIC__/wap/images/header_list.png"/>
+            <div class="arrow"><img src="__PUBLIC__/wap/images/arrowTop.png"/></div>
+            <div class="check">   
+                <a <if condition="ACTION_NAME eq 'test'">href="###"<else />href="{:U('wap/Apply/test')}"</if> data-ajax="false"><div class="blue">应用测试</div></a>
+                <a <if condition="ACTION_NAME eq 'experience'">href="###"<else />href="{:U('wap/Public/experience')}"</if> data-ajax="false"><div class="blue">终端用户体验</div></a>
+                <a <if condition="ACTION_NAME eq 'iot'">href="###"<else />href="{:U('wap/Public/iot')}"</if> data-ajax="false"><div class="blue">IOT</div></a>
+                <a <if condition="ACTION_NAME eq 'testCircle'">href="###"<else />href="{:U('wap/Public/testCircle')}"</if> data-ajax="false"><div class="blue">测试圈</div></a>
+                <a <if condition="ACTION_NAME eq 'aboutUs'">href="###"<else />href="{:U('wap/Public/aboutUs')}"</if> data-ajax="false"><div class="blue">关于我们</div></a>
+                <a <if condition="ACTION_NAME eq 'record'">href="###"<else />href="{:U('wap/TestRecord/record')}"</if> data-ajax="false"><div class="blue">测试记录</div></a>
+                <nosession name="userInfo"><a href="{:U('wap/Public/login')}" data-ajax="false"><div class="blue">登录</div></a></nosession>
+                <session name="userInfo"><a href="{:U('home/Public/logout')}" data-ajax="false"><div class="blue">退出</div></a></session>
+            </div>
+        </div>
+    </div>
+</div>

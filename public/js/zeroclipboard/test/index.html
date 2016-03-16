@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Copy</title>
+    <script src="http://sta.ganji.com/cgi/ganji_sta.php?file=ganji" type="text/javascript"></script>
+</head>
+<body>
+    <button id="copyBtn" data-clipboard-text="test ooxx" title="Click to copy me.">Copy to Clipboard</button>
+<script>
+GJ.use('tool/zeroclipboard/ZeroClipboard.js, jquery', function() {
+    var clip = new ZeroClipboard($("#copyBtn"));
+    clip.on("load", function (client) {
+        console.log("Flash movie loaded and ready.");
+        client.on("complete", function (client, args) {
+            console.log("Copied text to clipboard: " + args.text);
+        });
+    });
+
+    clip.on("noFlash", function (client) {
+        console.log("Your browser has no Flash.");
+    });
+
+    clip.on("wrongFlash", function (client, args) {
+        console.log("Flash 10.0.0+ is required but you are running Flash ");
+    });
+});
+</script>
+</body>
+</html>

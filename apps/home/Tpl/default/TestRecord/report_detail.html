@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>智测云报告</title>
+    <link rel="shortcut icon" href="__THEME__/favicon.ico" />
+<style>
+*{font-family:微软雅黑;}
+*:focus,input,input:focus,button.btn,a:hover,a:active {outline: none;}
+a{ text-decoration:none;}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+}
+.col-md-6 {
+    width: 50%;
+}
+* {
+    box-sizing: border-box;
+}
+ul li{list-style-type:none}
+.lightblueBg{background:#99d5ed}
+.lightgreenBg{background:#eaf4f3}
+ .center{width:880px; margin:0 auto;}
+ .record .right table tr td {border-bottom-color: #e1e1e1;border-bottom-style: solid;border-bottom-width: 1px;text-align: center;width: 173px;}
+.record .right table tr {height: 40px;line-height: 40px;}
+button{height:35px;line-height:35px; color:#FFFFFF; border:0; border-radius:5px;}
+.greenBg{background:#94bd39}
+.redBg{background:#f35d4e;color:#FFFFFF;}
+.yellowBg{background:#fa9c22;color:#FFFFFF;}
+/*兼容性测试报告-终端详情报告*/
+.record .right .stork_detail{margin:10px auto;}
+.record .right .stork_detail table tr td{width:215px;border:2px solid #FFFFFF;}
+.record .right .stork_detail div{min-height:150px;}
+.record .right .detail_title button{height:35px;border:1px solid #94bd39;color:#666666;margin:5px 20px;background:none;width:165px;}
+.record .right .detail_title .active{background:#94bd39;color:#FFFFFF;}
+/*兼容性测试报告-测试结果*/
+.record .right .stork_result{margin:10px auto;}
+.record .right .stork_result table tr .long{width:700px;text-align:center;}
+/*兼容性测试报告-测试LOG*/
+.record .right .stork_log{margin:10px auto;}
+.record .right .stork_log .log_title{margin:10px auto;}
+.record .right .stork_log .log_title button{width:100px;}
+.record .right .stork_log table tr{line-height:20px;}
+.record .right .stork_log table tr .width_one{width:60px;border-right:3px solid #FFFFFF;}
+.record .right .stork_log table tr .width_two{width:90px;}
+.record .right .stork_log table tr .width_three{width:160px;}
+.record .right .stork_log table tr .width_four{width:440px;}
+.record .right .stork_log .row{line-height:40px;text-align:center;}
+.record .right .stork_log .row .col-md-4{padding:10px;}
+.record .right .stork_log .row .col-md-6{border-bottom:2px solid #FFFFFF;border-left:2px solid #FFFFFF;}
+.record .right .stork_log .lightblueBg:hover{background:#99d5ed;}
+/*兼容性测试报告-测试屏幕截屏*/
+.record .right .stork_screen img{margin:20px 10px;width:190px;height:330px;}
+</style>
+<script src="__PUBLIC__/js/echarts2.2.7/build/dist/echarts-all.js"></script>
+</head>
+<body>
+<!--内容部分-->
+<div class="center record">
+    <div class="title"><center><h2>{$vo['device_type']} - 兼容性测试 - 终端详情</h2></center></div>
+    <div class="right">
+        <h4 class="detail_title">
+            <button class="active">终端详细报告</button>
+        </h4>
+        <div class="stork_detail">
+            <table>
+                <tr>
+                    <td class="lightblueBg">终端型号</td>
+                    <td class="lightgreenBg">{$vo['device_type']}</td>
+                    <td class="lightblueBg">操作系统</td>
+                    <td class="lightgreenBg">{$vo['os']}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">屏幕尺寸</td>
+                    <td class="lightgreenBg">{$vo['size']}</td>
+                    <td class="lightblueBg">分辨率</td>
+                    <td class="lightgreenBg">{$vo['resolution']}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">IMEI</td>
+                    <td class="lightgreenBg">{$vo['imei']}</td>
+                    <td class="lightblueBg">运行内存ram</td>
+                    <td class="lightgreenBg">{$vo['ram']}MB</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">内部存储rom</td>
+                    <td class="lightgreenBg">{$vo['rom']}MB</td>
+                    <td class="lightblueBg">网络</td>
+                    <td class="lightgreenBg">{$vo['net']|getNet}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">CPU型号</td>
+                    <td class="lightgreenBg"  title="{$vo['cpu']}">{$vo['cpu']|msubstr='0','20'}</td>
+                    <td class="lightblueBg">CPU核数</td>
+                    <td class="lightgreenBg">{$vo['cpu_kernel']}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">CPU频率</td>
+                    <td class="lightgreenBg">{$vo['cpu_hz']}</td>
+                    <td class="lightblueBg">测试完成时间</td>
+                    <td class="lightgreenBg">{:date('Y-m-d H:i:s', $vo['mtime'])}</td>
+                </tr>
+            </table>
+            <div style="height:860px;">
+            <php>
+                $tt2 =  array(
+                    'CPU占用率(%)'   => $vo['cpu_diagram'],
+                    '内存消耗(MB)'  => $vo['memory_diagram'],
+                    '流量消耗(KB)'    => $vo['flow_diagram'],
+                    '电池温度(℃)'    => $vo['battery_diagram'],
+                );
+
+                $i =0;
+                $dataArr = array();
+                foreach($tt2 as $key => $_one) {
+                    $tmpData             = json_decode($_one, true);
+                    $max = max($tmpData);
+                    $min = min($tmpData);
+                    $cc  = array_diff($tmpData, array(0));
+                    $avg = sprintf('%.2f', array_sum($tmpData) / count($cc));
+                    if (empty($_one) || empty($tmpData) || !$max) {
+                        continue;
+                    }
+                    $dataArr[$i]['x']    = $vo['x_data'];
+                    $dataArr[$i]['y']    = $_one;
+                    $dataArr[$i]['name'] = '最高值：'.$max. '      最低值：'.$min. '       平均值：'.$avg;
+                    echo '<h4>&nbsp;'.$key.'</h4><div id="J_bar_'.$i.'" style="height:200px;margin-top:15px"></div>';
+                    $i ++;
+                }
+            </php>
+                </div>
+        </div>
+        <h4 class="detail_title">
+            <button class="active">测试结果</button>
+        </h4>
+        <div class="stork_result">
+            <table>
+                <tr>
+                    <td class="lightblueBg">测试结果</td>
+                    <td class="lightgreenBg long">{$vo['test_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">安装测试</td>
+                    <td class="lightgreenBg long">{$vo['install_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">启动测试</td>
+                    <td class="lightgreenBg long">{$vo['boot_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">运行测试</td>
+                    <td class="lightgreenBg long">{$vo['run_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">功能检测</td>
+                    <td class="lightgreenBg long">{$vo['func_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">UI检测</td>
+                    <td class="lightgreenBg long">{$vo['ui_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">日志统计</td>
+                    <td class="lightgreenBg long">错误：（{$vo['error_num']}）警告：（{$vo['warning_num']}）</td>
+                </tr>
+            </table>
+        </div>
+        <h4 class="detail_title">
+            <button class="active">LOG</button>
+        </h4>
+        <div class="stork_log">
+            <div class="log_title">日志筛选 
+                <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'type'=>3,'level'=>'E'))}"> <button class="redBg" style="color:<php> if($_REQUEST['level'] == 'E'){ echo '#333333';} else {echo '#FFFFFF';}</php> ">错误日志</button></a>
+                <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'type'=>3,'level'=>'W'))}"> <button class="yellowBg" style="color:<php> if($_REQUEST['level'] == 'W'){ echo '#333333';} else {echo '#FFFFFF';}</php> ">警告</button></a>
+                <a href="{$vo.log_url}"><button class="greenBg">LOG下载</button></a>
+            </div>
+            <table>
+                <tr class="lightblueBg">
+                    <td class="width_one">行号</td>
+                    <td class="width_two">时间</td>
+                    <td class="width_two">PID</td>
+                    <td class="width_two">LEVEL</td>
+                    <td class="width_three">TAG</td>
+                    <td class="width_four">TEXT</td>
+                </tr>
+                <volist id="log" name="xmllist">
+                    <tr class="lightgreenBg">
+                        <td class="width_one">{$log['Index']}</td>
+                        <td class="width_two">{$log['HappenTime']}</td>
+                        <td class="width_two">{$log['Pid']}</td>
+                        <td class="width_two">{$log['LogLevel']}</td>
+                        <td class="width_three">{$log['Tag']}</td>
+                        <td class="width_four"  title="{$log['ContentText']}">{$log.ContentText|msubstr='0','45'}</td>
+                    </tr>
+                </volist>
+            </table>
+            <php>if(!empty($list)) {
+                $tt5 =  array(
+                '其他' => $list[0],
+                '崩溃' => $list[1],
+                '闪退' => $list[2],
+                'ANR' => $list[3],
+                '功能异常' => $list[4],
+                '网络超时' => $list[5],
+                'UI异常'   => $list[6],
+                );
+
+                function formatEchart($tt2) {
+                $noteYunTh3TT = array_sum($tt2);
+                $noteYunTh3   = array();
+                $i = 0;
+                foreach($tt2 as $key => $_one) {
+                $noteYunTh3[$i]['value'] = $_one;
+                $noteYunTh3[$i]['name']  = $key .sprintf("%.0f", $_one/$noteYunTh3TT*100) . '%';
+                $i ++;
+                }
+                return $noteYunTh3;
+                }
+
+                $noteYunTh5 = formatEchart($tt5);
+            </php>
+            <h4>问题原因分析</h4>
+            <div class="row">
+                <div class="col-md-4"  id="noteYunTh5" style="width:290px;height:300px;"></div>
+                <div class="col-md-8">
+                    <div class="col-md-6 lightblueBg">错误类型</div>
+                    <div class="col-md-6 lightblueBg">出现次数</div>
+                    <div class="col-md-6 lightgreenBg">其他</div>
+                    <div class="col-md-6 lightgreenBg">{$list[0]}</div>
+                    <div class="col-md-6 lightgreenBg">崩溃</div>
+                    <div class="col-md-6 lightgreenBg">{$list[1]}</div>
+                    <div class="col-md-6 lightgreenBg">闪退</div>
+                    <div class="col-md-6 lightgreenBg">{$list[2]}</div>
+                    <div class="col-md-6 lightgreenBg">ANR</div>
+                    <div class="col-md-6 lightgreenBg">{$list[3]}</div>
+                    <div class="col-md-6 lightgreenBg">功能异常</div>
+                    <div class="col-md-6 lightgreenBg">{$list[4]}</div>
+                    <div class="col-md-6 lightgreenBg">网络超时</div>
+                    <div class="col-md-6 lightgreenBg">{$list[5]}</div>
+                    <div class="col-md-6 lightgreenBg">ui异常</div>
+                    <div class="col-md-6 lightgreenBg">{$list[6]}</div>
+                </div>
+            </div>
+
+<script type="text/javascript">
+    function getOption(data) {
+        var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '60%',
+                y: 'center',
+                selectedMode: false,
+                data: data
+            },
+            calculable: false,
+            series: [
+                {
+                    name: '错误类型',
+                    type: 'pie',
+                    radius: [40, 60],
+                    // for funnel
+                    x: '60%',
+                    width: '35%',
+                    center: ['35%', '50%'],
+                    funnelAlign: 'left',
+                    itemStyle: 　{
+                        normal: {
+                            label: {
+                                show: false
+                            },
+                            labelLine: {
+                                show: false
+                            }
+                        }
+                    },
+                    data: data
+                }
+            ]
+        };
+
+        return option;
+    }
+    // 基于准备好的dom，初始化echarts图表
+    var noteYunTh5 = echarts.init(document.getElementById('noteYunTh5'));
+    var noteYunTh5Data = <php> echo json_encode($noteYunTh5); </php> ;
+    noteYunTh5.setOption(getOption(noteYunTh5Data));
+</script>
+            <php> }</php>
+        </div>
+        <h4 class="detail_title">
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'type'=>4))}"><button class="active">查看截图</button></a>
+        </h4>
+    </div>
+</div>
+<script>
+    function getOption_detail(x,y,name) {
+    var option = {
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:[name]
+        },
+        color: [ 
+            '#30e0e0','#87cefa', '#da70d6', '#32cd32', '#6495ed', '#ff7f50',
+            '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0', 
+            '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700', 
+            '#6b8e23', '#ff00ff', '#3cb371', '#b8860b' 
+        ],
+        calculable : false,
+        dataZoom : {
+            show : true,
+            realtime : true,
+            start : 20,
+            end : 80
+        },
+        grid:{
+            x:80,
+            y:40,
+            x2:40,
+            y2:80
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : x
+            }
+        ],
+        yAxis : [
+            {   
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                type:'line',
+//                itemStyle: {normal: {areaStyle: {type: 'helianthus'}}},
+                data:y
+            }
+        ]
+    };
+    return option;
+}
+
+<php> foreach($dataArr as $key => $_one){</php>
+var J_bar_<php>echo $key;</php> = echarts.init(document.getElementById('J_bar_'+<php>echo $key;</php>));
+J_bar_<php>echo $key;</php>.setOption(getOption_detail(<php>echo $_one['x'];</php>, <php>echo $_one['y'];</php>, '<php>echo $_one['name'];</php>'));
+<php>}</php>
+</script>
+</body>
+</html>

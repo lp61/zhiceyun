@@ -1,0 +1,381 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>>用户信息管理><span class="blue">测试积分中心</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <p class="blue">测试积分中心</p>
+        <ul>
+            <li class="gray active"><a href="###">充值中心</a></li>
+            <li class="gray"><a href="###">测试积分制度</a></li>
+            <li class="gray"><a href="###">测试能力获取</a></li>
+            <li class="img"><img src="__THEME__/images/record1.png"/></li>
+        </ul>
+    </div>
+    <div class="right">
+        <include file="_menu" />
+        <div class="content">
+            <div id="charge">
+                <h3 class="blue">快速充值</h3>
+                <div class="charge">
+                    <img src="__THEME__/images/record2.png" />
+                    <p class="gray">  {$user['email']}<br />
+                        账户余额：<span>{$score}</span>积分（1元=1测试积分）<br />
+                        <button id="rechargebtn">马上充值</button>
+                    </p>
+                </div>
+                <h3 class="blue">交易记录</h3>
+                <table>
+                    <tr class="title">
+                        <td>项目</td>
+                        <td>交易日期</td>
+                        <td>交易数目</td>
+                        <td>交易类型</td>
+                        <td>操作</td>
+                    </tr>
+                    <volist id="vo" key="k" name="data">
+                        <tr>
+                            <td title="{$vo.credit_alias}">{$vo.credit_alias|msubstr='0','10'}</td>
+                            <td>{:date('Y-m-d H:i:s', $vo['ctime'])}</td>
+                            <td>{$vo.score}</td>
+                            <td>{$vo.credit_name|getTradeType}</td>
+                            <td><eq name="vo.credit_name" value="pay_ment"><a>开具发票</a></eq></td>
+                        </tr>
+                    </volist>
+                </table>
+                <div class="sofupage Twitter-green toggle" style="margin:0px auto 5px auto;width: 800px;clear: both;text-align: center;">
+                    {$html}
+                </div>
+                <h3 class="blue">发票信息</h3>
+                <div class="receipt_info">
+               		<button class="receipt revise">普通发票</button>
+                    <div class="ticketT">发票抬头：<input type="text" id="b_title" name="title" placeholder="请输入发票抬头"/></div>
+                    <div>发票金额：<input type="text" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  id="b_amount" name="money" placeholder="请输入发票金额"/></div>
+                    <div class="ticketBtn"><button class="receipt save" >保存发票信息</button><button class="receipt cancel">取消</button>
+                        <p class="red">温馨提示：您当前可开发票的最大金额为<font class="font_tip">{$bill_amount_max}</font>元。发票的金额不包括智测云网站的网站奖励积分和论坛积分。</p>
+                    </div>
+                </div>
+                <div class="row ticket" style="display:none">
+                    <div class="col-md-6"><p style="padding-left:15px;">普通发票（纸质）&nbsp;&nbsp;&nbsp;<span id="name">泰尔智测云</span> &nbsp;&nbsp;&nbsp;&nbsp;<a class="editTicket" href="#">修改</a></p></div>
+                    <div class="col-md-6" style="text-align:right;padding-right:15px;"><p id="bill_amount"></p></div>
+                    <button class="receipt" id="ticketBtn" >确认开具发票</button>
+                </div>
+                <div class="msgTip" style="display:none">
+                </div>
+                <div id="payModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content" style="margin: 200px auto;">
+                            <form id="payForm" action="pay/alipay/alipayapi.php" method=post target="_blank">
+                                <input type="hidden" readonly name="WIDsubject" value="智测云平台充值" />
+                                <input type="hidden" readonly name="WIDtotal_fee" value="1"/>
+                                <input type="hidden" readonly name="WIDtotal_user" value="{$mid}"/>
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">请填写充值金额</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label>充值金额（元）：</label>
+                                    <input type="text" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" name="WIDtotal_fee" value="" size="30" >
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button"   data-dismiss="modal">取消</button>
+                                    <button type="button" id="okBtn"  >确定</button>
+                                </div>
+                            </form>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <div id="waitModal" class="modal fade" data-backdrop="static"  data-keyboard="false">
+                    <div class="modal-dialog">
+                        <div class="modal-content" style="text-align: center;">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" style="font-size: 16px;font-weight: bold;margin: 0px 0px 0px;">请在新页面完成支付</h4>
+                            </div>
+                            <div class="modal-body">
+                                支付完成前请<span color="red">不要关闭此窗口</span>，完成支付后<br/>根据您的情况点击下面按钮。
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">取消支付</button>
+                                <button type="button" id="finishBtn"  >已完成支付</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+            </div>
+            <div id="role">
+                <h3 class="blue">测试积分制度</h3>
+                <p class="blue" style="margin-top:10px;">1、网站奖励</p>
+                <table>
+                    <tr class="title">
+                        <td class="long"></td>
+                        <td>普通开发者</td>
+                        <td>VIP开发者</td>
+                        <td>企业开发者</td>
+                    </tr>
+                    <tr>
+                        <td class="long">注册</td>
+                        <td>10</td>
+                        <td>30</td>
+                        <td>50</td>
+                    </tr><!--
+                    <tr>
+                        <td class="long">每日登录</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>-->
+                    <tr>
+                        <td class="long">连续五日登录</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td class="long">完整用户信息填写</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                    </tr>
+                    <!--
+                    <tr>
+                        <td class="long">提测一次</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td class="long">为测试报告打分</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>-->
+                    <tr>
+                        <td class="long">分享测试结果</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td class="long">邀请好友，并完成注册</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td class="long">关注微信公众号并进行登录</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td class="long">用户反馈</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
+                </table>
+                <!-- <P class="blue">2、测试积分转化</P>
+                 <div class="blueBg">1个论坛积分=1个测试积分</div>-->
+                <P class="blue">2、个人充值</P>
+                <div class="blueBg">1块钱=1个测试积分</div>
+            </div>
+            <div id="get">
+                <h3 class="blue">测试积分获取</h3>
+                <p class="blue" style="margin-top:10px;">1、快速测试</p>
+                <table>
+                    <tr class="title">
+                        <td class="long"></td>
+                        <td>普通开发者</td>
+                        <td>VIP开发者</td>
+                        <td>企业开发者</td>
+                    </tr>
+                    <tr class="">
+                        <td class="long">常规</td>
+                        <td>2次/天</td>
+                        <td>5次/天</td>
+                        <td>10次/天</td>
+                    </tr>
+                    <tr>
+                        <td class="long">超限</td>
+                        <td>3积分/次</td>
+                        <td>3积分/次</td>
+                        <td>3积分/次</td>
+                    </tr>
+                </table>
+                <p class="blue" style="margin-top:10px;">2、兼容性测试</p>
+                <table>
+                    <tr class="title">
+                        <td class="long"></td>
+                        <td>普通开发者</td>
+                        <td>VIP开发者</td>
+                        <td>企业开发者</td>
+                    </tr>
+                    <!--<tr>
+                            <td class="long">免费测试包</td>
+                            <td>2次/天，超限5积分/天</td>
+                            <td>5次/天，超限5积分/天</td>
+                            <td>10次/天，超限5积分/天</td>
+                    </tr>-->
+                    <tr>
+                        <td class="long">用户覆盖率最高的包</td>
+                        <td>需要测试积分</td>
+                        <td>需要测试积分</td>
+                        <td>需要测试积分</td>
+                    </tr>
+                    <tr>
+                        <td class="long">最新上市机型包</td>
+                        <td>需要测试积分</td>
+                        <td>需要测试积分</td>
+                        <td>需要测试积分</td>
+                    </tr>
+                    <tr>
+                        <td class="long">自由选择终端</td>
+                        <td>需要测试积分</td>
+                        <td>需要测试积分</td>
+                        <td>需要测试积分</td>
+                    </tr>
+                </table>
+                <p class="blue" style="margin-top:10px;">3、网路友好测试</p>
+                <table>
+                    <tr class="title">
+                        <td class="long"></td>
+                        <td>普通开发者</td>
+                        <td>VIP开发者</td>
+                        <td>企业开发者</td>
+                    </tr>
+                    <tr>
+                        <td class="long">免费测试</td>
+                        <td>2次/天，超限5积分/次</td>
+                        <td>5次/天，超限5积分/次</td>
+                        <td>10次/天，超限5积分/次</td>
+                    </tr>
+                    <tr>
+                        <td class="long">深度测试</td>
+                        <td>需要测试积分</td>
+                        <td>需要测试积分</td>
+                        <td>需要测试积分</td>
+                    </tr>
+                </table>
+                <p class="blue" style="margin-top:10px;">4、新机兼容测试</p>
+                <table>
+                    <tr class="title">
+                        <td class="long"></td>
+                        <td>普通开发者</td>
+                        <td>VIP开发者</td>
+                        <td>企业开发者</td>
+                    </tr>
+                    <tr>
+                        <td class="long">新机兼容测试</td>
+                        <td>2次/天，超限5积分/次</td>
+                        <td>5次/天，超限5积分/次</td>
+                        <td>10次/天，超限5积分/次</td>
+                    </tr>
+                </table>
+                <p class="blue" style="margin-top:10px;">5、弱网络测试：暂未开通</p>
+                <p class="blue" style="margin-top:10px;">6、安全测试：暂未开通</p>
+            </div>	
+        </div>
+    </div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+</div>
+<script>
+    $(function () {
+        var max = {$bill_amount_max};
+        $(".img").click(function(){
+            $(this).removeclass("active")
+        });
+        $("#charge").show();
+        $("#role,#get").hide();
+        $(".record ul li").click(function () {
+            $(".left ul li").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".record ul li").eq(0).click(function () {
+            $("#charge").show();
+            $("#role,#get").hide();
+        });
+        $(".record ul li").eq(1).click(function () {
+            $("#role").show();
+            $("#charge,#get").hide();
+        });
+        $(".record ul li").eq(2).click(function () {
+            $("#get").show();
+            $("#charge,#role").hide();
+        });
+        //发票信息的保存和取消  
+        $(".ticket").hide();
+        $(".save").click(function () {
+            var title = $("#b_title").val();
+            var a = $("#b_amount").val();
+            if (title == '' || title == '请输入发票抬头') {
+                alert("请填写发票抬头！");
+                return false;
+            }else if (a == '' || a == '请输入发票金额') {
+                alert("请填写发票金额！");
+                return false;
+            }else if (a <= 0) {
+                alert("请填写发票金额！");
+                return false;
+            } else if (a > max) {
+                alert("您填写金额超出当前可开具的最大金额！");
+                return false;
+            }
+            $(".receipt_info").hide();
+            $("#bill_amount").html('发票总金额：<font class="font_tip">' + a + '</font>元');
+            $(".ticket").show();
+            $(".ticket p #name").html($(".ticketT  input").val());
+        });
+        $(".cancel").click(function () {
+            $(".receipt_info input").val("");
+        })
+        $(".editTicket").click(function () {
+            $(".ticket").hide();
+            $(".receipt_info").show();
+            return false;
+        });
+
+        $("#ticketBtn").click(function () {
+            var amount = $("#b_amount").val();
+            var title = $("#b_title").val();
+           $.post("{:U('home/Account/bill')}", {title: title, amount: amount}, function (data) {            
+                $(".ticket").hide();
+                $(".msgTip").show();
+                $(".msgTip").html('<div class="col-md-6"><p><span>' + data.msg + '</span></p></div>');
+                if (data.code == 0) {
+                    setTimeout(function () {
+                        $(".msgTip").hide();
+                    }, 1000);
+                } else {
+                    setTimeout(function () {
+                        $(".receipt_info").show();
+                        $(".msgTip").hide();
+                    }, 3000);
+                }
+            }, 'json');
+            return false;
+        });
+        $("#rechargebtn").mouseover(function () {
+            $(this).css("background", "#c64b22")
+        }).mouseout(function () {
+            $(this).css("background", "#dd5116")
+        });
+        $("#rechargebtn").click(function () {
+            $('#payModal').modal("show");
+            return false;
+        });
+        $("#okBtn").click(function () {
+            $('#payModal').modal("hide");
+            $('#waitModal').modal("show");
+            setTimeout(function () {
+                $('#payForm').submit();
+            }, 500);
+            return false;
+        });
+        $("#finishBtn").click(function () {
+            window.location.href = "{:U('home/Account/recharge', array('type'=>1))}";
+        });
+
+    });
+</script>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

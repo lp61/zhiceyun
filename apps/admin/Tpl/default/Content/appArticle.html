@@ -1,0 +1,169 @@
+<include file="../Public/_header" />
+<div class="so_main">
+
+    <div id="search_div" class="search_div" <neq name="isSearch" value="1">style="display:none;"</neq>>
+        <div class="page_tit">搜索 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+        <form method="post" action="">
+        <input type="hidden" name="isSearch" value="1"/>
+        <dl class="lineD">
+          <dt>ID：</dt>
+          <dd>
+            <input name="id" type="text" value="{$id}">
+            <p>多个时使用英文的“,”分割</p>
+          </dd>
+        </dl>
+
+        <dl class="lineD">
+            <dt>分类：</dt>
+            <dd>
+                <input type="radio" name="type" value="" <php>if($type == "") echo 'checked';</php>>全部
+                <volist id="vo" name="appArticleConfig">
+                    <input type="radio" name="type" value="{$vo.id}" <php>if($type == $vo['id']) echo 'checked';</php>>{$vo.name}
+                </volist>
+                <!-- <select name="type">
+                    <option value="" <php>if($type == "") echo 'selected';</php>>请选择</option>
+                    <volist id="vo" name="appArticleConfig">
+                        <option value="{$vo.id}" <php>if($type == $vo['id']) echo 'selected';</php>>{$vo.name}</option>
+                    </volist>
+                </select> -->
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>文章作者：</dt>
+            <dd>
+                <input name="author" type="text" value="{$author}">
+            </dd>
+        </dl>
+        <dl class="lineD">
+          <dt>激活状态：</dt>
+          <dd>
+                <input type="radio" name="is_active" value="" <php>if($is_active === "") echo 'checked';</php>> 全部
+                <input type="radio" name="is_active" value="1" <php>if($is_active ==1) echo 'checked';</php>> 激活
+                <input type="radio" name="is_active" value="0" <php>if($is_active === "0") echo 'checked';</php>> 未激活
+          </dd>
+        </dl>
+        
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+        </div>
+    </div>
+
+    <div class="page_tit">行业报告 </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+         <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="{:U('admin/Content/editAppArticle')}" class="btn_a">
+            <span class="search_action">&nbsp;&nbsp;添加&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();">
+            <span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span>
+        </a>
+    </div>
+    <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th style="width:3%;">
+            <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+            <label for="checkbox"></label>
+        </th>
+        <th style="width:4%;">ID</th>
+        <th style="width:12%;">封面图片</th>
+        <th style="width:20%;">标题</th>
+        <th style="width:5%;">分类</th>
+        <th style="width:5%;">关键字</th>
+        <th style="width:20%;">文章内容</th>
+        <th style="width:8%;">附件</th>
+        <th style="width:3%;">状态</th>
+        <th style="width:10%;">发布时间</th>
+        <th style="width:10%;">操作</th>
+    </tr>
+    <volist id="vo" name="data">
+        <tr overstyle='on' id="{$vo.id}">
+            <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+            <td>{$vo.id}</td>
+            <td><neq name="vo.pic_url" value="">
+                <a href="{$vo.pic_url}" target="_blank">
+                    <img src="{$vo.pic_url}" width="120px">
+                </a></neq>
+            </td>
+            <td>{:msubstr($vo['title'],0, 50)}</td>
+            <td>{$appArticleConfig[$vo['type']]['name']}</td>
+            <td>{:msubstr($vo['keyword'],0, 50)}</td>
+            <td>{:msubstr(strip_tags($vo['content']),0, 50)}</td>
+            <td>
+                <php>if ($vo['file_url']) {</php>
+                <a href="{$vo['file_url']}">
+                    <img src="__THEME__/images/zip_file.png" width="50px" height="50px" />
+                </a><br />
+                <php>}else{
+                echo '暂无';
+                }</php>
+            </td>
+            <!--
+            <td>
+                <notempty name="vo.link">
+                    <a href="{$vo.link}" class="btn_a" target="_blank">
+                        {:msubstr($vo['link'],0, 50)}
+                    </a>
+                </notempty>
+            </td>
+            -->
+            <td>
+                <eq name="vo.is_active" value="1">激活</eq>
+                <neq name="vo.is_active" value="1">
+                    <span style="color:red">冻结</span>
+                </neq>
+            </td>
+            <td>{$vo.ctime|date="Y-m-d H:i",###}</td>
+            <td>
+                <a href="{:U('admin/Content/editAppArticle', array('id'=>$vo['id']))}" class="btn_a">修改</a>
+                <eq name="vo.ishot" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_ishot_{$vo.id}" onclick="setStatus({$vo.id}, 'ishot','0');">设为普通</a>
+                </eq>
+                <neq name="vo.ishot" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_ishot_{$vo.id}" onclick="setStatus({$vo.id}, 'ishot', '1');" title="热门将在测试圈优先显示，必须有对应尺寸的封面">设为热门</a>
+                </neq>
+                <br />
+                <eq name="vo.is_active" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_is_active_{$vo.id}" onclick="setStatus({$vo.id}, 'is_active','0');">设为冻结</a>
+                </eq>
+                <neq name="vo.is_active" value="1">
+                    <a href="javascript:void(0);" class="btn_a J_is_active_{$vo.id}" onclick="setStatus({$vo.id}, 'is_active', '1');">设为激活</a>
+                </neq>
+                <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord({$vo.id});">删除</a>
+            </td>
+        </tr>
+    </volist>
+    </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action">&nbsp;&nbsp;搜索&nbsp;&nbsp;</span>
+        </a>
+        <a href="{:U('admin/Content/editAppArticle')}" class="btn_a">
+            <span class="search_action">&nbsp;&nbsp;添加&nbsp;&nbsp;</span>
+        </a>
+        <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();">
+            <span>&nbsp;&nbsp;删除&nbsp;&nbsp;</span>
+        </a>
+    </div>
+</div>
+
+<script>
+    var _setStatusUrl_   = "{:U('admin/Content/setStatus')}";
+    var _setStatusTable_ = 'app_article';
+    var _moveUrl_        = "{:U('admin/Content/doChangeOrder')}";
+    var _moveTable_      = 'app_article';
+
+    var _delUrl_    = "{:U('admin/Content/doDelData')}";
+    var _delTable_  = 'app_article';
+    var _logTitle_  = "行业报告";
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

@@ -1,0 +1,69 @@
+<include file="__THEME__/header" />
+<!--内容部分-->
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">{$business_title|getBusinessTitle}</span></h2>
+    <div class="left">
+        <include file="_compatible_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <h4 class="row">
+            <div class="col-md-5">终端列表</div>
+            <include file="_share_menu" />
+        </h4>
+        <div class="stork_list">
+            <div class="list_title">终端品牌：              
+                <a href="{:U('home/TestRecord/compatible_list',array('uuid'=>$uuid))}"><button <eq name="model" value="">class="active"</eq> >全部</button></a>
+                <volist name="mlist" id="mo" >
+                    <neq name="mo.model" value="">
+                    <a href="{:U('home/TestRecord/compatible_list', array('uuid'=>$uuid,'model'=>$mo['model']))}"><button title='{$mo.model}' style="margin-bottom: 5px;" <eq name="model" value="$mo.model">class="active"</eq>>{$mo.model|msubstr='0','8'}</button></a>
+                    </neq>
+                </volist>
+            </div>
+            <script>
+                $(function () {
+                    $(".list_title button").click(function () {
+                        $(".list_title button").removeClass("active");
+                        $(this).addClass("active");
+
+                    });
+                })
+            </script>
+            <table>
+                <tr class="lightgrayBg">
+                    <td>终端品牌</td>
+                    <td>型号</td>
+                    <td>安装耗时</td>
+                    <td>启动耗时</td>
+                    <td>CPU占用</td>
+                    <td>内存占用</td>
+                    <td>测试结果</td>
+                    <td>日志</td>
+                    <td>详情</td>
+                    <td>截图</td>
+                </tr>
+                <volist id="task" name="data">
+                    <tr>
+                        <td>{$task['model']}</td>
+                        <td>{$task['device_type']}</td>
+                        <td><eq name="task['install_time']" value="--">--<else />{$task['install_time']}s</eq></td>
+                        <td><eq name="task['boot_time']" value="--">--<else />{$task['boot_time']}s</eq></td>
+                        <td><eq name="task['cpu_usage']" value="--">--<else />{$task['cpu_usage']}%</eq></td>
+                        <td><eq name="task['memory_usage']" value="--">--<else />{$task['memory_usage']}MB</eq></td>
+                        <td><if condition="$task['test_result'] eq 0"><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$task['device_type'],'type'=>2))}"><span class="red">失败</span></a><elseif  condition="$task['warning_num'] gt 0" /><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$task['device_type'],'type'=>3))}">待优化</a><else /><span style="color: green;">成功</span></if></td>
+                        <td><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$task['device_type'],'type'=>3))}"><button class="greenBg">日志</button></a></td>
+                        <td><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$task['device_type']))}"><button class="blueBg">详情</button></a></td>
+                        <td><a href="{:U('home/TestRecord/compatible_detail', array('uuid'=>$uuid,'device_type'=>$task['device_type'],'type'=>4))}"><button class="yellowBg">截图</button></td>
+                    </tr>
+                </volist>
+            </table>
+            <div class="sofupage Twitter-green toggle" style="margin:3px auto;width: 800px;clear: both;text-align: center;">
+                    {$html}
+            </div>
+        </div>
+           <div style="height: 55px"></div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

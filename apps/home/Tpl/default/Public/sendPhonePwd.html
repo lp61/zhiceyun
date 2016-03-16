@@ -1,0 +1,52 @@
+<include file="__THEME__/header" />
+<div class="retrieve">
+    <div class="center">
+        <include file="_sendPwd_menu" />
+        <div style="clear:both"></div>
+        <div class="white order">
+            <span class="blueBg num">1</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">2</span>
+            <span class="line numBg"></span>
+            <span class="numBg num">3</span>
+        </div>
+        <div class="content">
+            <span class="blue one">输入注册时所填手机号</span>
+            <span class="lightgray two">输入手机验证码</span>
+            <span class="lightgray three">重置密码</span>
+        </div>
+        <div style="clear:both"></div>
+        <form action="{:U('home/Public/sendPhonePwd')}" method="post">       
+            <div class="phonechange1">
+                <div class="notes">
+                    <input type="text" name="phone"  placeholder="请输入手机号">
+                   <!-- <p class="error"><img src="__PUBLIC__/new/images/reeor.png">您输入的手机号样式无，请重新输入手机号。</p>-->
+                </div>
+                <div data-widget="js/user/register.js#refleshRegImg" id="checkcode">
+                    <input type="text" id="verify" name="verify"  value="" placeholder="验证码" style="width:240px"/>
+                    <img src="__ROOT__/public/checkcode.php" id="verifyimg" alt="换一张" style="cursor: pointer;width:60px; display:inline-block; margin-right:5px;" data-role="reflesh" /> 
+                    <span id="tip_verify"></span>
+                </div>
+                <div><button class="button blueBg"  type="submit">发送验证短信</button></div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    seajs.use(['jquery', 'validator', 'js/validator/validator.css'], function ($) {
+        <?php echo Action::$FORM_NAMESPACE->getValidatorJquery(); ?>
+    });
+	//手机短信与邮箱切换
+		$(".title_Arrow").css({"margin-top":"-11px","margin-left":"285px"})
+		$(".title").children("a").eq(0).click(function(){
+			$(this).addClass("blue").removeClass("gray");
+			$(this).next().removeClass("blue").addClass("gray");
+			$(".title_Arrow").css({"margin-top":"-11px","margin-left":"85px"})
+		});
+		$(".title").children("a").eq(1).click(function(){
+			$(this).addClass("blue").removeClass("gray");
+			$(this).prev().removeClass("blue").addClass("gray");
+			$(".title_Arrow").css({"margin-top":"-11px","margin-left":"285px"})
+		})	
+</script>
+<include file="__THEME__/footer" />

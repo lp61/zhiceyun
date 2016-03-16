@@ -1,0 +1,183 @@
+<include file="__THEME__/header" />
+<style type="text/css">
+    .bdshare-button-style0-16 a, .bdshare-button-style0-16 .bds_more{background-image:none; margin:0 10px; padding-left:0px;line-height:18px;}
+</style>
+<div class="testcircle">
+    <div class="title center"><a class="gray" href="{:U('home/Index/index')}">首页 > </a><a href="{:U('home/Appinfo/article')}" class="gray">测试圈 ></a><a href="{:U('home/Appinfo/articleList', array('type'=>$articleInfo['type']))}" class="gray">{$appArticleConfig[$articleInfo['type']]['name']}></a><a href="#" class="blue">详情</a></div>
+    <div class="center">
+        <div class="testcircle_detail">
+            <h2 class="darkgray">{$articleInfo.title}</h2>
+            <h3 class="gray">时间：{:date('Y-m-d H:i', $articleInfo['mtime'])}&nbsp;&nbsp;&nbsp;<php>if($articleInfo['author']){</php>作者：{$articleInfo['author']}<php>}</php> <php>if($articleInfo['link']){</php>来源：{$articleInfo['link']}<php>}</php></h3>
+
+            <p class="gray">　
+                 {$articleInfo.content}
+            </p>
+            <div class="corner">
+                <ul>
+                    <li id="commentico" class="active">评论</li>
+                    <li id="praise">
+                    <php> if ($has_praise) {</php>
+                    <span>已赞（<a href="javascript:;">{$articleInfo['praise_count']}</a>）</span>
+                    <php>} else{</php>
+                    <a href="javascript:;" class="J_praise" data-aid="{$articleInfo['id']}"><span class="darkgray">赞（<span class="blue">{$articleInfo['praise_count']}</span>）</span></a>
+                    <php>} </php>
+                    </li>
+                    <li id="shareico">分享</li>
+                    <li id="readico">已阅读(<span class="blue">{$articleInfo['read_count']}</span>)次</li>
+                    <php> if(!empty($articleInfo['attach_file_id'])) { </php>
+                    <li id="attachmentico">附件（<span class="blue">1</span>）</li>  
+                    <php> } </php>
+                </ul>
+                <div class="share bdsharebuttonbox" style="height:80px;" data-tag="share_1">
+                    <a href="###" data-cmd="tsina">
+                        <img src="__THEME__/images/share9.png" data-cmd="tsina">
+                        <br>
+                        <span>新浪微博</span>
+                    </a>
+                    <a href="###" data-cmd="douban">
+                        <img src="__THEME__/images/share2.png" data-cmd="douban">
+                        <br>
+                        <span>豆瓣</span>
+                    </a>
+                    <a href="###" data-cmd="tqf">
+                        <img src="__THEME__/images/share5.png" data-cmd="tqf">
+                        <br>
+                        <span>朋友圈</span>
+                    </a>
+                    <a href="###" data-cmd="tqq">
+                        <img src="__THEME__/images/share8.png" data-cmd="tqq">
+                        <br>
+                        <span>腾讯微博</span>
+                    </a>
+                    <a href="###" data-cmd="renren">
+                        <img src="__THEME__/images/share3.png" data-cmd="renren">
+                        <br>
+                        <span>人人网</span>
+                    </a>
+                    <a href="###" data-cmd="weixin">
+                        <img src="__THEME__/images/share6.png" data-cmd="weixin">
+                        <br>
+                        <span>微信</span>
+                    </a>
+                    <a href="###" data-cmd="sqq">
+                        <img src="__THEME__/images/share1.png" data-cmd="sqq">
+                        <br>
+                        <span>QQ</span>
+                    </a>
+                    <a href="###" data-cmd="qzone">
+                        <img src="__THEME__/images/share4.png" data-cmd="qzone">
+                        <br>
+                        <span>QQ空间</span>
+                    </a>
+                    <a href="###" data-cmd="kaixin001">
+                        <img src="__THEME__/images/share7.png" data-cmd="kaixin001">
+                        <br>
+                        <span>开心网</span>
+                    </a>
+                </div>
+                <div class="attachment">
+                    <php> if(!empty($articleInfo['attach_file_id'])) { </php>
+                    <p class="gray">相关文件<br />
+                        <a href="{$articleInfo.file_url}">{$articleInfo.file_name}</a> | {$articleInfo.file_size}
+                    </p>
+                    <php> } </php>
+                </div>
+                <div class="commment">
+                    <textarea id="article_comment" placeholder="请输入评论（限制140个字符以内）"></textarea>
+                    <p><button class="btn J_article_comment" type="button">发布</button></p>    
+                </div> 
+                <ul><li id="all" style="border-bottom: 1px solid #25a3cb;color: black;font-weight:bold;">全部评论（<span><php>echo count($commentList);</php></span>）</li></ul>
+                <div class="commentList">
+                    <volist name="commentList" id="list">
+                        <h5 class="gray">用户名：<span class="blue">{$list.uid|getEmail}</span><span>&nbsp;&nbsp;&nbsp;&nbsp; 发布时间：{:date('Y年m月d日', $list['ctime'])}</span></h5>
+                        <div style="border-bottom: 1px solid #eeeeee">{$list.content}</div>
+                    </volist>
+                </div> 
+            </div>   
+        </div>
+    </div>
+</div>
+<include file="__THEME__/footer" />
+
+<script>
+    $(function() {
+        $(".share,.attachment").hide();
+        $(".testcircle .testcircle_detail ul li").css("cursor", "pointer");
+        $("#readico").css("cursor", "default");
+        $("#all").css("cursor", "default");
+        $(".testcircle .testcircle_detail ul li").click(function() {
+            $(".testcircle .testcircle_detail ul li").removeClass("active");
+            $(this).addClass("active");
+        });
+        $("#commentico").click(function() {
+            $(".commment").show();
+            $(".share,.attachment").hide();
+            return false;
+        });
+        $("#shareico").click(function() {
+            $(".share").show();
+            $(".commment,.attachment").hide();
+            return false;
+        });
+        $("#attachmentico").click(function() {
+            $(".attachment").show();
+            $(".commment,.share").hide();
+            return false;
+        });
+        $("#readico").click(function() {
+	        $(this).removeClass("active");
+            return false;
+        });
+        $("#praise").click(function() {
+	        $(this).removeClass("active");
+            return false;
+        });
+		 $(".share a img").mouseover(function() {
+			$(this).attr("src", $(this).attr("src").replace(".png", "active.png"));
+		}).mouseout(function() {
+			$(this).attr("src", $(this).attr("src").replace( "active.png", ".png"));
+		});
+
+        $('.J_praise').click(function() {
+            var aid = $(this).data('aid');
+            var url = "{:U('home/Appinfo/praise')}";
+             var _this = $(this);
+            $.post(url, {aid: aid}, function(data) {
+                console.log(data);
+                _this.find('span').html('已赞（<span class="blue">' + data.num + '</span>）');
+                _this.unbind('click');
+            }, 'json');
+        });
+        $('.J_article_comment').click(function() {
+            var id = "{$articleInfo.id}";
+            var content = $("#article_comment").val().replace(/(^\s*)|(\s*$)/g, '');
+            var len = content.length;
+            if (len == 0) {
+                alert("评论内容不能为空!");
+            } else if (len > 140) {
+                alert("字数限制在140字以内!");
+            } else {
+                $(".comment").toggle();
+                $.post("{:U('home/Appinfo/comment')}", {id: id, content: content}, function(data) {
+                    //评论成功的回调处理
+                    console.log(data);
+                    $("#article_comment").val('');
+                    $(".comment").animate({left: "10px"}, 1000).hide(10);
+                    $("a.commentico").removeClass("active");
+                    var trs = "<h5 cLass='gray'>用户名：<span class='blue'>" + data.email + "</span><span>&nbsp;&nbsp;&nbsp;&nbsp;发布时间：" + data.ctime + "</span></h5><div style='border-bottom: 1px solid #eeeeee'>" + data.content + "</div>";
+                    $(".commentList").eq(0).prepend(trs);
+                    var All=$(".commentList div").length; 
+                    $("#all span").html(All);   
+                }, 'json');
+            }
+        });
+    });
+    window._bd_share_config = {
+        common: {
+            bdText: '#测试云#{$articleInfo.title}'
+        }, share: [{
+                "tag": "share_1"
+            }]
+    }
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>

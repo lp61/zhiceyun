@@ -1,0 +1,7 @@
+<ul>
+    <li <php>if (ACTION_NAME=='recharge') echo 'class="title"';</php> >
+        <a href="{:U('home/Account/recharge')}">充值中心</a>
+    </li>
+    <li <php>if ($_GET['type']!=1 && ACTION_NAME=='credit') echo 'class="title"';</php> ><a href="{:U('home/Account/credit')}">测试积分制度</a></li>
+    <li <php>if ($_GET['type']==1 && ACTION_NAME=='credit') echo 'class="title"';</php> ><a href="{:U('home/Account/credit', array('type'=>1))}">测试能力获取</a></li>
+</ul>

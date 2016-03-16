@@ -1,0 +1,53 @@
+<include file="__THEME__/header" />
+<div class="center record">
+       <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><a href="{:U('home/TestRecord/compatible', array('uuid'=>$uuid))}">{$business_title|getBusinessTitle}</a>><span class="blue">详细报告</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <include file="_compatible_detail_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <include file="_share_menu_select" />
+        <h4 class="detail_title">
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>1))}"><button>终端详细报告</button></a> 
+            <button class="active">测试结果</button>
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>3))}"><button>LOG</button></a>
+            <a href="{:U('home/TestRecord/compatible_detail', array('id'=>$vo['id'],'uuid'=>$uuid,'type'=>4))}"><button>截图</button></a>
+        </h4>
+        <div class="stork_result">
+            <table>
+                <tr>
+                    <td class="lightblueBg">测试结果</td>
+                    <td class="lightgreenBg long">{$vo['test_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">安装测试</td>
+                    <td class="lightgreenBg long">{$vo['install_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">启动测试</td>
+                    <td class="lightgreenBg long">{$vo['boot_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">运行测试</td>
+                    <td class="lightgreenBg long">{$vo['run_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">功能检测</td>
+                    <td class="lightgreenBg long">{$vo['func_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">UI检测</td>
+                    <td class="lightgreenBg long">{$vo['ui_result']|getResult}</td>
+                </tr>
+                <tr>
+                    <td class="lightblueBg">日志统计</td>
+                    <td class="lightgreenBg long">错误：（{$vo['error_num']}）警告：（{$vo['warning_num']}）</td>
+                </tr>
+            </table>
+        </div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

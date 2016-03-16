@@ -1,0 +1,111 @@
+<include file="__THEME__/header" />
+<!-- 编辑器样式文件 -->
+<link href="__PUBLIC__/js/editor/editor/theme/base-min.css" rel="stylesheet"/>
+<!--[if lt IE 8]>
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-sprite-min.css" rel="stylesheet"/>
+<![endif]-->
+<!--[if gte IE 8]><!-->
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-min-datauri.css" rel="stylesheet"/>
+<!--<![endif]-->
+<include file="__THEME__/editor" />
+<style>
+.ke-smiley-sprite a {width: 26px;height: 26px;border: 1px solid #FFF;float: left;}
+</style>
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>>用户信息管理><span class="blue">用户反馈</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <p class="blue">用户反馈</p>
+        <include file="_feedback_menu" />
+    </div>
+    <div class="right">		
+        <include file="_menu" />
+        <div class="problem">
+            <form action="" method="post" class="form_validator" id="regform">
+                <h4 class="blue">问题反馈</h4>
+                <div class="biaoti">
+                    <a href="###" class="gray" data-role="button" data-toggle="dropdown">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题：
+                        <input type="text" name="title" value="" placeholder="标题"/>
+                    </a>
+                </div>
+                <div class="biaoti" id="xiangmu">
+                    <a href="###" class="gray" data-role="button" data-toggle="dropdown">意见项目：</a>
+                    <select name="type" id="type">
+                        <option value="0">--请选择--</option>
+                        <volist id="vo" name="appTestConfig">
+                            <option value="{$vo.id}">{$vo.name}</option>
+                        </volist>
+                    </select>   
+                </div>
+                <script>
+				$("#type").mousedown(function(){
+					$("#xiangmu").css("margin-top",-4).css("margin-bottom",25);	
+				}).mouseup(function(){
+					$("#xiangmu").css("margin-top",-4).css("margin-bottom",25);	
+				});
+				</script>
+                <p class="gray">意见建议：</p>
+                <textarea name="content" id="content" style="height:200px;" data-default='<span style="color: rgb(153, 153, 153);">表扬或吐槽一下<br>请写下您对我们工作的意见或建议，期待听到您的声音。</span>'>
+                    <span style="color: rgb(153, 153, 153);">表扬或吐槽一下<br>请写下您对我们工作的意见或建议，期待听到您的声音。</span>
+                </textarea>
+                <div>
+                    <span id="tip_span_content"></span>
+                </div>
+                <div class="row" data-widget="js/user/register.js#refleshRegImg">
+                    <div class="col-md-2"><input type="text" name="verify" placeholder="请输入验证码"/></div>
+                    <div class="col-md-3">
+                        <span><img src="__ROOT__/public/checkcode.php" id="verifyimg" alt="换一张" style="cursor: pointer;vertical-align:middle;" data-role="reflesh" /></span>
+                        <a href="##" data-role="reflesh">看不清 换一张</a>
+                    </div>
+                    <span style="margin-left: -36px;" id="tip_verify"></span>
+                </div>
+                <div class="submit"><button class="active">提交</button><button style="background-color: #808080;" type="reset">取消</button></div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    seajs.use(['jquery','validator', 'js/validator/validator.css'], function($){
+        <?php echo Action::$FORM_NAMESPACE->getValidatorJquery(); ?>
+    });
+
+    function AddEditor(){
+        _loadEditor("content");  //解决2个编辑器问题
+
+        var  obj = bindEditorFocus("content");
+        obj.on('focus', function() {
+            var contentStr = getEditorContent("content");
+            var defalut = $("#content").data('default');
+            
+            if (contentStr == defalut 
+                || tags_strip(contentStr) == tags_strip(defalut)) {
+                setEditorContent("content", '');
+            }
+        });
+        obj.on('blur', function() {
+            var contentStr = getEditorContent("content");
+            var defalut = $("#content").data('default');
+            
+            if (contentStr == '' || tags_strip(contentStr) == '') {
+                setEditorContent("content", defalut);
+            }
+        });
+    }
+    AddEditor();
+
+    function tags_strip(contentStr) {
+        contentStr = contentStr.replace(/(\n)/g, "");
+        contentStr = contentStr.replace(/(\t)/g, "");
+        contentStr = contentStr.replace(/(\r)/g, "");
+        contentStr = contentStr.replace(/<\/?[^>]*>/g, "");
+        contentStr = contentStr.replace(/\s*/g, "");
+        return contentStr;
+    }
+    $(function () {
+        $(".dropdown ul li").click(function () {
+            $(this).parent().parent().find("input").val($(this).html());
+        });
+    });
+</script>
+<div style="clear: both;"></div>
+<include file="__THEME__/footer" />

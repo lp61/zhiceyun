@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="__PUBLIC__/wap/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/wap/js/js.js"></script>
+        <script type="text/javascript" src="__THEME__/js/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="__THEME__/js/swiper.animate1.0.2.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+        <link type="text/css" rel="stylesheet" href="__THEME__/css/swiper.min.css"/>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/wap/css/style.css"/>
+        <title>智测云</title>
+        <style>
+        .testCircle .content  h1{text-align:center; margin:20px auto; padding:0;}
+		.testCircle .content  h1 img{width:50%}
+		.testCircle .content .ui-grid-a .ui-block-a{width:20%; text-align:right;line-height:35px; height:35px; margin-top:10px;text-shadow:none;}
+		.testCircle .content .ui-grid-a .ui-block-b{width:75%;}
+		.testCircle .content .ui-grid-a .ui-block-b .ui-input-text{width:90%; border:1px solid #e1e1e1;padding:0 3%;line-height:35px; height:35px;}
+        .testCircle .content .ui-btn{width:85%; height:35px;line-height:10px;border:0; border-radius:5px; background:#25a3cc; color:#FFFFFF; margin:0 auto;text-shadow:none; margin-top:10px;}
+	    </style>
+    </head>
+    <body>
+    <include file="_menu1"/>
+    <div class="testCircle">
+        <form action="{:U('home/Public/login', array('rp'=>1))}" method="post" id="submitForm">
+        <div class="content">
+        <php>if ($invite_code) {</php>
+            <input type="hidden" name="invite_code" value="{$invite_code}">
+        <php>}</php>
+            <h1><img src="__PUBLIC__/wap/images/logo.png"/></h1>
+        	<div class="ui-grid-a">
+            	<div class="ui-block-a blue">账号：</div>
+                <div class="ui-block-b"><input type="text" name="email" placeholder="请输入邮箱账号"><br></div>
+                
+                <div class="ui-block-a blue">密码：</div>
+                <div class="ui-block-b"><input type="password" name="password" placeholder="请输入密码"><br></div>
+            </div>
+            <div id="emailTip" style="display: none;">
+                <img src="__THEME__/images/tipico.png">
+                <span></span>
+            </div>
+            <div class="note small" style="display:none">
+                <div class="checkbox">
+                    <input type="checkbox" name="remember" value="1" checked="checked" />
+                </div>
+            </div>
+            <button type="button" class="regBtn">登录</button>
+        </div>
+        <div class="testCircleBg"><img src="__PUBLIC__/wap/images/testCircleBg.png"></div>
+        </form>
+    </div>
+</body>
+<script>
+$(function () {
+    function showError(tip) {
+        $('#emailTip span').text(tip).parent().show();
+    }
+    function hideError() {
+        $('#emailTip span').text('').parent().hide();
+    }
+
+    $("#submitForm .regBtn").bind('click', function () {
+        var submitForm  = $('#submitForm');
+        var email       = submitForm.find('input[name=email]');
+        var password    = submitForm.find('input[name=password]');
+        var emailStr    = $.trim(email.val());
+        var passwordStr = $.trim(password.val());
+        console.log(emailStr, passwordStr);
+
+        if (email.val() == email.attr("placeholder") || !emailStr) {
+            showError('请输入邮箱账户！');
+            return false;
+        }
+        if (password.val() == password.attr("placeholder") || !passwordStr) {
+            showError('请输入密码！');
+            return false;
+        }
+        $.post("{:U('home/Public/dologin', array('rp'=>1))}", {email: emailStr, password: passwordStr, remember: 1}, function (data) {
+            if (data.status === 0) {
+                showError(data.info);
+            } else {
+                window.location.href="{:U('wap/Index/index')}";
+                // $('#submitForm').submit();
+            }
+        }, 'json');
+        return false;
+    });
+});
+</script>
+</html>

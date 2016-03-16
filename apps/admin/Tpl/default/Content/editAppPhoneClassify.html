@@ -1,0 +1,79 @@
+<include file="../Public/_header" />
+<div class="so_main">
+    <div id="search_divadd" class="search_div" >
+        <div class="page_tit">添加 [ <a href="{:U('admin/Content/appPhoneClassify')}">返回</a> ]</div>
+        <div class="form2">
+        <form method="post" action="" >
+        <input type="hidden" name="id" value="{$id}"/>
+        <dl class="lineD">
+            <dt>分类名称：</dt>
+            <dd>
+                <input name="name" type="text" value="{$name}">
+                <p>英文，如this_website，32字以内，新增时确保不重复</p>
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>分类中文别名：</dt>
+            <dd>
+                <input name="alias" type="text" value="{$alias}">
+                <p>中文，如"网站前台"，32字以内</p>
+            </dd>
+        </dl>
+
+        
+        <dl class="lineD">
+            <dt>应用测试类型：</dt>
+            <dd>
+                <volist id="vo" name="appTestConfig">
+                    <input type="radio" name="type" value="{$vo.id}" <php>if ($vo['id'] == $type) echo 'checked';</php>> {$vo.name}&nbsp;&nbsp;&nbsp;
+                </volist>
+                <p>必选！</p>
+            </dd>
+        </dl>
+        <dl class="lineD">
+            <dt>应用测试子业务：</dt>
+            <dd>
+                <volist id="vo" name="appTestConfig">
+                    <php>if ($vo['child_type']) {</php>
+                    <span style="display:<php>if ($vo['id'] == $type) echo 'block';else echo 'none';</php>" class="J_client_ids_{$vo.id} J_client_ids">
+                    <volist id="vo1" name="vo.child_type" key="k">
+                        <input type="radio" name="child_type" value="{$k}" <php>if ($k == $child_type) echo 'checked';</php>> {$vo1}&nbsp;&nbsp;&nbsp;
+                    </volist></span>
+                    <php>}</php>
+                </volist>
+                &nbsp;
+            </dd>
+        </dl>
+       
+
+        <dl class="lineD">
+            <dt>选择终端：</dt>
+            <dd>
+                <volist id="vo" name="appClient">
+                    <input type="checkbox" name="client_ids[]" value="{$vo[id]}" <php>if (in_array($vo['id'], $client_ids_arr)) echo 'checked';</php>>{$vo['name']}&nbsp;&nbsp;&nbsp;
+                </volist>
+                <p>必选！</p>
+            </dd>
+        </dl>
+
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="确定" />
+        </div>
+        </form>
+    </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+    $('input[name="type"]').click(function(){
+        var id = $(this).val();
+        $('.J_client_ids').hide();
+        $('input[name="child_type"]:checked').removeAttr('checked');
+
+        $(".J_client_ids_"+id).show();
+    });
+})
+
+</script>
+
+<include file="../Public/_footer" />

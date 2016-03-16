@@ -1,0 +1,160 @@
+<include file="../Public/_header" />
+<div class="so_main">
+
+    <div id="search_div" <neq name="type" value="searchIot">style="display:none;"</neq>>
+        <div class="page_tit">搜索IOT信息 [ <a href="javascript:void(0);" onclick="searchDenounce();">隐藏</a> ]</div>
+        <div class="form2">
+            <form method="post" action="{:U('admin/Content/doSearchiot')}">
+                <input type="hidden" name="isSearch" value="1"/>
+                <php>if($isSearch != 1) $uid = '';</php>
+                <dl class="lineD">
+                    <dt>申请用户ID：</dt>
+                    <dd>
+                        <input name="uid" type="text" value="{$uid}">
+                        <p>后台日志操作人ID,多个时使用英文的","分割</p>
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>单位名称：</dt>
+                    <dd>
+                        <input name="company" type="text" value="{$company}">
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>联系人：</dt>
+                    <dd>
+                        <input name="contact" type="text" value="{$contact}">
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>电话：</dt>
+                    <dd>
+                        <input name="phone" type="text" value="{$phone}">
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>状态：</dt>
+                    <dd>
+                    <input type="radio" name="status" value="" <php>if($status === "") echo 'checked';</php>>全部
+                    <input type="radio" name="status" value="0" <php>if($status === "0") echo 'checked';</php>>未处理
+                    <input type="radio" name="status" value="1" <php>if($status == 1) echo 'checked';</php>>已处理
+                    </dd>
+                </dl>
+
+                <div class="page_btm">
+                    <input type="submit" class="btn_b" value="确定" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="page_tit">IOT信息 </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action"><neq name="type" value="searchIot">搜索IOT信息 <else/>搜索完毕</neq></span>
+        </a>
+        <a class="btn_a" href="{:U('admin/Content/IotExcel', array('queryCode'=>$queryCode))}" > <span>导出EXCEL</span></a>
+        <!-- <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>删除记录</span></a> -->
+    </div>
+    <div class="list">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th class="line_l">ID</th>
+                <th class="line_l">用户名</th>
+                <th class="line_l">单位名称</th>
+                <th class="line_l">地址</th>
+                <th class="line_l">联系人</th>
+                <th class="line_l">邮箱</th>
+                <th class="line_l">电话</th>
+                <th class="line_l">传真</th>
+                <th class="line_l">QQ/微信</th>
+                <th class="line_l">操作</th>
+            </tr>
+            <volist id="vo" name="data">
+                <tr overstyle='on' id="{$vo.id}">
+                    <td>{$vo.id}</td>
+                    <td>{$vo.uid|getUserName}</td>
+                    <td>{$vo.company}</td>
+                    <td>{$vo.address}</td>
+                    <td>{$vo.contact}</td>
+                    <td>{$vo.email}</td>
+                    <td>{$vo.phone}</td>
+                    <td>{$vo.fax}</td>
+                    <td>{$vo.other}</td>
+                    <td> <eq name="vo.status" value="0">
+                        <a href="javascript:void(0);" class="btn_a J_status_{$vo.id}" onclick="setStatus({$vo.id}, 'status', '1');">设为已处理</a>
+                        </eq>
+                    </td>
+                </tr>
+            </volist>
+        </table>
+    </div>
+    <div class="Toolbar_inbox">
+        <div class="page right">{$html}</div>
+        <a href="javascript:void(0);" class="btn_a" onclick="searchDenounce();">
+            <span class="search_action"><neq name="type" value="searchIot">搜索IOT信息<else/>搜索完毕</neq></span>
+        </a>
+        <!-- <a href="javascript:void(0);" class="btn_a" onclick="deleteRecord();"><span>删除记录</span></a> -->
+    </div>
+</div>
+
+<script>
+  var _setStatusUrl_   = "{:U('admin/Content/setStatus')}";
+    var _setStatusTable_ = 'ask_iot';
+    var _logTitle_  = "IOT信息";
+    //鼠标移动表格效果
+    $(document).ready(function(){
+        $("tr[overstyle='on']").hover(
+          function () {
+            $(this).addClass("bg_hover");
+          },
+          function () {
+            $(this).removeClass("bg_hover");
+          }
+        );
+    });
+    
+    function checkon(o){
+        if( o.checked == true ){
+            $(o).parents('tr').addClass('bg_on') ;
+        }else{
+            $(o).parents('tr').removeClass('bg_on') ;
+        }
+    }
+    
+    function checkAll(o){
+        if( o.checked == true ){
+            $('input[name="checkbox"]').attr('checked','true');
+            $('tr[overstyle="on"]').addClass("bg_on");
+        }else{
+            $('input[name="checkbox"]').removeAttr('checked');
+            $('tr[overstyle="on"]').removeClass("bg_on");
+        }
+    }
+
+    //获取已选择用户的ID数组
+    function getChecked() {
+        var ids = new Array();
+        $.each($('table input:checked'), function(i, n){
+            ids.push( $(n).val() );
+        });
+        return ids;
+    }
+    
+    //搜索用户
+    var isSearchHidden = <neq name="type" value="searchIot">1<else/>0</neq>;
+    function searchDenounce() {
+        if(isSearchHidden == 1) {
+            $("#search_div").slideDown("fast");
+            $(".search_action").html("搜索完毕");
+            isSearchHidden = 0;
+        }else {
+            $("#search_div").slideUp("fast");
+            $(".search_action").html("搜索");
+            isSearchHidden = 1;
+        }
+    }
+</script>
+<script src="../Public/admin_common.js?t=20150701"></script>
+<include file="../Public/_footer" />

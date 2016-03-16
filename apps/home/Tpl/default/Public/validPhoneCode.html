@@ -1,0 +1,45 @@
+<include file="__THEME__/header" />
+<div class="retrieve">
+    <div class="center">
+        <form action="{:U('home/Public/validPhoneCode')}" method="post">
+            <div class="center">
+                <!--<include file="_sendPwd_menu" />-->
+                <eq name="isphone_type" value="1">
+                <p class="title"><a href="{:U('home/Public/sendPassword')}" class="gray">通过注册邮箱找回密码</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('home/Public/sendPhonePwd')}" class="blue">通过手机短信找回密码</a></p>
+                <div class="title_Arrow" style="margin-top:-11px;margin-left:285px;"><img src="__THEME__/images/retrieve_Arrow.png"></div>
+                <else />
+                <p class="title"><a href="{:U('home/Public/sendPassword')}" class="blue">通过注册邮箱找回密码</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('home/Public/sendPhonePwd')}" class="gray">通过手机短信找回密码</a></p>
+                </eq>
+                <div style="clear:both"></div>
+                <div class="white order order2">
+                    <span class="blueBg num">1</span>
+                    <span class="line blueBg"></span>
+                    <span class="blueBg num">2</span>
+                    <span class="line numBg"></span>
+                    <span class="numBg num">3</span>
+                </div>
+                <div class="content">
+                    <span class="blue one">输入注册时所填手机号</span>
+                    <span class="blue two">输入手机验证码</span>
+                    <span class="lightgray three">重置密码</span>
+                </div>
+                <div class="phonechange2">
+                    <p><span class="gray" style="margin-left:-100px">如果未收到验证码，请点击“</span><a href="{$url}" class="blue">重新发送短信验证码</a><span class="gray">”再次发送验证短信。</span></p>
+                    <div><input type="text" name="code" placeholder="请输入短信验证码"><span id="tip_code"></span></div>
+                    <div><button type="submit" class="button blueBg">下一步</button></div>
+                    <p class="lightgray">请按照提示步骤进行短信验证找回密码</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+seajs.use(['jquery','validator', 'js/validator/validator.css'], function($){
+    $.validator("code")
+    .setTipSpanId("tip_code")
+    .setRequired("请填写手机验证码")
+    .setCallback(function(str){ return str.length<=6 && str.length>=1; }, "手机验证码不正确")
+    .setAjax("{:U('home/Public/doValidSendCode')}", "验证码不正确");
+});
+</script>
+<include file="__THEME__/footer" />

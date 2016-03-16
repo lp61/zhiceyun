@@ -1,0 +1,99 @@
+<include file="__THEME__/header" />
+<div class="center record">
+    <h2 class="gray"><a href="{:U('home/Index/index')}">首页</a>><a href="{:U('home/Account/index')}">用户信息管理</a>><a href="{:U('home/TestRecord/index')}">测试记录</a>><span class="blue">快速测试</span></h2>
+    <div class="left">
+        <div class="space"></div>
+        <p class="blue">测试记录</p>
+        <include file="_quick_menu" />
+    </div>
+    <div class="right">
+        <include file="../Account/_menu" />
+        <div class="basic">
+            <h4 class="row">
+                <div class="col-md-5">基本信息</div>
+                <include file="_menu_quick" />
+            </h4>
+            <div style="height:10px;"></div>
+            <table>
+                <tr>
+                    <td class="blue">应用测试</td>
+                    <td class="long">{$task['apk_name']}</td>
+                </tr>
+                <tr>
+                    <td class="blue">文件大小</td>
+                    <td class="long">{$task['apk_size']}KB</td>
+                </tr>
+                <tr>
+                    <td class="blue">提交时间</td>
+                    <td class="long">{$task['ctime']}</td>
+                </tr>
+                <tr>
+                    <td class="blue">测试类型</td>
+                    <td class="long">{$task['package_type']|getBusinessTitle}</td>
+                </tr>
+                <tr>
+                    <td class="blue">测试状态</td>
+                    <td class="long">{$task['status']}</td>
+                </tr>
+                <!-- <tr>
+                     <td class="blue">测试进度</td>
+                     <td class="long">100%</td>
+                 </tr>-->
+            </table>
+            <h4 class="blue">应用详情</h4>
+            <table>
+                <tr>
+                    <td class="blue">应用图标</td>
+                    <td class="long"><img width="24px"  src="{$task['apk_icon']}"/></td>
+                </tr>
+                <tr>
+                    <td class="blue">应用名称</td>
+                    <td class="long">{$task['apk_name']}</td>
+                </tr>
+                <tr>
+                    <td class="blue">应用版本</td>
+                    <td class="long">{$task['apk_version']}</td>
+                </tr>
+                <tr>
+                    <td class="blue">文件大小</td>
+                    <td class="long">{$task['apk_size']}KB</td>
+                </tr>
+                <!--
+                  <tr>
+                      <td class="blue">包名</td>
+                      <td class="long">com.youdao.note</td>
+                  </tr>
+                  <tr>
+                      <td class="blue">启动路径</td>
+                      <td class="long">com.youdao.note.activity2</td>
+                  </tr>
+                -->
+            </table>
+            <h4 class="blue">测试场景与内容</h4>
+            <table>
+                <tr>
+                    <td class="blue">测试平台</td>
+                    <td class="long">泰尔应用测试认证平台</td>
+                </tr>
+                <tr>
+                    <td class="blue">测试终端总数</td>
+                    <td class="long">{$task['device_num']}个</td>
+                </tr>
+                <!--<tr>
+                    <td class="blue">测试总时长</td>
+                    <td class="long">13分44秒</td>
+                </tr>-->
+                <tr>
+                    <td class="blue">测试内容</td>
+                    <td class="long">兼容性测试：<br /> 安装、运行、卸载、UI适配、屏幕截图。<br />
+                        性能测试：<br />CPU占用、内存占用和流量使用。<br />
+                        网络友好性测试：<br />网络友好性综合评估、网络友好优化建议。
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="kite"><img src="__THEME__/images/kite.png"/></div>
+    </div>
+</div>
+<div style="clear:both;height:10px;"></div>
+<include file="__THEME__/footer" />
